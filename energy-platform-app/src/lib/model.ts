@@ -34,7 +34,7 @@ export const COMPONENTS = [
 ];
 
 export type SimEvent = { id: string; minute: number; severity: EventSeverity; nodeId: NodeId | 'SYSTEM'; type: string; message: string; action: string; simulated: true };
-export type Sample = { minute: number; voltage: number; battery: number; salinity: number; temperature: number; p0: number; p1: number; p2: number; p3: number };
+export type Sample = { minute: number; voltage: number; battery: number; salinity: number | null; temperature: number; p0: number; p1: number; p2: number; p3: number };
 
 export function activeLoad(id: NodeId, mode: GridMode, batterySoc: number, nodeOffline: NodeId | null): boolean {
   // Telemetry loss does not prove an electrical load stopped drawing power.
@@ -62,12 +62,12 @@ export function gridVoltage(mode: GridMode, minute: number): number {
   return 12.1 + Math.sin(minute / 4) * 0.08;
 }
 
-export function makeSample(minute: number, mode: GridMode, battery: number, nodeOffline: NodeId | null): Sample {
+export function makeSample(minute: number, mode: GridMode, battery: number, nodeOffline: NodeId | null, sensorFault = false): Sample {
   return {
     minute,
     voltage: gridVoltage(mode, minute),
     battery: Math.round(battery * 100),
-    salinity: Number((25.2 + Math.sin(minute / 8) * 0.7).toFixed(1)),
+    salinity: sensorFault ? null : Number((25.2 + Math.sin(minute / 8) * 0.7).toFixed(1)),
     temperature: Number((29.1 + Math.sin(minute / 11) * 0.4).toFixed(1)),
     p0: activeLoad('P0', mode, battery, nodeOffline) ? 30 : 0,
     p1: activeLoad('P1', mode, battery, nodeOffline) ? 120 : 0,

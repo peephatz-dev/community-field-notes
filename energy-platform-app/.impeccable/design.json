@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T18:00:39Z",
+  "title": "Design System: Community Energy Resilience Platform",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Deep water background",
+        "tonalRamp": [
+          "oklch(15% 0.0286 247.32)",
+          "oklch(25% 0.0286 247.32)",
+          "oklch(35% 0.0286 247.32)",
+          "oklch(45% 0.0286 247.32)",
+          "oklch(55% 0.0286 247.32)",
+          "oklch(65% 0.0286 247.32)",
+          "oklch(80% 0.0286 247.32)",
+          "oklch(95% 0.0286 247.32)"
+        ]
+      },
+      "navigation": {
+        "role": "neutral",
+        "displayName": "Navy navigation",
+        "tonalRamp": [
+          "oklch(15% 0.0326 247.94)",
+          "oklch(25% 0.0326 247.94)",
+          "oklch(35% 0.0326 247.94)",
+          "oklch(45% 0.0326 247.94)",
+          "oklch(55% 0.0326 247.94)",
+          "oklch(65% 0.0326 247.94)",
+          "oklch(80% 0.0326 247.94)",
+          "oklch(95% 0.0326 247.94)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Control panel",
+        "tonalRamp": [
+          "oklch(15% 0.0380 244.02)",
+          "oklch(25% 0.0380 244.02)",
+          "oklch(35% 0.0380 244.02)",
+          "oklch(45% 0.0380 244.02)",
+          "oklch(55% 0.0380 244.02)",
+          "oklch(65% 0.0380 244.02)",
+          "oklch(80% 0.0380 244.02)",
+          "oklch(95% 0.0380 244.02)"
+        ]
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised navy panel",
+        "tonalRamp": [
+          "oklch(15% 0.0402 238.97)",
+          "oklch(25% 0.0402 238.97)",
+          "oklch(35% 0.0402 238.97)",
+          "oklch(45% 0.0402 238.97)",
+          "oklch(55% 0.0402 238.97)",
+          "oklch(65% 0.0402 238.97)",
+          "oklch(80% 0.0402 238.97)",
+          "oklch(95% 0.0402 238.97)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Primary reading text",
+        "tonalRamp": [
+          "oklch(15% 0.0101 228.89)",
+          "oklch(25% 0.0101 228.89)",
+          "oklch(35% 0.0101 228.89)",
+          "oklch(45% 0.0101 228.89)",
+          "oklch(55% 0.0101 228.89)",
+          "oklch(65% 0.0101 228.89)",
+          "oklch(80% 0.0101 228.89)",
+          "oklch(95% 0.0101 228.89)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Secondary reading text",
+        "tonalRamp": [
+          "oklch(15% 0.0278 234.08)",
+          "oklch(25% 0.0278 234.08)",
+          "oklch(35% 0.0278 234.08)",
+          "oklch(45% 0.0278 234.08)",
+          "oklch(55% 0.0278 234.08)",
+          "oklch(65% 0.0278 234.08)",
+          "oklch(80% 0.0278 234.08)",
+          "oklch(95% 0.0278 234.08)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Panel boundary",
+        "tonalRamp": [
+          "oklch(15% 0.0451 238.75)",
+          "oklch(25% 0.0451 238.75)",
+          "oklch(35% 0.0451 238.75)",
+          "oklch(45% 0.0451 238.75)",
+          "oklch(55% 0.0451 238.75)",
+          "oklch(65% 0.0451 238.75)",
+          "oklch(80% 0.0451 238.75)",
+          "oklch(95% 0.0451 238.75)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Marine teal",
+        "tonalRamp": [
+          "oklch(15% 0.1113 179.29)",
+          "oklch(25% 0.1113 179.29)",
+          "oklch(35% 0.1113 179.29)",
+          "oklch(45% 0.1113 179.29)",
+          "oklch(55% 0.1113 179.29)",
+          "oklch(65% 0.1113 179.29)",
+          "oklch(80% 0.1113 179.29)",
+          "oklch(95% 0.1113 179.29)"
+        ]
+      },
+      "warning": {
+        "role": "secondary",
+        "displayName": "Brass amber",
+        "tonalRamp": [
+          "oklch(15% 0.1052 75.70)",
+          "oklch(25% 0.1052 75.70)",
+          "oklch(35% 0.1052 75.70)",
+          "oklch(45% 0.1052 75.70)",
+          "oklch(55% 0.1052 75.70)",
+          "oklch(65% 0.1052 75.70)",
+          "oklch(80% 0.1052 75.70)",
+          "oklch(95% 0.1052 75.70)"
+        ]
+      },
+      "fault": {
+        "role": "secondary",
+        "displayName": "Warm fault red",
+        "tonalRamp": [
+          "oklch(15% 0.1262 23.48)",
+          "oklch(25% 0.1262 23.48)",
+          "oklch(35% 0.1262 23.48)",
+          "oklch(45% 0.1262 23.48)",
+          "oklch(55% 0.1262 23.48)",
+          "oklch(65% 0.1262 23.48)",
+          "oklch(80% 0.1262 23.48)",
+          "oklch(95% 0.1262 23.48)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Route headline",
+        "purpose": "Top-level route orientation."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable Thai and Latin explanatory text."
+      },
+      "support": {
+        "displayName": "Support",
+        "purpose": "Context and control labels."
+      },
+      "reading": {
+        "displayName": "Metric reading",
+        "purpose": "Large tabular numerical readings with units."
+      }
+    },
+    "shadows": [
+      {
+        "name": "expanded-scene",
+        "value": "0 20px 120px #000c",
+        "purpose": "Existing ambient elevation for viewport-expanded scene."
+      },
+      {
+        "name": "spatial-equipment",
+        "value": "0 4px 16px #030b1370",
+        "purpose": "Circuit equipment labels over physical scene detail."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": ".16s",
+        "purpose": "Button background, boundary and text state changes."
+      },
+      {
+        "name": "camera-damping",
+        "value": "1 - exp(-delta * 3.6)",
+        "purpose": "Village camera preset transition; reduced motion snaps."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-controls",
+        "value": "600px"
+      },
+      {
+        "name": "mobile-3d",
+        "value": "760px"
+      },
+      {
+        "name": "mobile-shell",
+        "value": "900px"
+      },
+      {
+        "name": "single-column",
+        "value": "1150px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1300px"
+      }
+    ],
+    "surfaceModes": {
+      "overview": "operate",
+      "dashboard": "operate",
+      "explore": "experience",
+      "circuit": "experience",
+      "docs": "read"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary engineering action in a restrained teal surface.",
+      "html": "<button class=\"ds-btn-primary\">เริ่มเดโม</button>",
+      "css": ".ds-btn-primary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-height:42px;padding:9px 14px;border:1px solid #367e70;border-radius:8px;background:#204c4b;color:#b1f0df;font-size:12px;font-weight:500;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s}.ds-btn-primary:hover{background:#214456;border-color:#668c9e}.ds-btn-primary:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary camera, export or simulation action.",
+      "html": "<button class=\"ds-btn-secondary\">Export JSON</button>",
+      "css": ".ds-btn-secondary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-height:42px;padding:9px 14px;border:1px solid #35576a;border-radius:8px;background:#152d3c;color:#dceaf0;font-size:12px;font-weight:500;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s}.ds-btn-secondary:hover{background:#214456;border-color:#668c9e}.ds-btn-secondary:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+    },
+    {
+      "name": "Quality selector",
+      "kind": "input",
+      "refersTo": "input-quality",
+      "description": "Bounded GPU quality control over the village scene.",
+      "html": "<label class=\"ds-quality\">คุณภาพ <select aria-label=\"คุณภาพการแสดงผลสามมิติ\"><option>Balanced</option><option>High</option></select></label>",
+      "css": ".ds-quality{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;gap:7px;padding:5px 9px;background:#0c202de8;border-radius:7px;color:#c9d9df;font-size:11px}.ds-quality select{border:0;background:transparent;color:#e5f1f2;min-height:34px;font-size:11px;cursor:pointer}.ds-quality select:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+    },
+    {
+      "name": "Navigation item",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Compact route access; teal marks the current surface.",
+      "html": "<a class=\"ds-nav active\" aria-current=\"page\" href=\"#dashboard\">มอนิเตอร์</a>",
+      "css": ".ds-nav{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:flex;align-items:center;gap:12px;min-height:44px;padding:9px 12px;color:#b0c2ce;border-radius:8px;font-size:13px;text-decoration:none}.ds-nav:hover{background:#142d3b;color:#eef6f9}.ds-nav.active{background:#193f43;color:#9eeadd}.ds-nav:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+    },
+    {
+      "name": "Status chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Small explicit status label, using words alongside color.",
+      "html": "<span class=\"ds-status\">จำลอง</span>",
+      "css": ".ds-status{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;gap:5px;padding:5px 9px;background:#233e4f;color:#c1d4df;border-radius:5px;font-size:11px;white-space:nowrap}"
+    },
+    {
+      "name": "Reading panel",
+      "kind": "card",
+      "refersTo": "metric",
+      "description": "A tabular measurement with unit and source context.",
+      "html": "<article class=\"ds-metric\"><span>แรงดันแหล่งหลัก</span><div><strong>12.1</strong> <small>V DC</small></div><p>ค่าจำลองจากบัสแรงดันต่ำ</p></article>",
+      "css": ".ds-metric{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;padding:19px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink)}.ds-metric>span{font-size:12px;color:var(--muted)}.ds-metric>div{display:flex;align-items:baseline;gap:7px;margin-top:9px;color:#e8f3f5;font-variant-numeric:tabular-nums}.ds-metric strong{font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.4}.ds-metric small{font-size:12px;color:#b4c8d3}.ds-metric p{font-size:11px;line-height:1.8;color:var(--muted);margin:9px 0 0}"
+    },
+    {
+      "name": "Engineering panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Comfortable reading container for engineering and source content.",
+      "html": "<section class=\"ds-panel\"><h2>เอกสารวิศวกรรม</h2><p>แบบอ้างอิงแรงดันต่ำ · ต้องยืนยันพิกัดก่อนประกอบจริง</p></section>",
+      "css": ".ds-panel{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink)}.ds-panel h2{font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0}.ds-panel p{font-size:13px;line-height:1.9;color:var(--muted);margin:12px 0 0}"
+    },
+    {
+      "name": "Spatial equipment label",
+      "kind": "custom",
+      "description": "Touchable scene hotspot exposing a node identity.",
+      "html": "<button class=\"ds-spatial\">P1 <small>กระชังปลา</small></button>",
+      "css": ".ds-spatial{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-width:62px;min-height:44px;padding:7px 11px;background:#102332ed;color:#edf6f8;border:1px solid #91b3bc;border-radius:8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer}.ds-spatial small{display:block;font-size:9px;color:#c1dad7;font-weight:500;margin-top:2px}.ds-spatial:hover{border-color:#b3f3de}.ds-spatial:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Cinematic Coastal Industrial Digital Twin",
+    "overview": "The digital twin is the signature view: opaque estuary water, weathered timber aquaculture infrastructure, warm natural sun, measured industrial hardware and overlays that expose the simulated system state. The dashboard uses quiet navy surfaces and precise typographic hierarchy so the scene and data remain primary.",
+    "keyCharacteristics": [
+      "A premium dark navy control center with marine teal operating cues.",
+      "Authentic field references inform weathered coastal materials and aquaculture forms.",
+      "Precise readings, readable Thai/Latin typography and restrained motion.",
+      "Complete desktop and mobile access to the engineering demonstrator."
+    ],
+    "rules": [],
+    "dos": [
+      "Do keep reconstructed geometry and simulated values visibly labelled.",
+      "Do retain all route content, scenarios, exports and engineering source boundaries.",
+      "Do use the shared simulator for village, circuit, dashboard and presentation state.",
+      "Do use local assets with documented licenses and distinct field-photo provenance.",
+      "Do preserve mobile quality limits and an informative WebGL fallback."
+    ],
+    "donts": [
+      "Don’t present reconstructed geometry as surveyed geography or installed infrastructure.",
+      "Don’t replace factual body copy with 8–10px text.",
+      "Don’t let mobile navigation overlap primary controls.",
+      "Don’t remount the camera on telemetry ticks.",
+      "Don’t change sunlight or water conditions to imply an electrical outage darkens daylight."
+    ]
+  }
+}

@@ -20,7 +20,7 @@ const event = (minute: number, severity: SimEvent['severity'], nodeId: SimEvent[
 
 export const useSimulator = create<SimulatorState>((set, get) => ({
   minute: 0, running: true, mode: 'normal', batterySoc: 1, nodeOffline: null, sensorFault: false,
-  selectedNode: 'P0', activePage: 'overview', cameraMode: 'aerial', circuitMode: 'schematic', circuitSelection: 'esp32',
+  selectedNode: 'P0', activePage: 'overview', cameraMode: 'aerial', circuitMode: 'assembly', circuitSelection: 'esp32',
   events: [event(0, 'info', 'SYSTEM', 'sim-start', 'เริ่มระบบจากสถานะจำลองปกติ', 'เลือกสถานการณ์เพื่อดูการตอบสนองของโหนด')],
   samples: [initialSample],
   setPage: activePage => set({ activePage }), setSelectedNode: selectedNode => set({ selectedNode }),
@@ -80,7 +80,7 @@ export const useSimulator = create<SimulatorState>((set, get) => ({
     let events = s.events;
     if (s.mode === 'outage' && beforeP2 && !afterP2) events = [event(minute, 'warning', 'P2', 'load-shed', 'ตัด P2 ตามเกณฑ์พลังงานสาธิต', 'ยืนยันความจุแบตเตอรี่ โหลดจริง และเกณฑ์สำรองก่อนใช้งาน'), ...events].slice(0, 80);
     if (s.mode === 'outage' && battery === 0 && s.batterySoc > 0) events = [event(minute, 'critical', 'SYSTEM', 'battery-depleted', 'แบตเตอรี่จำลองหมดพลังงาน', 'พลังงานสำรองในระบบจริงต้องคำนวณจากโหลดและข้อมูลแบตเตอรี่จริง'), ...events].slice(0, 80);
-    const sample = makeSample(minute, s.mode, battery, s.nodeOffline);
+    const sample = makeSample(minute, s.mode, battery, s.nodeOffline, s.sensorFault);
     set({ minute, batterySoc: battery, events, samples: [...s.samples.slice(-39), sample] });
   },
   reset: () => { eventSequence = 0; set({ minute: 0, running: true, mode: 'normal', batterySoc: 1, nodeOffline: null, sensorFault: false, selectedNode: 'P0', events: [event(0, 'info', 'SYSTEM', 'sim-start', 'รีเซ็ตสถานการณ์จำลอง', 'สถานะตั้งต้นถูกสร้างซ้ำได้; ไม่ใช่ข้อมูลฮาร์ดแวร์จริง')], samples: [initialSample] }); },

@@ -41,7 +41,10 @@ test('water sensor fault can leave sensor channels absent instead of inventing v
   const sample = makeSample(10, 'normal', 1, null);
   assert.equal(typeof sample.salinity, 'number');
   assert.equal(typeof sample.temperature, 'number');
-  assert.equal(Object.hasOwn(sample, 'dissolvedOxygen'), false);
+  const faultSample = makeSample(10, 'normal', 1, null, true);
+  assert.equal(faultSample.salinity, null);
+  assert.equal(faultSample.temperature, sample.temperature);
+  assert.equal(Object.hasOwn(faultSample, 'dissolvedOxygen'), false);
 });
 
 test('sample sequence is deterministic for the same inputs', () => {

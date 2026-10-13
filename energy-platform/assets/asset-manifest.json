@@ -1,0 +1,137 @@
+[
+  {
+    "path": "textures/wood-planks-diffuse.jpg",
+    "bytes": 56357,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_diff_1k.jpg",
+    "asset": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "use": "Walkway deck, weathered village cladding and cage walkways",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/wood-planks-normal.jpg",
+    "bytes": 30981,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_nor_gl_1k.jpg",
+    "asset": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "use": "Walkway deck, weathered village cladding and cage walkways",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/wood-planks-arm.jpg",
+    "bytes": 36397,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_arm_1k.jpg",
+    "asset": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "use": "Walkway deck, weathered village cladding and cage walkways",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/corrugated-iron-diffuse.jpg",
+    "bytes": 58595,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/corrugated_iron/corrugated_iron_diff_1k.jpg",
+    "asset": "corrugated_iron",
+    "license": "CC0-1.0",
+    "use": "Corrugated metal roofing and industrial cladding",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/corrugated-iron-normal.jpg",
+    "bytes": 32265,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/corrugated_iron/corrugated_iron_nor_gl_1k.jpg",
+    "asset": "corrugated_iron",
+    "license": "CC0-1.0",
+    "use": "Corrugated metal roofing and industrial cladding",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/corrugated-iron-arm.jpg",
+    "bytes": 26605,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/corrugated_iron/corrugated_iron_arm_1k.jpg",
+    "asset": "corrugated_iron",
+    "license": "CC0-1.0",
+    "use": "Corrugated metal roofing and industrial cladding",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/coastal-sand-diffuse.jpg",
+    "bytes": 72602,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coast_sand_02/coast_sand_02_diff_1k.jpg",
+    "asset": "coast_sand_02",
+    "license": "CC0-1.0",
+    "use": "Shore ground / sand surface detail",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/coastal-sand-normal.jpg",
+    "bytes": 81654,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coast_sand_02/coast_sand_02_nor_gl_1k.jpg",
+    "asset": "coast_sand_02",
+    "license": "CC0-1.0",
+    "use": "Shore ground / sand surface detail",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "textures/coastal-sand-arm.jpg",
+    "bytes": 33138,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coast_sand_02/coast_sand_02_arm_1k.jpg",
+    "asset": "coast_sand_02",
+    "license": "CC0-1.0",
+    "use": "Shore ground / sand surface detail",
+    "transformation": "1k JPEG resized to 512px, JPEG quality 87"
+  },
+  {
+    "path": "sky/kloppenheim_06_puresky_1k.hdr",
+    "bytes": 1173154,
+    "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloppenheim_06_puresky_1k.hdr",
+    "asset": "kloppenheim_06_puresky",
+    "license": "CC0-1.0",
+    "use": "Outdoor sky environment lighting / reflections; not a field photograph",
+    "transformation": "unchanged"
+  },
+  {
+    "path": "models/utility-box.glb",
+    "bytes": 286228,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/utility_box_01/utility_box_01_1k.gltf",
+    "asset": "utility_box_01",
+    "license": "CC0-1.0",
+    "use": "Generic detailed industrial enclosure prop; conceptual reconstructed equipment exterior",
+    "transformation": "Source glTF and binary packed into GLB; embedded PBR JPEG maps resized to 512px, quality 87; geometry unchanged"
+  },
+  {
+    "path": "models/portable-generator.glb",
+    "bytes": 1254892,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/portable_generator/portable_generator_1k.gltf",
+    "asset": "portable_generator",
+    "license": "CC0-1.0",
+    "use": "Optional generic workshop or backup equipment visual prop; not established installed equipment",
+    "transformation": "Source glTF and binary packed into GLB; embedded PBR JPEG maps resized to 512px, quality 87; geometry unchanged"
+  },
+  {
+    "path": "reference/salahum-03.webp",
+    "bytes": 244450,
+    "source": "https://peephatz-dev.github.io/community-field-notes/community-images/salahum-03.webp",
+    "originalPath": "ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 19.jpg",
+    "license": "User-provided Data Pack reference; no CC0 assertion",
+    "use": "Fishing cages / blue boat / water color reference",
+    "transformation": "unchanged existing webp from published project repository"
+  },
+  {
+    "path": "reference/salahum-11.webp",
+    "bytes": 615210,
+    "source": "https://peephatz-dev.github.io/community-field-notes/community-images/salahum-11.webp",
+    "originalPath": "ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 33.jpg",
+    "license": "User-provided Data Pack reference; no CC0 assertion",
+    "use": "Weathered wooden platform / low village roofs / water tank reference",
+    "transformation": "unchanged existing webp from published project repository"
+  },
+  {
+    "path": "reference/salahum-18.webp",
+    "bytes": 316250,
+    "source": "https://peephatz-dev.github.io/community-field-notes/community-images/salahum-18.webp",
+    "originalPath": "ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 9.jpg",
+    "license": "User-provided Data Pack reference; no CC0 assertion",
+    "use": "Cages next to corrugated-roof shoreline houses reference",
+    "transformation": "unchanged existing webp from published project repository"
+  }
+]

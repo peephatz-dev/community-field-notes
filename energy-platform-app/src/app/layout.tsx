@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+import '@fontsource-variable/manrope';
+import '@fontsource/ibm-plex-sans-thai/400.css';
+import '@fontsource/ibm-plex-sans-thai/500.css';
+import '@fontsource/ibm-plex-sans-thai/600.css';
 import './globals.css';
 
 export const metadata: Metadata = {

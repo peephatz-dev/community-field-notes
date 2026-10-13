@@ -12,11 +12,15 @@
     "export:github": "pnpm build && node scripts/export-github.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource/ibm-plex-sans-thai": "^5.3.0",
     "@react-three/drei": "latest",
     "@react-three/fiber": "latest",
+    "@react-three/postprocessing": "^3.2.0",
     "framer-motion": "latest",
     "lucide-react": "latest",
     "next": "latest",
+    "postprocessing": "^6.39.5",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "latest",
@@ -27,6 +31,7 @@
     "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
+    "@types/react-dom": "^19.3.0",
     "@types/three": "latest",
     "postcss": "latest",
     "tailwindcss": "latest",
