@@ -44,8 +44,22 @@ The synthetic water input applies a salinity/temperature shift without inferring
 
 ## Verification status for this expansion
 
-This documentation/component subtask reviewed the current site-layout types, SitePlan API, model/store transitions and existing design tokens. No new test/build/browser/Git operation was run by the documenter. Integration QA is **pending** and belongs to the release owner; the previous cinematic-upgrade checks in `visual-upgrade.md` are not evidence that this expansion has passed.
+The release owner verified the current site-specific build. **TypeScript checks, all 36 tests and `pnpm export:github` passed**, including the latest final production build. This documentation pass records those results; it did not run another build, browser session or Git operation.
 
-The required integration checks are: typecheck/meaningful model regressions; all routes/build/static export; desktop and mobile site plan/scene alignment; P0–P3 placement interaction; transition camera and B/C concept labels; main-source versus bus readings; water-change/offline/fault distinction; history-preserving recovery; deck buttons/keyboard/session return; role/process content; and no duplicated Canvas or inaccessible overflow.
+| Check | Result and scope |
+| --- | --- |
+| Shared spatial layout | Original SVG and 3D reconstruction compared; proposed P0–P3, overlays, camera presets, camera reset and viewport expansion checked |
+| Production desktop/mobile | Screenshots inspected at 1440 × 1000 and 390 × 844; distant framing, water edge, mobile toolbar overlap and fullscreen height corrected |
+| Immediate scenario state | With time paused, outage, water-change, critical 7% battery and recovery immediately updated charts and events from the same state |
+| Invalid/unpowered P1 channels | Critical battery displayed missing P1 water channels rather than retained numerical readings |
+| Recovery regression | Unit suite verified two elapsed-time restoration steps and preservation of history/state boundaries |
+| Judge deck | Next selected stage 2, ArrowRight selected stage 3, End selected stage 10 with Next disabled; returning from another route restored stage 10. No WebGL Canvas mounted in the deck |
+| Team/process guides | All five exact team names and deliverables inspected; eleven process steps and live critical-7% state inspected |
+| Export downloads | CSV and JSON downloaded in the browser. At critical battery, P1 quality was `unpowered`, CSV water cells were blank and JSON water channels were null; source voltage 0 V, bus voltage 12 V, bus current 2.5 A and P0 load 30 W remained coherent |
+| Private reference comparison | File picker used a browser-local `blob:` URL with no upload or persistence; clearing restored the original SVG. Overlay slider Home selected 0 and End selected 100 |
+| Interaction errors | Browser console errors were an empty array after the inspected interactions |
+| Live publication | Public deployment and production-route availability remain under the release owner's final checks |
+
+Review outputs are stored outside the application in `outputs/site-reconstruction/comparison.jpg` and `outputs/site-reconstruction/mobile.jpg`. These are rendered review artifacts; they are not redistributed map tiles. The checks above do not assert field measurements, hardware readiness or cross-device GPU performance certification.
 
 Expected benefits are proposals to evaluate. No measured reduction in fish losses, energy cost, response time or other field outcome is claimed. BOM/ratings/protection/calibration, approved alerts, site permissions and a supervised low-voltage pilot remain prerequisites for real deployment.
