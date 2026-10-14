@@ -7,18 +7,25 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Activity, AlertTriangle, Battery, BatteryCharging, BookOpen, Boxes, Cable, ChartNoAxesCombined, Check, ChevronRight, CircleHelp, Clock3, Download, Droplets, Gauge, Home, Info, Lightbulb, Map, Network, Pause, Play, RotateCcw, Send, ShieldCheck, Thermometer, Users, Waves, Zap, Wifi, X, Menu, Maximize2, Minimize2, ArrowUpRight, MapPin, Compass } from 'lucide-react';
 import { CIRCUIT_MODES } from '@/lib/view-modes';
-import { COMPONENTS, NODE_DEFINITIONS, activeLoad, calcPower, estimateRuntimeHours, gridVoltage, type NodeId, type SimEvent } from '@/lib/model';
+import { COMPONENTS, NODE_DEFINITIONS, activeLoad as modelActiveLoad, calcPower as modelCalcPower, estimateRuntimeHours as modelRuntime, gridVoltage, type NodeId, type SimEvent } from '@/lib/model';
 import { assetUrl } from '@/lib/urls';
 import { useSimulator } from '@/store/simulator';
+import SiteExperience from './SiteExperience';
+import { SitePlan, SiteWaterPanel } from './SitePlan';
+import { CANDIDATE_NODES } from '@/lib/site-layout';
+import { SiteRolesGuide, SiteProcessGuide, SitePresentationGuide } from './SiteGuide';
+
+const activeLoad:typeof modelActiveLoad=(id,mode,soc,offline)=>modelActiveLoad(id,mode,soc,offline,useSimulator.getState().recoveryStage);
+const calcPower:typeof modelCalcPower=(mode,soc,offline)=>modelCalcPower(mode,soc,offline,useSimulator.getState().recoveryStage);
+const estimateRuntimeHours:typeof modelRuntime=(soc,mode,offline)=>modelRuntime(soc,mode,offline,useSimulator.getState().recoveryStage);
 
 const ChartLoading = () => <div className="chart-loading" role="status">กำลังเตรียมกราฟจำลอง…</div>;
 const PowerLineChart = dynamic(() => import('@/components/TelemetryCharts').then(m => m.PowerChart), { ssr: false, loading: ChartLoading });
+const CurrentChart = dynamic(() => import('@/components/TelemetryCharts').then(m => m.CurrentChart), { ssr: false, loading: ChartLoading });
 const BatteryChart = dynamic(() => import('@/components/TelemetryCharts').then(m => m.BatteryChart), { ssr: false, loading: ChartLoading });
 const LoadChart = dynamic(() => import('@/components/TelemetryCharts').then(m => m.LoadChart), { ssr: false, loading: ChartLoading });
 const WaterChart = dynamic(() => import('@/components/TelemetryCharts').then(m => m.WaterChart), { ssr: false, loading: ChartLoading });
 const CircuitLab = dynamic(() => import('@/components/CircuitLab'), { ssr: false, loading: () => <div className="scene-loading" role="status"><strong>กำลังเตรียมห้องทดลองวงจร</strong><small>โมเดลอุปกรณ์อ้างอิงแรงดันต่ำ</small></div> });
-
-const Scene3D = dynamic(() => import('@/components/Scene3D'), { ssr: false, loading: () => <div className="scene-loading"><div className="loading-mark">3D</div><strong>กำลังประกอบฉากจำลอง</strong><small>พื้นที่สาธิตเชิงภาพ · ไม่ใช่แผนที่สำรวจ</small></div> });
 
 const navGroups = [
   { label: 'PLATFORM', links: [
@@ -33,8 +40,8 @@ const navGroups = [
 ] as const;
 
 const titles: Record<string, [string, string, string]> = {
-  overview: ['CONTROL CENTER', 'ภาพรวมระบบ', 'ภาพจำลองพลังงานและกระชัง พร้อมสถานะที่เปลี่ยนตามเหตุการณ์จำลอง'],
-  explore: ['DIGITAL TWIN · ILLUSTRATIVE', 'สำรวจชุมชนและโหนด', 'ฉากประกอบเพื่ออธิบายความสัมพันธ์ของ P0–P3 · ไม่ใช่ผังภูมิศาสตร์หรือแบบติดตั้งจริง'],
+  overview: ['CONTROL CENTER', 'ท่าเรือลุงทองและกระชังบ้านศาลาหุม', 'โจทย์จากเอกสารพื้นที่: ไฟฟ้าไม่เสถียร และความไม่แน่นอนของสภาพน้ำ · ฉากสร้างใหม่จากภาพอ้างอิงเพื่อทดลอง P0–P3'],
+  explore: ['DIGITAL TWIN · ILLUSTRATIVE', 'สำรวจพื้นที่ท่าเรือลุงทอง', 'แนวถนน บ้านริมน้ำ ท่า และกระชังตามตำแหน่งสัมพัทธ์ในภาพ · จุดติดตั้งและโซนน้ำเป็นข้อเสนอรอยืนยัน'],
   simulation: ['SCENARIO LAB', 'ทดลองสถานการณ์ระบบไฟ', 'เลือกเหตุจำลองและดูผลต่อโหลด แบตเตอรี่ เหตุการณ์ และข้อมูลมอนิเตอร์'],
   dashboard: ['MONITORING · SIMULATED', 'ข้อมูลมอนิเตอร์', 'ค่าทุกชุดในหน้านี้สร้างจากตัวจำลองในเบราว์เซอร์ · ไม่มีอุปกรณ์จริงเชื่อมต่อ'],
   circuit: ['REFERENCE CIRCUIT · LOW VOLTAGE', 'ห้องทดลองวงจรและอุปกรณ์', 'โครงวงจรแนวคิดแรงดันต่ำสำหรับสื่อสารการทำงาน · ต้องยืนยันพิกัดและการป้องกันก่อนประกอบจริง'],
@@ -51,6 +58,10 @@ const scenarioCards = [
   { id: 'sag', title: 'แรงดันตก', desc: 'แรงดัน bus จำลองลดลง · ยังมีไฟหลัก', Icon: Gauge },
   { id: 'outage', title: 'ไฟหลักดับ', desc: 'ใช้แบตเตอรี่สาธิตและตัด P3 ก่อน', Icon: Zap },
   { id: 'low-battery', title: 'พลังงานสำรองต่ำ', desc: 'จำลอง SoC 34% และเตรียมตัด P2', Icon: Battery },
+  { id: 'extended-outage', title: 'ไฟดับต่อเนื่อง', desc: 'ใช้พลังงานสำรองตามโหลดต่อเนื่อง', Icon: Clock3 },
+  { id: 'critical-battery', title: 'แบตเตอรี่วิกฤต', desc: 'เหลือ 7% สาธิต · คง P0 ตามเกณฑ์', Icon: Battery },
+  { id: 'water-change', title: 'น้ำเปลี่ยนจำลอง', desc: 'ปรับความเค็ม/อุณหภูมิสาธิต · ไม่ยืนยันเหตุภาคสนาม', Icon: Waves },
+  { id: 'recovery', title: 'ทยอยคืนโหลด', desc: 'P0/P1 ก่อน ตามด้วย P2 และ P3', Icon: RotateCcw },
   { id: 'offline', title: 'โหนดไม่ส่งข้อมูล', desc: 'P2 ออฟไลน์ · ไม่ได้สรุปว่าไฟดับ', Icon: Wifi },
   { id: 'sensor-fault', title: 'เซนเซอร์ผิดปกติ', desc: 'อินพุตความเค็มเสีย · ไม่ใช่เหตุฉุกเฉินน้ำ', Icon: AlertTriangle },
 ] as const;
@@ -62,69 +73,20 @@ function Metric({ label, value, unit, detail, Icon, tone = '' }: { label: string
 
 function EventFeed({ events, full = false }: { events: SimEvent[]; full?: boolean }) {
   const shown = full ? events : events.slice(0, 5);
-  return <div className="event-list">{shown.length === 0 ? <div className="event-empty">ยังไม่มีเหตุการณ์ · เลือกสถานการณ์จำลองเพื่อเริ่ม</div> : shown.map(e => <div className="event-row" key={e.id}><i className={`event-pin ${e.severity === 'warning' ? 'warn' : e.severity === 'critical' ? 'danger' : ''}`} /><div className="event-text"><strong>{e.message}</strong><small>{e.nodeId} · {e.action}</small></div><span className="event-time">{timeLabel(e.minute)}</span></div>)}</div>;
+  return <div className="event-list">{shown.length === 0 ? <div className="event-empty">ยังไม่มีเหตุการณ์ · เลือกสถานการณ์จำลองเพื่อเริ่ม</div> : shown.map(e => <div className="event-row" key={e.id}><i className={`event-pin ${e.severity === 'warning' ? 'warn' : e.severity === 'critical' ? 'danger' : ''}`} /><div className="event-text"><strong>{e.message}</strong><small>{e.nodeId === 'SYSTEM' ? 'ทั้งระบบ' : e.nodeId + ' · ' + CANDIDATE_NODES[e.nodeId].title} · {e.action}</small></div><span className="event-time">{timeLabel(e.minute)}</span></div>)}</div>;
 }
 
 function exportRecords(format: 'json' | 'csv', samples: ReturnType<typeof useSimulator.getState>['samples'], events: SimEvent[]) {
   const body = format === 'json' ? JSON.stringify({ simulated: true, source: 'browser deterministic demo', exported_at: new Date().toISOString(), samples: samples.map(row => ({ ...row, simulated: true })), events }, null, 2) : [
-    'simulated,minute,voltage_v,battery_percent,salinity_ppt,water_temperature_c,p0_w,p1_w,p2_w,p3_w',
-    ...samples.map(x => `true,${x.minute},${x.voltage},${x.battery},${x.salinity ?? ''},${x.temperature},${x.p0},${x.p1},${x.p2},${x.p3}`),
+    'simulated,minute,voltage_v,dc_bus_voltage_v,dc_bus_current_a,battery_percent,salinity_ppt,water_temperature_c,p1_quality,p0_w,p1_w,p2_w,p3_w',
+    ...samples.map(x => `true,${x.minute},${x.voltage},${x.busVoltage},${x.current},${x.battery},${x.salinity ?? ''},${x.temperature ?? ''},${x.p1Quality},${x.p0},${x.p1},${x.p2},${x.p3}`),
   ].join('\n');
   const blob = new Blob([body], { type: format === 'json' ? 'application/json' : 'text/csv' });
   const url = URL.createObjectURL(blob); const anchor = document.createElement('a'); anchor.href = url; anchor.download = `community-energy-simulation.${format}`; anchor.click(); URL.revokeObjectURL(url);
 }
 
-function SceneCard({ compact = false }: { compact?: boolean }) {
-  const mode = useSimulator(s => s.mode), batterySoc = useSimulator(s => s.batterySoc), offline = useSimulator(s => s.nodeOffline), selected = useSimulator(s => s.selectedNode), setSelected = useSimulator(s => s.setSelectedNode), cameraMode = useSimulator(s => s.cameraMode), setCamera = useSimulator(s => s.setCameraMode);
-  const [expanded, setExpanded] = useState(false), [quality, setQuality] = useState<'balanced' | 'high'>('balanced');
-  const sceneRef = useRef<HTMLElement>(null), reduceMotion = useReducedMotion();
-  const cameraTabs = [['aerial', 'ภาพรวม'], ['walk', 'หมู่บ้าน'], ['aquaculture', 'กระชังปลา'], ['power', 'ระบบพลังงาน'], ['circuit', 'ตู้ควบคุม']];
-  useEffect(() => {
-    if (!expanded) return;
-    const focus = document.activeElement as HTMLElement, beforeOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const exit = sceneRef.current?.querySelector<HTMLElement>('[data-fullscreen-toggle]'); exit?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setExpanded(false);
-      if (e.key !== 'Tab') return;
-      const items = [...(sceneRef.current?.querySelectorAll<HTMLElement>('button, select') || [])];
-      const first = items[0], last = items.at(-1);
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
-    };
-    document.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = beforeOverflow; document.removeEventListener('keydown', onKey); focus?.focus(); };
-  }, [expanded]);
-  return <section ref={sceneRef} className={`scene-card ${compact ? 'scene-large' : ''} ${expanded ? 'scene-expanded' : ''} scene-${mode}`} aria-label="ฉากจำลองสามมิติบ้านศาลาหุม" role={expanded ? 'dialog' : undefined} aria-modal={expanded || undefined}>
-    <div className="scene-top"><div className="scene-place"><MapPin size={14} /><span><strong>บ้านศาลาหุม</strong><small>พื้นที่สร้างจำลองจากบริบทชุมชน</small></span></div><div className="scene-tools"><span className={`scene-status ${mode !== 'normal' ? 'warning' : ''}`}><i />{mode === 'outage' ? 'ไฟหลักดับ · สำรอง' : mode === 'sag' ? 'แรงดันตก' : 'ไฟหลักปกติ'}</span><button data-fullscreen-toggle className="scene-tool-btn" onClick={() => setExpanded(v => !v)} aria-label={expanded ? 'ออกจากเต็มหน้าจอ' : 'เปิดฉากเต็มหน้าจอ'} title={expanded ? 'ออกจากเต็มหน้าจอ · Esc' : 'เต็มหน้าจอ'}>{expanded ? <Minimize2 size={18} /> : <Maximize2 size={18} />}</button></div></div>
-    <div className="scene-canvas"><Scene3D mode={mode} batterySoc={batterySoc} offline={offline} selectedNode={selected} selectNode={setSelected} cameraMode={cameraMode} quality={quality} reducedMotion={!!reduceMotion} /></div>
-    <div className="scene-bottom"><div className="scene-camera-row"><div className="camera-tabs" role="group" aria-label="มุมกล้อง">{cameraTabs.map(([id, label]) => <button key={id} className={cameraMode === id ? 'active' : ''} aria-pressed={cameraMode === id} onClick={() => setCamera(id)}>{label}</button>)}</div><label className="quality-control"><span>คุณภาพ</span><select value={quality} onChange={e => setQuality(e.target.value as 'balanced' | 'high')} aria-label="คุณภาพการแสดงผลสามมิติ"><option value="balanced">Balanced</option><option value="high">High</option></select></label></div><div className="scene-help"><span><Compass size={13} />ลากเพื่อหมุน · เลื่อนเพื่อซูม · เลือก P0–P3</span><span>ฉากสร้างจำลอง · ค่าจำลองทั้งหมด</span></div></div>
-  </section>;
-}
-
-const tourChapters: { node: NodeId; camera: string; title: string; body: string }[] = [
-  { node: 'P0', camera: 'aerial', title: 'มองระบบทั้งชุมชน', body: 'P0 รวบรวมข้อมูลจากโหนดและประเมินสถานะไฟฟ้า การสื่อสาร และเซนเซอร์แยกจากกัน ฉากนี้ใช้บริบทจาก Data Pack เพื่ออธิบายระบบ ไม่ใช่ผังตำแหน่งติดตั้งจริง' },
-  { node: 'P1', camera: 'aquaculture', title: 'ดูแลโหลดสำคัญใกล้กระชัง', body: 'P1 แทนโหนดประมงและโหลดเติมอากาศสาธิต มีค่าความเค็มและอุณหภูมิเป็นข้อมูลประกอบ ค่า DO ยังไม่มีเซนเซอร์และจะแสดงว่าไม่พร้อมใช้งาน' },
-  { node: 'P2', camera: 'walk', title: 'คงอุปกรณ์จำเป็นเมื่อยังมีพลังงาน', body: 'P2 แทนไฟส่องสว่างและอุปกรณ์สื่อสาร เมื่อไฟหลักดับ ระบบจำลองคงโหลดนี้ไว้จนแบตเตอรี่ต่ำกว่าเกณฑ์สาธิต 28% เกณฑ์จริงต้องยืนยันจากโหลดและแบตเตอรี่จริง' },
-  { node: 'P3', camera: 'power', title: 'เลือกตัดโหลดที่ยืดหยุ่นได้ก่อน', body: 'P3 เป็นโหลดทั่วไปที่หยุดก่อนเมื่อไฟหลักดับ เพื่อให้เห็นนโยบาย P0 > P1 > P2 > P3 ลำดับนี้เป็นกติกาควบคุม ไม่ใช่การต่อสายไฟเป็นอนุกรม' },
-];
-
-function ScrollTour() {
-  const chaptersRef = useRef<HTMLDivElement>(null), [follow, setFollow] = useState(true), [chapter, setChapter] = useState(0);
-  const setCamera = useSimulator(s => s.setCameraMode), select = useSimulator(s => s.setSelectedNode), reduceMotion = useReducedMotion();
-  useEffect(() => {
-    if (!follow || reduceMotion || window.matchMedia('(max-width: 900px)').matches) return;
-    const observer = new IntersectionObserver(entries => {
-      entries.filter(e => e.isIntersecting).forEach(entry => {
-        const i = Number((entry.target as HTMLElement).dataset.chapter), step = tourChapters[i];
-        setChapter(i); setCamera(step.camera); select(step.node);
-      });
-    }, { rootMargin: '-20% 0px -45% 0px', threshold: 0 });
-    chaptersRef.current?.querySelectorAll('[data-chapter]').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, [follow, reduceMotion, setCamera, select]);
-  return <div className="explore-tour"><div className="tour-visual"><SceneCard compact /><button className="tour-follow" aria-pressed={follow} onClick={() => setFollow(v => !v)}><Compass size={15} />{follow ? 'กล้องตามลำดับเรื่องเมื่อเลื่อน' : 'ควบคุมกล้องเอง'}</button></div><div ref={chaptersRef} className="tour-chapters">{tourChapters.map((step, i) => <article data-chapter={i} className={`tour-chapter ${chapter === i ? 'current' : ''}`} key={step.node}><span className="tour-node">{step.node}</span><h2>{step.title}</h2><p>{step.body}</p><button className="control-btn" onClick={() => { setChapter(i); setCamera(step.camera); select(step.node); }}>{chapter === i ? 'กำลังดูจุดนี้' : 'ดูจุดนี้'}<ArrowUpRight size={15} /></button></article>)}</div></div>;
-}
+function SceneCard({compact=false}:{compact?:boolean}){return <SiteExperience compact={compact}/>;}
+function ScrollTour(){return <SiteExperience compact documentary/>;}
 
 function FieldReferences() {
   return <section className="field-references"><div className="section-heading"><div><h2>ลักษณะพื้นที่จากภาพต้นทาง</h2><p>ภาพใน Data Pack ที่ใช้กำหนดวัสดุ น้ำ และรูปแบบกระชังของฉากสร้างจำลอง</p></div><a className="text-link" href="https://peephatz-dev.github.io/community-field-notes/visual-library.html">เปิดคลังภาพ<ArrowUpRight size={15} /></a></div><div className="field-photo-grid">{[
@@ -139,7 +101,7 @@ function NodeInspector() {
   const samples = useSimulator(s => s.samples);
   const latest = samples[samples.length - 1];
   const current = NODE_DEFINITIONS.find(n => n.id === selected)!;
-  return <section className="inspect-card panel-card"><div className="panel-title-row"><div><h2>สถานะโหนดและโหลด</h2><p>เลือกโหนดบนฉากหรือรายการด้านล่าง</p></div><span className="mini-live"><i />จำลอง</span></div>
+  return <section className="inspect-card panel-card"><div className="panel-title-row"><div><h2>สถานะโหนดและโหลด</h2><p>ทุกตำแหน่งเป็นจุดเสนอ · ยังไม่ยืนยันการติดตั้ง</p></div><span className="mini-live"><i />จำลอง</span></div>
     <div className="node-stack">{NODE_DEFINITIONS.map(node => {
       const online = offline !== node.id;
       const on = activeLoad(node.id, mode, batterySoc, offline);
@@ -148,8 +110,8 @@ function NodeInspector() {
         <div className="node-top"><div className="node-name"><span className="node-symbol">{node.id}</span>{node.name}</div><span className={`node-state ${!online ? 'offline' : !on ? 'warn' : ''}`}>{state}</span></div><p className="node-desc">{node.role}</p><div className="node-reading"><span>โหลด <b>{on ? node.watts : 0} W</b></span><span>ลำดับ <b>{node.priority === 0 ? 'ศูนย์กลาง' : `P${node.priority}`}</b></span></div>
       </button>;
     })}</div>
-    <div className="selected-detail"><div className="detail-title">{current.id} · {current.name}</div><p>{current.description}</p><div className="priority-flow">{current.loads.map(load => <span className="priority-chip" key={load}>{load}</span>)}</div>
-      {selected === 'P1' && <div className="sensor-values"><div><small>Salinity</small><b>{sensorFault || latest.salinity === null ? '—' : latest.salinity.toFixed(1)} <i>ppt*</i></b></div><div><small>Water temp</small><b>{latest.temperature.toFixed(1)} <i>°C*</i></b></div><div><small>Dissolved oxygen (DO)</small><b className="unavailable">Unavailable</b></div></div>}
+    <div className="selected-detail"><div className="detail-title">{current.id} · {current.name} <span className="proposal-label">PROPOSED</span></div><p>{CANDIDATE_NODES[current.id].rationale}</p><p>{current.description}</p><div className="priority-flow">{current.loads.map(load => <span className="priority-chip" key={load}>{load}</span>)}</div>
+      {selected === 'P1' && <div className="sensor-values"><div><small>Salinity</small><b>{sensorFault || !activeLoad('P1', mode, batterySoc, offline) || offline === 'P1' || latest.salinity === null ? '—' : latest.salinity.toFixed(1)} <i>ppt*</i></b></div><div><small>Water temp</small><b>{!activeLoad('P1',mode,batterySoc,offline)||offline==='P1'?'—':latest.temperature?.toFixed(1)??'—'} <i>°C*</i></b></div><div><small>Dissolved oxygen (DO)</small><b className="unavailable">Unavailable</b></div></div>}
       <small className="inspector-caveat">* ค่าทดลองสร้างจากตัวจำลอง · DO ไม่มีเซนเซอร์ในขอบเขตนี้</small>
     </div>
     <div className="inspector-foot">สถานะออฟไลน์หมายถึงไม่ได้รับข้อมูลตามรอบจำลอง ไม่ใช่หลักฐานว่าไฟดับ · ไม่มีอุปกรณ์จริงเชื่อมต่อ</div>
@@ -165,11 +127,12 @@ function Overview({ section }: { section: string }) {
     <PageHeading data={data} />
     <div className="scenario-toolbar"><strong>สถานการณ์</strong>{scenarioCards.map(({ id, title, Icon }) => <button className={`scenario-chip ${((id === 'normal' && mode === 'normal' && !offline) || (id === 'sag' && mode === 'sag') || (id === 'outage' && mode === 'outage')) ? 'chosen' : ''}`} key={id} onClick={() => setScenario(id)}><Icon size={12} />{title}</button>)}</div>
     {section === 'explore' ? <ScrollTour /> : <div className="overview-grid">{mainScene}<NodeInspector /></div>}
+    <SiteWaterPanel compact latestSample={samples.at(-1)} waterShift={useSimulator.getState().waterShift} sensorFault={useSimulator.getState().sensorFault} nodeOffline={offline==='P1'} powered={activeLoad('P1',mode,battery,offline)}/>
     <div className="metrics">
       <Metric label="แรงดันแหล่งหลัก" value={modeVoltage} unit="V · จำลอง" detail={mode === 'outage' ? 'แหล่งจ่ายหลักดับ · คงระบบด้วยแบตเตอรี่จำลอง' : mode === 'sag' ? 'ค่าจำลองต่ำกว่าระดับปกติ' : 'แรงดันอ้างอิงในโมเดล 12 V DC'} Icon={Zap} tone={mode === 'outage' || mode === 'sag' ? 'warn-text' : ''} />
       <Metric label="พลังงานสำรอง" value={Math.round(battery * 100)} unit="% · จำลอง" detail="ความจุโมเดล 1.2 kWh · ไม่ใช่สเปกแบตเตอรี่" Icon={BatteryCharging} />
       <Metric label="โหลดที่ยังทำงาน" value={calcPower(mode, battery, offline)} unit="W · โมเดล" detail="นับเฉพาะโหลดที่ยังไม่ถูกตัดในสถานการณ์นี้" Icon={Activity} />
-      <Metric label="อุปกรณ์ส่งข้อมูล" value={`${4 - (offline ? 1 : 0)} / 4`} unit="โหนด" detail={offline ? `${offline} ออฟไลน์ · สถานะไฟประเมินแยก` : 'last_seen ปรับตามเวลาในตัวจำลอง'} Icon={Wifi} tone={offline ? 'warn-text' : ''} />
+      <Metric label="โหนดที่ยังจ่ายโหลด" value={`${NODE_DEFINITIONS.filter(n=>activeLoad(n.id,mode,battery,offline)).length} / 4`} unit="โหนด" detail={offline ? `${offline} ตั้งสถานะสื่อสารออฟไลน์ · ประเมินโหลดแยก` : 'นับโหลดที่ทำงาน · แยกจากสถานะสื่อสาร'} Icon={Wifi} tone={offline ? 'warn-text' : ''} />
     </div>
     <div className="lower-grid"><section className="chart-card"><div className="section-heading"><div><h2>แรงดันแหล่งหลัก</h2><p>ประวัติแรงดันแหล่งหลัก DC ในตัวจำลอง · ทุก 1 นาทีจำลอง</p></div><span className="simulation-tag">SIMULATED</span></div><PowerLineChart /><div className="chart-key"><i />แหล่งหลัก 12V · สถานะจากตัวจำลอง</div></section><section className="table-card"><div className="section-heading"><div><h2>เหตุการณ์ล่าสุด</h2><p>เวลาเป็นนาฬิกาจำลอง ไม่ใช่เวลาวัดจากอุปกรณ์</p></div><Link href="/simulation/" className="text-link">ดูทั้งหมด <ChevronRight size={13} /></Link></div><EventFeed events={events} /></section></div>
     {section === 'explore' && <><FieldReferences /><div className="spaced"><NodeInspector /></div></>}
@@ -218,14 +181,15 @@ function CircuitPage() {
 function DashboardPage() {
   const mode = useSimulator(s => s.mode), battery = useSimulator(s => s.batterySoc), offline = useSimulator(s => s.nodeOffline), sensorFault = useSimulator(s => s.sensorFault), minute = useSimulator(s => s.minute), samples = useSimulator(s => s.samples), events = useSimulator(s => s.events), setScenario = useSimulator(s => s.setScenario);
   const data = samples[samples.length - 1];
+  const p1Available=activeLoad('P1',mode,battery,offline)&&offline!=='P1';
   const running = useSimulator(s => s.running), currentVoltage = gridVoltage(mode, minute);
   return <><PageHeading data={titles.dashboard} right={<div className="export-row"><button className="control-btn" onClick={() => exportRecords('json', samples, events)}><Download size={15} />JSON</button><button className="control-btn" onClick={() => exportRecords('csv', samples, events)}><Download size={15} />CSV</button></div>} />
-    <div className="monitor-context"><span className="mini-live"><i />{running ? 'ตัวจำลองกำลังส่งข้อมูล' : 'หยุดเวลาจำลอง · ประวัติหยุดอัปเดต'}</span><span>{timeLabel(minute)} · 1 วินาที = 1 นาทีจำลอง</span><span>ทุกค่าในหน้านี้เป็นข้อมูลจำลอง</span></div>
-    <div className="metrics"><Metric label="แรงดันแหล่งหลัก" value={currentVoltage.toFixed(1)} unit="V DC" detail={mode === 'outage' ? 'แหล่งหลักดับ · สำรองยังประเมินแยก' : mode === 'sag' ? 'อยู่ในเหตุการณ์แรงดันตก' : 'โมเดลบัสแรงดันต่ำ 12 V'} Icon={Zap} tone={mode !== 'normal' ? 'warn-text' : ''} /><Metric label="พลังงานสำรอง" value={Math.round(battery * 100)} unit="%" detail="ความจุสาธิต 1.2 kWh" Icon={Battery} /><Metric label="ความเค็ม · P1" value={sensorFault || data.salinity === null ? '—' : data.salinity.toFixed(1)} unit={sensorFault ? 'sensor fault' : 'ppt'} detail="จำลองแนวโน้ม · ไม่ใช่ค่าน้ำภาคสนาม" Icon={Droplets} tone={sensorFault ? 'warn-text' : ''} /><Metric label="อุณหภูมิน้ำ · P1" value={data.temperature.toFixed(1)} unit="°C" detail="จำลองแนวโน้ม · ต้องเทียบโพรบจริง" Icon={Thermometer} /></div>
+    <div className="monitor-context"><span className="mini-live"><i />{running ? 'ตัวจำลองกำลังส่งข้อมูล' : 'หยุดนาฬิกาจำลอง · เหตุที่กดจะบันทึกทันที'}</span><span>{timeLabel(minute)} · 1 วินาที = 1 นาทีจำลอง</span><span>ทุกค่าในหน้านี้เป็นข้อมูลจำลอง</span></div>
+    <div className="metrics"><Metric label="แรงดันแหล่งหลัก" value={currentVoltage.toFixed(1)} unit="V DC" detail={mode === 'outage' ? 'แหล่งหลักดับ · สำรองยังประเมินแยก' : mode === 'sag' ? 'อยู่ในเหตุการณ์แรงดันตก' : 'โมเดลบัสแรงดันต่ำ 12 V'} Icon={Zap} tone={mode !== 'normal' ? 'warn-text' : ''} /><Metric label="พลังงานสำรอง" value={Math.round(battery * 100)} unit="%" detail="ความจุสาธิต 1.2 kWh" Icon={Battery} /><Metric label="ความเค็ม · P1" value={sensorFault || !p1Available || data.salinity === null ? '—' : data.salinity.toFixed(1)} unit={sensorFault ? 'sensor fault' : 'ppt'} detail="จำลองแนวโน้ม · ไม่ใช่ค่าน้ำภาคสนาม" Icon={Droplets} tone={sensorFault ? 'warn-text' : ''} /><Metric label="อุณหภูมิน้ำ · P1" value={p1Available?(data.temperature?.toFixed(1)??'—'):'—'} unit="°C" detail="จำลองแนวโน้ม · ต้องเทียบโพรบจริง" Icon={Thermometer} /></div>
     <div className="scenario-toolbar dashboard-scenarios"><strong>ทดลองเปลี่ยนสถานะ</strong>{scenarioCards.map(({ id, title, Icon }) => <button className="scenario-chip" key={id} onClick={() => setScenario(id)}><Icon size={14} />{title}</button>)}</div>
-    <div className="dashboard-grid"><section className="chart-card"><div className="section-heading"><div><h2>แรงดันแหล่งหลัก</h2><p>V DC · การเปลี่ยนสภาวะและแนวโน้มจำลอง</p></div><span className={`status-pill ${mode === 'normal' ? 'normal' : 'simulated'}`}>{mode === 'normal' ? 'ปกติ' : mode === 'sag' ? 'แรงดันตก' : 'ไฟหลักดับ'}</span></div><PowerLineChart /><div className="chart-foot"><span>เส้นอ้างอิง 12 V</span><span>สัญญาณไฟและการสื่อสารประเมินแยก</span></div></section>
+    <div className="site-system-summary"><span>แหล่งจ่าย: {mode==='outage'?'แบตเตอรี่จำลอง':'DC หลักจำลอง'}</span><span>บัสโหลด {data.busVoltage.toFixed(1)} V DC</span><span>คงโหลด {calcPower(mode,battery,offline)} W</span><span>ส่งข้อมูล {NODE_DEFINITIONS.filter(n=>activeLoad(n.id,mode,battery,offline)).length} / 4 โหนด</span><span>สำรอง {estimateRuntimeHours(battery,mode,offline)?.toFixed(1)??'—'} h สาธิต</span><span>อัปเดต T+{data.minute} นาที · {!p1Available?'P1 ไม่พร้อมส่งค่า':sensorFault?'อินพุตความเค็มผิดปกติ':'ข้อมูลจำลองพร้อม'}</span></div><SiteWaterPanel latestSample={data} waterShift={useSimulator.getState().waterShift} sensorFault={sensorFault} nodeOffline={offline==='P1'} powered={activeLoad('P1',mode,battery,offline)}/><div className="dashboard-grid"><section className="chart-card"><div className="section-heading"><div><h2>แรงดันแหล่งหลัก</h2><p>V DC · การเปลี่ยนสภาวะและแนวโน้มจำลอง</p></div><span className={`status-pill ${mode === 'normal' ? 'normal' : 'simulated'}`}>{mode === 'normal' ? 'ปกติ' : mode === 'sag' ? 'แรงดันตก' : 'ไฟหลักดับ'}</span></div><PowerLineChart /><div className="chart-foot"><span>เส้นอ้างอิง 12 V</span><span>สัญญาณไฟและการสื่อสารประเมินแยก</span></div></section>
       <section className="chart-card"><div className="section-heading"><div><h2>พลังงานสำรอง</h2><p>State of charge · คำนวณจากโหลดจำลอง</p></div><BatteryCharging size={19} /></div><BatteryChart /><div className="chart-foot"><span>เกณฑ์สาธิต P2: 28%</span><span>ไม่ใช่พิกัดแบตเตอรี่จริง</span></div></section>
-      <section className="chart-card"><div className="section-heading"><div><h2>การจัดสรรพลังงาน P0–P3</h2><p>กำลังโหลดซ้อนกัน · หน่วย W</p></div><span className="status-pill">{calcPower(mode, battery, offline)} W</span></div><LoadChart /></section>
+      <section className="chart-card"><div className="section-heading"><div><h2>กระแสบัส DC</h2><p>A · คำนวณจากกำลังโหลด / แรงดันบัสจำลอง</p></div><span className="status-pill">{data.current.toFixed(1)} A</span></div><CurrentChart/><p className="chart-key">ไฟหลักอาจเป็น 0 V ขณะที่บัสสำรองยังมีกระแส · ไม่ใช่กระแสไฟบ้าน AC</p></section><section className="chart-card"><div className="section-heading"><div><h2>การจัดสรรพลังงาน P0–P3</h2><p>กำลังโหลดซ้อนกัน · หน่วย W</p></div><span className="status-pill">{calcPower(mode, battery, offline)} W</span></div><LoadChart /></section>
       <section className="chart-card"><div className="section-heading"><div><h2>ข้อมูลประกอบด้านน้ำ</h2><p>ความเค็มและอุณหภูมิ · ไม่ได้แทน DO</p></div><Waves size={19} /></div><WaterChart /><div className="do-banner"><CircleHelp size={17} /><span><strong>DO ยังไม่มีข้อมูล</strong><small>ไม่มี DO sensor ในขอบเขตนี้ · ไม่อนุมานจากความเค็มหรืออุณหภูมิ</small></span></div></section>
       <section className="table-card full-row"><div className="section-heading"><div><h2>โหนดและเหตุการณ์ล่าสุด</h2><p>สถานะส่งข้อมูลและสถานะโหลดแสดงแยกกัน</p></div><Link href="/simulation/" className="text-link">ดูประวัติทั้งหมด<ArrowUpRight size={15} /></Link></div><div className="event-node-grid">{NODE_DEFINITIONS.map(n => <div className="event-node" key={n.id}><b>{n.id} · {n.name}</b><span>{offline === n.id ? 'ข้อมูล: ออฟไลน์' : 'ข้อมูล: กำลังส่ง'}</span><small>{activeLoad(n.id, mode, battery, offline) ? mode === 'outage' ? 'โหลด: ใช้สำรอง' : 'โหลด: ทำงาน' : 'โหลด: ถูกตัด'}</small></div>)}</div><EventFeed events={events} /></section>
     </div>
@@ -255,21 +219,9 @@ const teamRoles = [
   ['ข้าวฟ่าง', 'เรียบเรียงและตรวจหลักฐาน', 'แปลงข้อมูลเทคนิคเป็นภาษาง่าย เช็กหลักฐาน ข้อจำกัด และความต่อเนื่อง'],
 ];
 
-function RolesPage() {
-  return <><PageHeading data={titles.roles} /><div className="role-grid">{teamRoles.map(([name, role, deliver], i) => <article className="role-card large" key={name}><div className="role-avatar">{i + 1}</div><div><strong>{name} · {role}</strong><small>ชิ้นงานที่ต้องส่ง</small><p>{deliver}</p></div></article>)}</div><div className="page-panel spaced"><div className="panel-title-row"><div><h2>ผู้ใช้และผู้เกี่ยวข้องที่ต้องร่วมยืนยัน</h2><p>กลุ่มด้านล่างเป็นผู้มีส่วนได้เสีย/ผู้ให้ข้อมูลใน Data Pack ไม่ได้ยืนยันความยินยอมเป็นผู้ทดสอบระบบ</p></div><Users size={16} /></div><div className="stakeholder-grid">{[['ผู้เลี้ยงปลาในกระชัง', 'ยืนยันโหลดที่จำเป็น ขั้นตอนเมื่อไฟตก/ดับ อุปกรณ์สำรองและผู้รับแจ้งเหตุ'], ['ประมงพื้นบ้าน / ผู้รู้พื้นที่', 'ช่วยตรวจบริบทอ่าวและการออกเรือ โดยไม่ใช้ข้อมูลแทนกันทุกกลุ่ม'], ['ศูนย์วิจัยประมง', 'ประสานข้อมูลตรวจน้ำ ค่า DO และตะกอนที่ทำต่อเนื่องอยู่แล้ว'], ['NECTEC', 'ตรวจความเชื่อมโยงกับระบบติดตามคุณภาพน้ำและการรับรองที่เอกสารระบุ'], ['กรมเจ้าท่า / องค์กรชุมชน', 'หารือแผนขุดลอกและข้อจำกัดการติดตั้ง/ดูแลในพื้นที่'], ['PTTEP / หน่วยงานสนับสนุน', 'ตรวจโครงการที่มีอยู่และเงื่อนไขการร่วมมือ โดยไม่สมมติว่าจะเป็นผู้สนับสนุนระบบ']].map(([name, desc]) => <div className="stakeholder" key={name}><strong>{name}</strong><p>{desc}</p></div>)}</div></div></>;
-}
+function RolesPage(){return <SiteRolesGuide/>;}
 
-function ProcessPage() {
-  const mode = useSimulator(s => s.mode), offline = useSimulator(s => s.nodeOffline), setScenario = useSimulator(s => s.setScenario);
-  const steps = [
-    ['01', 'รับข้อมูลที่มีอยู่', 'node_id, seq, timestamp, แรงดัน, current, load state และ last_seen · ตรวจคุณภาพ/อายุข้อมูล'],
-    ['02', 'จำแนกเหตุแยกกัน', 'ไฟตก/ดับจากสัญญาณไฟ; communication loss จาก last_seen; sensor fault แยกจากสถานะน้ำ'],
-    ['03', 'จัดลำดับโหลด', 'P0 > P1 > P2 > P3 ตาม policy; เมื่อพลังงานจำกัดตัด P3 ก่อน แล้วพิจารณา P2'],
-    ['04', 'สื่อสารเหตุและทางเลือก', 'บอกว่าเกิดที่ไหน เมื่อไร สถานะใด และแนะนำให้ผู้ดูแลตรวจสอบ; ไม่สั่งอุปกรณ์จริงในเดโม'],
-    ['05', 'ติดตามและฟื้นระบบ', 'บันทึก recovery แยกจากเหตุเดิม ตรวจข้อมูลใหม่ และทบทวนผลกระทบต่อผู้ใช้'],
-  ];
-  return <><PageHeading data={titles.process} /><div className="process-layout"><div className="process-steps">{steps.map(([n, title, desc], i) => <article className="process-step" key={n}><span>{n}</span><div><strong>{title}</strong><p>{desc}</p>{i < steps.length - 1 && <div className="step-connector" />}</div></article>)}</div><aside className="page-panel process-live"><div className="panel-title-row"><div><h2>ลองเดิน flow</h2><p>เปลี่ยนเหตุการณ์เพื่อดู state ระบบ</p></div><Activity size={16} /></div><div className="process-indicators"><div><span>ไฟหลัก</span><b className={mode === 'normal' ? 'green-text' : 'warn-text'}>{mode === 'normal' ? 'ปกติ' : mode === 'sag' ? 'แรงดันตก' : 'ดับ · จำลอง'}</b></div><div><span>การสื่อสาร</span><b className={offline ? 'warn-text' : 'green-text'}>{offline ? `${offline} ออฟไลน์` : 'รับข้อมูล'}</b></div><div><span>โหลดเรียงลำดับ</span><b>P0 → P1 → P2 → P3</b></div></div><div className="process-actions"><button className="control-btn" onClick={() => setScenario('sag')}>แรงดันตก</button><button className="control-btn danger" onClick={() => setScenario('outage')}>ไฟดับ</button><button className="control-btn" onClick={() => setScenario('offline')}>P2 Offline</button><button className="control-btn" onClick={() => setScenario('normal')}>คืนปกติ</button></div><div className="disclaimer"><Info size={13} />ในอุปกรณ์จริง ข้อความเตือนต้องระบุผู้รับผิดชอบและ action ที่อนุมัติ; UI นี้ยังไม่ส่งแจ้งเตือนออกนอกเบราว์เซอร์</div></aside></div><div className="page-panel spaced"><h2 className="simple-title">หลักการแยกสถานะ</h2><div className="state-compare"><div><b>Power state</b><span>แรงดัน / กระแส / source health → ไฟหลักปกติ, ตก, ดับ</span></div><div><b>Node connectivity</b><span>seq + last_seen → online, stale, offline</span></div><div><b>Sensor quality</b><span>range / CRC / calibration → valid, suspect, fault</span></div><div><b>Water condition</b><span>ค่าเซนเซอร์ที่ยืนยันแล้ว + เกณฑ์ผู้เชี่ยวชาญ → ไม่อนุมาน DO จากค่าความเค็ม</span></div></div></div></>;
-}
+function ProcessPage(){return <SiteProcessGuide/>;}
 
 function AssetProvenance() {
   return <section className="page-panel spaced"><div className="section-heading"><div><h2>วัสดุและที่มาของฉาก 3D</h2><p>โมเดลอุปกรณ์ใช้ประกอบภาพเพื่ออธิบายระบบ ยังไม่ใช่แบบจำลองที่สำรวจตำแหน่งจริง</p></div><a className="text-link" href={assetUrl('assets/ASSET_LICENSES.md')} target="_blank" rel="noreferrer">ตรวจสิทธิ์และต้นทาง<ArrowUpRight size={15} /></a></div><p className="source-ref">GLB ตู้ไฟและเครื่องกำเนิดไฟฟ้า, HDRI ท้องฟ้า, PBR ไม้/สังกะสี/ทราย ใช้ assets CC0 จาก Poly Haven ภาพภาคสนามมาจาก Data Pack ในโปรเจกต์เดิมและไม่มีการอ้างสิทธิ์ CC0 สำหรับภาพเหล่านั้น เครื่องกำเนิดไฟฟ้าและชุดโซลาร์ในฉากเป็นอุปกรณ์ประกอบแนวคิด ไม่ยืนยันว่าเป็นอุปกรณ์ที่ติดตั้งจริงในพื้นที่</p></section>;
@@ -285,20 +237,10 @@ function DocsPage() {
   </>;
 }
 
-function PresentationPage() {
-  const router = useRouter();
-  const setScenario = useSimulator(s => s.setScenario), mode = useSimulator(s => s.mode), next = useSimulator(s => s.setPage), setSelected = useSimulator(s => s.setSelectedNode);
-  const steps = [
-    ['1 · ปัญหาพื้นที่', 'เอกสารพื้นที่กล่าวถึงไฟตกบ่อย และอาชีพหลักคือการเลี้ยงปลาในกระชัง', 'solution', 'เปิดบริบท'],
-    ['2 · แนะนำระบบ', 'P0 เป็นศูนย์กลาง · P1 น้ำ/ไฟ · P2 โหลดจำเป็น · P3 โหลดทั่วไป', 'architecture', 'ดูสถาปัตยกรรม'],
-    ['3 · ทดลองเหตุไฟตก/ดับ', 'หยุดระบบเพื่อแสดงผลการจัดลำดับโหลดและแบตเตอรี่จำลอง', 'simulation', 'เปิด scenario'],
-    ['4 · ตรวจวงจร', 'ชี้เส้นทาง power และ data พร้อมบอกว่าพิกัด hardware ยังไม่ยืนยัน', 'circuit', 'เปิดวงจร'],
-    ['5 · ดูมอนิเตอร์และข้อจำกัด', 'แยกไฟดับกับ offline; ค่า DO unavailable; ทุกค่าทำจาก simulation', 'dashboard', 'เปิด dashboard'],
-  ];
-  return <><PageHeading data={titles.presentation} /><div className="presentation-layout"><div className="presentation-steps">{steps.map(([title, desc, route, label], i) => <article className="presentation-step" key={title}><span className="presentation-number">0{i + 1}</span><div><h2>{title}</h2><p>{desc}</p><button className="control-btn" onClick={() => { if (route === 'simulation') setScenario(mode === 'normal' ? 'outage' : 'normal'); if (i === 0) setSelected('P1'); next(route); router.push(`/${route}/`); }}>{label}<ChevronRight size={12} /></button></div></article>)}</div><aside className="page-panel demo-check"><div className="eyebrow">JUDGE VIEW</div><h2>ประโยคที่ควรพูดระหว่างเดโม</h2><blockquote>“ตัวเลขและเหตุการณ์ที่เห็นเป็นการจำลองในเบราว์เซอร์ ระบบยังไม่ได้เชื่อมต่อ hardware จริง ค่า salinity และอุณหภูมิไม่ได้แทน DO และผังวงจรยังต้องผ่านการตรวจสอบก่อนต่ออุปกรณ์จริง”</blockquote><button className="control-btn primary" onClick={() => { setScenario('normal'); router.push('/'); }}><RotateCcw size={13} />เริ่ม demo ใหม่</button></aside></div></>;
-}
+function PresentationPage(){return <SitePresentationGuide/>;}
 
 export default function Platform({ section }: { section: string }) {
+  useSimulator(s=>s.recoveryStage);
   const tick = useSimulator(s => s.step), setPage = useSimulator(s => s.setPage), minute = useSimulator(s => s.minute), running = useSimulator(s => s.running), toggle = useSimulator(s => s.toggleRunning), reset = useSimulator(s => s.reset);
   const menuRef = useRef<HTMLDialogElement>(null), reduceMotion = useReducedMotion();
   useEffect(() => { setPage(section); }, [section, setPage]);

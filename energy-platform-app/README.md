@@ -2,7 +2,7 @@
 
 Interactive engineering demonstrator for Ban Sala Hum. A cinematic coastal reconstruction and navy monitoring dashboard share one local deterministic simulation. It does not connect to sensors, relays, batteries, MQTT, databases, or community infrastructure.
 
-The village uses locally hosted PBR timber, metal and shoreline materials, a sky HDRI, detailed licensed equipment models, and authored boats, aquaculture cages and buildings informed by the supplied field photographs. The circuit lab adds physical component detail, shared 2D/3D nets and an exploded view. All eleven routes retain the project's engineering and team content.
+The village and original SVG site plan now use one image-relative layout for the fish-cage area near ท่าเรือลุงทอง, Ban Sala Hum. The village uses locally hosted PBR timber, metal and shoreline materials, a sky HDRI, detailed licensed equipment models, and authored boats, aquaculture cages and buildings informed by the supplied field photographs. The circuit lab adds physical component detail, shared 2D/3D nets and an exploded view. All eleven routes retain the project's engineering and team content.
 
 ## Run locally
 
@@ -27,11 +27,14 @@ pnpm export:github
 ## Navigation
 
 - `/` overview and 3D environment
-- `/explore/` community and P0–P3 nodes
-- `/simulation/` outage, voltage sag, low battery, offline node and sensor-fault scenarios
+- `/explore/` site plan, community edge, cage clusters, proposed P0–P3 nodes and water-transition view
+- `/simulation/` normal, voltage sag, outage, extended outage, critical/low battery, water change, offline, sensor fault and staged recovery
 - `/circuit/` 3D assembly, 2D schematic, power/signal flow and component inspector
 - `/dashboard/` charts, node states and JSON/CSV export
-- `/architecture/`, `/process/`, `/roles/`, `/solution/`, `/docs/`, `/presentation/`
+- `/process/` eleven sensing-to-recovery steps with live shared-state badges
+- `/roles/` five named team owners, deliverables and site-specific community responsibilities
+- `/presentation/` ten-stage judge walkthrough with chapter selection, keyboard navigation and route previews
+- `/architecture/`, `/solution/`, `/docs/`
 
 ## Use the demonstrator
 
@@ -39,7 +42,11 @@ Select a scenario from the command bar, then move between the village, circuit a
 
 The village can expand to the viewport. Press **Escape** or the minimize control to exit. **Balanced** is the default rendering quality; **High** enables additional desktop effects. Mobile uses a lower pixel ratio, wider camera framing and reduced effects. A WebGL fallback preserves access to the information and simulation controls.
 
-The dashboard shows primary-source voltage, battery state, stacked P0–P3 loads, salinity and temperature. A failed salinity sensor produces a missing chart sample and a blank CSV cell. Export JSON or CSV from the dashboard; both label the data as simulated.
+The dashboard shows primary-source voltage separately from backed-up load-bus voltage/current, battery state, stacked P0–P3 loads, salinity and temperature. A failed salinity sensor produces a missing chart sample and a blank CSV cell. Export JSON or CSV from the dashboard; both label the data as simulated.
+
+The site-plan coordinates are normalized to the supplied reference crop, not geographic survey coordinates. P0–P3 are **PROPOSED**; zones A/B/C are a monitoring concept. B/C have no installed instruments or invented readings. Visible water-color separation is an observation that requires measurement; it does not establish salinity, depth, flow direction or DO. Reference screenshots are not served as map tiles, textures or embedded maps.
+
+The presentation uses the shared simulator and remembers its stage within the current browser session. Use chapter buttons, **←/→**, **Home/End**, and preview controls. Outage and recovery actions preserve the event history. Its site-plan previews keep the presentation light without a second WebGL canvas.
 
 ## Assets and design references
 
@@ -48,7 +55,8 @@ The self-hosted 3D/texture/sky bundle and three field reference photographs tota
 - [`ASSET_LICENSES.md`](ASSET_LICENSES.md): sources, licenses, transformations and model limits.
 - [`public/assets/asset-manifest.json`](public/assets/asset-manifest.json): file-level provenance and byte sizes.
 - [`PRODUCT.md`](PRODUCT.md), [`DESIGN.md`](DESIGN.md) and [`.impeccable/design.json`](.impeccable/design.json): product commitments and the implemented visual system.
-- [`docs/visual-upgrade.md`](docs/visual-upgrade.md): changes, implementation evidence and the desktop/mobile verification matrix.
+- [`docs/visual-upgrade.md`](docs/visual-upgrade.md): the previous cinematic upgrade and its verification matrix.
+- [`docs/site-upgrade.md`](docs/site-upgrade.md): site grounding, scenario semantics, team/process/deck implementation and pending integration checks.
 
 ## Important boundaries
 

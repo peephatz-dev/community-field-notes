@@ -123,6 +123,8 @@ Desktop uses quiet fixed-width navigation, one top command bar, a large village/
 
 Mobile provides all routes through a native modal menu, five-item bottom navigation and reflowing controls. Wide schematics and tables scroll inside their own containers. Village cameras account for the actual canvas aspect ratio. The intended reading order and controls remain usable within the narrow viewport.
 
+The site composition follows the supplied image-relative trace near ท่าเรือลุงทอง: a narrow shoreline strip and road, waterfront structures, multiple piers, differently oriented cage runs and open-water gaps. The original vector site plan and reconstructed 3D environment share the layout. Retain a calm green inner-water surface, darker outer surface and feathered transition band; their visual contrast does not encode a measured salinity value.
+
 Overview/dashboard/simulation are operating surfaces. Explore/circuit combine experience and operation. Architecture/solution/process/roles/docs are reading surfaces. Presentation supports guided operation.
 
 ## Elevation & Depth
@@ -142,6 +144,12 @@ Buttons, the quality selector, navigation, status chips, metric panels and scene
 Smooth camera transitions and one electrical state transition convey causality. Reduced motion prevents automatic camera choreography and decorative animation. Sun and water conditions remain independent of grid state; outage affects equipment LEDs, worklights, data overlays and power flow. No per-frame React state or new vector allocations.
 
 Viewport expansion uses a dedicated exit control, Escape, focus handling and body-scroll restoration. Scroll storytelling has a manual override. Mobile quality uses a lower pixel ratio and reduced effects. Any failure to create WebGL has an informative fallback.
+
+### Site planning and judge walkthrough
+
+The site plan is original vector geometry rather than a screenshot or map tile. P0–P3 carry PROPOSED labels; B/C reference markers use conceptual/instrumentation labels. Observations, environmental interpretation, proposed placement and simulated telemetry must remain visually distinguishable.
+
+The presentation is a ten-stage interactive deck with direct chapter access, previous/next controls, progress and keyboard shortcuts. Its spatial previews reuse the lightweight site plan; route buttons reveal the full scene or circuit without adding another WebGL canvas. Live process badges and stakeholder guidance use the same simulation state and reading vocabulary.
 
 ### Monitoring
 

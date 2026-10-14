@@ -57,11 +57,16 @@ export function WaterChart() {
     <ResponsiveContainer width="100%" height="100%"><LineChart data={samples} margin={{ ...margins, left: -14, right: -14 }}>
       <CartesianGrid stroke={palette.grid} strokeDasharray="2 6" vertical={false} />
       <XAxis dataKey="minute" tickFormatter={n => `${n}m`} tick={tick} axisLine={false} tickLine={false} minTickGap={28} />
-      <YAxis yAxisId="salinity" domain={[23, 28]} tick={tick} axisLine={false} tickLine={false} />
+      <YAxis yAxisId="salinity" domain={[18, 31]} tick={tick} axisLine={false} tickLine={false} />
       <YAxis yAxisId="temperature" orientation="right" domain={[27, 31]} tick={tick} axisLine={false} tickLine={false} />
       <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#a9bdc9' }} labelFormatter={time} />
       <Line yAxisId="salinity" type="linear" dataKey="salinity" name="ความเค็ม · ppt" stroke={palette.teal} strokeWidth={2.4} dot={false} connectNulls={false} isAnimationActive={false} />
-      <Line yAxisId="temperature" type="linear" dataKey="temperature" name="อุณหภูมิ · °C" stroke={palette.amber} strokeDasharray="5 3" strokeWidth={2} dot={false} isAnimationActive={false} />
+      <Line yAxisId="temperature" type="linear" dataKey="temperature" name="อุณหภูมิ · °C" stroke={palette.amber} strokeDasharray="5 3" strokeWidth={2} dot={false} connectNulls={false} isAnimationActive={false} />
     </LineChart></ResponsiveContainer>
   </div><div className="chart-legend"><span><i style={{ background: palette.teal }} />ความเค็ม · แกนซ้าย (ppt)</span><span><i style={{ background: palette.amber }} />อุณหภูมิ · แกนขวา (°C)</span></div></>;
+}
+
+export function CurrentChart(){
+ const samples=useSimulator(s=>s.samples);
+ return <div className="chart-wrap" role="img" aria-label={'กราฟกระแสบัส DC จำลอง ค่าล่าสุด '+samples.at(-1)?.current.toFixed(1)+' แอมแปร์'}><ResponsiveContainer width="100%" height="100%"><LineChart data={samples} margin={margins}><CartesianGrid stroke={palette.grid} strokeDasharray="2 6" vertical={false}/><XAxis dataKey="minute" tick={tick} tickFormatter={n=>n+'m'} axisLine={false} tickLine={false}/><YAxis domain={[0,'auto']} tick={tick} axisLine={false} tickLine={false} unit=" A"/><Tooltip contentStyle={tooltipStyle} labelStyle={{color:palette.tick}} labelFormatter={time}/><Line type="stepAfter" dataKey="current" name="กระแสบัส DC · A" stroke={palette.blue} strokeWidth={2.4} dot={false} isAnimationActive={false}/></LineChart></ResponsiveContainer></div>;
 }

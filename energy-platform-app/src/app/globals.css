@@ -511,3 +511,178 @@ code { color: #98dbd2; overflow-wrap: anywhere; }
 .scene-webgl-fallback span, .scene-webgl-fallback small { max-width: 48ch; font-size: 13px; color: #aec7d2; }
 .chart-loading { height: 250px; margin-top: 18px; display: flex; align-items: center; justify-content: center; color: #b2c8d2; font-size: 13px; background: #102332; }
 .scene-card.scene-expanded { height: auto; min-height: 0; }
+
+/* Site-specific atlas and engineering documentary. */
+.site-experience { min-width: 0; }
+.site-scene { height: 790px; background: #132c38; }
+.site-scene.scene-large { height: 840px; }
+.site-scene .scene-place strong { font-size: 15px; }
+.site-scene .scene-place small { font-size: 12px; }
+.site-view-toolbar { position: absolute; z-index: 35; top: 78px; left: 16px; right: 16px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.site-view-toolbar button, .site-reference-controls button { min-height: 36px; border: 1px solid #466370; border-radius: 7px; background: #112b39; color: #dce9ed; padding: 6px 10px; font-size: 12px; cursor: pointer; }
+.site-view-toolbar [aria-pressed=true] { background: #28594f; border-color: #70c6b4; color: #e7fff6; }
+.site-view-toolbar [role=group] { display: flex; gap: 5px; }
+.site-opacity { display: flex; gap: 8px; align-items: center; font-size: 12px; color: #e5efeb; }
+.site-opacity input { width: 90px; accent-color: #67dcc6; }
+.site-scene-content { position: absolute; inset: 130px 0 125px; display: grid; grid-template-columns: 1fr; min-width: 0; }
+.site-compare .site-scene-content { grid-template-columns: minmax(0, .78fr) minmax(0, 1fr); }
+.site-scene .scene-canvas { position: relative; inset: auto; min-width: 0; width: 100%; height: 100%; overflow: hidden; }
+.site-comparison-reference { overflow: auto; min-width: 0; background: #0b202b; border-right: 1px solid #365362; padding: 14px; }
+.site-scene .scene-bottom { z-index: 35; left: 16px; right: 16px; bottom: 14px; }
+.site-scene .scene-camera-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.site-scene .camera-tabs { max-width: 100%; overflow-x: auto; flex-wrap: nowrap; }
+.site-scene .camera-tabs button { min-height: 40px; padding: 8px 11px; font-size: 12px; flex-shrink: 0; }
+.site-scene .scene-help { margin-top: 9px; font-size: 11px; }
+.site-scene .quality-control select { font-size: 12px; }
+.node-proposed { display: block; font-size: 9px; color: #b7dcd0; font-style: normal; font-weight: 500; margin: 3px 0; }
+.proposal-label { display: inline-flex; margin-left: 5px; font-size: 11px; color: #c5e2da; border: 1px dashed #5d998c; border-radius: 5px; padding: 3px 5px; font-weight: 500; }
+.site-source-strip { display: flex; flex-wrap: wrap; gap: 8px 25px; color: #a9bdc9; font-size: 12px; line-height: 1.7; padding: 13px 2px 4px; }
+.site-landmark-tag, .site-reference-tag { padding: 8px 11px; font: inherit; font-size: 12px; max-width: 190px; border: 1px solid #749397; border-radius: 7px; color: #eff9f5; background: #102b35ed; box-shadow: 0 5px 18px #0005; cursor: pointer; }
+.site-reference-tag { border-style: dashed; display: grid; gap: 3px; font-size: 11px; }
+.site-reference-controls { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 13px; }
+.site-reference-controls label { position: relative; overflow: hidden; font-size: 12px; cursor: pointer; }
+.site-reference-controls input { position: absolute; opacity: 0; inset: 0; width: 100%; cursor: pointer; }
+.site-reference-controls label:focus-within { outline: 2px solid #67dcc6; outline-offset: 3px; }
+.site-private-image { margin: 0; }
+.site-private-image img { width: 100%; height: auto; display: block; }
+.site-private-image figcaption, .site-reference-note { font-size: 12px; color: #b6c9d0; line-height: 1.7; margin-top: 10px; }
+.site-reference-note a { text-decoration: underline; color: #8fe4ce; }
+.site-documentary { margin: 0 0 20px; padding: 24px; background: #102332; border-radius: 14px; }
+.site-documentary-head, .site-water-heading, .site-plan-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }
+.site-documentary h2, .site-water-heading h2 { margin: 0; font-size: 19px; }
+.site-documentary p, .site-water-heading p { margin: 7px 0 0; font-size: 13px; color: #b7cbd3; }
+.site-tour-steps { margin: 20px 0; display: flex; gap: 6px; overflow: auto; padding-bottom: 7px; }
+.site-tour-steps button { display: flex; gap: 8px; align-items: center; flex-shrink: 0; text-align: left; min-height: 45px; padding: 8px 12px; border-radius: 8px; background: #132c3b; border: 1px solid #35515e; font-size: 12px; color: #cfdee5; cursor: pointer; }
+.site-tour-steps button.active { background: #24564e; border-color: #64bda8; }
+.site-tour-steps span { color: #8de6ce; font-size: 14px; }
+.site-tour-current { display: grid; grid-template-columns: 48px 1fr auto; gap: 15px; align-items: start; }
+.site-tour-current > span { color: #80cbbc; font-size: 15px; padding-top: 3px; }
+.site-tour-current h3 { margin: 0; font-size: 17px; }
+.site-tour-current p { max-width: 76ch; line-height: 1.8; }
+.site-tour-current > div:last-child { display: flex; gap: 7px; }
+.site-plan { margin: 0; width: 100%; min-width: 0; }
+.site-plan-heading { margin-bottom: 12px; }
+.site-plan-heading strong, .site-plan-heading h3 { font-size: 15px; margin: 0; }
+.site-plan-heading p { color: #b5cbd0; font-size: 12px; margin: 4px 0; }
+.site-plan-badge { font-size: 11px; padding: 4px 7px; border: 1px dashed #648681; color: #b4d7cb; white-space: nowrap; }
+.site-plan-stage { height: 440px; background: #173b36; border-radius: 8px; overflow: hidden; }
+.site-plan-svg { display: block; width: 100%; height: 100%; }
+.site-plan-node { cursor: pointer; outline: none; }
+.site-plan-node:focus-visible > circle:first-of-type { stroke: #ffffff; stroke-width: 5; }
+.site-plan-node-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 12px; }
+.site-plan-node-control { display: grid; gap: 4px; padding: 10px; text-align: left; min-height: 52px; border: 1px solid #3f5e6b; background: #132f3e; color: #dbeaec; border-radius: 7px; cursor: pointer; font-size: 12px; }
+.site-plan-node-control.is-selected { border-color: #65c9b2; background: #245348; }
+.site-plan-node-control span { font-size: 11px; color: #b5d4cb; }
+.site-plan-legend { display: flex; flex-wrap: wrap; gap: 9px 15px; margin: 14px 0; font-size: 12px; color: #b5cad3; }
+.site-plan-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.site-plan-legend i { width: 10px; height: 10px; border-radius: 2px; }
+.site-plan-landmarks { display: flex; flex-wrap: wrap; gap: 6px; }
+.site-plan-landmarks button { min-height: 36px; padding: 7px 9px; border: 1px solid #446171; border-radius: 6px; background: #142f3d; color: #c5dce2; font-size: 12px; cursor: pointer; }
+.site-plan-caption { color: #b0c8cf; font-size: 12px; line-height: 1.8; margin: 12px 0 0; }
+.site-water-panel { background: #102332; padding: 23px; margin-top: 22px; border-radius: 14px; }
+.site-water-heading { margin-bottom: 18px; }
+.site-water-heading .status-pill { flex-shrink: 0; }
+.site-water-zones { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+.site-water-zone { min-width: 0; border-top: 1px solid #375a62; padding-top: 15px; }
+.site-water-zone-title { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; }
+.site-water-zone-title strong { font-size: 15px; }
+.site-water-zone-title span { font-size: 11px; color: #bbd7cc; }
+.site-water-zone p { font-size: 13px; color: #b8ced5; line-height: 1.8; margin-top: 8px; }
+.site-water-readings { margin: 14px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.site-water-readings dt { color: #a9c1cb; font-size: 12px; }
+.site-water-readings dd { margin: 4px 0 0; color: #e0efeb; font-size: 19px; font-variant-numeric: tabular-nums; }
+.site-water-quality, .site-water-no-data { font-size: 12px; color: #99c9b5; line-height: 1.7; }
+.site-water-quality.is-warning { color: #f0c484; }
+.site-water-caveat { display: flex; gap: 18px; justify-content: space-between; align-items: start; margin-top: 20px; padding-top: 14px; border-top: 1px solid #2d4c59; font-size: 12px; line-height: 1.8; color: #bcd0d8; }
+.site-water-caveat a { color: #91dfcf; white-space: nowrap; text-decoration: underline; }
+.site-system-summary { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 20px; font-size: 13px; color: #b9ccd5; }
+.site-guide { width: 100%; min-width: 0; }
+.guide-heading { margin-bottom: 25px; }
+.guide-heading h1 { font-size: 28px; margin: 0 0 9px; }
+.guide-heading p { font-size: 14px; color: #afc6d0; max-width: 76ch; line-height: 1.8; }
+.guide-eyebrow { display: none; }
+.guide-role-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.guide-role-card, .guide-community-card { padding: 23px; background: #102332; border-radius: 14px; }
+.guide-person { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; font-size: 21px; color: #87dec7; }
+.guide-person small { font-size: 12px; color: #bbced6; }
+.guide-role-card h3, .guide-community-card h3 { font-size: 17px; margin: 0 0 10px; }
+.guide-role-duty, .guide-role-deliverable, .guide-handoff { font-size: 13px; color: #bbced6; line-height: 1.9; margin: 10px 0; }
+.guide-role-deliverable strong, .guide-handoff strong { display: block; color: #e1ede9; }
+.guide-community-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.guide-community-card p { color: #b8ced5; font-size: 13px; line-height: 1.85; }
+.guide-process-layout { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap: 25px; align-items: start; }
+.guide-process-list { list-style: none; padding: 0; margin: 0; }
+.guide-process-step { display: grid; grid-template-columns: 38px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid #2b4658; }
+.guide-step-number { display: grid; place-items: center; height: 32px; border: 1px solid #4a6b6c; border-radius: 6px; color: #96dcc8; font-size: 13px; }
+.guide-step-body h3 { margin: 0 0 7px; font-size: 17px; }
+.guide-step-body p, .guide-note { margin: 0; font-size: 13px; line-height: 1.9; color: #bad0d7; }
+.guide-live-status { padding: 22px; background: #102332; border-radius: 14px; }
+.guide-live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+.guide-live-reading { display: grid; gap: 5px; font-size: 12px; color: #b2cad3; }
+.guide-live-reading strong { color: #e3f0ea; font-size: 21px; }
+.guide-node-status { display: grid; gap: 9px; margin-top: 14px; }
+.guide-node-status > div { padding: 11px 0; border-top: 1px solid #2b4858; font-size: 13px; color: #bdd4db; }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.guide-note { margin-top: 18px; }
+.guide-deck-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 15px; margin-bottom: 16px; }
+.guide-deck-progress { flex: 1; min-width: 140px; height: 4px; background: #233e4e; border-radius: 4px; overflow: hidden; }
+.guide-deck-progress > span { display: block; height: 100%; background: #67dcc6; }
+.guide-deck-layout { display: grid; grid-template-columns: 240px minmax(0,1fr); gap: 22px; }
+.guide-deck-chapters { display: grid; gap: 5px; align-content: start; }
+.guide-deck-chapter { display: flex; align-items: start; gap: 10px; text-align: left; padding: 12px; min-height: 44px; color: #c2d7df; background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; font-size: 13px; }
+.guide-deck-chapter[aria-current=step], .guide-deck-chapter.active { background: #21493f; border-color: #599d89; }
+.guide-deck-body { padding: 25px; background: #102332; border-radius: 14px; min-width: 0; }
+.guide-deck-body h2 { font-size: 23px; margin: 0 0 12px; }
+.guide-deck-stage { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1fr); gap: 25px; margin-top: 24px; }
+.guide-deck-stage-copy { min-width: 0; font-size: 14px; color: #bdd2d9; line-height: 1.9; }
+.guide-deck-stage .site-plan-stage { height: 415px; }
+.guide-deck-controls { display: flex; gap: 10px; justify-content: space-between; margin-top: 22px; }
+.guide-benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.guide-benefit-card { padding: 18px; border-top: 1px solid #355660; font-size: 14px; color: #bdd0d5; line-height: 1.9; }
+.guide-live-compact { margin-top: 18px; }
+@media(max-width:1300px) { .site-view-toolbar { top: 83px; } .site-scene-content { top: 161px; } .site-scene { height: 840px; } .guide-role-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:900px) { .site-water-zones { grid-template-columns: 1fr; gap: 18px; } .guide-process-layout, .guide-deck-layout { grid-template-columns: 1fr; } .guide-deck-chapters { display: flex; overflow-x: auto; padding-bottom: 8px; } .guide-deck-chapter { flex-shrink: 0; max-width: 210px; } .site-compare .site-scene-content { grid-template-columns: 1fr 1fr; } }
+@media(max-width:600px) {
+ .site-scene, .site-scene.scene-large { height: 780px; }
+ .site-scene .scene-place { max-width: 66%; }
+ .site-scene .scene-place strong { font-size: 13px; line-height: 1.5; }
+ .site-scene .scene-place small { font-size: 11px; white-space: normal; }
+ .site-scene .scene-tools .scene-status { display: none; }
+ .site-view-toolbar { top: 86px; left: 10px; right: 10px; gap: 6px; }
+ .site-view-toolbar button { min-height: 36px; padding: 7px 8px; font-size: 11px; }
+ .site-scene-content { inset: 181px 0 134px; }
+ .site-compare .site-scene-content { grid-template-columns: 1fr; grid-template-rows: minmax(0,1fr) minmax(0,1.2fr); }
+ .site-compare { height: 1120px !important; }
+ .site-compare.scene-expanded { height: auto !important; }
+ .site-comparison-reference { border-right: 0; border-bottom: 1px solid #365362; padding: 12px; }
+ .site-comparison-reference .site-plan-stage { height: 310px; }
+ .site-scene .scene-bottom { left: 10px; right: 10px; bottom: 12px; }
+ .site-scene .scene-camera-row { display: grid; grid-template-columns: 1fr 36px; gap: 7px; }
+ .site-scene .camera-tabs { grid-column: 1 / -1; width: 100%; }
+ .site-scene .scene-help { font-size: 10px; line-height: 1.5; }
+ .site-scene .scene-help span:last-child { display: none; }
+ .site-documentary, .site-water-panel, .guide-deck-body { padding: 18px; }
+ .site-documentary-head { display: block; }
+ .site-documentary-head .control-btn { margin-top: 14px; }
+ .site-tour-current { grid-template-columns: 35px 1fr; gap: 10px; }
+ .site-tour-current > div:last-child { grid-column: 2; }
+ .site-water-caveat { display: block; }
+ .site-water-caveat a { display: inline-block; margin-top: 8px; }
+ .site-plan-heading { flex-wrap: wrap; }
+ .site-plan-stage { height: 490px; }
+ .guide-role-grid, .guide-community-grid, .guide-deck-stage, .guide-benefit-grid { grid-template-columns: 1fr; }
+ .guide-heading h1 { font-size: 25px; }
+ .guide-deck-stage .site-plan-stage { height: 460px; }
+ .site-source-strip { font-size: 11px; }
+}
+.site-plan-only .site-scene-content { grid-template-columns: 1fr; bottom: 70px; }
+.site-plan-only .site-comparison-reference { border-right: 0; }
+.site-plan-only .site-comparison-reference .site-plan { max-width: 760px; margin: 0 auto; }
+.site-plan-only .scene-camera-row { display: none; }
+.site-water-heading h3 { font-size: 19px; margin: 0; }
+.site-water-zone-title h4 { font-size: 15px; margin: 0; }
+.site-water-no-data { display: grid; gap: 9px; }
+.site-water-zone > small { display: block; margin-top: 8px; font-size: 11px; color: #a9c1cb; }
+.site-water-caveat > strong { min-width: 140px; max-width: 21ch; color: #d2e8dd; }
+.site-water-caveat > p { margin: 0; }
+.site-scene.scene-expanded { height: auto !important; min-height: 0; }

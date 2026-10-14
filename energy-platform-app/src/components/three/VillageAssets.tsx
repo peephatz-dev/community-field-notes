@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { BASE_PATH } from '@/lib/urls';
 
 export const villageAsset = (path: string) => `${BASE_PATH}/assets/${path}`;
-export type Placement = { position: [number, number, number]; scale?: [number, number, number]; rotation?: [number, number, number] };
+export type Placement = { position: [number, number, number]; scale?: [number, number, number]; rotation?: [number, number, number]; color?: string };
 export type VillageMaterials = Record<'wood' | 'darkWood' | 'roof' | 'sand' | 'steel' | 'paint' | 'rubber' | 'net' | 'blue' | 'leaf' | 'leafLight' | 'glass' | 'concrete', THREE.MeshStandardMaterial>;
 
 export function useVillageMaterials(textured = false): VillageMaterials {
@@ -60,17 +60,24 @@ export function TextureMaterials({ children }: { children: (materials: VillageMa
 export function RepeatedParts({ geometry, material, items, castShadow = true }: { geometry: THREE.BufferGeometry; material: THREE.Material; items: Placement[]; castShadow?: boolean }) {
   const ref = useRef<THREE.InstancedMesh>(null);
   const transform = useMemo(() => new THREE.Object3D(), []);
+  const color = useMemo(() => new THREE.Color(), []);
   useEffect(() => {
     const mesh = ref.current;
     if (!mesh) return;
+    const tinted = items.some(item => !!item.color);
     items.forEach((item, index) => {
       transform.position.set(...item.position);
       transform.rotation.set(...(item.rotation ?? [0, 0, 0]));
       transform.scale.set(...(item.scale ?? [1, 1, 1]));
       transform.updateMatrix(); mesh.setMatrixAt(index, transform.matrix);
+      // An instanceColor attribute defaults to black. Populate all entries when
+      // any item is tinted, so uncolored neighbors retain the base material.
+      if(tinted) mesh.setColorAt(index,color.set(item.color??'#ffffff'));
     });
-    mesh.instanceMatrix.needsUpdate = true; mesh.computeBoundingSphere();
-  }, [items, transform]);
+    mesh.instanceMatrix.needsUpdate = true;
+    if(mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+    mesh.computeBoundingSphere();
+  }, [items, transform, color]);
   return <instancedMesh ref={ref} args={[geometry, material, items.length]} castShadow={castShadow} receiveShadow dispose={null} />;
 }
 
