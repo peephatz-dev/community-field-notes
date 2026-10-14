@@ -1,0 +1,50 @@
+{
+  "MAIN_POWER_OUTAGE": {
+    "dialogueId": "outage",
+    "soundId": "notify-critical",
+    "severity": "critical",
+    "mascotAsset": "/powerguard/mascot/seabass-critical.svg"
+  },
+  "VOLTAGE_SAG_DETECTED": {
+    "dialogueId": "sag",
+    "soundId": "notify-warning",
+    "severity": "warning",
+    "mascotAsset": "/powerguard/mascot/seabass-warning.svg"
+  },
+  "BACKUP_POWER_ENGAGED": {
+    "dialogueId": "backup",
+    "soundId": "backup-engaged",
+    "severity": "success",
+    "mascotAsset": "/powerguard/mascot/seabass-success.svg"
+  },
+  "BATTERY_LOW": {
+    "dialogueId": "low_battery",
+    "soundId": "battery-low",
+    "severity": "warning",
+    "mascotAsset": "/powerguard/mascot/seabass-warning.svg"
+  },
+  "SOURCE_RESTORED": {
+    "dialogueId": "restored",
+    "soundId": "notify-restored",
+    "severity": "success",
+    "mascotAsset": "/powerguard/mascot/seabass-success.svg"
+  },
+  "NODE_OFFLINE": {
+    "dialogueId": "offline",
+    "soundId": "notify-warning",
+    "severity": "warning",
+    "mascotAsset": "/powerguard/mascot/seabass-thinking.svg"
+  },
+  "SENSOR_FAULT": {
+    "dialogueId": "unknown",
+    "soundId": "notify-warning",
+    "severity": "warning",
+    "mascotAsset": "/powerguard/mascot/seabass-thinking.svg"
+  },
+  "POWER_NORMAL": {
+    "dialogueId": "normal",
+    "soundId": "notify-info",
+    "severity": "info",
+    "mascotAsset": "/powerguard/mascot/seabass-happy.svg"
+  }
+}

@@ -1,4 +1,4 @@
-# Community Energy Resilience Platform
+# SALA HUM POWERGUARD
 
 <!-- impeccable:product-schema 1 -->
 
@@ -16,7 +16,7 @@ Demonstrate P0–P3 energy prioritization, monitoring, fault classification and 
 
 ## Operating Context
 
-Hackathon team planning, engineering discussion and guided presentation. Source evidence is the community Data Package and team summary. The app has eleven content routes and runs as a static Next.js export on the existing GitHub Pages site.
+Hackathon team planning, engineering discussion and guided presentation. Source evidence is the community Data Package and team summary. The app has nineteen content routes and runs as a static Next.js export on the existing GitHub Pages site.
 
 ## Capabilities and Constraints
 
@@ -24,7 +24,7 @@ Interactive village, original SVG site plan and circuit scenes; normal/sag/outag
 
 ## Brand Commitments
 
-User-requested Cinematic Coastal Industrial Digital Twin: premium dark navy control center, marine teal accents, minimalist readable typography, realistic materials, local field references, cinematic outage feedback and complete mobile/desktop operation.
+Latest user-requested Asset Pack v2: light iOS-style rounded community interface, authentic ปลากะพงสามน้ำ SVG mascot, short Thai copy and brand.json colors. Community-facing labels omit P0–P3. Engineer Mode preserves the coastal digital twin, technical identifiers, circuits, charts and full project content. Physical water and field-reference boundaries remain unchanged.
 
 ## Evidence on Hand
 
@@ -48,3 +48,11 @@ User-requested Cinematic Coastal Industrial Digital Twin: premium dark navy cont
 ## Named Delivery Owners
 
 นาย — architecture and overview; โฟล์ค — sensors, circuits and electrical safety; พี — data/dashboard/charts/alerts; บอส — communication/messages/state; ข้าวฟ่าง — documentation/validation/explanation. The shared field-validation work establishes actual users, loads, approved actions and installation locations before claiming readiness.
+
+## Environmental extension
+
+A three-box illustrative mixing engine, synthetic weather, independent tide cycle, assumed bathymetry, depth/clearance inspection and layer controls share the energy clock. No local forecasts or measured depths are claimed. The environmental page starts with lightweight SVG; 3D loads on request. Balanced rendering uses capped DPR and 1024-pixel shadows, with higher quality optional.
+
+## Community operation
+
+Eight primary destinations expose status, devices, community illustration, notifications, backup plans, history and next steps. Audio and Thai speech require explicit interaction; ambience is synthesized. Local reports and resolution notes remain in browser storage, not delivered to authorities. The same simulator drives both modes and genuine event notifications. Critical notice records are retained; backup sizing uses labelled assumptions and user-supplied prices. All data is trial data until actual hardware and a validated integration exist.

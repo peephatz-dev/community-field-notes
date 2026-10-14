@@ -47,3 +47,7 @@ Total assets in this manifest: **4.32 MB**, including the three field reference 
 - IBM Plex Sans Thai (IBM Corp.), provided through `@fontsource/ibm-plex-sans-thai` 5.3.0, [SIL Open Font License 1.1](https://github.com/google/fonts/tree/main/ofl/ibmplexsansthai).
 
 Fonts are bundled by Next.js and served from the same origin. Complete OFL notices ship in `public/assets/licenses/`.
+
+## PowerGuard Asset Pack v2
+
+The user supplied 115 original vector/raster/audio assets in SalaHum_SeaBass_Codex_Assets_v2 and requested their use. Copied public/powerguard only; preview and reference sheets are excluded. Mascots/scenes/icons/VFX use the supplied vector SVG files. Audio is programmatically synthesized, not site recordings or sampled voices; its manifest identifies source, formats, duration and volume. These supplied assets are not labelled CC0. Inventory: public/powerguard/ASSET_MANIFEST.json. Thai speech uses available browser/OS TTS after a user action; no recorded voice asset is provided.

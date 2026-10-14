@@ -1,0 +1,35 @@
+{
+  "name": "SALA HUM POWERGUARD",
+  "mascot": "ปลากะพงสามน้ำ",
+  "locale": "th-TH",
+  "brandColors": {
+    "yellow": "#F8C642",
+    "orange": "#FF7A3C",
+    "blue": "#2F7DD3",
+    "sky": "#5EC6E8",
+    "navy": "#1F2D5A",
+    "green": "#26B99A",
+    "red": "#EF5A5A",
+    "white": "#FFFFFF",
+    "soft": "#E9F7FC",
+    "ink": "#16294B"
+  },
+  "tagline": null,
+  "preferredCopyStyle": "ไทยสั้น เข้าใจง่าย ไม่ใช้คำขวัญ",
+  "assetRoot": "/powerguard",
+  "modeLabels": {
+    "demo": "ข้อมูลทดลอง",
+    "live": "ข้อมูลจริง",
+    "offline": "ไม่ได้เชื่อมต่อ"
+  },
+  "copy": {
+    "powerOk": "ไฟปกติ",
+    "powerOut": "ไฟดับ",
+    "voltageLow": "ไฟตก",
+    "batteryLow": "แบตใกล้หมด",
+    "backup": "ใช้ไฟสำรอง",
+    "equipmentOk": "เครื่องทำงานปกติ",
+    "acknowledge": "รับทราบ",
+    "details": "ดูรายละเอียด"
+  }
+}

@@ -4,10 +4,11 @@ import { useEffect, useMemo } from 'react';
 import * as THREE from 'three';
 import { RepeatedParts, type Placement, type VillageMaterials } from './VillageAssets';
 import { SITE_LAYOUT, SITE_WIDTH, footprintCorners, siteToWorld, type SiteFootprint } from '@/lib/site-layout';
+import { VERTICAL_SCALE, WATER_DATUM } from '@/lib/environment-model';
 
 type XZ = [number, number];
 type Footprint = { center: XZ; length: number; width: number; yaw: number };
-type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; items: Placement[]; castShadow?: boolean };
+type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; items: Placement[]; castShadow?: boolean; floating?:boolean };
 
 const yawFromDirection = (dx: number, dz: number) => Math.atan2(-dz, dx);
 const localPoint = (frame: Footprint, x: number, z: number, y = 0): [number,number,number] => [frame.center[0] + Math.cos(frame.yaw)*x + Math.sin(frame.yaw)*z, y, frame.center[1] - Math.sin(frame.yaw)*x + Math.cos(frame.yaw)*z];
@@ -117,10 +118,14 @@ export type SiteEnvironmentProps = {
   quality?:'balanced'|'high';
   reducedMotion?:boolean;
   householdLightsOn?:boolean;
+  /** World-space lift derived from the independent synthetic tide model. */
+  waterOffset?:number;
+  /** Representative synthetic net depth, assumed metres rather than surveyed dimensions. */
+  cageDepth?:number;
 };
 
 /** Placement is entirely image-relative shared trace; vertical dimensions remain reconstruction choices. */
-export function SiteEnvironment({materials,mobile=false,quality='balanced',householdLightsOn=true}:SiteEnvironmentProps) {
+export function SiteEnvironment({materials,mobile=false,quality='balanced',householdLightsOn=true,waterOffset=0,cageDepth=2.2}:SiteEnvironmentProps) {
   const detail=mobile?'balanced':quality;
   const resources=useMemo(()=>{
     const unit=new THREE.BoxGeometry(1,1,1),plane=new THREE.PlaneGeometry(1,1),post=new THREE.CylinderGeometry(1,1,1,8),barrel=new THREE.CylinderGeometry(1,1,1,12);
@@ -142,20 +147,22 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
   const site=useMemo(()=>{
     const batches:Batch[]=[];
     const cageBeams:Placement[]=[],cagePosts:Placement[]=[],floatDrums:Placement[]=[],netWalls:Placement[]=[],netBottom:Placement[]=[];
+    const depth=Math.min(6,Math.max(.2,Number.isFinite(cageDepth)?cageDepth:2.2))*VERTICAL_SCALE;
+    const netHeight=.185+depth,netCenter=.07-netHeight/2,netFloor=WATER_DATUM-depth;
     SITE_LAYOUT.cageCells.forEach((cell,index)=>{
       const frame=tracedFrame(cell),{length,width,yaw}=frame;
       for(const side of [-1,1]){
         cageBeams.push({position:localPoint(frame,0,side*width/2,.07),rotation:[0,yaw,0],scale:[length,.065,.072]});
         cageBeams.push({position:localPoint(frame,side*length/2,0,.07),rotation:[0,yaw,0],scale:[.072,.065,width]});
-        netWalls.push({position:localPoint(frame,0,side*width/2,-.3),rotation:[0,yaw,0],scale:[length,.72,1]});
-        netWalls.push({position:localPoint(frame,side*length/2,0,-.3),rotation:[0,yaw+Math.PI/2,0],scale:[width,.72,1]});
+        netWalls.push({position:localPoint(frame,0,side*width/2,netCenter),rotation:[0,yaw,0],scale:[length,netHeight,1]});
+        netWalls.push({position:localPoint(frame,side*length/2,0,netCenter),rotation:[0,yaw+Math.PI/2,0],scale:[width,netHeight,1]});
         for(const end of [-1,1])cagePosts.push({position:localPoint(frame,end*length/2,side*width/2,.27),scale:[.026,.55,.026]});
         // Barrel floats sit on alternating divisions; duplication is a reconstruction detail, not a verified quantity.
         if(index%2===0)floatDrums.push({position:localPoint(frame,0,side*width*.5,-.11),rotation:[Math.PI/2,yaw,0],scale:[.13,.43,.13],color:index%4?'#3c7286':'#8e9e96'});
       }
-      if(!mobile)netBottom.push({position:localPoint(frame,0,0,-.66),rotation:[-Math.PI/2,0,yaw],scale:[length,width,1]});
+      netBottom.push({position:localPoint(frame,0,0,netFloor),rotation:[-Math.PI/2,0,yaw],scale:[length,width,1]});
     });
-    batches.push({geometry:resources.unit,material:materials.darkWood,items:cageBeams},{geometry:resources.post,material:materials.darkWood,items:cagePosts},{geometry:resources.barrel,material:materials.blue,items:floatDrums,castShadow:false},{geometry:resources.plane,material:resources.netMaterial,items:netWalls,castShadow:false},{geometry:resources.plane,material:resources.netMaterial,items:netBottom,castShadow:false});
+    batches.push({geometry:resources.unit,material:materials.darkWood,items:cageBeams,floating:true},{geometry:resources.post,material:materials.darkWood,items:cagePosts,floating:true},{geometry:resources.barrel,material:materials.blue,items:floatDrums,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netWalls,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netBottom,castShadow:false,floating:true});
 
     const dockBoards:Placement[]=[],dockSupports:Placement[]=[],dockBeams:Placement[]=[];
     SITE_LAYOUT.piers.forEach(pier=>{const points=pier.points.map(point=>worldXZ(...point)),width=pier.width*SITE_WIDTH;
@@ -195,7 +202,7 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
       boatEngines.push({position:localPoint(frame,frame.length*.32,0,.23),rotation:[0,frame.yaw,0],scale:[.18,.19,.2]});
       boatBuckets.push({position:localPoint(frame,-frame.length*.15,frame.width*.15,.21),scale:[.065,.14,.065]});
     });
-    batches.push({geometry:resources.hull,material:resources.hullMaterial,items:boatHulls},{geometry:resources.gunwales[0],material:materials.darkWood,items:gunwales},{geometry:resources.gunwales[1],material:materials.darkWood,items:gunwales},{geometry:resources.unit,material:materials.wood,items:benches},{geometry:resources.unit,material:materials.rubber,items:boatEngines},{geometry:resources.barrel,material:materials.paint,items:boatBuckets});
+    batches.push({geometry:resources.hull,material:resources.hullMaterial,items:boatHulls,floating:true},{geometry:resources.gunwales[0],material:materials.darkWood,items:gunwales,floating:true},{geometry:resources.gunwales[1],material:materials.darkWood,items:gunwales,floating:true},{geometry:resources.unit,material:materials.wood,items:benches,floating:true},{geometry:resources.unit,material:materials.rubber,items:boatEngines,floating:true},{geometry:resources.barrel,material:materials.paint,items:boatBuckets,floating:true});
 
     const trunks:Placement[]=[],fronds:Placement[]=[],canopies:Placement[]=[];
     const offsets=[[-.32,-.28],[.24,-.18],[-.18,.28],[.33,.24],[0,0]];
@@ -215,7 +222,7 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
     });
     const moorings=new THREE.BufferGeometry();moorings.setAttribute('position',new THREE.Float32BufferAttribute(mooringPositions,3));
     return {batches,windows,land:polygonGeometry(SITE_LAYOUT.land.map(point=>worldXZ(...point))),roads:SITE_LAYOUT.roads.map(road=>ribbonGeometry(road.points.map(point=>worldXZ(...point)),road.width*SITE_WIDTH)),moorings};
-  },[resources,materials,mobile,detail]);
+  },[resources,materials,mobile,detail,cageDepth]);
 
   const windowMaterial=useMemo(()=>new THREE.MeshStandardMaterial({color:householdLightsOn?'#9b9c7e':'#203934',emissive:householdLightsOn?'#b79e67':'#000000',emissiveIntensity:householdLightsOn?.25:0,roughness:.28}),[householdLightsOn]);
   useEffect(()=>()=>windowMaterial.dispose(),[windowMaterial]);
@@ -225,8 +232,8 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
   return <group name="REFERENCE_TRACED_SITE_ENVIRONMENT">
     <mesh geometry={site.land} material={resources.bankMaterial} position={[0,.01,0]} receiveShadow/>
     {site.roads.map((geometry,index)=><mesh key={index} geometry={geometry} material={resources.roadMaterial} position={[0,.035,0]} receiveShadow/>)}
-    {site.batches.filter(batch=>batch.items.length).map((batch,index)=><RepeatedParts key={index} {...batch}/>)}
+    {site.batches.filter(batch=>batch.items.length).map((batch,index)=><group key={index} position={[0,batch.floating?waterOffset:0,0]}><RepeatedParts {...batch}/></group>)}
     <RepeatedParts geometry={resources.plane} material={windowMaterial} items={site.windows} castShadow={false}/>
-    <lineSegments geometry={site.moorings}><lineBasicMaterial color="#5d7268" transparent opacity={.58}/></lineSegments>
+    <lineSegments geometry={site.moorings} position={[0,waterOffset,0]}><lineBasicMaterial color="#5d7268" transparent opacity={.58}/></lineSegments>
   </group>;
 }

@@ -1,0 +1,67 @@
+{
+  "hello": {
+    "text": "สวัสดี เรามาดูไฟกัน",
+    "tone": "friendly",
+    "mascot": "seabass-hello.svg"
+  },
+  "normal": {
+    "text": "ตอนนี้ไฟปกติดี",
+    "tone": "calm",
+    "mascot": "seabass-happy.svg"
+  },
+  "sag": {
+    "text": "ไฟตกแล้วนะ ลองดูรายละเอียด",
+    "tone": "warning",
+    "mascot": "seabass-warning.svg"
+  },
+  "outage": {
+    "text": "ไฟดับ! กำลังเช็กไฟสำรอง",
+    "tone": "critical",
+    "mascot": "seabass-critical.svg"
+  },
+  "backup": {
+    "text": "ไฟสำรองทำงานแล้ว",
+    "tone": "success",
+    "mascot": "seabass-success.svg"
+  },
+  "low_battery": {
+    "text": "แบตใกล้หมดแล้ว",
+    "tone": "warning",
+    "mascot": "seabass-warning.svg"
+  },
+  "restored": {
+    "text": "ไฟกลับมาแล้ว",
+    "tone": "success",
+    "mascot": "seabass-success.svg"
+  },
+  "offline": {
+    "text": "อุปกรณ์ขาดการเชื่อมต่อ",
+    "tone": "warning",
+    "mascot": "seabass-thinking.svg"
+  },
+  "unknown": {
+    "text": "ข้อมูลยังไม่พอ ขอเช็กก่อน",
+    "tone": "neutral",
+    "mascot": "seabass-thinking.svg"
+  },
+  "planner": {
+    "text": "ลองเลือกเครื่องที่จะสำรองไฟ",
+    "tone": "friendly",
+    "mascot": "seabass-monitor.svg"
+  },
+  "roadmap": {
+    "text": "เริ่มจากจุดเล็ก ๆ ก่อน",
+    "tone": "friendly",
+    "mascot": "seabass-hello.svg"
+  },
+  "demo": {
+    "text": "นี่คือข้อมูลทดลองนะ",
+    "tone": "info",
+    "mascot": "seabass-speak.svg"
+  },
+  "real": {
+    "text": "นี่คือข้อมูลจากอุปกรณ์จริง",
+    "tone": "info",
+    "mascot": "seabass-monitor.svg"
+  }
+}

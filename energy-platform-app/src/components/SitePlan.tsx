@@ -13,7 +13,7 @@ const px = (point:SitePoint):[number,number] => [point[0] * W, point[1] * H];
 const points = (list:readonly SitePoint[]) => list.map(point => px(point).map(n => n.toFixed(2)).join(',')).join(' ');
 const linePath = (list:readonly SitePoint[]) => list.map((point,i) => `${i ? 'L' : 'M'}${px(point).join(' ')}`).join(' ');
 const roofColors:Record<string,string> = { metal:'#96a4a1', pale:'#c6c7ae', red:'#ae7768', blue:'#789eb2' };
-const nodeColors:Record<SiteNodeId,string> = {P0:'#eebd76',P1:'#67dcc6',P2:'#8baee2',P3:'#b2bcc4'};
+const nodeColors:Record<SiteNodeId,string> = {P0:'#FBC642',P1:'#5EC6E8',P2:'#2F7DD3',P3:'#FF7A3C'};
 const nodeIds:SiteNodeId[] = ['P0','P1','P2','P3'];
 
 export type SitePlanProps = {

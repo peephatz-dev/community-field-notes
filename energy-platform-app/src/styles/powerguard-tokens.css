@@ -1,0 +1,7 @@
+/* SALA HUM POWERGUARD – friendly rounded Thai community UI */
+:root{--pg-yellow:#F8C642;--pg-orange:#FF7A3C;--pg-blue:#2F7DD3;--pg-sky:#5EC6E8;--pg-navy:#1F2D5A;--pg-success:#26B99A;--pg-danger:#EF5A5A;--pg-bg:#F6FBFF;--pg-card:#FFFFFF;--pg-text:#1F2D5A;--pg-muted:#657A91;--pg-radius-sm:14px;--pg-radius-md:22px;--pg-radius-lg:30px;--pg-shadow:0 14px 38px rgb(31 45 90 / 9%);font-family:"Noto Sans Thai",system-ui,sans-serif;color:var(--pg-text);}
+.pg-card{border-radius:var(--pg-radius-lg);background:var(--pg-card);box-shadow:var(--pg-shadow);border:1px solid #e6f0f6;}
+.pg-button{border-radius:999px;background:var(--pg-blue);color:white;padding:10px 18px;font-weight:700;}
+.pg-bubble{border-radius:22px 22px 22px 4px;background:#e9f7fc;padding:12px 16px;color:var(--pg-navy);}
+.pg-status-ok{color:#168B70}.pg-status-warning{color:#BD7400}.pg-status-critical{color:#D53946}
+@media (prefers-reduced-motion:reduce){.pg-animated,.pg-rain,.pg-wave,.pg-spark,.pg-bubble-float{animation:none!important}}

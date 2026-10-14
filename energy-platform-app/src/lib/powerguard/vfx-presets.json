@@ -1,0 +1,32 @@
+{
+  "rain": {
+    "asset": "/powerguard/vfx/rain-drop.svg",
+    "className": "pg-rain",
+    "sound": "rain-light",
+    "reducedMotionFallback": true
+  },
+  "heavy_rain": {
+    "asset": "/powerguard/vfx/rain-drop.svg",
+    "className": "pg-rain",
+    "sound": "rain-heavy",
+    "reducedMotionFallback": true
+  },
+  "wave": {
+    "asset": "/powerguard/vfx/wave.svg",
+    "className": "pg-wave",
+    "sound": "ocean-waves",
+    "reducedMotionFallback": true
+  },
+  "power_warning": {
+    "asset": "/powerguard/vfx/spark.svg",
+    "className": "pg-spark",
+    "sound": "notify-warning",
+    "reducedMotionFallback": true
+  },
+  "bubble": {
+    "asset": "/powerguard/vfx/bubble.svg",
+    "className": "pg-bubble-float",
+    "sound": null,
+    "reducedMotionFallback": true
+  }
+}

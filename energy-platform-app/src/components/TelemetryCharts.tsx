@@ -3,9 +3,9 @@
 import { Area, AreaChart, CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { useSimulator } from '@/store/simulator';
 
-const palette = { grid: '#274252', tick: '#a9bdc9', teal: '#67dcc6', amber: '#eebd76', blue: '#8baee2', quiet: '#879dac' };
+const palette = { grid: '#D9E7F2', tick: '#657A91', teal: '#5EC6E8', amber: '#F8C642', blue: '#2F7DD3', quiet: '#9CB1D3' };
 const tick = { fontSize: 11, fill: palette.tick };
-const tooltipStyle = { background: '#102332', border: '1px solid #416475', color: '#e5edf1', borderRadius: 10, fontSize: 13, padding: '12px 16px' };
+const tooltipStyle = { background: '#FFFFFF', border: '1px solid #D9E7F2', color: '#1F2D5A', borderRadius: 10, fontSize: 13, padding: '12px 16px' };
 const margins = { top: 14, right: 14, bottom: 4, left: -12 };
 const time = (n: unknown) => `เวลาจำลอง T+${n} นาที`;
 
@@ -16,8 +16,8 @@ export function PowerChart() {
       <CartesianGrid stroke={palette.grid} strokeDasharray="2 6" vertical={false} />
       <XAxis dataKey="minute" tickFormatter={n => `${n}m`} tick={tick} axisLine={false} tickLine={false} minTickGap={28} />
       <YAxis domain={[0, 14]} tick={tick} ticks={[0, 4, 8, 12]} axisLine={false} tickLine={false} unit=" V" />
-      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#a9bdc9' }} labelFormatter={time} cursor={{ stroke: '#60879b' }} />
-      <ReferenceLine y={12} stroke="#47646f" strokeDasharray="4 6" />
+      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#657A91' }} labelFormatter={time} cursor={{ stroke: '#5E83BE' }} />
+      <ReferenceLine y={12} stroke="#596F97" strokeDasharray="4 6" />
       <Line type="stepAfter" dataKey="voltage" name="แรงดันไฟหลัก · V" stroke={palette.teal} strokeWidth={2.4} dot={false} isAnimationActive={false} />
     </LineChart></ResponsiveContainer>
   </div>;
@@ -31,8 +31,8 @@ export function BatteryChart() {
       <CartesianGrid stroke={palette.grid} strokeDasharray="2 6" vertical={false} />
       <XAxis dataKey="minute" tickFormatter={n => `${n}m`} tick={tick} axisLine={false} tickLine={false} minTickGap={28} />
       <YAxis domain={[0, 100]} tick={tick} ticks={[0, 28, 60, 100]} axisLine={false} tickLine={false} unit="%" />
-      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#a9bdc9' }} labelFormatter={time} />
-      <ReferenceLine y={28} stroke="#ba8666" strokeDasharray="4 6" />
+      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#657A91' }} labelFormatter={time} />
+      <ReferenceLine y={28} stroke="#FF7A3C" strokeDasharray="4 6" />
       <Area type="linear" dataKey="battery" name="พลังงานสำรอง · %" stroke={palette.amber} fill="url(#battery-fill)" strokeWidth={2.4} isAnimationActive={false} />
     </AreaChart></ResponsiveContainer>
   </div>;
@@ -45,7 +45,7 @@ export function LoadChart() {
       <CartesianGrid stroke={palette.grid} strokeDasharray="2 6" vertical={false} />
       <XAxis dataKey="minute" tickFormatter={n => `${n}m`} tick={tick} axisLine={false} tickLine={false} minTickGap={28} />
       <YAxis domain={[0, 500]} tick={tick} axisLine={false} tickLine={false} unit=" W" />
-      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#a9bdc9' }} labelFormatter={time} />
+      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#657A91' }} labelFormatter={time} />
       {([['p0', 'P0 · ควบคุม', palette.blue], ['p1', 'P1 · วิกฤต', palette.teal], ['p2', 'P2 · จำเป็น', palette.amber], ['p3', 'P3 · ทั่วไป', palette.quiet]] as const).map(([key, name, color]) => <Area key={key} type="stepAfter" dataKey={key} name={name} stackId="load" stroke={color} fill={color} fillOpacity={.24} strokeWidth={1.5} isAnimationActive={false} />)}
     </AreaChart></ResponsiveContainer>
   </div><div className="chart-legend"><span><i style={{ background: palette.blue }} />P0 ควบคุม</span><span><i style={{ background: palette.teal }} />P1 วิกฤต</span><span><i style={{ background: palette.amber }} />P2 จำเป็น</span><span><i style={{ background: palette.quiet }} />P3 ทั่วไป</span></div></>;
@@ -59,7 +59,7 @@ export function WaterChart() {
       <XAxis dataKey="minute" tickFormatter={n => `${n}m`} tick={tick} axisLine={false} tickLine={false} minTickGap={28} />
       <YAxis yAxisId="salinity" domain={[18, 31]} tick={tick} axisLine={false} tickLine={false} />
       <YAxis yAxisId="temperature" orientation="right" domain={[27, 31]} tick={tick} axisLine={false} tickLine={false} />
-      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#a9bdc9' }} labelFormatter={time} />
+      <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: '#657A91' }} labelFormatter={time} />
       <Line yAxisId="salinity" type="linear" dataKey="salinity" name="ความเค็ม · ppt" stroke={palette.teal} strokeWidth={2.4} dot={false} connectNulls={false} isAnimationActive={false} />
       <Line yAxisId="temperature" type="linear" dataKey="temperature" name="อุณหภูมิ · °C" stroke={palette.amber} strokeDasharray="5 3" strokeWidth={2} dot={false} connectNulls={false} isAnimationActive={false} />
     </LineChart></ResponsiveContainer>

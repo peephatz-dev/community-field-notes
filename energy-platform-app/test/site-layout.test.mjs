@@ -67,6 +67,8 @@ test('observed water colors and conceptual comparison markers carry no measureme
 test('public media remain declared licensed/data-pack assets rather than a deployed site screenshot or map tile', async () => {
   const publicRoot = new URL('../public/', import.meta.url), manifest = JSON.parse(await readFile(new URL('assets/asset-manifest.json', publicRoot), 'utf8'));
   const declared = new Set(manifest.map(asset => `assets/${asset.path}`));
+  const powerguard=JSON.parse(await readFile(new URL('powerguard/ASSET_MANIFEST.json',publicRoot),'utf8'));
+  powerguard.assets.forEach(asset=>declared.add(asset.path.replace(/^\//,'')));
   async function files(directory) {
     const entries = await readdir(directory, { withFileTypes: true });
     const nested = await Promise.all(entries.map(entry => entry.isDirectory() ? files(new URL(`${entry.name}/`, directory)) : [new URL(entry.name, directory)]));

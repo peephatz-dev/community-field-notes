@@ -1,0 +1,5 @@
+:HL["/community-field-notes/energy-platform/_next/static/chunks/3urc-o31-4g6o.css","style"]
+:HC["/",""]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"roadmap","h":96,"c":"$Q2"}]]
+0:{"b":"pRKBwTIxqc9Q5tofYZpoh","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img"><rect width="512" height="512" rx="120" fill="#2F7DD3"/><circle cx="256" cy="238" r="218" fill="#5EC6E8" opacity=".37"/><svg x="36" y="15" width="440" height="440" viewBox="0 0 512 512"><defs>
+ <linearGradient id="fish" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#FAFCFF"/><stop offset=".6" stop-color="#DDE8E9"/><stop offset="1" stop-color="#A2B6BB"/></linearGradient>
+ <linearGradient id="cap" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#47B5FA"/><stop offset="1" stop-color="#1765BE"/></linearGradient>
+ <linearGradient id="vest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3099EA"/><stop offset="1" stop-color="#1266BA"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1F2D5A" flood-opacity=".17"/></filter>
+ </defs><g filter="url(#shadow)">
+ <ellipse cx="263" cy="457" rx="137" ry="15" fill="#2F7DD3" opacity=".15"/>
+ <!-- tail: unmistakable fish anatomy -->
+ <path d="M179 298 Q122 273 94 220 Q100 295 121 330 Q91 374 91 427 Q138 409 177 378" fill="#9CB4BB" stroke="#1F2D5A" stroke-width="9" stroke-linejoin="round"/>
+ <path d="M157 291 Q112 285 102 244 M150 367 Q124 383 109 403" fill="none" stroke="#607F93" stroke-width="6" stroke-linecap="round"/>
+ <!-- dorsal fin: sea bass detail -->
+ <path d="M155 192 L147 144 L173 167 L175 111 L208 151 L225 103 L247 147 L271 101 L293 159 L315 133 L342 187" fill="#7F9DA7" stroke="#1F2D5A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M164 169 L178 183 M208 153 L220 180 M249 151 L250 177 M288 155 L281 184" stroke="#5C808F" stroke-width="5"/>
+ <!-- full fish body -->
+ <path d="M176 179 Q213 136 280 143 Q360 142 382 206 Q408 258 371 319 Q360 388 326 422 Q272 460 209 412 Q143 356 148 273 Q140 223 176 179Z" fill="url(#fish)" stroke="#1F2D5A" stroke-width="9" stroke-linejoin="round"/>
+ <!-- scale texture, simple dots -->
+ <g fill="#8098A1" opacity=".62"><circle cx="182" cy="239" r="4"/><circle cx="173" cy="266" r="5"/><circle cx="181" cy="292" r="3"/><circle cx="188" cy="319" r="5"/><circle cx="196" cy="343" r="3"/><circle cx="207" cy="226" r="3"/><circle cx="208" cy="302" r="4"/><circle cx="218" cy="367" r="3"/><circle cx="354" cy="245" r="3"/><circle cx="361" cy="279" r="4"/></g>
+ <!-- lower fins and feet -->
+ <path d="M237 386 Q217 422 194 427 Q185 450 220 452 Q255 457 264 423" fill="#8AAAB5" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M310 390 Q316 421 350 432 Q357 455 326 455 Q290 451 284 427" fill="#8AAAB5" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <!-- vest -->
+ <path d="M216 297 Q270 318 348 291 L353 388 Q303 420 221 391Z" fill="url(#vest)" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M264 306 L267 402" stroke="#E6F8FF" stroke-width="6"/>
+ <path d="M235 352 h24 v29 h-24z M283 351 h24 v30 h-24z" fill="#1E5EAB" stroke="#98DBFF" stroke-width="3" stroke-linejoin="round"/>
+ <path d="M301 326 L293 346 H305 L298 367 L322 339 H310 L316 327Z" fill="#F8C642" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+ <!-- side arms / pectoral fins -->
+ <path d="M219 320 Q167 302 152 339 Q154 362 194 370 L228 353" fill="#B2C8CD" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M339 319 Q382 279 400 311 Q416 340 359 369" fill="#B2C8CD" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <!-- friendly face patch -->
+ <path d="M211 172 Q256 151 310 164 Q353 172 361 212 Q364 271 324 295 Q264 323 217 292 Q183 269 185 224 Q186 188 211 172Z" fill="#FAFEFC" opacity=".78"/>
+ <g fill="#142B4A"><ellipse cx="242" cy="191" rx="13" ry="20"/><ellipse cx="319" cy="190" rx="13" ry="20"/></g><g fill="#FFF"><circle cx="245" cy="182" r="5"/><circle cx="322" cy="182" r="5"/></g>
+ <circle cx="209" cy="232" r="14" fill="#FFB4A0" opacity=".62"/><circle cx="354" cy="232" r="12" fill="#FFB4A0" opacity=".62"/>
+ <path d="M272 218 Q292 208 313 219" stroke="#586F7B" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <path d="M262 236 Q290 281 322 232 Q292 249 262 236Z" fill="#852B41" stroke="#1A344D" stroke-width="6" stroke-linejoin="round"/><path d="M279 260 Q290 251 304 258" stroke="#FF8BA1" stroke-width="8" stroke-linecap="round"/>
+ <!-- hat -->
+ <path d="M180 172 Q173 113 220 90 Q277 57 339 91 Q368 110 361 157Z" fill="url(#cap)" stroke="#1F2D5A" stroke-width="9" stroke-linejoin="round"/>
+ <path d="M190 169 Q285 140 375 159 Q380 178 361 187 Q264 169 188 187Z" fill="#1A6FC7" stroke="#1F2D5A" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M274 104 L258 134 H275 L265 154 L305 120 H287 L301 104Z" fill="#F8C642" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+ </g></svg></svg>

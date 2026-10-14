@@ -1,0 +1,8 @@
+/* SVG asset based light-weight VFX; apply selectively, never convey status only through movement */
+@keyframes pg-rain-fall{from{transform:translate3d(0,-35px,0);opacity:0}15%{opacity:.7}to{transform:translate3d(-30px,180px,0);opacity:0}}
+@keyframes pg-wave-sway{0%,100%{transform:translateX(-4%)}50%{transform:translateX(4%)}}
+@keyframes pg-spark-blink{0%,100%{opacity:.4;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes pg-bubble-rise{from{transform:translateY(24px) scale(.8);opacity:0}30%{opacity:.6}to{transform:translateY(-46px) scale(1.1);opacity:0}}
+@keyframes pg-mouth-talk{0%,100%{transform:scaleY(.62)}50%{transform:scaleY(1.14)}}
+.pg-rain{animation:pg-rain-fall 1.5s linear infinite;pointer-events:none}.pg-wave{animation:pg-wave-sway 4.4s ease-in-out infinite;pointer-events:none}.pg-spark{animation:pg-spark-blink 1s ease-in-out infinite;transform-origin:center;pointer-events:none}.pg-bubble-float{animation:pg-bubble-rise 3.4s ease-out infinite;pointer-events:none}.pg-mascot-speaking{animation:pg-spark-blink .32s ease-in-out infinite;transform-origin:50% 80%}
+@media(prefers-reduced-motion:reduce){.pg-rain,.pg-wave,.pg-spark,.pg-bubble-float,.pg-mascot-speaking{animation:none!important}}

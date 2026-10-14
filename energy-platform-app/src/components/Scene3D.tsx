@@ -11,9 +11,13 @@ import { LicensedModel, TextureMaterials, useVillageMaterials, villageAsset, typ
 import { SiteEnvironment } from './three/SiteEnvironment';
 import { SiteWater } from './three/VillageWater';
 import { SiteLayers } from './three/SiteLayers';
+import { EnvironmentalScene } from './three/EnvironmentalScene';
+import { environmentReadout, VERTICAL_SCALE, type EnvironmentState } from '@/lib/environment-model';
+import { useSimulator } from '@/store/simulator';
 import { SpatialHtml as Html } from './three/SpatialHtml';
 
 export type SceneProps = {
+ environment?:EnvironmentState; minute?:number; running?:boolean; playbackSpeed?:number;
  mode:GridMode; batterySoc:number; offline:NodeId|null; selectedNode:NodeId; selectNode:(id:NodeId)=>void;
  cameraMode:string; quality?:'balanced'|'high'; reducedMotion?:boolean; recoveryStage?:0|1|2;
  sensorFault?:boolean; waterShift?:boolean; cameraReset?:number;
@@ -70,7 +74,7 @@ function CameraRig({cameraMode,reducedMotion,reset=0}:{cameraMode:string;reduced
  });
  return <><PerspectiveCamera makeDefault={!top} position={PRESETS.aerial.position} fov={43} near={.08} far={400}/><OrthographicCamera makeDefault={top} position={PRESETS.top.position} up={[0,0,-1]} zoom={zoom} near={.1} far={350}/><OrbitControls ref={controls} makeDefault enableRotate={!top} enableDamping dampingFactor={.08} onStart={()=>{moving.current=false;}} minDistance={2} maxDistance={220} minZoom={.3} maxZoom={18} maxPolarAngle={top?Math.PI:Math.PI*.487} minPolarAngle={top?0:.02} target={center}/></>;
 }
-function PowerStream({from,to,active,reducedMotion,color='#69dcca'}:{from:[number,number,number];to:[number,number,number];active:boolean;reducedMotion:boolean;color?:string}){
+function PowerStream({from,to,active,reducedMotion,color='#5EC6E8'}:{from:[number,number,number];to:[number,number,number];active:boolean;reducedMotion:boolean;color?:string}){
  const mesh=useRef<THREE.Mesh>(null);
  const curve=useMemo(()=>{const a=new THREE.Vector3(...from),b=new THREE.Vector3(...to);return new THREE.CatmullRomCurve3([a,a.clone().lerp(b,.5).add(new THREE.Vector3(0,2.2,0)),b]);},[from[0],from[1],from[2],to[0],to[1],to[2]]);
  const points=useMemo(()=>curve.getPoints(32),[curve]);
@@ -83,7 +87,7 @@ function FallbackCabinet({ materials }: { materials:VillageMaterials }) {
 
 function NodeEquipment({ id, position, selected, active, offline, selectNode, materials, mode, batterySoc, sensorFault=false, waterShift=false }: { id:NodeId;position:[number,number,number];selected:boolean;active:boolean;offline:boolean;selectNode:(id:NodeId)=>void;materials:VillageMaterials;mode:GridMode;batterySoc:number;sensorFault?:boolean;waterShift?:boolean }) {
   const node = NODE_DEFINITIONS.find(n=>n.id===id)!;
-  const color = !active ? '#b9a485' : id==='P1'&&(sensorFault||waterShift)?'#e8b873':mode === 'outage' ? '#e4b468' : '#68d7b7';
+  const color = !active ? '#FF7A3C' : id==='P1'&&(sensorFault||waterShift)?'#FBC642':mode === 'outage' ? '#FBC642' : '#5EC6E8';
   const [hovered,setHovered] = useState(false);
   const isReserve = mode==='outage'&&active;
   const labelOffset:Record<NodeId,[number,number]>={P0:[24,35],P1:[8,-35],P2:[12,-50],P3:[38,20]};
@@ -98,8 +102,8 @@ function NodeEquipment({ id, position, selected, active, offline, selectNode, ma
       <mesh position={[.25,1.18,.07]} material={materials.rubber}><cylinderGeometry args={[.014,.019,.37,8]}/></mesh>
       {[-.16,.16].map(x=><mesh key={x} position={[x,.09,.04]} material={materials.rubber}><cylinderGeometry args={[.025,.025,.13,8]}/></mesh>)}
     </group>
-    <mesh rotation={[-Math.PI/2,0,0]} position={[0,.028,0]}><ringGeometry args={[.53,selected?.564:.539,48]}/><meshBasicMaterial color={selected||hovered?'#8be4d0':'#6aa399'} transparent opacity={selected? .75:.25} toneMapped={false}/></mesh>
-    <Html position={[0,1.45,0]} center  zIndexRange={[20,0]}><div style={{position:'relative'}}><svg aria-hidden="true" width="160" height="130" viewBox="-80 -65 160 130" style={{position:'absolute',left:'50%',top:'50%',transform:'translate(-50%, -50%)',overflow:'visible',pointerEvents:'none'}}><line x1="0" y1="0" x2={labelX} y2={labelY} stroke={selected?'#a5dfcf':'#a2b6b6'} strokeWidth="1" opacity=".7"/><circle cx="0" cy="0" r="2" fill={color}/></svg><button className={`scene-node-tag ${selected?'selected':''}`} style={{transform:`translate(${labelX}px, ${labelY}px)`,minWidth:selected||hovered?96:76,minHeight:44,padding:selected||hovered?'7px 10px':'5px 7px',fontSize:selected||hovered?13:11}} aria-pressed={selected} aria-label={`${id} PROPOSED ${node.name} · ${active?'มีไฟ':'ตัดโหลด'} · ${offline?'ข้อมูลออฟไลน์':'ส่งข้อมูล'}`} onClick={()=>selectNode(id)} onFocus={()=>setHovered(true)} onBlur={()=>setHovered(false)} title={`${node.name} — ${node.description}`}><span>{id}</span><i className="node-proposed">PROPOSED</i><small style={{fontSize:selected||hovered?9:8}}>{id==='P1'&&active&&sensorFault?'SENSOR FAULT':id==='P1'&&active&&waterShift?'WATER DEMO':active?isReserve?'BACKUP':selected||hovered?'POWER ON':'ON':'SHED'}{offline?' · NO DATA':''}</small>{(selected||hovered)&&<em style={{display:'block',fontStyle:'normal',fontSize:'10px',marginTop:'4px',opacity:.85,whiteSpace:'normal',maxWidth:'126px'}}>{node.name}</em>}</button></div></Html>
+    <mesh rotation={[-Math.PI/2,0,0]} position={[0,.028,0]}><ringGeometry args={[.53,selected?.564:.539,48]}/><meshBasicMaterial color={selected||hovered?'#5EC6E8':'#2F7DD3'} transparent opacity={selected? .75:.25} toneMapped={false}/></mesh>
+    <Html position={[0,1.45,0]} center  zIndexRange={[20,0]}><div style={{position:'relative'}}><svg aria-hidden="true" width="160" height="130" viewBox="-80 -65 160 130" style={{position:'absolute',left:'50%',top:'50%',transform:'translate(-50%, -50%)',overflow:'visible',pointerEvents:'none'}}><line x1="0" y1="0" x2={labelX} y2={labelY} stroke={selected?'#5EC6E8':'#a2b6b6'} strokeWidth="1" opacity=".7"/><circle cx="0" cy="0" r="2" fill={color}/></svg><button className={`scene-node-tag ${selected?'selected':''}`} style={{transform:`translate(${labelX}px, ${labelY}px)`,minWidth:selected||hovered?96:76,minHeight:44,padding:selected||hovered?'7px 10px':'5px 7px',fontSize:selected||hovered?13:11}} aria-pressed={selected} aria-label={`${id} PROPOSED ${node.name} · ${active?'มีไฟ':'ตัดโหลด'} · ${offline?'ข้อมูลออฟไลน์':active?'สื่อสารจำลองพร้อม':'โหลดหยุด'}`} onClick={()=>selectNode(id)} onFocus={()=>setHovered(true)} onBlur={()=>setHovered(false)} title={`${node.name} — ${node.description}`}><span>{id}</span><i className="node-proposed">PROPOSED</i><small style={{fontSize:selected||hovered?9:8}}>{id==='P1'&&active&&sensorFault?'SENSOR FAULT':id==='P1'&&active&&waterShift?'WATER DEMO':active?isReserve?'BACKUP':selected||hovered?'POWER ON':'ON':'SHED'}{offline?' · NO DATA':''}</small>{(selected||hovered)&&<em style={{display:'block',fontStyle:'normal',fontSize:'10px',marginTop:'4px',opacity:.85,whiteSpace:'normal',maxWidth:'126px'}}>{node.name}</em>}</button></div></Html>
     {id==='P1'&&<group position={[.72,0,.1]}><mesh position={[0,.4,0]} material={materials.steel}><cylinderGeometry args={[.018,.024,1.4,12]}/></mesh><RoundedBox position={[0,.94,0]} args={[.18,.24,.14]} radius={.02} smoothness={3} material={materials.paint}/><mesh position={[0,-.29,0]} material={materials.steel}><cylinderGeometry args={[.045,.035,.35,16]}/></mesh><mesh position={[.17,-.25,0]} material={materials.rubber}><cylinderGeometry args={[.035,.035,.28,12]}/></mesh></group>}
     {id==='P0'&&<group position={[.8,0,.12]}><RoundedBox args={[.48,.57,.34]} radius={.03} smoothness={2} position={[0,.3,0]} material={materials.rubber} castShadow/>{[-.13,.13].map(x=><mesh key={x} position={[x,.6,0]} material={materials.steel}><cylinderGeometry args={[.026,.026,.065,8]}/></mesh>)}<mesh position={[0,.35,-.179]}><planeGeometry args={[.31,.24]}/><meshStandardMaterial color="#d1cba9" roughness={.75}/></mesh><mesh position={[0,.49,-.185]}><planeGeometry args={[.26,.024]}/><meshStandardMaterial color="#4d8675" emissive="#5faa85" emissiveIntensity={batterySoc*.6}/></mesh></group>}
   </group>;
@@ -108,10 +112,13 @@ function NodeEquipment({ id, position, selected, active, offline, selectNode, ma
 
 function SiteWorld({materials,...props}:SceneProps&{materials:VillageMaterials;mobile:boolean}){
  const nodeOn=(id:NodeId)=>activeLoad(id,props.mode,props.batterySoc,props.offline,props.recoveryStage??2);
- const height=(id:NodeId):[number,number,number]=>{const p=CANDIDATE_NODES[id].position;return [p[0],p[1]+.65,p[2]];};
- return <><SiteWater reducedMotion={props.reducedMotion} mobile={props.mobile} quality={props.quality}/><SiteEnvironment materials={materials} mobile={props.mobile} quality={props.quality} reducedMotion={props.reducedMotion} householdLightsOn={nodeOn('P3')}/>
- {NODE_DEFINITIONS.map(node=><NodeEquipment key={node.id} id={node.id} position={CANDIDATE_NODES[node.id].position} selected={props.selectedNode===node.id} active={nodeOn(node.id)} offline={props.offline===node.id} selectNode={props.selectNode} materials={materials} mode={props.mode} batterySoc={props.batterySoc} sensorFault={props.sensorFault} waterShift={props.waterShift}/>)}
- {props.showTopology&&(['P1','P2','P3'] as NodeId[]).map(id=><PowerStream key={id} from={height('P0')} to={height(id)} active={nodeOn(id)} reducedMotion={!!props.reducedMotion} color={props.mode==='outage'?'#edbd78':id==='P1'?'#6de0c4':id==='P2'?'#9fbfeb':'#b5c6c2'}/>)}
+ const waterOffset=props.environment?environmentReadout(props.environment,props.minute??0).waterLevel*VERTICAL_SCALE:0;
+ const point=(id:NodeId):[number,number,number]=>{const p=CANDIDATE_NODES[id].position;return [p[0],p[1]+(id==='P1'?waterOffset:0),p[2]];};
+ const height=(id:NodeId):[number,number,number]=>{const p=point(id);return [p[0],p[1]+.65,p[2]];};
+ return <><SiteWater reducedMotion={props.reducedMotion} mobile={props.mobile} quality={props.quality} environment={props.environment} minute={props.minute} running={props.running} playbackSpeed={props.playbackSpeed} onInspect={uv=>useSimulator.getState().setEnvironmentView({inspectPoint:uv})}/><SiteEnvironment materials={materials} mobile={props.mobile} quality={props.quality} reducedMotion={props.reducedMotion} householdLightsOn={nodeOn('P3')} waterOffset={waterOffset} cageDepth={props.environment?.cageDepth??2.2}/>
+ {props.environment&&<EnvironmentalScene environment={props.environment} minute={props.minute??0} running={props.running??true} playbackSpeed={props.playbackSpeed??1} mobile={props.mobile} reducedMotion={!!props.reducedMotion}/>}
+ {NODE_DEFINITIONS.map(node=><NodeEquipment key={node.id} id={node.id} position={point(node.id)} selected={props.selectedNode===node.id} active={nodeOn(node.id)} offline={props.offline===node.id} selectNode={props.selectNode} materials={materials} mode={props.mode} batterySoc={props.batterySoc} sensorFault={props.sensorFault} waterShift={props.waterShift}/>)}
+ {props.showTopology&&(['P1','P2','P3'] as NodeId[]).map(id=><PowerStream key={id} from={height('P0')} to={height(id)} active={nodeOn(id)} reducedMotion={!!props.reducedMotion} color={props.mode==='outage'?'#FBC642':id==='P1'?'#5EC6E8':id==='P2'?'#2F7DD3':'#FF7A3C'}/>)}
  <SiteLayers overlay={!!props.showOverlay} opacity={props.overlayOpacity??.6} landmarks={!!props.showLandmarks} zones={!!props.showZones} onCameraSelect={props.onCameraSelect}/>
  </>;
 }
@@ -119,10 +126,15 @@ function FallbackWorld(props:SceneProps&{mobile:boolean}){const materials=useVil
 function RenderScene(props:SceneProps&{mobile:boolean;degraded:boolean;onContextLoss:()=>void;onDecline:()=>void}){
  const {gl,scene}=useThree();
  useEffect(()=>{const canvas=gl.domElement;const lost=(event:Event)=>{event.preventDefault();props.onContextLoss();};canvas.addEventListener('webglcontextlost',lost);return()=>canvas.removeEventListener('webglcontextlost',lost);},[gl,props.onContextLoss]);
- useEffect(()=>{scene.fog=new THREE.Fog('#adbdba',85,240);scene.background=new THREE.Color('#adbdba');return()=>{scene.fog=null;};},[scene]);
+ const readout=props.environment?environmentReadout(props.environment,props.minute??0):null;
+ const cloud=readout?.weather.cloud??0,irradiance=readout?.weather.irradiance??950,hour=readout?.timeOfDay??11;
+ const daylight=Math.max(0,Math.sin((hour-6)/12*Math.PI));
+ const skyColor=daylight<.08?'#17203b':cloud>.6?'#81949c':'#adbdc8';
+ useEffect(()=>{scene.fog=new THREE.Fog(skyColor,cloud>.7?50:85,cloud>.7?170:240);scene.background=new THREE.Color(skyColor);return()=>{scene.fog=null;};},[scene,skyColor,cloud>.7]);
  const post=props.quality==='high'&&!props.mobile&&!props.degraded;
- return <><hemisphereLight args={['#d1e0dd','#756953',.75]}/><ambientLight intensity={.1}/><directionalLight color="#fff0d3" position={[-45,65,-25]} intensity={3} castShadow shadow-mapSize={[props.mobile||props.degraded?1024:2048,props.mobile||props.degraded?1024:2048]} shadow-camera-left={-45} shadow-camera-right={45} shadow-camera-top={48} shadow-camera-bottom={-48} shadow-camera-near={1} shadow-camera-far={150} shadow-bias={-.00015} shadow-normalBias={.03} shadow-radius={3}/>
- <AssetBoundary fallback={null}><Suspense fallback={null}><Environment files={villageAsset('sky/kloppenheim_06_puresky_1k.hdr')} background environmentIntensity={.7} backgroundIntensity={.68} backgroundBlurriness={.055}/></Suspense></AssetBoundary>
+ const shadowSize=post?2048:1024;
+ return <><hemisphereLight args={['#d1e0ed','#756953',.25+.5*daylight]}/><ambientLight intensity={.08}/><directionalLight color={daylight<.25?'#FFD499':'#fff0d3'} position={[-45*Math.cos((hour-6)/12*Math.PI),Math.max(5,65*daylight),-25]} intensity={.05+3*irradiance/950} castShadow shadow-mapSize={[shadowSize,shadowSize]} shadow-camera-left={-45} shadow-camera-right={45} shadow-camera-top={48} shadow-camera-bottom={-48} shadow-camera-near={1} shadow-camera-far={150} shadow-bias={-.00015} shadow-normalBias={.03} shadow-radius={3}/>
+ <AssetBoundary fallback={null}><Suspense fallback={null}><Environment files={villageAsset('sky/kloppenheim_06_puresky_1k.hdr')} background={cloud<.6&&daylight>.08} environmentIntensity={.1+.6*daylight*(1-cloud*.65)} backgroundIntensity={.1+.58*daylight*(1-cloud*.65)} backgroundBlurriness={.055}/></Suspense></AssetBoundary>
  <AssetBoundary fallback={<FallbackWorld {...props}/>}><Suspense fallback={null}><TextureMaterials>{materials=><SiteWorld {...props} materials={materials}/>}</TextureMaterials></Suspense></AssetBoundary>
  <CameraRig cameraMode={props.cameraMode} reducedMotion={!!props.reducedMotion} reset={props.cameraReset}/>
  <PerformanceMonitor bounds={()=>[24,50]} iterations={6} ms={300} flipflops={2} onDecline={props.onDecline} onFallback={props.onDecline}/>
@@ -134,5 +146,5 @@ export default function Scene3D(props:SceneProps){
  useEffect(()=>{const media=window.matchMedia('(max-width:760px)');const update=()=>setMobile(media.matches);update();media.addEventListener('change',update);return()=>media.removeEventListener('change',update);},[]);
  const loss=useMemo(()=>()=>setLost(true),[]),decline=useMemo(()=>()=>setDegraded(true),[]);
  if(lost)return <SceneFallback/>;
- return <CanvasBoundary><Canvas shadows dpr={mobile?[.75,1]:degraded?1:[1,props.quality==='high'?1.5:1.25]} camera={{position:PRESETS.aerial.position,fov:43,near:.08,far:400}} gl={{antialias:true,powerPreference:mobile?'low-power':'high-performance',alpha:false}} fallback={<SceneFallback/>} onCreated={({gl})=>{gl.toneMapping=THREE.ACESFilmicToneMapping;gl.toneMappingExposure=1;gl.outputColorSpace=THREE.SRGBColorSpace;gl.shadowMap.type=THREE.PCFShadowMap;}}><RenderScene {...props} mobile={mobile} degraded={degraded} onContextLoss={loss} onDecline={decline}/></Canvas></CanvasBoundary>;
+ return <CanvasBoundary><Canvas shadows dpr={mobile?[.65,1]:degraded?1:[.8,props.quality==='high'?1.5:1]} camera={{position:PRESETS.aerial.position,fov:43,near:.08,far:400}} gl={{antialias:true,powerPreference:mobile?'low-power':'high-performance',alpha:false}} fallback={<SceneFallback/>} onCreated={({gl})=>{gl.toneMapping=THREE.ACESFilmicToneMapping;gl.toneMappingExposure=1;gl.outputColorSpace=THREE.SRGBColorSpace;gl.shadowMap.type=THREE.PCFShadowMap;}}><RenderScene {...props} mobile={mobile} degraded={degraded} onContextLoss={loss} onDecline={decline}/></Canvas></CanvasBoundary>;
 }

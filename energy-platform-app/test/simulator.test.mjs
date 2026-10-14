@@ -4,10 +4,10 @@ import { registerHooks } from 'node:module';
 import { batteryStep, gridVoltage, makeSample } from '../src/lib/model.ts';
 
 // Node's strip-types runner does not read tsconfig path aliases. Resolve only
-// this store's existing model import; production resolution stays unchanged.
+// this store's local lib imports; production resolution stays unchanged.
 registerHooks({
   resolve(specifier, context, nextResolve) {
-    return nextResolve(specifier === '@/lib/model' ? new URL('../src/lib/model.ts', import.meta.url).href : specifier, context);
+    return nextResolve(specifier.startsWith('@/lib/') ? new URL('../src/lib/'+specifier.slice(6)+'.ts', import.meta.url).href : specifier, context);
   },
 });
 const { useSimulator } = await import('../src/store/simulator.ts');

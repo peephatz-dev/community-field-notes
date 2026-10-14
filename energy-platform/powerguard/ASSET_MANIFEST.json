@@ -1,0 +1,594 @@
+{
+  "name": "Sala Hum PowerGuard – Sea Bass Three Waters",
+  "version": "2.0.0",
+  "palette": {
+    "yellow": "#F8C642",
+    "orange": "#FF7A3C",
+    "blue": "#2F7DD3",
+    "sky": "#5EC6E8",
+    "navy": "#1F2D5A",
+    "green": "#26B99A",
+    "red": "#EF5A5A",
+    "white": "#FFFFFF",
+    "soft": "#E9F7FC",
+    "ink": "#16294B"
+  },
+  "total": 115,
+  "assets": [
+    {
+      "path": "/powerguard/audio/ambient/ocean-waves.mp3",
+      "bytes": 160748,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ambient/ocean-waves.ogg",
+      "bytes": 104810,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ambient/ocean-waves.wav",
+      "bytes": 960044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ambient/pier-day.mp3",
+      "bytes": 160748,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ambient/pier-day.ogg",
+      "bytes": 104805,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ambient/pier-day.wav",
+      "bytes": 960044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-heavy.mp3",
+      "bytes": 144620,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-heavy.ogg",
+      "bytes": 102863,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-heavy.wav",
+      "bytes": 864044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-light.mp3",
+      "bytes": 144620,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-light.ogg",
+      "bytes": 107465,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ambient/rain-light.wav",
+      "bytes": 864044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ambient/sea-wind.mp3",
+      "bytes": 160748,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ambient/sea-wind.ogg",
+      "bytes": 87632,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ambient/sea-wind.wav",
+      "bytes": 960044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/music/calm-community-bg.mp3",
+      "bytes": 192620,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/music/calm-community-bg.ogg",
+      "bytes": 42203,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/music/calm-community-bg.wav",
+      "bytes": 1152044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/backup-engaged.mp3",
+      "bytes": 6380,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/backup-engaged.ogg",
+      "bytes": 4427,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/backup-engaged.wav",
+      "bytes": 33644,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/battery-low.mp3",
+      "bytes": 6764,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/battery-low.ogg",
+      "bytes": 4488,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/battery-low.wav",
+      "bytes": 36044,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/click.mp3",
+      "bytes": 1772,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/click.ogg",
+      "bytes": 3790,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/click.wav",
+      "bytes": 6284,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/close.mp3",
+      "bytes": 2540,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/close.ogg",
+      "bytes": 4121,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/close.wav",
+      "bytes": 11564,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/hover.mp3",
+      "bytes": 1580,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/hover.ogg",
+      "bytes": 3772,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/hover.wav",
+      "bytes": 4844,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-critical.mp3",
+      "bytes": 9260,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-critical.ogg",
+      "bytes": 5055,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-critical.wav",
+      "bytes": 51884,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-info.mp3",
+      "bytes": 5996,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-info.ogg",
+      "bytes": 4431,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-info.wav",
+      "bytes": 31244,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-restored.mp3",
+      "bytes": 8300,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-restored.ogg",
+      "bytes": 4940,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-restored.wav",
+      "bytes": 45644,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-success.mp3",
+      "bytes": 6572,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-success.ogg",
+      "bytes": 4698,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-success.wav",
+      "bytes": 35084,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-warning.mp3",
+      "bytes": 7532,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-warning.ogg",
+      "bytes": 4744,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/notify-warning.wav",
+      "bytes": 40844,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/audio/ui/open.mp3",
+      "bytes": 3308,
+      "type": "mp3"
+    },
+    {
+      "path": "/powerguard/audio/ui/open.ogg",
+      "bytes": 4236,
+      "type": "ogg"
+    },
+    {
+      "path": "/powerguard/audio/ui/open.wav",
+      "bytes": 15404,
+      "type": "wav"
+    },
+    {
+      "path": "/powerguard/brand/app-icon-192.png",
+      "bytes": 20046,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/brand/app-icon-512.png",
+      "bytes": 60618,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/brand/app-icon.svg",
+      "bytes": 4799,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/brand/favicon.ico",
+      "bytes": 14214,
+      "type": "ico"
+    },
+    {
+      "path": "/powerguard/brand/logo-horizontal.svg",
+      "bytes": 5068,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/alert.svg",
+      "bytes": 247,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/battery.svg",
+      "bytes": 283,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/boat.svg",
+      "bytes": 301,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/cage.svg",
+      "bytes": 287,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/chart.svg",
+      "bytes": 248,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/check.svg",
+      "bytes": 264,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/circuit.svg",
+      "bytes": 333,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/cloud.svg",
+      "bytes": 273,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/community.svg",
+      "bytes": 334,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/fish.svg",
+      "bytes": 334,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/house.svg",
+      "bytes": 252,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/lightning.svg",
+      "bytes": 244,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/location.svg",
+      "bytes": 300,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/notification.svg",
+      "bytes": 274,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/power.svg",
+      "bytes": 246,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/rain.svg",
+      "bytes": 322,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/sea.svg",
+      "bytes": 333,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/shield.svg",
+      "bytes": 280,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/solar.svg",
+      "bytes": 336,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/volume.svg",
+      "bytes": 275,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/icons/wrench.svg",
+      "bytes": 293,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-celebrate.png",
+      "bytes": 57209,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-celebrate.svg",
+      "bytes": 4735,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-critical.png",
+      "bytes": 59657,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-critical.svg",
+      "bytes": 4975,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-fishfarm.png",
+      "bytes": 56838,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-fishfarm.svg",
+      "bytes": 4848,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-happy.png",
+      "bytes": 56074,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-happy.svg",
+      "bytes": 4607,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-hello.png",
+      "bytes": 56074,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-hello.svg",
+      "bytes": 4607,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-maintenance.png",
+      "bytes": 59056,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-maintenance.svg",
+      "bytes": 4778,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-monitor.png",
+      "bytes": 55283,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-monitor.svg",
+      "bytes": 4886,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-sleep.png",
+      "bytes": 54770,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-sleep.svg",
+      "bytes": 4446,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-speak.png",
+      "bytes": 55283,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-speak.svg",
+      "bytes": 4886,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-success.png",
+      "bytes": 57126,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-success.svg",
+      "bytes": 4690,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-thinking.png",
+      "bytes": 55525,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-thinking.svg",
+      "bytes": 4594,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-warning.png",
+      "bytes": 58549,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/mascot/seabass-warning.svg",
+      "bytes": 5014,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/scenes/boat.png",
+      "bytes": 14314,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/scenes/boat.svg",
+      "bytes": 651,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/scenes/coastal-community.png",
+      "bytes": 28936,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/scenes/coastal-community.svg",
+      "bytes": 1542,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/scenes/fish-cage.png",
+      "bytes": 18618,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/scenes/fish-cage.svg",
+      "bytes": 630,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/scenes/house.png",
+      "bytes": 9511,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/scenes/house.svg",
+      "bytes": 591,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/scenes/power-hub.png",
+      "bytes": 10654,
+      "type": "png"
+    },
+    {
+      "path": "/powerguard/scenes/power-hub.svg",
+      "bytes": 483,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/vfx/bubble.svg",
+      "bytes": 312,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/vfx/rain-drop.svg",
+      "bytes": 356,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/vfx/spark.svg",
+      "bytes": 230,
+      "type": "svg"
+    },
+    {
+      "path": "/powerguard/vfx/wave.svg",
+      "bytes": 308,
+      "type": "svg"
+    }
+  ]
+}

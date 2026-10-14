@@ -58,8 +58,16 @@ The release owner verified the current site-specific build. **TypeScript checks,
 | Export downloads | CSV and JSON downloaded in the browser. At critical battery, P1 quality was `unpowered`, CSV water cells were blank and JSON water channels were null; source voltage 0 V, bus voltage 12 V, bus current 2.5 A and P0 load 30 W remained coherent |
 | Private reference comparison | File picker used a browser-local `blob:` URL with no upload or persistence; clearing restored the original SVG. Overlay slider Home selected 0 and End selected 100 |
 | Interaction errors | Browser console errors were an empty array after the inspected interactions |
-| Live publication | Public deployment and production-route availability remain under the release owner's final checks |
+| Live publication | The prior reconstruction release was verified on GitHub Pages: all eleven content pages matched their production HTML and referenced compiled assets responded HTTP 200. The brand/environment extension has a separate focused release check below. |
 
 Review outputs are stored outside the application in `outputs/site-reconstruction/comparison.jpg` and `outputs/site-reconstruction/mobile.jpg`. These are rendered review artifacts; they are not redistributed map tiles. The checks above do not assert field measurements, hardware readiness or cross-device GPU performance certification.
 
 Expected benefits are proposals to evaluate. No measured reduction in fish losses, energy cost, response time or other field outcome is claimed. BOM/ratings/protection/calibration, approved alerts, site permissions and a supervised low-voltage pilot remain prerequisites for real deployment.
+
+## Brand and environmental extension
+
+The user-supplied five-color palette is applied throughout the control center: yellow #FBC642, orange #FF7A3C, blue #2F7DD3, cyan #5EC6E8, navy #1F2D5A. Physical reference water colors remain separate. Balanced rendering caps desktop DPR at 1 with 1024-pixel shadows; high quality remains optional. The environment page initially loads an original SVG map and loads its single WebGL scene only when requested.
+
+Synthetic weather, illustrative tides, assumed bathymetry, a depth/clearance inspector, cross-section and three-box mixing controls share the energy clock. The new source and engineering limits are documented in `environment-equations.md`. TypeScript and production export passed; 39 tests passed, including three focused environmental cases (internal conservation, tide/depth response, and independent rain versus coupled storm/outage/reset).
+
+The focused browser pass showed the branded dashboard, a storm with P0/P1/P2 backed up and P3 shed, transparent underwater inspection, and low/high water levels of −0.6/+0.6 m changing selected assumed depth from 2.3 to 3.5 m and clearance from 0.1 to 1.3 m. Console errors were absent. At 390 × 844 the mobile menu appeared and horizontal document width did not exceed the viewport; the rendered primary controls and two-column metrics were inspected. This was a bounded check, not an exhaustive interaction/GPU/performance audit.
