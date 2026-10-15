@@ -819,3 +819,6 @@ code { color: #98C1DB; overflow-wrap: anywhere; }
  .env-history-card h3 { font-size: 13px; }
  .env-model-note { font-size: 11px; }
 }
+
+/* Latest team flowchart, shared with the editable pitch deck. */
+.prototype-scope-note{display:flex;flex-wrap:wrap;gap:5px 14px;padding:10px 14px;margin:0 0 16px;border:1px solid #bcd7eb;border-left:3px solid #2f7dd3;border-radius:8px;background:#f4faff;color:#1f2d5a;font-size:12px;line-height:1.6}.prototype-scope-note small{flex-basis:100%;color:#536a82}.prototype-scope-note a{color:#2463a8;text-decoration:underline}.prototype-boxes{display:grid;grid-template-columns:1fr 1fr;gap:24px}.prototype-boxes article{padding:16px;border:1px solid #c9dceb;border-radius:8px}.prototype-boxes ul{padding-left:20px}.prototype-boxes li{margin:10px 0;font-size:14px}.prototype-boxes li small{display:block;color:#536a82;font-size:12px;line-height:1.6}.prototype-brief .disclaimer{display:block;margin-top:16px}.prototype-brief .export-row{margin-top:16px;gap:20px;flex-wrap:wrap}@media(max-width:700px){.prototype-boxes{grid-template-columns:1fr}.prototype-scope-note{font-size:12px}}

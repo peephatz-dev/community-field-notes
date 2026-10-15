@@ -1,3 +1,4 @@
+import prototypeTopology from './prototype-topology.json';
 export type NodeId = 'P0' | 'P1' | 'P2' | 'P3';
 export type GridMode = 'normal' | 'sag' | 'outage';
 /** Main-source recovery: P0/P1 first, then P2, then P3. Default 2 preserves legacy operation. */
@@ -22,18 +23,12 @@ export const NODE_DEFINITIONS: NodeDefinition[] = [
   { id: 'P3', name: 'โหลดทั่วไป', role: 'interruptible loads', priority: 3, watts: 260, description: 'โหลดทั่วไปหรือโหลดสาธิตกำลังสูง ตัดก่อนเมื่อพลังงานจำกัด', loads: ['โทรทัศน์สาธิต', 'โหลดจำลองกำลังสูง'] },
 ];
 
-export const COMPONENTS = [
-  { id: 'source', label: 'แหล่งจ่าย DC จำลอง', category: 'Power', pin: '12V IN', supply: '12 V DC', signal: 'สายกำลังไฟ', limit: 'ค่าจำลอง; ต้องกำหนดแหล่งจ่ายจริงก่อนสร้างวงจร', status: 'simulated' },
-  { id: 'fuse', label: 'ฟิวส์ / ป้องกันกระแสเกิน', category: 'Protection', pin: 'F1', supply: 'ต่ออนุกรมบนบัส 12 โวลต์', signal: 'สายกำลังไฟ', limit: 'ยังไม่กำหนดพิกัด; ห้ามต่อโหลดจริงตามภาพนี้', status: 'proposed' },
-  { id: 'battery', label: 'แบตเตอรี่สำรอง (จำลอง)', category: 'Storage', pin: 'BAT+/BAT−', supply: '12 โวลต์ พิกัดสมมติ', signal: 'สายกำลังไฟ', limit: 'ไม่ใช่ข้อกำหนดแบตเตอรี่จริง; BMS/charger ยังต้องเลือก', status: 'simulated' },
-  { id: 'charger', label: 'วงจรชาร์จ / BMS', category: 'Protection', pin: 'BAT, LOAD', supply: 'ขึ้นกับชนิดเคมีแบตเตอรี่', signal: 'กำลังไฟและการป้องกัน', limit: 'ชนิดเคมีและกระแสชาร์จต้องยืนยันก่อนออกแบบ', status: 'proposed' },
-  { id: 'buck', label: 'วงจรปรับแรงดัน DC-DC', category: 'Power', pin: '12V → 5V / 3.3V', supply: 'ยังไม่กำหนดช่วงแรงดันเข้า', signal: 'รางจ่ายไฟปรับแรงดัน', limit: 'ต้องเลือกโมดูลและเช็ก transient / thermal จากโหลดจริง', status: 'proposed' },
-  { id: 'esp32', label: 'บอร์ด ESP32', category: 'Control', pin: '3V3, GND, GPIO', supply: 'ปรับแรงดันตามสเปกบอร์ด', signal: 'ADC / ดิจิทัล / ไร้สาย', limit: 'GPIO ไม่ใช้ขับโหลดกำลังสูงโดยตรง', status: 'reference' },
-  { id: 'sense', label: 'จุดวัดแรงดันและกระแส', category: 'Sensing', pin: 'VIN, SHUNT, SDA/SCL', supply: 'ขึ้นกับรุ่นอุปกรณ์', signal: 'I²C ตัวอย่างสมมติ', limit: 'โมดูลจริงยังไม่ระบุ; ช่วงวัดและ isolation ต้องตรวจ', status: 'proposed' },
-  { id: 'driver', label: 'วงจรขับและสวิตช์โหลด', category: 'Switching', pin: 'EN, LOAD±', supply: 'กำหนดพิกัดตามโหลด', signal: 'GPIO ผ่านวงจรขับ', limit: 'พิกัดสวิตช์/ไดโอด flyback ขึ้นกับชนิดโหลด', status: 'proposed' },
-  { id: 'temp', label: 'หัววัดอุณหภูมิน้ำ', category: 'Sensing', pin: 'DATA / interface TBD', supply: 'ขึ้นกับรุ่นหัววัด', signal: 'ดิจิทัลหรือแอนะล็อกปรับสัญญาณ', limit: 'รุ่น/ความลึก/การซีลยังไม่ระบุ', status: 'proposed' },
-  { id: 'salinity', label: 'วงจรวัดการนำไฟฟ้าและความเค็ม', category: 'Sensing', pin: 'analog interface TBD', supply: 'ขึ้นกับรุ่นหัววัด', signal: 'แอนะล็อกปรับสัญญาณ', limit: 'ต้องชดเชยอุณหภูมิและสอบเทียบกับเครื่องอ้างอิง', status: 'proposed' },
-];
+export const COMPONENTS = prototypeTopology.nodes.map(node => ({
+  id: node.id, label: `${node.group === 'external' ? 'แหล่งจ่าย' : node.group} · ${node.label}`,
+  category: node.category, pin: 'ยังไม่ระบุ pin map', supply: 'ยังไม่ระบุแรงดันและพิกัดจริง',
+  signal: node.group === 'P1' ? 'ยังไม่ได้รับลูกศรการเชื่อมต่อ P1' : 'ลูกศรเฉพาะที่ปรากฏในผังผู้ใช้',
+  limit: node.note, status: node.id === 'salinity' ? 'proposed' : 'reference',
+}));
 
 export type SimEvent = { id: string; minute: number; severity: EventSeverity; nodeId: NodeId | 'SYSTEM'; type: string; message: string; action: string; simulated: true };
 export type Sample = { minute: number; voltage: number; busVoltage: number; current: number; battery: number; salinity: number | null; temperature: number | null; p1Quality: P1Quality; p0: number; p1: number; p2: number; p3: number };

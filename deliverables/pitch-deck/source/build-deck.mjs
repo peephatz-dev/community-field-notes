@@ -8,6 +8,7 @@ const TMP=path.join(ROOT,'.codex-build/pitch10');
 const FONT='Sarabun';
 process.env.RUNTIME_NODE_MODULES ??= '/Users/nokia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 const C={navy:'#1F2D5A',blue:'#2F7DD3',sky:'#5EC6E8',yellow:'#F8C642',orange:'#FF7A3C',green:'#26B99A',red:'#B73040',soft:'#E9F7FC',ink:'#16294B',gray:'#536A82',line:'#C9DCEB',white:'#FFFFFF'};
+const topology=JSON.parse(await fs.readFile(path.join(ROOT,'energy-platform-app/src/lib/prototype-topology.json'),'utf8'));
 const P=Presentation.create({slideSize:{width:1280,height:720}});
 const timings=[25,35,30,40,35,35,50,35,40,35];
 const notes=JSON.parse(await fs.readFile(path.join(HERE,'speaker-content.json'),'utf8'));
@@ -53,17 +54,16 @@ for(let i=0;i<3;i++){block(s,phases[i][0],phases[i][1],56+i*397,184,374,210);lab
 tx(s,'วงจรตัดสินใจที่เสนอ',56,436,1100,42,30,C.navy,true);
 const a=block(s,'วัดหลักฐาน','ไฟ โหลด เวลา และคุณภาพข้อมูล',56,493,345,128,C.soft),b=block(s,'เลือกวิธีแก้','ซ่อม / UPS / ไฟสำรองเฉพาะจุด',468,493,345,128,C.soft),c=block(s,'ตรวจผล','เปรียบเทียบกับ baseline เดิม',880,493,344,128,C.soft);arrow(s,a,b);arrow(s,b,c);
 }
-// 04. Native two-layer topology. Color and line type identify separate domains.
+// 04. Editable diagram generated from the same source as the website.
 {
-const s=base(4,'พลังงานและข้อมูลมีเส้นทางแยกกัน','โครงสร้าง P0–P3 เป็นข้อเสนอที่ต้องตรวจพิกัดก่อนสร้างจริง','E04–E05  เอกสารทีม น.1–5 และ src/lib/model.ts  ลำดับและตัวเลขเป็นนโยบายสาธิต');
-label(s,'ทางเดินพลังงาน DC',56,172,270,C.yellow);label(s,'ข้อมูลและการแจ้งเตือน',56,422,270,C.soft);
-const supply=block(s,'แหล่งจ่าย','DC / แบตสำรอง\nฟิวส์ + BMS เสนอ',56,227,230,156,'#FFF7D9');
-const titles=['P0 ศูนย์ไฟ','P1 กระชัง','P2','P3'];
-const bodies=['ตัวควบคุม\n30 W สมมติ','มอนิเตอร์ตัวอย่าง\n120 W สมมติ','เครื่องจำเป็น\n80 W สมมติ','เครื่องที่พักได้\n260 W สมมติ'];
-for(let i=0;i<4;i++){const x=330+i*229;line(s,x+100,214,0,22,C.orange,3);block(s,titles[i],bodies[i],x,237,210,146,i===3?'#FFF0E8':C.soft);}
-line(s,286,214,832,0,C.orange,4);line(s,286,214,0,70,C.orange,4);
-const n1=block(s,'P1–P3','ค่าจำลอง + quality\nlast_seen / สถานะโหลด',56,477,316,137);const n0=block(s,'P0 รวมเหตุ','จำแนกไฟ / offline\nคงลำดับความสำคัญ',450,477,316,137);const dash=block(s,'Dashboard','คนรับแจ้ง / ประวัติ\nยืนยันหน้างานก่อนทำต่อ',844,477,380,137);arrow(s,n1,n0,C.blue,'right','left',true);arrow(s,n0,dash,C.blue,'right','left',true);
-tx(s,'P0 > P1 > P2 > P3  ตามแบบจำลอง',350,175,690,35,26,C.navy,true);tx(s,'ตัวควบคุมสั่ง driver แรงดันต่ำ  ยังไม่มีการสั่งตัดไฟบ้านจริง',350,393,862,30,22,C.red);
+const s=base(4,'ผังต้นแบบ P0 ตามที่ทีมกำหนด','แยกกล่อง P0 และ P1  ผังส่วน P1–P3 ยังได้รับไม่ครบ','ผังผู้ใช้ 15 ต.ค. 2569 / prototype-topology.json  เป็นแบบเสนอ ยังไม่มีผลทดลองฮาร์ดแวร์');
+const X=x=>56+x*1.168,Y=y=>170+y*.9;
+rect(s,X(178),Y(40),553*1.168,448*.9,'none',C.line);tx(s,'P0  Master Power Node',X(190),Y(42),500,27,20,C.navy,true);
+rect(s,X(751),Y(40),238*1.168,448*.9,'#FFF8E5',C.yellow);tx(s,'P1  Water Quality',X(765),Y(42),245,27,20,C.navy,true);
+const objects=new Map();const wrapped={bus:'Multi-Source\nDC Input Manager',charger:'Dual-Rail UPS\nBattery System',buck:'2-Way Power\nManager',sense:'Voltage / Current /\nStability Monitor',driver:'Relay Power\nDistribution',source:'AC Adapter\nจำลองไฟหมู่บ้าน',salinity:'EC\nข้อความยังไม่ครบ'};
+for(const n of topology.nodes){const box=rect(s,X(n.x),Y(n.y),n.w*1.168,n.h*.9,n.group==='P1'?'#FFF0C0':C.white,n.group==='P1'?C.yellow:C.line);tx(s,wrapped[n.id]??n.label,X(n.x)+8,Y(n.y)+7,n.w*1.168-16,n.h*.9-10,18,C.navy,true,'center');objects.set(n.id,box);}
+for(const edge of topology.edges){const a=topology.nodes.find(n=>n.id===edge.fromNode),b=topology.nodes.find(n=>n.id===edge.toNode);arrow(s,objects.get(a.id),objects.get(b.id),C.blue,a.y===b.y?'right':'bottom',a.y===b.y?'left':'top');}
+tx(s,'P1 มีรายการอุปกรณ์ แต่ยังไม่มีลูกศรที่ได้รับ  ส่วน P2–P3 และเส้นสื่อสารรอยืนยัน',56,617,1168,29,20,C.gray);
 }
 // 05. Incident sequence, actual notification capture, offline boundary.
 {
@@ -75,14 +75,12 @@ label(s,'ภาพจากเว็บจริง / ค่าจำลอง',
 block(s,'โหนดไม่ส่งข้อมูล','ตรวจ last_seen / quality\nตรวจว่าเครื่องยังมีไฟหรือไม่\nเปิดดูเหตุและให้คนรับทราบ',640,331,584,191,C.soft);
 tx(s,'Offline อย่างเดียวไม่ยืนยันไฟดับ\nไฟกลับคืน P0/P1 ก่อน ตามด้วย P2/P3 เมื่อเวลาเดิน',640,544,584,89,24,C.navy,true);
 }
-// 06. Accurate feasibility. Native table + real circuit screenshot.
+// 06. Distinguish supplied P1 declarations from the old simulation model.
 {
-const s=base(6,'วงจรและข้อมูลที่ต้องพิสูจน์','เว็บแสดงแนวคิด DC  ฮาร์ดแวร์และ gateway ยังเป็นแผนพัฒนา','E04–E07  เอกสารทีม / circuit.ts / model.ts  schema ตัวอย่าง ไม่ใช่ telemetry สด');
-table(s,[['ประเภทข้อมูล','แผนฮาร์ดแวร์ / สถานะตอนนี้'],['วัดตรง','แรงดัน กระแส อุณหภูมิ / เว็บใช้ค่าจำลอง'],['คำนวณ','SoC และเวลาสำรอง / ต้องเทียบค่าจริง'],['ยังวัดไม่ได้','DO ไม่มี sensor  ห้ามแจ้งภัยจาก DO']],56,176,630,250,[175,455],23);
-await img(s,'circuit-crop.png',720,176,504,334,'contain');
-tx(s,'ภาพห้องวงจรที่รันจริง  ชิ้นส่วนเป็น reference concept',720,519,504,28,16,C.gray);
-rect(s,56,452,630,170,C.soft);tx(s,'Payload ที่เสนอ',74,464,594,35,25,C.navy,true);tx(s,'node_id, seq, timestamp, source_voltage,\nbattery_soc, load_state, last_seen, quality',74,507,590,63,22,C.navy);tx(s,'edge / gateway / transport ต้องเลือกและทดสอบจริง',74,582,590,26,20,C.gray);
-tx(s,'ฟิวส์ BMS พิกัด สาย ตู้ และ isolation ต้องผ่านผู้มีคุณสมบัติ\nGPIO ไม่ขับโหลดโดยตรง  เว็บยังไม่สั่ง mains จริง',720,565,504,79,22,C.red);
+const s=base(6,'วงจรที่กำหนดและส่วนที่ยังต้องยืนยัน','ฮาร์ดแวร์ตามแบบที่เสนอ  ค่าบน Dashboard ยังเป็นตัวจำลองเดิม','ผังผู้ใช้ 15 ต.ค. 2569 / prototype-flowchart.md  ยังไม่มีหลักฐานทดสอบ UPS แยกกล่อง');
+table(s,[['หัวข้อ','ข้อมูลตามผังล่าสุด'],['P0','ESP32-S3 / Mini Solar / 18650 สองก้อน'],['สำรอง P0','Dual-Rail UPS / 2-Way Power Manager'],['P1','18650 / Single-Rail UPS / ESP32 / EC*'],['การเชื่อมต่อ','มีลูกศร P0 9 เส้น  ส่วน P1–P3 ยังไม่ครบ']],56,176,1168,285,[210,958],24);
+tx(s,'ตัวจำลองเดิม',56,489,520,36,28,C.navy,true);tx(s,'12 V / 1.2 kWh เป็นสมมติฐานรวม\nยังไม่จำลองเซลล์หรือ UPS แยกกล่อง',56,538,545,82,24,C.gray);
+tx(s,'สิ่งที่ยังต้องยืนยัน',676,489,548,36,28,C.navy,true);tx(s,'รุ่นโมดูล / ต่อเซลล์ / ชาร์จ / ป้องกัน\n*ผังหยุดที่ EC จึงยังไม่เพิ่มสายหรือรุ่นหัววัด',676,538,548,82,24,C.gray);
 }
 // 07. Actual product proof. Main capture and compact supporting state.
 {
@@ -139,8 +137,8 @@ const validatedPath=path.join(TMP,'validated',`pitch-${Date.now()}.pptx`);
 await fs.mkdir(path.dirname(validatedPath),{recursive:true});
 const receiptPath=path.join(TMP,'receipts',path.basename(validatedPath)+'.json');
 await fs.mkdir(path.dirname(receiptPath),{recursive:true});
-const {finalizePresentation}=await import(pathToFileURL('/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations/container_tools/artifact_tool_utils.mjs').href);
-await finalizePresentation({workspaceDir:ROOT,candidatePath:path.join(TMP,'candidate.pptx'),finalPath:validatedPath,pythonExecutable:'/Users/nokia/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:'/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:'/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations/container_tools/inspect_presentation_layout_geometry.py',explicitTotalSlideCount:10,requiredNativeTableOwnerSlides:[6,8,9],requiredNativeChartOwnerSlides:[],layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','6','--require-native-table-slide','8','--require-native-table-slide','9'],fontPolicy:{basis:'design',families:[FONT]},verifyArtifactToolImport:true,receiptPath});
+const {finalizePresentation}=await import(pathToFileURL('/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1013.11914/skills/presentations/container_tools/artifact_tool_utils.mjs').href);
+await finalizePresentation({workspaceDir:ROOT,candidatePath:path.join(TMP,'candidate.pptx'),finalPath:validatedPath,pythonExecutable:'/Users/nokia/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:'/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1013.11914/skills/presentations/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:'/Users/nokia/.codex/plugins/cache/openai-primary-runtime/presentations/26.1013.11914/skills/presentations/container_tools/inspect_presentation_layout_geometry.py',explicitTotalSlideCount:10,requiredNativeTableOwnerSlides:[6,8,9],requiredNativeChartOwnerSlides:[],layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','6','--require-native-table-slide','8','--require-native-table-slide','9'],fontPolicy:{basis:'design',families:[FONT]},verifyArtifactToolImport:true,receiptPath});
 await fs.copyFile(receiptPath,path.join(TMP,'final-deck.validation.json'));
 await fs.copyFile(validatedPath,path.join(OUT,'SalaHum_PowerGuard_Pitch_10Slides_16x9.pptx'));
 console.log('Exported 10 editable slides and PNGs');

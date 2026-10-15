@@ -1,6 +1,6 @@
-:HL["/community-field-notes/energy-platform/_next/static/chunks/24gdx7jcf6t0l.css","style"]
+:HL["/community-field-notes/energy-platform/_next/static/chunks/3hjd9t7bq_0a3.css","style"]
 :HL["/community-field-notes/energy-platform/_next/static/chunks/19psae3bxw1rw.css","style"]
 :HC["/",""]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"roadmap","h":96,"c":"$Q2"}]]
-0:{"b":"72zBDxTcn6cucIj0OSqFS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"3J6zj4n1S9tpfqUMmq9kz","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

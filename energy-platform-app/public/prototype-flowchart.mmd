@@ -1,0 +1,29 @@
+flowchart TD
+  GRID["AC Adapter - Simulated Village Power Source"]
+  subgraph P0["P0 - Master Power Node / Separate Waterproof Box"]
+    SOLAR["Mini Solar Cell"]
+    DCM["Multi-Source DC Input Manager"]
+    BAT0A["18650 #1"]
+    BAT0B["18650 #2"]
+    UPS0["Dual-Rail UPS Battery System"]
+    PM0["2-Way Power Manager"]
+    ESP0["ESP32-S3"]
+    MON0["Voltage / Current / Stability Monitor"]
+    RELAY["Relay Power Distribution"]
+    GRID --> DCM
+    SOLAR --> DCM
+    BAT0A --> UPS0
+    BAT0B --> UPS0
+    DCM --> PM0
+    UPS0 --> PM0
+    PM0 --> ESP0
+    PM0 --> MON0
+    PM0 --> RELAY
+  end
+  subgraph P1["P1 - Water Quality Node / Separate Waterproof Box / PARTIAL"]
+    BAT1["18650 Battery"]
+    UPS1["Single-Rail UPS"]
+    ESP1["ESP32"]
+    EC["EC (ข้อความยังไม่ครบ)"]
+  end
+  %% No P1 edges, P2/P3 or inter-node links were received.

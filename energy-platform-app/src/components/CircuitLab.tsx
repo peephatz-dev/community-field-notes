@@ -18,7 +18,7 @@ const TEAL = '#67dcc6', AMBER = '#eebd76';
 type OrbitControlsImpl = ComponentRef<typeof OrbitControls>;
 const pointById = new Map(CIRCUIT_NODES.map(node => [node.id, node]));
 const liftById = new Map(CIRCUIT_NODES.map(node => [node.id, node.lift]));
-const socketHeight: Record<string, number> = { source: .37, fuse: .42, bus: .29, buck: .22, esp32: .22, battery: .94, charger: .22, sense: .22, driver: .22, salinity: .17, temp: .17 };
+const socketHeight: Record<string, number> = { source: .37, fuse: .42, bus: .29, buck: .22, esp32: .22, battery: .25, battery2: .25, p1battery: .25, charger: .22, sense: .22, driver: .22, salinity: .17, temp: .17 };
 
 function useDisplaySettings() {
   const [settings, setSettings] = useState({ compact: false, reducedMotion: false });
@@ -43,8 +43,9 @@ function usePrintedLabel(text: string) {
 }
 
 function ControllerPanel() {
-  const print = usePrintedLabel('COMMUNITY ENERGY RESILIENCE / P0 CONTROL ASSEMBLY');
+  const print = usePrintedLabel('SALA-HUM / SEPARATE P0 AND P1 BOXES / PARTIAL SOURCE');
   return <group>
+    {[-.55,4.1].map((x,i)=><group key={i} position={[x,-.08,.15]}><RoundedBox args={[i===0?6.1:2.5,.2,6.4]} radius={.08} smoothness={2}><meshStandardMaterial color="#274b5b" metalness={.4} roughness={.5}/></RoundedBox>{[-3.2,3.2].map(z=><mesh key={z} position={[0,.23,z]}><boxGeometry args={[i===0?6.1:2.5,.3,.055]}/><meshStandardMaterial color="#718f9a"/></mesh>)}</group>)}
     <RoundedBox args={[11.4, .19, 6.9]} position={[0, -.15, 0]} radius={.08} smoothness={2} receiveShadow><meshStandardMaterial color="#223948" metalness={.78} roughness={.43} /></RoundedBox>
     <RoundedBox args={[11.65, .06, 7.15]} position={[0, -.27, 0]} radius={.05} smoothness={2}><meshStandardMaterial color="#536b76" metalness={.85} roughness={.27} /></RoundedBox>
     {[-1.9, .1, 2.2].map(z => <group key={z} position={[0, -.022, z]}>
@@ -66,11 +67,10 @@ function MountedEquipment({ node, progress, selected, select, lit, online, setHo
   });
   const isSelected = selected === node.id;
   const detailVisible = isSelected || hovered;
-  const shortLabel: Record<string, string> = { source: 'DC IN', fuse: 'F1', bus: 'DC BUS', buck: 'DC-DC', esp32: 'P0 · ESP32', battery: 'BATTERY', charger: 'BMS*', sense: 'V / I', driver: 'DRIVER*', salinity: 'EC*', temp: 'TEMP*' };
   return <group ref={ref} position={base} onClick={e => { if (e.delta > 6) return; e.stopPropagation(); select(node.id); }} onPointerOver={e => { e.stopPropagation(); setHover(node.id); }} onPointerOut={() => setHover(null)}>
-    <CircuitEquipment id={node.id} lit={lit} dataOnline={online} />
+    <CircuitEquipment id={node.id} lit={lit && node.group !== "P1"} dataOnline={online && node.group !== "P1"} />
     {isSelected && <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.025, 0]}><ringGeometry args={[.72, .741, 48]} /><meshBasicMaterial color={TEAL} transparent opacity={.9} side={THREE.DoubleSide} /></mesh>}
-    <Html position={[0, node.id === 'battery' ? 1.04 : .67, 0]} center distanceFactor={11} zIndexRange={[10, 0]}><button className={`scene-node-tag circuit-equipment-tag ${isSelected ? 'selected' : ''}`} onClick={e => { e.stopPropagation(); select(node.id); }} aria-label={`ดูรายละเอียด ${node.name}`} style={{ background: isSelected ? '#153f41ee' : '#0b1823e8', borderColor: fault ? AMBER : isSelected ? TEAL : '#4c6c7c', boxShadow: '0 4px 16px #030b1370', padding: '8px 10px', minHeight: 44, fontSize: 11, borderRadius: 5 }}>{detailVisible ? node.name : shortLabel[node.id]}{detailVisible && <small style={{ color: online && !fault ? '#91b9b7' : AMBER, fontSize: 10, marginTop: 3 }}>ไฟจำลอง {lit ? 'จ่าย' : 'หยุด'} · ข้อมูล {!online ? 'ขาด' : fault ? 'ผิดปกติ' : 'พร้อม'}</small>}</button></Html>
+    <Html position={[0, node.id === 'battery' ? 1.04 : .67, 0]} center distanceFactor={11} zIndexRange={[10, 0]}><button className={`scene-node-tag circuit-equipment-tag ${isSelected ? 'selected' : ''}`} onClick={e => { e.stopPropagation(); select(node.id); }} aria-label={`ดูรายละเอียด ${node.name}`} style={{ background: isSelected ? '#153f41ee' : '#0b1823e8', borderColor: fault ? AMBER : isSelected ? TEAL : '#4c6c7c', boxShadow: '0 4px 16px #030b1370', padding: '8px 10px', minHeight: 44, fontSize: 11, borderRadius: 5 }}>{detailVisible ? node.name : node.name}{detailVisible && <small style={{ color: online && !fault ? '#91b9b7' : AMBER, fontSize: 10, marginTop: 3 }}>{node.group === 'P1' ? 'ยังไม่จำลอง UPS แยก P1' : `ไฟตามนโยบายเดโม ${lit ? 'จ่าย' : 'หยุด'} · ยังไม่ใช่การวัดจริง`}</small>}</button></Html>
   </group>;
 }
 
@@ -155,7 +155,7 @@ function CircuitScene({ mode, selected, select, systemMode, nodeOffline, battery
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.36, 0]} receiveShadow><planeGeometry args={[80, 80]} /><meshStandardMaterial color="#08141f" roughness={.58} metalness={.14} /></mesh>
     <ControllerPanel /><AssemblyMotion mode={mode} progress={progress} reducedMotion={reducedMotion} />
     {CIRCUIT_NETS.map(net => <PhysicalNet key={net.id} net={net} progress={progress} active={netIsActive(net, outage, backup, nodeOffline, loadPowered)} fault={sensorFault && net.id === 'ec-p0'} reducedMotion={reducedMotion} />)}
-    {CIRCUIT_NODES.map(node => <MountedEquipment key={node.id} node={node} progress={progress} selected={selected} select={select} setHover={setHover} hovered={hover === node.id} lit={node.id === 'source' || node.id === 'fuse' ? !outage : node.id === 'battery' ? backup : node.id === 'driver' ? loadPowered : busPowered} online={node.id === 'salinity' || node.id === 'temp' ? nodeOffline !== 'P0' && nodeOffline !== 'P1' : nodeOffline !== 'P0'} fault={sensorFault && node.id === 'salinity'} />)}
+    {CIRCUIT_NODES.map(node => <MountedEquipment key={node.id} node={node} progress={progress} selected={selected} select={select} setHover={setHover} hovered={hover === node.id} lit={node.id === 'solar' ? false : node.id === 'source' || node.id === 'bus' ? !outage : node.id === 'battery' || node.id === 'battery2' ? backup : node.id === 'driver' ? loadPowered : busPowered} online={node.id === 'salinity' || node.id === 'temp' ? nodeOffline !== 'P0' && nodeOffline !== 'P1' : nodeOffline !== 'P0'} fault={sensorFault && node.id === 'salinity'} />)}
     <CameraFocus selected={selected} exploded={mode === 'exploded'} compact={compact} reducedMotion={reducedMotion} controls={controls} />
     <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={.075} target={[0, .3, 0]} minDistance={4.8} maxDistance={compact ? 38 : 24} minPolarAngle={.15} maxPolarAngle={Math.PI / 2 - .06} />
     {!compact && <EffectComposer multisampling={0}><Bloom intensity={.23} luminanceThreshold={1.1} mipmapBlur /><Vignette offset={.18} darkness={.42} /></EffectComposer>}
@@ -164,10 +164,13 @@ function CircuitScene({ mode, selected, select, systemMode, nodeOffline, battery
 
 function Schematic({ mode, selection, select, systemMode, nodeOffline, batterySoc, sensorFault }: { mode: string; selection: string; select: (id: string) => void; systemMode: GridMode; nodeOffline: string | null; batterySoc: number; sensorFault: boolean }) {
   const outage = systemMode === 'outage';
-  return <div className="schematic-wrap" style={{ background: '#0a1622' }}><svg viewBox="0 0 1000 520" role="img" aria-label="วงจรแนวคิดแรงดันต่ำ: แหล่ง DC ฟิวส์ power path แบตเตอรี่ DC-DC ESP32 เซนเซอร์และสวิตช์โหลด; เส้น GPIO ส่งสัญญาณ enable เท่านั้น">
+  return <div className="schematic-wrap" style={{ background: '#0a1622' }}><svg viewBox="0 0 1000 520" role="img" aria-label="ผังต้นแบบล่าสุด P0 พร้อมลูกศรตามที่ได้รับ และ P1 กล่องแยกที่ยังไม่มีลูกศรยืนยัน">
     <defs><pattern id="circuit-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a3140" strokeWidth=".45" /></pattern><marker id="circuit-arrow-power" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill={AMBER} /></marker><marker id="circuit-arrow-data" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill={TEAL} /></marker></defs>
     <rect width="1000" height="520" fill="url(#circuit-grid)" />
-    <text x="36" y="24" fill="#9ab2bd" fontSize="9" letterSpacing="1.2">ผังการเชื่อมต่อร่วม / แนวคิดวงจรสาธิตกระแสตรง</text>
+    <text x="36" y="24" fill="#9ab2bd" fontSize="9" letterSpacing="1.2">ผังผู้ใช้ 15 ต.ค. 2569 / P0 ตามลูกศร / P1 ยังไม่ครบ</text>
+    <rect x="178" y="40" width="553" height="448" rx="12" fill="#102a36" stroke="#41667b"/><text x="190" y="59" fill="#b9d4dd" fontSize="10">P0 · MASTER POWER NODE · WATERPROOF BOX</text>
+    <rect x="751" y="40" width="238" height="448" rx="12" fill="#142536" stroke="#628395" strokeDasharray="5 4"/><text x="765" y="59" fill="#eebd76" fontSize="10">P1 · WATER QUALITY · PARTIAL</text>
+    {mode === 'signal' && <text x="20" y="510" fill="#67dcc6" fontSize="9">ยังไม่ได้รับลูกศรสัญญาณ / transport ระหว่างโหนด จึงไม่วาดเส้นขึ้นเอง</text>}
     {CIRCUIT_NETS.map(net => {
       const signal = net.kind === 'signal', ground = net.kind === 'ground';
       const visible = mode === 'power' ? !signal : mode === 'signal' ? signal : true;
@@ -178,7 +181,7 @@ function Schematic({ mode, selection, select, systemMode, nodeOffline, batterySo
       const labelX = net.id === 'ec-p0' || net.id === 'temp-p0' ? bend - 5 : net.id === 'common-return' ? 657 : (x1 + x2) / 2;
       const labelY = net.id === 'common-return' ? 283 : net.id === 'ec-p0' ? 342 : net.id === 'temp-p0' ? 310 : (y1 + y2) / 2 - 8;
       const color = active ? sensorFault && net.id === 'ec-p0' ? AMBER : signal ? TEAL : ground ? '#7295b2' : AMBER : '#516777';
-      return <g key={net.id} opacity={visible ? 1 : .13}><path d={path} fill="none" stroke={color} strokeWidth={signal ? 1.7 : ground ? 2 : 2.5} strokeDasharray={signal ? '5 5' : undefined} strokeLinejoin="round" markerEnd={active && !ground ? `url(#circuit-arrow-${signal ? 'data' : 'power'})` : undefined} /><text x={labelX} y={labelY} textAnchor={net.id === 'ec-p0' || net.id === 'temp-p0' ? 'end' : 'middle'} fill={visible ? color : '#3b5261'} fontSize="7.5" style={{ paintOrder: 'stroke', stroke: '#0a1622', strokeWidth: 4, strokeLinejoin: 'round' }}>{net.net}</text></g>;
+      return <g key={net.id} opacity={visible ? 1 : .13}><path d={path} fill="none" stroke={color} strokeWidth={signal ? 1.7 : ground ? 2 : 2.5} strokeDasharray={signal ? '5 5' : undefined} strokeLinejoin="round" markerEnd={!ground ? `url(#circuit-arrow-${signal ? 'data' : 'power'})` : undefined} /><text x={labelX} y={labelY} textAnchor={net.id === 'ec-p0' || net.id === 'temp-p0' ? 'end' : 'middle'} fill={visible ? color : '#3b5261'} fontSize="7.5" style={{ paintOrder: 'stroke', stroke: '#0a1622', strokeWidth: 4, strokeLinejoin: 'round' }}>{net.net}</text></g>;
     })}
     {CIRCUIT_NODES.map(node => {
       const selected = selection === node.id, component = COMPONENTS.find(c => c.id === node.id);
@@ -187,12 +190,10 @@ function Schematic({ mode, selection, select, systemMode, nodeOffline, batterySo
         <rect x={node.x + 10} y={node.y + 11} width="3" height="10" rx="1" fill={component?.category === 'Sensing' || node.id === 'esp32' ? TEAL : AMBER} />
         <text x={node.x + 20} y={node.y + 21} fill="#e5edf1" fontSize="9.5" fontWeight="700">{node.name}</text>
         <text x={node.x + 12} y={node.y + 40} fill="#a4bec5" fontSize="8">{node.pins.join(' · ')}</text>
-        <text x={node.x + 12} y={node.y + 52} fill="#7897a7" fontSize="6.5">{node.id === 'bus' ? 'OR-ING / RETURN DESIGN TBD' : component?.status === 'simulated' ? 'SIMULATED REFERENCE' : 'DEVICE / RATING TO CONFIRM'}</text>
+        <text x={node.x + 12} y={node.y + 52} fill="#7897a7" fontSize="6.5">{node.id === 'bus' ? 'MULTI-SOURCE / RATING TBD' : component?.status === 'simulated' ? 'SIMULATED REFERENCE' : 'DEVICE / RATING TO CONFIRM'}</text>
       </g>;
     })}
-    <path d="M852,260 V323 H849" fill="none" stroke={outage && batterySoc <= .08 ? '#516777' : AMBER} strokeWidth="2.5" /><circle cx="852" cy="332" r="9" fill="#102332" stroke={AMBER} /><path d="M847,327 L857,337 M857,327 L847,337" stroke={AMBER} /><text x="852" y="356" textAnchor="middle" fill="#a6b8c5" fontSize="7">P1 DEMO LOAD* · RETURN TO DC−</text>
-    <text x="36" y="484" fill={AMBER} fontSize="9">* ENGINEERING REVIEW REQUIRED · PIN MAP / PROTECTION / BATTERY CHEMISTRY / ISOLATION TBD</text>
-    <text x="36" y="505" fill="#8ca5b4" fontSize="8">GPIO controls EN only. Load current uses the power path. Common DC− shown conceptually; final return wiring is not specified.</text>
+    {mode !== 'signal' && <text x="20" y="510" fill="#b3c9d2" fontSize="8">ลูกศรเป็นผังแนวคิด ไม่ระบุ pin / voltage / cell arrangement · EC และส่วน P1–P3 รอข้อมูลต่อ</text>}
   </svg></div>;
 }
 
@@ -209,7 +210,7 @@ export default function CircuitLab({ mode, selection, select, systemMode, nodeOf
   if (mode !== 'assembly' && mode !== 'exploded') return schematic;
   return <div className="circuit-3d" style={{ background: '#0a1622' }}>
     <CircuitBoundary fallback={schematic}><CircuitScene mode={mode} selected={selection} select={select} systemMode={systemMode} nodeOffline={nodeOffline} batterySoc={batterySoc} sensorFault={sensorFault} compact={compact} reducedMotion={reducedMotion} /></CircuitBoundary>
-    <div className="circuit-scene-overlay" style={{ background: '#0a1622dd', border: '1px solid #355263', color: '#c2d4dc', padding: '8px 11px', fontSize: 10, maxWidth: 'calc(100% - 20px)' }}><span style={{ color: TEAL }}>{mode === 'exploded' ? 'EXPLODED ASSEMBLY' : 'REFERENCE CONTROL PANEL'}</span> · {mode === 'exploded' ? 'เคลื่อนชิ้นส่วนเพื่ออ่านความสัมพันธ์' : 'หมุน / ซูม / เลือกอุปกรณ์'}<small style={{ display: 'block', marginTop: 4, color: '#8ba8b8', fontSize: 9 }}>รูปทรงอุปกรณ์สร้างเพื่ออธิบายแนวคิด · ยังไม่ใช่รุ่น / พิกัด / pin map ที่ยืนยันแล้ว</small></div>
+    <div className="circuit-scene-overlay" style={{ background: '#0a1622dd', border: '1px solid #355263', color: '#c2d4dc', padding: '8px 11px', fontSize: 10, maxWidth: 'calc(100% - 20px)' }}><span style={{ color: TEAL }}>{mode === 'exploded' ? 'EXPLODED ASSEMBLY' : 'P0 / P1 REFERENCE BOXES'}</span> · {mode === 'exploded' ? 'เคลื่อนชิ้นส่วนเพื่ออ่านความสัมพันธ์' : 'หมุน / ซูม / เลือกอุปกรณ์'}<small style={{ display: 'block', marginTop: 4, color: '#8ba8b8', fontSize: 9 }}>แยกกล่อง P0 / P1 ตามแบบ · P1 ไม่มีสายยืนยัน · รูปทรงโมดูลเป็นภาพอธิบาย ไม่ใช่อุปกรณ์ที่เลือกแล้ว</small></div>
     <div style={{ position: 'absolute', top: 12, left: 12, pointerEvents: 'none', display: 'flex', gap: 7, fontSize: 9, color: '#b9cdd3' }}><span style={{ padding: '5px 7px', background: '#0a1622dd', border: '1px solid #2e4d5d', borderRadius: 4 }}><i style={{ color: AMBER }}>●</i> Power path</span><span style={{ padding: '5px 7px', background: '#0a1622dd', border: '1px solid #2e4d5d', borderRadius: 4 }}><i style={{ color: TEAL }}>●</i> Data / control</span></div>
   </div>;
 }

@@ -69,8 +69,8 @@ function Led({ position, lit, color = '#67dcc6' }: { position: Point; lit: boole
   return <mesh position={position}><sphereGeometry args={[.028, 10, 8]} /><meshStandardMaterial color={lit ? color : '#223743'} emissive={lit ? color : '#000000'} emissiveIntensity={lit ? 2.2 : 0} roughness={.25} /></mesh>;
 }
 
-function Controller({ lit, dataOnline }: { lit: boolean; dataOnline: boolean }) {
-  return <group rotation={[0, Math.PI / 2, 0]}><Board width={.74} depth={1.18} label="ESP32 DEV · P0">
+function Controller({ lit, dataOnline, p1 = false }: { lit: boolean; dataOnline: boolean; p1?: boolean }) {
+  return <group rotation={[0, Math.PI / 2, 0]}><Board width={.74} depth={1.18} label={p1 ? 'P1 ESP32 / MODEL TBD' : 'P0 ESP32-S3 / MODEL TBD'}>
     <Body size={[.48, .105, .54]} position={[0, .17, -.14]} color="#afbac0" metalness={.95} roughness={.32} radius={.008} />
     <Body size={[.51, .012, .27]} position={[0, .108, -.44]} color="#273036" radius={.004} />
     {Array.from({ length: 5 }, (_, i) => <mesh key={i} position={[-.2 + i * .075, .12, -.445]}><boxGeometry args={[.021, .006, .21]} /><meshStandardMaterial color="#d8b670" metalness={.94} roughness={.3} /></mesh>)}
@@ -126,7 +126,7 @@ function Fuse({ lit }: { lit: boolean }) {
 }
 
 function Monitor({ lit }: { lit: boolean }) {
-  return <Board label="V/I MEASURE · TBD"><Terminal position={[-.35, .095, .15]} color="#549b80" /><Terminal position={[.35, .095, .15]} color="#549b80" />
+  return <Board label="V / I / STABILITY TBD"><Terminal position={[-.35, .095, .15]} color="#549b80" /><Terminal position={[.35, .095, .15]} color="#549b80" />
     <Body size={[.38, .055, .14]} position={[0, .15, .17]} color="#8d715b" metalness={.62} radius={.008} />
     <Body size={[.23, .045, .23]} position={[0, .125, -.12]} radius={.005} />
     <Pins count={4} spacing={.08} along="x" z={-.29} /><Led position={[.32, .12, -.14]} lit={lit} />
@@ -163,17 +163,32 @@ function Probe({ temperature = false, lit }: { temperature?: boolean; lit: boole
   </group>;
 }
 
+function Cell18650() {
+ return <group rotation={[Math.PI/2,0,0]} position={[0,.23,0]}><mesh castShadow><cylinderGeometry args={[.16,.16,.66,24]}/><meshStandardMaterial color="#377f91" metalness={.25} roughness={.45}/></mesh><mesh position={[0,.34,0]}><cylinderGeometry args={[.07,.07,.025,16]}/><meshStandardMaterial color="#bec8ce" metalness={.8} roughness={.3}/></mesh></group>;
+}
+function PrototypeModule({label,lit}:{label:string;lit:boolean}) {
+ return <group><Body size={[1.1,.25,.65]} position={[0,.14,0]} color="#354e60" radius={.04}/><Board label={label} width={1.08} depth={.62}><Terminal position={[-.35,.1,0]}/><Terminal position={[.35,.1,0]}/><Led position={[0,.13,.18]} lit={lit}/></Board></group>;
+}
+function MiniSolar() {
+ return <group rotation={[.15,0,0]}><Body size={[1.2,.05,.72]} position={[0,.1,0]} color="#71879a"/><Body size={[1.14,.015,.66]} position={[0,.14,0]} color="#153c6e"/>{[-.4,-.2,0,.2,.4].map(x=><mesh key={x} position={[x,.153,0]}><boxGeometry args={[.008,.005,.65]}/><meshStandardMaterial color="#81a6c3"/></mesh>)}</group>;
+}
 export function CircuitEquipment({ id, lit, dataOnline }: { id: string; lit: boolean; dataOnline: boolean }) {
   switch (id) {
     case 'esp32': return <Controller lit={lit} dataOnline={dataOnline} />;
-    case 'buck': return <Buck lit={lit} />;
-    case 'battery': return <PowerBattery lit={lit} />;
-    case 'bus': return <Distribution />;
+    case 'buck': return <PrototypeModule label='2-WAY POWER MANAGER' lit={lit}/>;
+    case 'solar': return <MiniSolar/>;
+    case 'battery2':
+    case 'p1battery':
+    case 'battery': return <Cell18650/>;
+    case 'p1esp': return <Controller p1 lit={lit} dataOnline={dataOnline}/>;
+    case 'p1ups': return <PrototypeModule label='P1 SINGLE-RAIL UPS' lit={lit}/>;
+
+    case 'bus': return <PrototypeModule label='MULTI-SOURCE DC INPUT' lit={lit}/>;
     case 'fuse': return <Fuse lit={lit} />;
     case 'sense': return <Monitor lit={lit} />;
-    case 'driver': return <Driver lit={lit} dataOnline={dataOnline} />;
-    case 'charger': return <Charger lit={lit} />;
-    case 'salinity': return <Probe lit={lit && dataOnline} />;
+    case 'driver': return <PrototypeModule label='RELAY POWER DISTRIBUTION' lit={lit}/>;
+    case 'charger': return <PrototypeModule label='P0 DUAL-RAIL UPS' lit={lit}/>;
+    case 'salinity': return <PrototypeModule label='EC / SOURCE INCOMPLETE' lit={false}/>;
     case 'temp': return <Probe temperature lit={lit && dataOnline} />;
     default: return <group><Body size={[.94, .3, .69]} position={[0, .17, 0]} color="#425967" radius={.04} /><Terminal position={[0, .3, .12]} count={2} color="#546c76" />
       <mesh position={[0, .17, -.4]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[.1, .1, .2, 16]} /><meshStandardMaterial color={METAL} metalness={.88} roughness={.27} /></mesh><Led position={[.32, .35, -.17]} lit={lit} color="#eebd76" /></group>;

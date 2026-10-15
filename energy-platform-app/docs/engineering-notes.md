@@ -1,5 +1,7 @@
 # Engineering Notes
 
+> Current prototype reference: [partial user flowchart, 15 October 2026](prototype-flowchart.md). P0 uses ESP32-S3, Mini Solar, two listed 18650 cells and Dual-Rail UPS. P1 lists its own battery, Single-Rail UPS and ESP32. Connections for P1 and P2/P3 remain incomplete. The following numerical model and telemetry examples describe the existing browser demonstrator, not measured or specified prototype hardware.
+
 ## System states
 
 - Power: normal, voltage sag, outage, backup operation.

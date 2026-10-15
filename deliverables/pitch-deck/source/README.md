@@ -10,3 +10,8 @@ The deck uses `@oai/artifact-tool` (Presentation skill) with native PowerPoint t
 6. Source claims, full URLs and detailed speaker notes live in speaker-content.json. The separate timed script is ../pitch-script-th.md. Financial price is a single online UPS reference, not a verified project BOM.
 
 Authoring receipt is private `.codex-build/pitch10/final-deck.validation.json`. It verifies package, declared geometry, font names, slide count, native tables and first-party re-import, not execution in PowerPoint. PowerPoint/Google Slides native application editing was not tested.
+
+
+## Prototype synchronization, 15 October 2026
+
+Slide 4 reads the exact same `energy-platform-app/src/lib/prototype-topology.json` as the circuit graph and component inspector. Slide 6, the script and notes distinguish the received P0 wiring from incomplete P1 declarations and the old pooled simulation. Full provenance, known arrows and missing details are in `energy-platform-app/docs/prototype-flowchart.md`, included in slide 10 notes and the public appendix. The source stops at `EC["EC`; no P1 or inter-node connection was invented.

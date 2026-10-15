@@ -1,0 +1,408 @@
+{
+  "revision": "2026-10-15-user-flowchart-partial",
+  "title": "Smart Sala-Hum Prototype",
+  "source": "ผัง Mermaid ที่ผู้ใช้ส่ง 15 ตุลาคม 2569",
+  "status": "partial",
+  "cutoff": "EC[\"EC",
+  "nodes": [
+    {
+      "id": "source",
+      "ref": "GRID",
+      "label": "AC Adapter",
+      "short": "AC ADAPTER",
+      "group": "external",
+      "x": 20,
+      "y": 185,
+      "w": 140,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Power",
+      "note": "จำลองจุดเชื่อมไฟหมู่บ้าน ไม่ต่อไฟบ้านเข้าบอร์ดโดยตรง"
+    },
+    {
+      "id": "solar",
+      "ref": "SOLAR",
+      "label": "Mini Solar Cell",
+      "short": "MINI SOLAR",
+      "group": "P0",
+      "x": 190,
+      "y": 70,
+      "w": 160,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Power",
+      "note": "รุ่น พิกัด และขาต่อยังไม่ระบุ"
+    },
+    {
+      "id": "bus",
+      "ref": "DCM",
+      "label": "Multi-Source DC Input Manager",
+      "short": "DC INPUT MANAGER",
+      "group": "P0",
+      "x": 190,
+      "y": 185,
+      "w": 160,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Power",
+      "note": "รุ่น พิกัด และขาต่อยังไม่ระบุ"
+    },
+    {
+      "id": "battery",
+      "ref": "BAT0A",
+      "label": "18650 #1",
+      "short": "18650 #1",
+      "group": "P0",
+      "x": 385,
+      "y": 70,
+      "w": 140,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "เซลล์แรกเข้า UPS ตามผัง ไม่ระบุการต่ออนุกรมหรือขนาน"
+    },
+    {
+      "id": "battery2",
+      "ref": "BAT0B",
+      "label": "18650 #2",
+      "short": "18650 #2",
+      "group": "P0",
+      "x": 550,
+      "y": 70,
+      "w": 140,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "เซลล์ที่สองเข้า UPS ตามผัง ไม่ระบุความจุหรือแรงดันแพ็ก"
+    },
+    {
+      "id": "charger",
+      "ref": "UPS0",
+      "label": "Dual-Rail UPS Battery System",
+      "short": "DUAL-RAIL UPS",
+      "group": "P0",
+      "x": 465,
+      "y": 185,
+      "w": 225,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "ชื่อ Dual-Rail ตามผัง ไม่สรุปว่าเป็นแพ็ก 2S หรือแรงดันสองเท่า"
+    },
+    {
+      "id": "buck",
+      "ref": "PM0",
+      "label": "2-Way Power Manager",
+      "short": "2-WAY POWER MGR",
+      "group": "P0",
+      "x": 345,
+      "y": 300,
+      "w": 200,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Power",
+      "note": "รับจาก DC Input Manager และ UPS ตามลูกศร ไม่ระบุวงจรชาร์จหรือแปลงแรงดันภายใน"
+    },
+    {
+      "id": "esp32",
+      "ref": "ESP0",
+      "label": "ESP32-S3",
+      "short": "P0 ESP32-S3",
+      "group": "P0",
+      "x": 190,
+      "y": 415,
+      "w": 150,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Control",
+      "note": "ตัวควบคุม P0 ตามผังใหม่ ขาต่อและเฟิร์มแวร์ยังไม่ระบุ"
+    },
+    {
+      "id": "sense",
+      "ref": "MON0",
+      "label": "Voltage / Current / Stability Monitor",
+      "short": "V / I / STABILITY",
+      "group": "P0",
+      "x": 365,
+      "y": 415,
+      "w": 170,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "รับไฟจาก Power Manager ตามลูกศร ผังยังไม่ระบุเส้นข้อมูลไป ESP32-S3"
+    },
+    {
+      "id": "driver",
+      "ref": "RELAY",
+      "label": "Relay Power Distribution",
+      "short": "RELAY DISTRIBUTION",
+      "group": "P0",
+      "x": 560,
+      "y": 415,
+      "w": 150,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Switching",
+      "note": "รับไฟจาก Power Manager ตามผัง ขาควบคุมและโหลดปลายทางยังไม่ระบุ"
+    },
+    {
+      "id": "p1battery",
+      "ref": "BAT1",
+      "label": "18650 Battery",
+      "short": "P1 18650",
+      "group": "P1",
+      "x": 765,
+      "y": 70,
+      "w": 210,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "แบตเตอรี่ของ P1 แยกจาก P0 ส่วนที่ได้รับยังไม่มีลูกศร P1"
+    },
+    {
+      "id": "p1ups",
+      "ref": "UPS1",
+      "label": "Single-Rail UPS",
+      "short": "SINGLE-RAIL UPS",
+      "group": "P1",
+      "x": 765,
+      "y": 185,
+      "w": 210,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "UPS ของ P1 ตามรายการ ส่วนที่ได้รับยังไม่ระบุการเชื่อมต่อ"
+    },
+    {
+      "id": "p1esp",
+      "ref": "ESP1",
+      "label": "ESP32",
+      "short": "P1 ESP32",
+      "group": "P1",
+      "x": 765,
+      "y": 300,
+      "w": 210,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Control",
+      "note": "ตัวควบคุม P1 ตามรายการ ยังไม่ระบุ transport หรือ GPIO"
+    },
+    {
+      "id": "salinity",
+      "ref": "EC",
+      "label": "EC (ข้อความยังไม่ครบ)",
+      "short": "EC · PENDING",
+      "group": "P1",
+      "x": 765,
+      "y": 415,
+      "w": 210,
+      "h": 62,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "ข้อความต้นทางจบที่ EC[\"EC จึงยังไม่ระบุรุ่น หน่วย สูตรความเค็ม หรือสายสัญญาณ"
+    }
+  ],
+  "edges": [
+    {
+      "id": "source-bus",
+      "fromNode": "source",
+      "toNode": "bus",
+      "from": [
+        160,
+        216
+      ],
+      "to": [
+        190,
+        216
+      ],
+      "net": "GRID > DCM",
+      "kind": "power",
+      "path": "grid"
+    },
+    {
+      "id": "solar-bus",
+      "fromNode": "solar",
+      "toNode": "bus",
+      "from": [
+        270.0,
+        132
+      ],
+      "to": [
+        270.0,
+        185
+      ],
+      "net": "SOLAR > DCM",
+      "kind": "power",
+      "path": "solar"
+    },
+    {
+      "id": "battery-charger",
+      "fromNode": "battery",
+      "toNode": "charger",
+      "from": [
+        455.0,
+        132
+      ],
+      "to": [
+        577.5,
+        185
+      ],
+      "net": "BAT0A > UPS0",
+      "kind": "power",
+      "path": "backup"
+    },
+    {
+      "id": "battery2-charger",
+      "fromNode": "battery2",
+      "toNode": "charger",
+      "from": [
+        620.0,
+        132
+      ],
+      "to": [
+        577.5,
+        185
+      ],
+      "net": "BAT0B > UPS0",
+      "kind": "power",
+      "path": "backup"
+    },
+    {
+      "id": "bus-buck",
+      "fromNode": "bus",
+      "toNode": "buck",
+      "from": [
+        270.0,
+        247
+      ],
+      "to": [
+        445.0,
+        300
+      ],
+      "net": "DCM > PM0",
+      "kind": "power",
+      "path": "grid"
+    },
+    {
+      "id": "charger-buck",
+      "fromNode": "charger",
+      "toNode": "buck",
+      "from": [
+        577.5,
+        247
+      ],
+      "to": [
+        445.0,
+        300
+      ],
+      "net": "UPS0 > PM0",
+      "kind": "power",
+      "path": "backup"
+    },
+    {
+      "id": "buck-esp32",
+      "fromNode": "buck",
+      "toNode": "esp32",
+      "from": [
+        445.0,
+        362
+      ],
+      "to": [
+        265.0,
+        415
+      ],
+      "net": "PM0 > ESP0",
+      "kind": "power",
+      "path": "bus"
+    },
+    {
+      "id": "buck-sense",
+      "fromNode": "buck",
+      "toNode": "sense",
+      "from": [
+        445.0,
+        362
+      ],
+      "to": [
+        450.0,
+        415
+      ],
+      "net": "PM0 > MON0",
+      "kind": "power",
+      "path": "bus"
+    },
+    {
+      "id": "buck-driver",
+      "fromNode": "buck",
+      "toNode": "driver",
+      "from": [
+        445.0,
+        362
+      ],
+      "to": [
+        635.0,
+        415
+      ],
+      "net": "PM0 > RELAY",
+      "kind": "power",
+      "path": "bus"
+    }
+  ],
+  "boundaries": [
+    "แต่ละโหนดแยกกล่องกันน้ำตามแนวคิด ไม่ยืนยันระดับ IP",
+    "P0 จำลองจุดเชื่อมไฟหมู่บ้านด้วย AC Adapter",
+    "P1 มีแบตเตอรี่และ UPS ของตัวเอง แต่ส่วนที่ได้รับยังไม่มีลูกศร P1",
+    "P2–P3 และเส้นเชื่อมระหว่างโหนดยังไม่ปรากฏในส่วนที่ได้รับ",
+    "12 V, 1.2 kWh และโหลด 30/120/80/260 W เป็นโมเดลสาธิตเดิม ไม่ใช่สเปก 18650 หรือ UPS ตามผังใหม่"
+  ],
+  "pending": [
+    "ผัง P1 หลัง EC และลูกศรทั้งหมด",
+    "องค์ประกอบและการเชื่อมต่อ P2–P3",
+    "เส้นข้อมูลและ transport ระหว่างโหนด",
+    "รุ่น UPS และ DC Input/Power Manager",
+    "ความจุเซลล์ การป้องกัน การชาร์จ พิกัด และการต่อแบตจริง",
+    "ผลวัดฮาร์ดแวร์ แรงดัน กระแส และเวลาสำรองแต่ละกล่อง"
+  ]
+}
