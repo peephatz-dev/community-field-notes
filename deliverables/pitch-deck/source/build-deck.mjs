@@ -90,8 +90,8 @@ const s=base(7,'ต้นแบบที่กดทดลองได้','เ�
 await img(s,'dashboard-crop.png',56,166,808,464,'contain');
 await img(s,'outage-detail.png',894,166,330,259,'contain');
 label(s,'ข้อมูลทดลอง',894,439,172,C.yellow);
-const link=tx(s,'เปิดเว็บสาธารณะ (รุ่นก่อนรอบนี้)',56,632,802,26,17,C.blue);link.text=[[{run:'peephatz-dev.github.io/community-field-notes/energy-platform/',link:{uri:'https://peephatz-dev.github.io/community-field-notes/energy-platform/',isExternal:true}}]];
-tx(s,'URL: รุ่นเผยแพร่ก่อนรอบนี้',894,634,330,24,16,C.gray);
+const link=tx(s,'เปิดเว็บสาธารณะ',56,632,802,26,17,C.blue);link.text=[[{run:'peephatz-dev.github.io/community-field-notes/energy-platform/',link:{uri:'https://peephatz-dev.github.io/community-field-notes/energy-platform/',isExternal:true}}]];
+tx(s,'URL: เว็บสาธารณะ',894,634,330,24,16,C.gray);
 tx(s,'เดโม 45 วินาที',894,487,330,35,27,C.navy,true);tx(s,'เลือกจุดกระชัง\nลองไฟตก / ไฟดับ\nเปิดแจ้งเตือนและคืนไฟ',894,531,330,111,24);
 }
 // 08. Native proof matrix with explicit absence of physical evidence.
@@ -109,13 +109,24 @@ tx(s,'เทคโนโลยีเดิมที่ต้องเทีย�
 }
 // The advertised UPS unit is a pricing reference, not a selected or runtime-validated BOM.
 tx(P.slides.items[8],'*ราคาเครื่อง UPS ตัวอย่างเฉพาะออนไลน์  ยังไม่รวมระบบวัด ตู้ การติดตั้ง และค่าเปลี่ยนแบต  ต้องตรวจราคาอีกครั้ง',56,642,1168,23,16,C.gray);
-// 10. Pilot, owners, KPI and modest ask.
+// 10. Pilot, owners, KPI and full appendix entry points.
 {
-const s=base(10,'ทดลอง 1–2 จุดก่อนตัดสินใจขยาย','จุดทดลองและผู้ดูแลในชุมชนยังรอข้อตกลง','E04 / E16–E17  แผนเสนอ  เกณฑ์ซ้อม: Problem, Innovation, Feasibility, Impact, Presentation (ไม่ใช่เกณฑ์ทางการ)');
-const phases=['สำรวจ','วัด','วิเคราะห์','ป้องกัน','วัดผล','ขยาย'];for(let i=0;i<6;i++){rect(s,56+i*197,174,181,64,i===5?C.navy:C.soft);tx(s,phases[i],66+i*197,187,161,36,27,i===5?C.white:C.navy,true,'center');if(i<5)line(s,237+i*197,205,16,0,C.blue,2);}
-tx(s,'สิ่งที่จะวัดก่อนขยาย',56,267,553,39,29,C.navy,true);tx(s,'ความครบถ้วนหลักฐานเหตุ\nนาทีที่คงโหลดสำคัญได้\nต้นทุนตลอดอายุเทียบทางเลือก\nผู้ดูแลอ่านเหตุและบันทึกได้',56,317,553,172,25);
-tx(s,'เจ้าของงานและผลส่งมอบ',660,267,564,39,29,C.navy,true);tx(s,'นาย  โจทย์ / ต้นทุน / แผนทดลอง\nโฟล์ค  โหลด / วงจร / ความปลอดภัย\nพี  Dashboard / บันทึกและ KPI\nบอส  การส่งข้อมูล / ผู้รับเหตุ\nข้าวฟ่าง  แหล่งข้อมูล / ยืนยันกับชุมชน',660,317,564,209,24);
-rect(s,56,540,1168,101,C.navy);tx(s,'สิ่งที่ขอเพื่อเริ่ม',76,552,290,36,27,C.white,true);tx(s,'อนุญาตวัดแบบจำกัดจุด  เข้าถึงข้อมูลระบบเดิมที่ยินยอม\nระบุผู้ประสานงานและผู้รับเหตุร่วมกัน  ชื่อท้องถิ่นยัง TBD',376,551,818,74,25,C.white);
+const s=base(10,'แผนทดลองและภาคผนวกฉบับเต็ม','เริ่ม 1–2 จุดที่ชุมชนยินยอม  รายละเอียดทุกหมวดเปิดจากหน้านี้','E04 / E16–E18  ข้อเสนอทดลอง  เกณฑ์ซ้อมทั้ง 5 ด้านยังไม่ใช่เกณฑ์ทางการ');
+const phases=['สำรวจ','วัด','วิเคราะห์','ป้องกัน','วัดผล','ขยาย'];for(let i=0;i<6;i++){rect(s,56+i*197,167,181,58,i===5?C.navy:C.soft);tx(s,phases[i],66+i*197,177,161,36,26,i===5?C.white:C.navy,true,'center');if(i<5)line(s,237+i*197,195,16,0,C.blue,2);}
+tx(s,'วัดผลก่อนขยาย',56,252,355,38,28,C.navy,true);tx(s,'หลักฐานเหตุครบเพียงใด\nคงโหลดสำคัญได้กี่นาที\nต้นทุนตลอดอายุเทียบทางเลือก\nผู้ดูแลอ่านเหตุและบันทึกได้',56,306,355,162,23);
+tx(s,'เจ้าของงาน',458,252,355,38,28,C.navy,true);tx(s,'นาย  โจทย์ / ต้นทุน / แผน\nโฟล์ค  โหลด / วงจร / ป้องกัน\nพี  Dashboard / ข้อมูล / KPI\nบอส  การสื่อสาร / ผู้รับเหตุ\nข้าวฟ่าง  หลักฐาน / ยืนยัน',458,306,355,200,23);
+tx(s,'ภาคผนวกทุกหมวด',860,252,364,38,28,C.navy,true);
+const appendixUrl='https://peephatz-dev.github.io/community-field-notes/pitch-appendix.html';
+for(const [i,[label,hash]]of [['หลักฐานและข้อมูลที่ยังขาด','evidence'],['วงจร สมการ และข้อจำกัด','engineering'],['ต้นทุน KPI และแผนลงพื้นที่','field'],['สคริปต์ Q&A ผลตรวจ และไฟล์','pitch']].entries()){
+ const t=tx(s,label,860,305+i*43,364,38,23,C.blue,true);t.text=[[{run:label,style:{underline:'sng'},link:{uri:appendixUrl+'#'+hash,isExternal:true}}]];
+}
+const all=tx(s,'เปิดภาคผนวกฉบับเต็ม ↗',860,486,364,35,22,C.navy,true);all.text=[[{run:'เปิดภาคผนวกฉบับเต็ม',link:{uri:appendixUrl,isExternal:true},style:{underline:'sng'}}]];
+rect(s,56,540,1168,101,C.navy);tx(s,'สิ่งที่ขอเพื่อเริ่ม',76,552,280,36,27,C.white,true);tx(s,'อนุญาตวัดแบบจำกัดจุด  เปิดข้อมูลเดิมที่ยินยอม\nตกลงผู้ประสานงานและผู้รับเหตุ  ชื่อท้องถิ่นยัง TBD',365,551,829,76,25,C.white);
+const appendices=JSON.parse(await fs.readFile(path.join(TMP,'appendix-sources.json'),'utf8'));
+let full='\n\nAPPENDIX ฉบับเต็ม — เอกสารในคลังโครงการ\n'+appendixUrl+'\n';
+for(const doc of appendices)full+='\n\n===== '+doc.id+' / '+doc.file+' =====\n'+await fs.readFile(path.join(ROOT,doc.file),'utf8');
+full+='\n\n===== SPEAKER NOTES 1–10 =====\n'+notes.map((n,i)=>'หน้า '+(i+1)+'\n'+n.script+'\n'+n.detail+'\n'+n.sources.join('\n')).join('\n\n');
+s.speakerNotes.text=String(s.speakerNotes.text)+full;
 }
 await fs.mkdir(path.join(OUT,'slides'),{recursive:true});
 for(const [i,s] of P.slides.items.entries()){

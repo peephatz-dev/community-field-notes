@@ -53,7 +53,7 @@
 
 ## Pitch QA
 
-- 10 content slides รวมปกแล้ว ไม่มี appendix / สไลด์11
+- 10 content slides รวมปกแล้ว รอบใหม่เพิ่ม appendix index บนหน้า 10 พร้อม notes และเว็บฉบับเต็ม ไม่มีสไลด์11
 - 16:9 13.333×7.5นิ้ว มี10speaker-note parts เป็นไทย สคริปต์รวม360วินาที หน้าสินค้ามีเดโม45วินาทีในช่วง50วินาที
 - PPTX text/shape/connectors editable และ3 native tables บนหน้า6/8/9 มี320โดยประมาณ text object รวมตาราง font Sarabun ตรวจชื่อฟอนต์และ first-party reimport ผ่าน ไม่เปิดตรวจใน PowerPoint/Google Slides จึงไม่อ้าง native application compatibility ทุกกรณี
 - Render1920×1080ทุกหน้าด้วย Artifact Tool ตรวจรายหน้าและcontact sheet แก้กล่องชื่อ P2/P3 ที่ตัดบรรทัดทับคำอธิบาย และแก้ทิศลูกศร workflow/dataให้ถูก
@@ -76,3 +76,16 @@ Executive summary=1, ปัญหา/ผลกระทบ=2, workflow=3, soluti
 ## ไฟล์ส่งมอบ
 
 `pitch-deck/` มี PPTX/PDF/10 PNG/contact sheet, script,20 Q&A, human video shot list และsourceพร้อมassets/URLs ส่วน `research/` มีevidence ledgerและแผนยืนยัน, `web-ui/` มีภาพเว็บจริงและdesignbrief ไม่สร้างวิดีโอAI
+
+## รอบเผยแพร่และ Canva ตามคำขอใหม่
+
+ผู้ใช้อนุญาต deploy และนำงานไป Canva แล้วในรอบนี้ หน้า 10 เพิ่มสารบัญภาคผนวกที่ลิงก์ไป `pitch-appendix.html` รวมข้อความเต็ม 18 เอกสาร + speaker notes 10 หน้า และภาพ/ไฟล์ต้นฉบับ โดยยังมีสไลด์หลัก 10 หน้า รายละเอียดเต็มแนบใน notes ของหน้า10ด้วย ไม่อัดตัวเล็กลงบนสไลด์ การนำเข้า Canva และการเผยแพร่ต้องตรวจผลจริงก่อนรายงานว่าสำเร็จ ข้อความ “ยังไม่ deploy” ด้านบนเป็นสถานะรอบก่อนหน้า
+
+
+### ผลตรวจรอบภาคผนวก
+
+- Production export `pnpm export:github` ผ่าน คงเส้นทางแอปเดิม
+- ภาคผนวกมี 18 เอกสารและ notes 10 หน้า ตรวจค้นคำว่า “แบต” พบ 12 เอกสาร เปิดทั้งหมดได้ 28 ส่วน ตารางเลื่อนอ่านได้ 23 ตาราง ซูมภาพใน dialog และปิดกลับได้
+- Desktop 1440 และ mobile 390 ตรวจ DOM ไม่พบ horizontal overflow ภาพมือถืออ่านได้
+- PDF รุ่นใหม่ 10 หน้า หน้า 10 มีลิงก์ภาคผนวก 5 ลิงก์
+- Canva นำเข้าสำเร็จ 10 หน้า ตรวจข้อความและลิงก์หน้า 10 ครบ Notes API ส่งกลับ 5,000 ตัวอักษรจึงยังไม่ยืนยัน notes ทั้งก้อนใน Canva ใช้เว็บฉบับเต็มเป็นแหล่งอ่านหลัก ดู `pitch-deck/canva-design.md`

@@ -1,0 +1,1715 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ภาคผนวกโครงการ | SALA HUM POWERGUARD</title><meta name="description" content="ภาคผนวกฉบับเต็มจากสไลด์ 10: หลักฐาน วงจร สมการ ต้นทุน แผนลงพื้นที่ KPI สคริปต์ Q&A ผลตรวจ และไฟล์โครงการ"><link rel="stylesheet" href="pitch-appendix.css"></head><body>
+<a href="#main" class="skip">ข้ามไปเนื้อหา</a><header><a class="brand" href="energy-platform/">SALA HUM <b>POWERGUARD</b></a><nav aria-label="เมนูหลัก"><a href="energy-platform/">Dashboard</a><a href="presentation-guide.html">ไกด์ทีม</a><a href="deliverables/pitch-deck/SalaHum_PowerGuard_Pitch_10Slides_16x9.pdf">Pitch 10 หน้า</a></nav></header>
+<div class="layout"><aside><p>ภาคผนวกหน้า 10</p><nav aria-label="สารบัญภาคผนวก"><a href="#library">ไฟล์ครบชุด</a><a href="#evidence">หลักฐานและแหล่งอ้างอิง</a><a href="#field">แผนลงพื้นที่ ต้นทุน และ KPI</a><a href="#engineering">วงจร สมการ และผังพื้นที่</a><a href="#pitch">สคริปต์ Q&A และการทำวิดีโอ</a><a href="#system">การทำงานและประวัติพัฒนาระบบ</a><a href="#qa">ผลตรวจและข้อจำกัด</a><a href="#speaker-notes">Notes 10 หน้า</a><a href="#screenshots">ภาพระบบจริง</a></nav></aside><main id="main"><h1>รายละเอียดทั้งหมด<br>สำหรับทำโปรเจกต์ต่อ</h1><p class="intro">หน้า 10 ของ Pitch รวมทางเข้าภาคผนวกไว้ที่นี่ เปิดอ่านเนื้อหาเต็ม ตาราง แหล่งอ้างอิง และไฟล์ต้นฉบับได้ โดยไม่เพิ่มสไลด์หลักเกิน 10 หน้า</p><p class="truth"><strong>สถานะ: ต้นแบบเว็บจำลอง</strong> ข้อมูลภาคสนามเป็นสิ่งที่เอกสารรายงาน ฮาร์ดแวร์ของทีมและผลกระทบต่อชุมชนยังไม่มีหลักฐานยืนยันการติดตั้งหรือผลทดลองจริง</p>
+<div class="tools"><label for="search">ค้นในภาคผนวก</label><input type="search" id="search" placeholder="เช่น BMS, ต้นทุน, offline, แผนทดลอง"><div><button id="expand" type="button">เปิดเนื้อหาทั้งหมด</button><button id="collapse" type="button">ปิดเนื้อหาทั้งหมด</button><button id="print" type="button">พิมพ์ / บันทึก PDF</button></div><p id="results" role="status">28 เอกสารและ notes เปิดอ่านฉบับเต็มได้</p></div>
+<section class="chapter" id="library"><h2>ไฟล์โครงการครบชุด</h2><div class="downloads"><a href="https://www.canva.com/d/u2da9_fHtUBQLO2">Canva แก้ไข Pitch 10 หน้า<span aria-hidden="true">↗</span></a><a href="deliverables/pitch-deck/SalaHum_PowerGuard_Pitch_10Slides_16x9.pptx">PowerPoint แก้ไขได้<span aria-hidden="true">↗</span></a><a href="deliverables/pitch-deck/SalaHum_PowerGuard_Pitch_10Slides_16x9.pdf">PDF 10 หน้า<span aria-hidden="true">↗</span></a><a href="deliverables/pitch-deck/preview-contact-sheet.png">พรีวิวสไลด์ครบ 10 หน้า<span aria-hidden="true">↗</span></a><a href="team-work-summary.pdf">เอกสารทีมฉบับต้นทาง<span aria-hidden="true">↗</span></a><a href="case-booklet-full.html">Case Booklet ฉบับเต็ม<span aria-hidden="true">↗</span></a><a href="project-standard.html">เกณฑ์กลางโครงการ<span aria-hidden="true">↗</span></a><a href="presentation-guide.html">ไกด์แบ่งงานและศัพท์ทีม<span aria-hidden="true">↗</span></a><a href="visual-library.html">คลังภาพทั้งหมด<span aria-hidden="true">↗</span></a><a href="evidence-explorer.html">Evidence Explorer<span aria-hidden="true">↗</span></a><a href="evidence-workbook-4-communities.xlsx">Evidence Workbook<span aria-hidden="true">↗</span></a><a href="%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%88%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%A5%E0%B8%B6%E0%B8%81_%E0%B8%8A%E0%B8%B8%E0%B8%A1%E0%B8%8A%E0%B8%994%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88.docx">รายงานวิจัย 4 พื้นที่<span aria-hidden="true">↗</span></a><a href="project-workspace.html">บอร์ดทำโครงการ<span aria-hidden="true">↗</span></a><a href="https://github.com/peephatz-dev/community-field-notes/tree/main/energy-platform-app">โค้ดและแบบทดสอบ<span aria-hidden="true">↗</span></a><a href="https://github.com/peephatz-dev/community-field-notes/tree/main/deliverables/pitch-deck/source">ไฟล์ต้นทางทำสไลด์<span aria-hidden="true">↗</span></a></div><p class="muted">เอกสารพื้นที่บางฉบับเก็บต้นฉบับอยู่กับทีม บัญชีหลักฐานระบุชื่อและเลขหน้าไว้ ไม่มีการสร้างไฟล์ต้นฉบับแทนขึ้นมาใหม่</p></section>
+<section id="evidence" class="chapter"><h2>หลักฐานและแหล่งอ้างอิง</h2><details class="document" id="evidence-ledger"><summary>บัญชีหลักฐาน E01–E18<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/research/evidence-ledger.md">ดาวน์โหลดเอกสาร Markdown</a><h1>บัญชีหลักฐานสำหรับ Pitch 10 หน้า</h1>
+<p>วันที่ตรวจ 15 ตุลาคม 2569 (2026) · ขอบเขต: บ้านศาลาหุม สิงหนคร สงขลา · ผู้รวบรวม: Codex จากไฟล์ผู้ใช้และ repository</p>
+<p>ความเชื่อมั่นหมายถึงความมั่นใจว่าแหล่งนั้นระบุเรื่องดังกล่าว ไม่ใช่การยืนยันสถานการณ์ปัจจุบันด้วยการวัดเอง</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>ข้อความที่อนุญาตให้ใช้</th>
+<th>หลักฐาน / ขอบเขตปี</th>
+<th>สถานะและข้อจำกัด</th>
+<th>ผู้รับผิดชอบยืนยัน</th>
+<th>สไลด์</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E01</td>
+<td>เอกสารพื้นที่รายงานว่าไฟไม่เสถียร มีไฟตกบ่อยครั้ง บางครัวเรือนมีโซลาร์แต่ไม่พอจ่ายระบบอื่น</td>
+<td>Data Pack ภาคใต้ หน้า 6, วันเก็บข้อมูลบนปก 16 ก.ค. 2569, ไฟล์ผู้ใช้ <a data-local-source="true" title="ต้นฉบับเอกสารอยู่กับทีม ยังไม่ได้เผยแพร่ไฟล์นี้">ไฟล์ Data Pack</a></td>
+<td>รายงานเชิงคุณภาพ ความเชื่อมั่นสูงต่อข้อความเอกสาร ไม่มี voltage log ความถี่ จำนวนผู้ได้รับผล หรือสาเหตุทางไฟที่พิสูจน์แล้ว</td>
+<td>นาย / ข้าวฟ่าง และผู้ดูแลท้องถิ่น TBD</td>
+<td>1–3</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>ประมาณ 50–70 ครัวเรือน, ผู้ให้ข้อมูลเชื่อมโยงกระชังมากกว่า 45 กระชัง</td>
+<td>Data Pack หน้า 6 และหน้า 1 ตามลำดับ</td>
+<td>ตัวเลขในเอกสาร ไม่ใช่สำมะโนล่าสุด ไม่แปลงเป็นความชุกหรือจำนวนผู้ใช้เป้าหมาย และไม่ถือว่าทุกกระชังต้องใช้ไฟ</td>
+<td>ข้าวฟ่าง / ผู้แทนชุมชน TBD</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>น้ำ ตะกอนและการเลี้ยงสัตว์น้ำเป็นบริบท ยังไม่มีหลักฐานว่าไฟเป็นสาเหตุปลาตาย</td>
+<td>Data Pack หน้า 1, 3–7</td>
+<td>ไม่อ้างว่าระบบนี้แก้ตะกอน DO หรือเพิ่มผลผลิตได้</td>
+<td>นาย / ผู้เชี่ยวชาญประมง TBD</td>
+<td>2, 9</td>
+</tr>
+<tr>
+<td>E04</td>
+<td>ทีมเสนอ P0–P3 และจัดลำดับโหลด ใช้แนวคิดแรงดันต่ำ แยกงานทีม 5 คน</td>
+<td><a href="team-work-summary.pdf">เอกสารทีม</a> หน้า 1–8 และ <a href="https://peephatz-dev.github.io/community-field-notes/presentation-guide.html">ไกด์ทีม</a></td>
+<td>เป็นข้อกำหนดการออกแบบ ไม่ใช่ผลฮาร์ดแวร์ ผู้รับบทบาทจริงตามไฟล์ทีม</td>
+<td>นาย, โฟล์ค, พี, บอส, ข้าวฟ่าง</td>
+<td>4–6,10</td>
+</tr>
+<tr>
+<td>E05</td>
+<td>ระบบจำลองร่วมกัน ใช้โหลด P0 30/P1 120/P2 80/P3 260 W, แบตตัวอย่าง 1.2 kWh</td>
+<td><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/src/lib/model.ts">model.ts</a>, <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/src/store/simulator.ts">simulator.ts</a></td>
+<td>สมมติฐานซอฟต์แวร์เท่านั้น แรงดัน 12.1/9.7/0 V DC เป็นแบบจำลอง ไม่ใช่ไฟบ้าน 230 V</td>
+<td>โฟล์ค / พี</td>
+<td>4–8</td>
+</tr>
+<tr>
+<td>E06</td>
+<td>เว็บทำไฟดับ พัก P3 ก่อน คง P0/P1 เมื่อพลังงานพอ; แบตวิกฤตเหลือ P0</td>
+<td>52 automated tests วันที่ 15 ต.ค. 2569, <code>energy-platform-app/test/</code> และ <a href="deliverables/web-ui/screenshots/">ภาพหน้าจอ</a></td>
+<td>PASS ในซอฟต์แวร์ ไม่ใช่ทดสอบ relay / transfer time / runtime ฮาร์ดแวร์</td>
+<td>โฟล์ค / พี</td>
+<td>5,7,8</td>
+</tr>
+<tr>
+<td>E07</td>
+<td>Offline สื่อสารแยกจากไฟดับ และ sensor fault แสดงช่องข้อมูลขาด</td>
+<td>tests/model, runtime และ notices จาก event จริงของตัวจำลอง</td>
+<td>ไม่มี MQTT/backend/เซนเซอร์จริง ค่า DO ไม่มี ทั้งค่าน้ำและไฟปัจจุบันเป็นข้อมูลสังเคราะห์</td>
+<td>บอส / พี</td>
+<td>5,6,8</td>
+</tr>
+<tr>
+<td>E08</td>
+<td>เว็บไซต์เดโมมีฉาก 3D/2D, กล้อง, inspector, charts, notices, acknowledgement, history และแผนสำรองในเครื่อง</td>
+<td><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/">ซอร์สแอป</a>, <a href="https://peephatz-dev.github.io/community-field-notes/energy-platform/">เว็บรุ่นที่เผยแพร่ก่อนรอบนี้</a>, screenshot capture 15 ต.ค. 2569 จาก localhost production export</td>
+<td>รุ่นใหม่อยู่ feature branch ยังไม่เผยแพร่ URL สาธารณะเป็นรุ่นก่อนหน้า การเก็บแผน/แจ้งเตือนใช้ localStorage ใน browser ไม่ใช่ cloud sync</td>
+<td>พี / บอส</td>
+<td>7,8</td>
+</tr>
+<tr>
+<td>E09</td>
+<td>แผนพื้นที่เป็นการสร้างตามภาพอ้างอิง ตำแหน่งอุปกรณ์เสนอ</td>
+<td><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/src/lib/site-layout.ts">site-layout.ts</a>, <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/ASSET_LICENSES.md">ASSET_LICENSES</a></td>
+<td>ความสัมพันธ์เชิงภาพ ไม่รับรองพิกัด เมตร ทิศเหนือ จำนวนกระชังจริง หรือชนิดน้ำจากสี ไม่แจกภาพ Google เป็น texture</td>
+<td>นาย / ข้าวฟ่าง</td>
+<td>1,7</td>
+</tr>
+<tr>
+<td>E10</td>
+<td>Bubble FiT มี DO และควบคุมเครื่องเติมอากาศ</td>
+<td><a href="https://www.nectec.or.th/innovation/innovation-hardware-electronics/bubblefit.html">NECTEC Bubble FiT</a>, 22 มิ.ย. 2560</td>
+<td>แหล่งหลัก ประวัติเทคโนโลยี ไม่ยืนยันติดตั้งปัจจุบันที่ศาลาหุม ไม่ใช่ comparison test</td>
+<td>ข้าวฟ่าง</td>
+<td>9</td>
+</tr>
+<tr>
+<td>E11</td>
+<td>Aqua-IoT ใช้ IoT ติดตามสภาพบ่อเลี้ยง</td>
+<td><a href="https://nectec.or.th/news/news-pr-news/aqua-iot-east2020.html">NECTEC Aqua-IoT</a>, บทความ 2563</td>
+<td>พื้นที่ภาคตะวันออก ไม่ใช่หลักฐานผลงานของทีม ไม่ใช่หลักฐานสถานะศาลาหุมปัจจุบัน</td>
+<td>ข้าวฟ่าง</td>
+<td>9</td>
+</tr>
+<tr>
+<td>E12</td>
+<td>ทางเลือกตรวจระบบไฟโดยหน่วยงานผู้รับผิดชอบ มีช่องทาง PEA 1129</td>
+<td><a href="https://www.pea.co.th/contact-us">PEA ติดต่อเรา</a>, เข้าถึง 15 ต.ค. 2569</td>
+<td>ต้องยืนยันพื้นที่บริการและผู้มีสิทธิ์แจ้งจริง ไม่มีการส่งคำขอแทนชุมชน</td>
+<td>นาย / ผู้ประสานงาน TBD</td>
+<td>9</td>
+</tr>
+<tr>
+<td>E13</td>
+<td>UPS ต้องพิจารณาโหลด W/VA และระยะสำรองตามอุปกรณ์</td>
+<td><a href="https://www.se.com/us/en/work/support/product-support/ups-buying-guide-for-selecting-a-battery-backup-system/">Schneider UPS buying guide</a>, เข้าถึง 15 ต.ค. 2569</td>
+<td>คำแนะนำผู้ผลิตทั่วไป ไม่มีใบเสนอราคา รุ่นจริง PF หรือ runtime curve ของทีม</td>
+<td>โฟล์ค</td>
+<td>9</td>
+</tr>
+<tr>
+<td>E14</td>
+<td>ตัวอย่างแบต 150 W × 2 h ÷ (0.8 × 0.8) ≈ 469 Wh</td>
+<td>สมมติฐาน DoD 80%, ประสิทธิภาพ 80% ใน <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/src/lib/powerguard-model.ts">planner</a></td>
+<td>ค่าคำนวณสาธิต ยังไม่เผื่ออายุ อุณหภูมิ กระแสเริ่มต้นหรือความสูญเสียที่วัดจริง ไม่ใช่ BOM และต่างจากแบต 1.2 kWh ในฉาก</td>
+<td>โฟล์ค</td>
+<td>9</td>
+</tr>
+<tr>
+<td>E15</td>
+<td>ระดับปัจจุบัน: แนวคิด/วิเคราะห์ พร้อมต้นแบบเว็บจำลอง</td>
+<td>ตรวจ repository และเอกสารทีม ไม่พบรายงาน bench test / hardware logs / user trial / field deployment ที่ยืนยัน</td>
+<td>การไม่พบหลักฐานไม่แปลว่าไม่เคยทำ แต่ยังอ้างไม่ได้ ยังไม่ใช่ prototype ที่ทดลองกับกลุ่มตัวอย่าง</td>
+<td>นาย / ข้าวฟ่าง</td>
+<td>8</td>
+</tr>
+<tr>
+<td>E16</td>
+<td>ทดลองจำกัด 1–2 จุดและ KPI 4 ข้อ</td>
+<td>ข้อเสนอรอบนี้ตามโจทย์ผู้ใช้</td>
+<td>PROPOSED ต้องรับความยินยอม มีผู้ดูแล และเกณฑ์ร่วมก่อนเริ่ม ค่าเป้าหมายตัวเลขยัง TBD</td>
+<td>ทั้งทีม / ผู้ดูแลชุมชน TBD</td>
+<td>10</td>
+</tr>
+<tr>
+<td>E17</td>
+<td>เกณฑ์ซ้อม Problem/Innovation/Feasibility/Impact/Presentation</td>
+<td>คำยืนยันผู้ใช้รอบนี้และไกด์ทีม</td>
+<td>เกณฑ์สมมติสำหรับเตรียม Pitch ไม่ใช่ rubric ทางการ ไม่ใส่น้ำหนักคะแนนที่แต่งขึ้น</td>
+<td>นาย / ข้าวฟ่าง</td>
+<td>notes/รายงาน</td>
+</tr>
+</tbody></table>
+<h2>ราคาอ้างอิงเพิ่มเติม E18</h2>
+<p><a href="https://www.advice.co.th/product/ups-/advice/ups-1000va-advice-smart-lcd">Advice UPS 1000VA SMART LCD</a> หน้าเว็บผู้ขายตรวจ 15 ต.ค. 2569 แสดงราคาออนไลน์ 1,750 บาท และพิกัด 1000 VA / 500 W ใช้ในสไลด์ 9 เป็นค่าเครื่องตัวอย่างหนึ่งชิ้น ไม่ใช่ BOM ที่เลือกหรือใบเสนอราคา ไม่ยืนยัน runtime สองชั่วโมง ไม่รวมระบบวัด ตู้ งานติดตั้ง ค่าเชื่อมต่อ และการดูแล/แบตเปลี่ยน ต้องตรวจราคาอีกครั้ง ผู้รับผิดชอบ นาย / โฟล์ค ความเชื่อมั่นสูงต่อราคาที่หน้าเว็บแสดง ณ วันตรวจ ไม่มีการสั่งซื้อ</p>
+<h2>ภาพและสิทธิ์</h2>
+<p>ภาพชุมชนมาจาก Data Pack ที่ผู้ใช้ส่งและเคยเผยแพร่ใน repository นี้: <a href="https://peephatz-dev.github.io/community-field-notes/visual-library.html">คลังภาพ</a>, <a href="community-images/manifest.json">manifest</a>. ใช้ <code>salahum-14</code> (กระชัง), <code>salahum-03</code> (เรือ/กระชัง). วันถ่าย/ผู้ถ่ายยังไม่ระบุ ห้ามตีความความรู้สึก การยินยอมหรือผลกระทบส่วนตัวจากภาพ ห้ามอ้าง CC0 ก่อนเผยแพร่ต่อภายนอกควรยืนยันขอบเขตสิทธิ์กับเจ้าของแพ็ก</p>
+<p>มาสคอต SVG ของจริงจาก asset pack ผู้ใช้: <code>public/powerguard/mascot/seabass-happy.svg</code>. สีจาก brand.json. ภาพเว็บเป็น screenshot จากตัวระบบที่รันจริง ไม่ตกแต่งตัวเลข ภาพที่ crop มีบันทึกใน source/assets/PROVENANCE.md</p>
+<h2>การอ่านหลักฐาน</h2>
+<p>ระดับแหล่ง: เอกสารรายงานพื้นที่ / กฎการออกแบบทีม / ซอฟต์แวร์จำลอง / การวัดฮาร์ดแวร์ / ผลภาคสนาม แยกจากกันเสมอ ขณะนี้มีสามระดับแรก ข้ออ้างเกี่ยวกับสาเหตุ ความเสียหาย ผลประหยัด ผลผลิต และการยอมรับของชุมชนยังไม่ผ่านการวัด</p>
+</div></details><details class="document" id="source-of-truth"><summary>ขอบเขตข้อเท็จจริงและค่าจำลอง<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/source-of-truth.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Source of truth · Community Energy Resilience Platform</h1>
+<p>Scope: engineering demonstrator and local deterministic simulation for Ban Sala Hum, Singhanakhon District, Songkhla. This document distinguishes reported community context, team scope, proposed design, simulation-only values, and evidence still needed. The 3D environment is an illustrative reconstruction; it is not surveyed geography, a photographic record, or an installed system.</p>
+<h2>Evidence from project documents</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Statement</th>
+<th>Source / scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reported in Data Pack</td>
+<td>The community&#39;s primary livelihood includes fish cage aquaculture; species listed include red-spotted grouper and Asian seabass.</td>
+<td><em>4.สรุปรายละเอียดพื้นที่โจทย์ภาคใต้</em>, Data Package, Ban Sala Hum, field information dated 16 July 2026, pp. 1, 7.</td>
+</tr>
+<tr>
+<td>Reported in Data Pack</td>
+<td>Electricity is described as unstable across the community, with frequent voltage drops. Some households use solar, but it is not enough to supply other systems.</td>
+<td>Same Data Package, p. 6. This is a qualitative report; no event log, voltage series, sample count, or frequency table is supplied in the app.</td>
+</tr>
+<tr>
+<td>Reported in Data Pack</td>
+<td>Fisheries Research Center is described as measuring water, dissolved oxygen, and sediment for the group; NECTEC is described as having water-quality tracking in the community.</td>
+<td>Same Data Package, p. 6. Existing service and data access must be confirmed with those organizations and users.</td>
+</tr>
+<tr>
+<td>Reported in Data Pack</td>
+<td>The semi-enclosed bay, limited water circulation, sedimentation, low oxygen during still-water conditions, and seasonal freshwater/saltwater variation are discussed as local context.</td>
+<td>Same Data Package, pp. 1, 3–5. This energy demonstrator does not solve those hydrological or biological problems.</td>
+</tr>
+<tr>
+<td>Reported in Data Pack</td>
+<td>The Data Pack refers to around 50–70 households and more than 45 fish cages.</td>
+<td>Same Data Package, pp. 1, 6. Approximate source figures; do not treat as a current census.</td>
+</tr>
+<tr>
+<td>Team-defined scope</td>
+<td>P0 is the central controller/gateway; P1 connects aquaculture and critical loads; P2 covers essential community loads; P3 covers general/interruptible loads. The policy order is P0 &gt; P1 &gt; P2 &gt; P3.</td>
+<td><em>สรุปงานรอบนี้_ฉบับรอสไลด์_หัวตารางอ่านชัด-1.pdf</em>, pp. 1–3. Priority is a load-management policy, not a series wiring topology.</td>
+</tr>
+<tr>
+<td>Team-defined scope</td>
+<td>The team&#39;s document says the prototype is low-voltage and does not control household mains. It describes some large supply, battery, aerator, TV and low-energy states as simulated; solar, full-size battery and building backup are future scope.</td>
+<td>Same team summary, pp. 1–3. The app demonstrates a local model and does not claim team hardware test results.</td>
+</tr>
+<tr>
+<td>Team-defined sensor boundary</td>
+<td>Salinity and temperature are intended as supporting water-risk observations. They do not directly measure dissolved oxygen.</td>
+<td>Same team summary, pp. 1–5. DO is therefore shown as unavailable here.</td>
+</tr>
+</tbody></table>
+<h2>Proposed engineering architecture</h2>
+<p>The app illustrates a possible low-voltage reference path: DC source → protective fuse → DC bus → regulated controller supply; a battery/charger/BMS path is shown as a proposed backup concept; a rated load-driver stage separates ESP32 GPIO from a switched load. Voltage/current monitoring and water sensor interfaces are examples only. No sensor model, pin map, ratings, charger, battery chemistry, fuse size, enclosure, isolation design, or finished netlist is established by the source documents.</p>
+<p>Power topology and telemetry topology are represented as different things. Node connectivity uses sequence and last-seen information; power status needs measurements of the supply. A missing packet alone does not prove power failure. Sensor fault is separate from water condition. No universal threshold is asserted.</p>
+<h2>Simulation-only assumptions</h2>
+<p>These values exist only so visitors can see state changes in a browser. They are not field readings or recommendations:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th align="right">Demo assumption</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0 / P1 / P2 / P3 load</td>
+<td align="right">30 / 120 / 80 / 260 W</td>
+</tr>
+<tr>
+<td>Backup capacity</td>
+<td align="right">1.2 kWh</td>
+</tr>
+<tr>
+<td>P2 shed point</td>
+<td align="right">28% displayed state of charge</td>
+</tr>
+<tr>
+<td>Low reserve boundary for P1</td>
+<td align="right">8%</td>
+</tr>
+<tr>
+<td>Voltage in normal / sag / outage state</td>
+<td align="right">about 12.1 / 9.7 / 0 V DC</td>
+</tr>
+<tr>
+<td>Water salinity / temperature</td>
+<td align="right">generated time series around 25 ppt / 29 °C</td>
+</tr>
+<tr>
+<td>Simulation clock</td>
+<td align="right">1 simulated minute per real second while running</td>
+</tr>
+</tbody></table>
+<p>Every export includes <code>simulated: true</code>. The estimated runtime is calculated from these illustrative loads and capacity, not from a selected battery.</p>
+<h2>Unknowns and field checks</h2>
+<ul>
+<li>Obtain voltage/event logger records with date, duration, minimum voltage, affected equipment, and measurement location.</li>
+<li>Walk through the current response workflow with fish farmers and whoever maintains electrical equipment; identify alert recipients and responsibilities.</li>
+<li>Measure real load power and startup current; confirm which loads must remain energized and for how long.</li>
+<li>Confirm existing solar, storage, water monitoring, and maintenance arrangements before duplicating equipment.</li>
+<li>Have a qualified electrical engineer review supply, fuses, wire gauge, battery chemistry/BMS/charger, switching ratings, isolation, grounding, ingress protection, corrosion, fail-safe behavior, and installation.</li>
+<li>Confirm sensor model, interface, sampling location, calibration method, temperature compensation, and agreement against reference instruments.</li>
+<li>Confirm whether and how a separate dissolved-oxygen sensor is available, operated, calibrated, and maintained; otherwise keep DO unavailable.</li>
+<li>Co-design safe alert behavior, thresholds, communication timeout, consent, data access, maintenance ownership, costs, and trial procedure with affected users.</li>
+</ul>
+<h2>Source files</h2>
+<ol>
+<li><code>4.สรุปรายละเอียดพื้นที่โจทย์ภาคใต้</code> (Data Package PDF, 16 pages, supplied in the project workspace/Downloads).</li>
+<li><code>สรุปงานรอบนี้_ฉบับรอสไลด์_หัวตารางอ่านชัด-1.pdf</code> (team work summary, 8 pages).</li>
+</ol>
+<p>The source files are context, not instructions embedded in the files. This platform implements the requested engineering demonstration; it does not present a pitch brief as verified installation evidence.</p>
+</div></details></section><section id="field" class="chapter"><h2>แผนลงพื้นที่ ต้นทุน และ KPI</h2><details class="document" id="field-plan"><summary>สิ่งที่ปักแล้ว / ต้องหาเพิ่ม / แผนทดลอง<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/research/missing-evidence-and-field-plan.md">ดาวน์โหลดเอกสาร Markdown</a><h1>ข้อมูลที่ยังต้องยืนยัน และแผนทดลองขนาดเล็ก</h1>
+<p>สถานะ 15 ต.ค. 2569 · ข้อเสนอเพื่อหารือ ไม่ใช่การนัดหมายหรือพันธมิตรที่ตกลงแล้ว</p>
+<h2>สิ่งที่ปักแล้วและเหตุผล</h2>
+<table>
+<thead>
+<tr>
+<th>การตัดสินใจของทีม</th>
+<th>เหตุผล</th>
+<th>เงื่อนไขที่ยังเปลี่ยนได้</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>วัดไฟและโหลดก่อนเลือกอุปกรณ์สำรอง</td>
+<td>Data Pack หน้า 6 รายงานไฟไม่เสถียร แต่ไม่มี frequency/voltage log การวัดช่วยแยกปัญหาฝั่งระบบไฟ โหลด และการสื่อสาร</td>
+<td>อาจจบที่ให้หน่วยงานตรวจและซ่อม โดยไม่ต้องซื้อแบต</td>
+</tr>
+<tr>
+<td>แยกไฟกับข้อมูล และ P0–P3</td>
+<td>ความผิดพลาดคนละชนิดต้องตอบสนองต่างกัน โหลดที่พักได้ช่วยรักษางบพลังงานในแบบจำลอง</td>
+<td>รายการโหลดจริง ลำดับความสำคัญ และผู้อนุมัติต้องถามชุมชน</td>
+</tr>
+<tr>
+<td>ทดลองวงจร DC ที่ป้องกันแล้วก่อน</td>
+<td>ลดขอบเขตการทดลองให้ตรวจพิกัดได้ ไม่สั่งตัดไฟบ้านผ่านหน้าเว็บ</td>
+<td>รุ่น board/fuse/BMS/driver/enclosure ยังต้องออกแบบและผ่านผู้มีคุณสมบัติ</td>
+</tr>
+<tr>
+<td>ใช้ฉากอิงพื้นที่กับคำไทยสั้น</td>
+<td>ช่วยให้ธุรกิจ ไอที และวงจรคุยตำแหน่ง/เหตุเดียวกัน</td>
+<td>ต้องทดสอบความเข้าใจจริงกับผู้ใช้ ยังไม่มี usability result</td>
+</tr>
+<tr>
+<td>มีเดโมเว็บและหลักฐานบนสไลด์</td>
+<td>รองรับหัวข้อ user flow/prototype ตามไกด์ทีม</td>
+<td>จำนวนสไลด์ 10 และเวลา 6 นาทีเป็นฉบับซ้อมที่ผู้ใช้เลือก</td>
+</tr>
+</tbody></table>
+<h2>สิ่งที่ยังขาด</h2>
+<table>
+<thead>
+<tr>
+<th>ลำดับ</th>
+<th>ต้องหาอะไร</th>
+<th>วิธีและผลส่งมอบ</th>
+<th>เจ้าของ</th>
+<th>ใช้ตัดสินใจ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ผู้ประสานงานที่ยินยอม จุดทดลองและเขตบริการไฟฟ้า</td>
+<td>แบบยินยอม ขอบเขตการเข้าถึงข้อมูล รายชื่อผู้รับเหตุและผู้บำรุงรักษา (ไม่เผยเบอร์ส่วนตัว)</td>
+<td>นาย / ข้าวฟ่าง, ท้องถิ่น TBD</td>
+<td>GO/NO-GO การสำรวจ</td>
+</tr>
+<tr>
+<td>2</td>
+<td>วิธีเดิมก่อน ระหว่าง หลังเกิดเหตุ</td>
+<td>สัมภาษณ์ผู้เลี้ยง ผู้ดูแล ช่างที่เกี่ยวข้อง บันทึกคำพูดและเวลาที่อ้างอย่างระมัดระวัง</td>
+<td>ข้าวฟ่าง / นาย</td>
+<td>ไม่ออกแบบ workflow แทนชุมชน</td>
+</tr>
+<tr>
+<td>3</td>
+<td>โหลดจริง W/VA/PF กระแสเริ่มต้น และเครื่องที่หยุดได้</td>
+<td>inventory พร้อมภาพ nameplate และการวัดโดยผู้มีคุณสมบัติ รวมชั่วโมงจำเป็น</td>
+<td>โฟล์ค</td>
+<td>เลือก UPS/แบต/แก้ระบบไฟ</td>
+</tr>
+<tr>
+<td>4</td>
+<td>แรงดันและช่วงเหตุไฟฟ้า</td>
+<td>เลือก logger ที่เหมาะสม สอบเทียบ/เวลาเทียบกัน เก็บ baseline ช่วงเวลาที่ชุมชนเห็นว่าแทนการใช้งานได้ ระบุเวลาข้อมูลหาย</td>
+<td>โฟล์ค / พี</td>
+<td>ความถี่ ระยะเวลา ขอบเขตเหตุ ห้ามใช้ตัวจำลองแทน</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ข้อมูลและระบบวัดน้ำเดิม</td>
+<td>ขอเอกสารพิกัด sensor/เจ้าของข้อมูล/การสอบเทียบ/สิทธิ์เข้าถึงก่อนเชื่อม</td>
+<td>บอส / ข้าวฟ่าง</td>
+<td>ใช้ของเดิมได้หรือควรต่อเพิ่ม ไม่มี DO ยังไม่แจ้งภัย DO</td>
+</tr>
+<tr>
+<td>6</td>
+<td>หลักฐาน hardware bench test</td>
+<td>รุ่น/serial/firmware/wiring, rated load, fuse/BMS/isolation, switch test, runtime log และ abnormal-case test</td>
+<td>โฟล์ค</td>
+<td>ทดสอบ DC ก่อนติดตั้ง ห้ามอ้างสลับไฟ AC สำเร็จ</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BOM ราคา อายุแบต ค่าแรง ตู้ ค่าเชื่อมต่อ ค่าดูแล/เปลี่ยน</td>
+<td>ใบเสนอราคา ≥ทางเลือกที่กำลังพิจารณา วันราคาและภาษี คำนวณ lifecycle cost จากช่วงเวลาที่ตกลง</td>
+<td>นาย / โฟล์ค</td>
+<td>เปรียบเทียบต้นทุนทั้งระบบ ไม่มี ROI ก่อนข้อมูลพอ</td>
+</tr>
+<tr>
+<td>8</td>
+<td>การแจ้งเตือนที่มีผู้รับผิดชอบ</td>
+<td>ทดสอบ outage/offline/sensor fault ผู้รับอ่านเข้าใจและบันทึกสิ่งที่ทำ อัตราแจ้งผิดและเวลาแฝง</td>
+<td>บอส / พี / ผู้ดูแล TBD</td>
+<td>ปรับ threshold/debounce/last_seen</td>
+</tr>
+<tr>
+<td>9</td>
+<td>เกณฑ์แข่งขันและแบบฟอร์มล่าสุด</td>
+<td>ตรวจเอกสารทางการ ภาษา เวลา PDF/VDO ขนาดไฟล์ การห้ามใช้ AI และสิทธิ์ภาพ</td>
+<td>ข้าวฟ่าง / นาย</td>
+<td>Submission gate ก่อนส่งจริง</td>
+</tr>
+</tbody></table>
+<h2>Pilot 6 ขั้น</h2>
+<ol>
+<li><strong>สำรวจ</strong>: 1–2 จุดที่เสนอ เลือกหลังชุมชนยินยอม พร้อมเจ้าของโหลดและผู้รับเหตุ แยกข้อเท็จจริงกับข้อสันนิษฐาน</li>
+<li><strong>วัด</strong>: baseline ไฟ โหลด การรับเหตุ และช่องว่างข้อมูล ใช้เครื่องมือเหมาะสมโดยผู้มีคุณสมบัติ หลีกเลี่ยงชาวบ้านแตะ mains</li>
+<li><strong>วิเคราะห์</strong>: จัดกลุ่มเหตุ ตรวจว่าควรแจ้งผู้ให้บริการ ตรวจสาย/อุปกรณ์ ใช้ UPS หรือป้องกันโหลดเฉพาะ รายงาน uncertainty</li>
+<li><strong>ป้องกัน</strong>: เลือกทางแก้ที่มีหลักฐานและความปลอดภัยเพียงพอ มีวิธีหยุด/ถอดระบบ ทดสอบบน bench ก่อน</li>
+<li><strong>วัดผล</strong>: ใช้ช่วงและโหลดที่เปรียบเทียบได้ รายงานเหตุทั้งหมด ข้อมูลหาย maintenance และผลเสียข้างเคียง</li>
+<li><strong>ขยาย</strong>: ตัดสินใจร่วมเมื่อผ่าน GO gate ถ้าไม่คุ้ม ดูแลไม่ได้ หรือไม่ปลอดภัย ให้แก้แบบ/หยุด ไม่ขยายอัตโนมัติ</li>
+</ol>
+<h2>KPI ที่ต้องตกลงก่อนวัด</h2>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>นิยามและหน่วย</th>
+<th>ข้อมูลที่ต้องใช้</th>
+<th>เจ้าของ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ความครบถ้วนหลักฐานเหตุ</td>
+<td>จำนวนเหตุที่มีเวลา แรงดัน โหลด สถานะ และผู้ตรวจครบ / เหตุที่ reference logger ยืนยัน</td>
+<td>reference log + event log + missingness</td>
+<td>พี / โฟล์ค</td>
+</tr>
+<tr>
+<td>เวลาคงโหลดสำคัญ</td>
+<td>นาทีที่โหลดที่ชุมชนเลือกยังทำงานได้ตลอดเหตุ และช่วงที่หยุด</td>
+<td>voltage/current/load state + runtime test</td>
+<td>โฟล์ค</td>
+</tr>
+<tr>
+<td>ต้นทุนตลอดอายุเทียบทางเลือก</td>
+<td>บาทต่อช่วงอายุเดียวกัน รวมติดตั้ง เปลี่ยนแบต บำรุง และข้อมูล</td>
+<td>BOM/quotes/อายุ/ค่าแรง/การเชื่อมต่อจริง</td>
+<td>นาย</td>
+</tr>
+<tr>
+<td>ผู้ดูแลใช้บันทึกรับเหตุได้</td>
+<td>รอบทดสอบที่ผู้ดูแลที่ตกลงไว้แปลเหตุและบันทึกการดูแลได้ / รอบที่ทดสอบ</td>
+<td>usability tasks + บันทึกการรับเหตุ ไม่ใช้ click count แทน adoption</td>
+<td>บอส / ข้าวฟ่าง</td>
+</tr>
+</tbody></table>
+<p>เป้าหมายตัวเลข ระยะ baseline และผู้รับผิดชอบในชุมชนยัง TBD ใช้ agreed targets ก่อนเริ่ม ไม่กำหนดแล้วอ้างว่าทำสำเร็จ</p>
+<h2>GO / NO-GO</h2>
+<p>GO เมื่อตกลงผู้รับผิดชอบ ข้อมูลและโหลดชัด วงจรผ่านการตรวจ/bench test มีต้นทุนตลอดอายุเทียบอย่างน้อยทางเลือกที่เหมาะสม และมีแผนถอดระบบ ไม่มีการเสี่ยงเพิ่มจากน้ำ/เกลือ/ไฟ</p>
+<p>NO-GO หากข้อมูลไม่พอ แก้โดยซ่อมหรือ UPS สำเร็จรูปเหมาะกว่า ผู้ดูแลรับภาระไม่ได้ สิทธิ์ไม่ชัด หรือความปลอดภัยยังไม่ผ่าน ทบทวนก่อนลงทุน</p>
+<h2>ผลกระทบที่วัดได้ภายหลัง</h2>
+<p>E: พลังงานใช้จริง อายุแบต ขยะอิเล็กทรอนิกส์และการรับคืน ยังไม่อ้างลดคาร์บอน
+S: เวลาที่เครื่องจำเป็นทำงาน ความเข้าใจผู้ดูแล และภาระดูแล ยังไม่อ้างเพิ่มรายได้/ลดปลาตาย
+G: เจ้าของข้อมูล สิทธิ์เข้าถึง การยินยอม ผู้รับเหตุ audit trail และการส่งออกข้อมูล</p>
+</div></details></section><section id="engineering" class="chapter"><h2>วงจร สมการ และผังพื้นที่</h2><details class="document" id="engineering-notes"><summary>หลักการไฟฟ้า เซนเซอร์ และการสื่อสาร<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/engineering-notes.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Engineering Notes</h1>
+<h2>System states</h2>
+<ul>
+<li>Power: normal, voltage sag, outage, backup operation.</li>
+<li>Connectivity: online, stale, offline by time since last packet.</li>
+<li>Sensor quality: valid, suspect, fault.</li>
+<li>Water condition: unavailable until sensor measurements and validated thresholds exist.</li>
+</ul>
+<p>Do not collapse these into one alarm state.</p>
+<h2>Load policy shown by the demonstrator</h2>
+<ol>
+<li>Keep P0 control/gateway state alive when available reserve permits.</li>
+<li>Preserve P1 demonstration/critical loads next.</li>
+<li>Shed P3 first when using backup.</li>
+<li>Shed P2 below the demonstrator threshold.</li>
+<li>Enforce a reserve boundary on P1 and protect P0 at empty state.</li>
+</ol>
+<p>This policy order follows the team&#39;s priority statement; exact load behavior, emergency reserve and thresholds require field and engineering validation.</p>
+<h2>Telemetry example</h2>
+<pre><code class="language-json">{
+  &quot;simulated&quot;: true,
+  &quot;node_id&quot;: &quot;P1&quot;,
+  &quot;seq&quot;: 104,
+  &quot;timestamp&quot;: &quot;T+00:04&quot;,
+  &quot;received_at&quot;: &quot;T+00:04&quot;,
+  &quot;voltage&quot;: 12.1,
+  &quot;current&quot;: 0.8,
+  &quot;power_state&quot;: &quot;NORMAL&quot;,
+  &quot;battery_soc&quot;: 100,
+  &quot;load_state&quot;: &quot;ON&quot;,
+  &quot;online_status&quot;: &quot;ONLINE&quot;,
+  &quot;last_seen&quot;: &quot;T+00:04&quot;,
+  &quot;sensor_quality&quot;: &quot;DEMO&quot;,
+  &quot;salinity&quot;: 25.4,
+  &quot;water_temperature&quot;: 29.2,
+  &quot;dissolved_oxygen&quot;: null
+}
+</code></pre>
+<p>All numeric values above are illustrative and must not be used for real operating limits.</p>
+<h2>Proposed bill of materials (unselected)</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Purpose</th>
+<th>Status / missing decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DC supply</td>
+<td>Demonstration source</td>
+<td>Set nominal voltage, current limit, isolation, and laboratory protection.</td>
+</tr>
+<tr>
+<td>Fuse / reverse-polarity protection</td>
+<td>Protect input and branch</td>
+<td>Rating and location must follow wire, source and load review.</td>
+</tr>
+<tr>
+<td>Battery + compatible BMS/charger</td>
+<td>Backup energy</td>
+<td>Chemistry, voltage, capacity, charge profile, cutoff, temperature and enclosure are unknown.</td>
+</tr>
+<tr>
+<td>DC-DC regulators</td>
+<td>Rails for controller/sensors</td>
+<td>Select module after board and sensor specifications are known.</td>
+</tr>
+<tr>
+<td>ESP32 development board</td>
+<td>Control / telemetry</td>
+<td>Reference device only; GPIO is a logic signal, never a high-current driver.</td>
+</tr>
+<tr>
+<td>Voltage/current monitor</td>
+<td>Observe source/load</td>
+<td>Device, range, shunt, isolation and calibration are not selected.</td>
+</tr>
+<tr>
+<td>Driver/switch module</td>
+<td>Switch low-voltage demo loads</td>
+<td>Need rated driver, protection and load type review.</td>
+</tr>
+<tr>
+<td>Temperature probe</td>
+<td>Observe water temperature</td>
+<td>Exact probe, interface, waterproofing and calibration are unknown.</td>
+</tr>
+<tr>
+<td>Conductivity/salinity interface</td>
+<td>Observe conductivity-derived salinity</td>
+<td>Requires suitable excitation/interface, temperature compensation and reference calibration.</td>
+</tr>
+<tr>
+<td>DO sensor</td>
+<td>Not included</td>
+<td>DO remains unavailable in this platform.</td>
+</tr>
+</tbody></table>
+<h2>Test plan in code</h2>
+<p>Use the built-in Node test runner for deterministic policy calculations. Browser-level checks should verify navigation and simulator interaction in a WebGL-capable browser; a production bundle build alone does not prove hardware safety or field effectiveness.</p>
+<h2>Instantaneous scenario records</h2>
+<p>Changing the power mode, assigning a scenario, toggling node connectivity, or changing sensor quality records a new sample and its timeline event in one store update. The record uses the current simulated minute, including while the clock is paused. It does not advance time or integrate battery consumption. The normal and low-battery scenarios retain their explicit assignments of 100% and 34% state of charge respectively; those assignments are demo inputs, not charging or discharging measurements.</p>
+<p>Several records may share a minute when the user changes scenarios before the next timer tick. Preserve their insertion order when reviewing JSON/CSV exports. History is bounded to the latest 40 samples and 80 events; 40 samples do not necessarily represent 40 elapsed minutes. Only a running <code>step()</code> advances one simulated minute and applies the unchanged energy calculation.</p>
+<p>Node connectivity remains separate from modeled electrical load: an offline record does not set its load to zero. Salinity fault records contain <code>null</code> while the independent temperature channel remains available. Neither water color nor reconstructed site position feeds the simulated water measurements, and dissolved oxygen remains absent.</p>
+<p><code>test/simulator.test.mjs</code> exercises immediate paused-state records, sag/outage/reset behavior, the low-battery assignment, sensor recovery, offline load independence, repeated-action deduplication, elapsed-time stepping and bounded history. The controller demonstration should invoke <code>setScenario(&#39;outage&#39;)</code> at its outage phase so power, history and timeline use the same state transition.</p>
+<h2>Additional scenario inputs and recovery</h2>
+<ul>
+<li><code>extended-outage</code> continues with the current reserve and records the event; it does not refill or pre-drain the battery. Running time uses the same existing energy calculation.</li>
+<li><code>critical-battery</code> explicitly assigns 7% SoC with the main source unavailable. This is below the demonstrator&#39;s P1 reserve boundary of 8%, so only the 30 W P0 load remains powered. The scenario is a synthetic input, not an actual battery reading or operating recommendation.</li>
+<li><code>water-change</code> independently subtracts 3.5 ppt from the generated salinity channel and adds 0.8°C to the generated temperature channel. These are scenario inputs, never values inferred from site imagery, water colors or monitoring zones. A concurrent salinity fault still yields <code>null</code>, and no DO value is created.</li>
+<li><code>recovery</code> restores the main source and powers P0/P1 first, then P2 after one simulated tick, then P3 after another. It preserves current SoC, event history, water-change input, node connectivity and sensor faults. A paused clock pauses this sequence. The two delays are demonstration rules; there is no validated voltage-stability timer, hardware interlock or charging model.</li>
+</ul>
+<p>The optional <code>recoveryStage</code> argument on load/power/sample functions defaults to 2, preserving the previous full-load behavior. All scene and dashboard load-state consumers should pass the store&#39;s stage during controlled recovery. The circuit concept&#39;s P1 load is restored in stage 0 and therefore has the same result at every stage.</p>
+<p>Samples contain <code>voltage</code> for the main DC source, <code>busVoltage</code> for the hypothetical load bus and <code>current</code> for the aggregate modeled DC load-bus current. During an outage with reserve, the main source is 0 V while the illustrative regulated backup bus is 12 V. Current is active modeled watts divided by that bus voltage; it is 0 when the bus is unavailable. This simplified constant-power calculation excludes conversion losses, startup transients, battery discharge curves and wire ratings. It is not household AC mains current and does not establish a component or installation rating.</p>
+</div></details><details class="document" id="water-equations"><summary>สมการสภาพแวดล้อมและน้ำจำลอง<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/environment-equations.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Environmental demonstration model</h1>
+<p>Every environmental value is synthetic. This model is for exploring assumptions; it is not a bathymetric survey, tide forecast, weather observation, salinity map, or aquaculture safety recommendation. Water colors in the reference image remain visual observations. They do not supply depths, temperatures, salinity, water-mass classes or current measurements. There is no dissolved-oxygen output.</p>
+<h2>Shared clock and activation</h2>
+<p>The existing store timer is the only integration clock. Each running timer tick advances both energy and environment by the selected duration: 0.5, 1, 2 or 4 simulated minutes. The default is 1. Battery discharge still calls the existing <code>batteryStep</code> equation with that duration; this model does not invent charging or solar contributions to the energy controller.</p>
+<p>Initially <code>environment.enabled</code> is false. P1 retains its existing harmonic demonstration telemetry and the original scene water level remains at its assumed datum. Selecting environmental parameters or a preset enables the new model. Inspection, layer and current-visibility controls only change the display. Instantaneous controls record parameters/events at the current minute without mixing water, advancing time or discharging the battery. Global reset recreates the initial environment, history and speed.</p>
+<p>The clock pauses mixing and battery integration together. Controlled recovery still advances one stage per timer tick: P0/P1 first, then P2, then P3. Its simulated delay therefore varies with playback speed; the sequence is an explanatory rule, not a validated electrical interlock or stability timer.</p>
+<h2>Fixed-volume mixing boxes</h2>
+<p>The three conceptual boxes have assumed constant volumes:</p>
+<table>
+<thead>
+<tr>
+<th>Box</th>
+<th align="right">Assumed volume</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td align="right">10,000 m³</td>
+</tr>
+<tr>
+<td>B</td>
+<td align="right">8,000 m³</td>
+</tr>
+<tr>
+<td>C</td>
+<td align="right">20,000 m³</td>
+</tr>
+</tbody></table>
+<p>Their initial salinities are 25.2, 28.4 and 31.2 ppt and temperatures are 29.1, 29.0 and 28.9°C. These are model initial conditions, not measurements at the proposed A/B/C markers. The boxes have no surveyed volume or flow connection. Their outputs are three well-mixed scalar states, not a resolved hydrodynamic field.</p>
+<p>Let <code>F</code> be freshwater inflow, <code>Qab</code> and <code>Qbc</code> be symmetric exchange flows, and <code>Qsea</code> be exchange between C and an assumed sea boundary. Flow units are m³/min. For either concentration <code>c = salinity</code> or <code>c = temperature</code>, the model uses:</p>
+<pre><code class="language-text">VA dcA/dt = F(cf − cA) + Qab(cB − cA)
+VB dcB/dt = F(cA − cB) + Qab(cA − cB) + Qbc(cC − cB)
+VC dcC/dt = F(cB − cC) + Qbc(cB − cC) + Qsea(cs − cC)
+</code></pre>
+<p>For salt, the freshwater boundary is 0 ppt and the sea boundary is the chosen <code>seaSalinity</code>. For temperature, the two boundary temperatures are separate controls. Density and heat capacity are treated as constant and equal. There is no evaporative salt term, surface heat-flux model, stratification, sediment transport or oxygen model.</p>
+<p>Symmetric A/B and B/C exchanges cancel in the volume-weighted total. The remaining boundary change is <code>F(cf − cC) + Qsea(cs − cC)</code>. Freshwater volume entering A is displaced through A→B→C and leaves C; this keeps the assumed box volumes constant. Tide does not enlarge or shrink these volumes.</p>
+<p>Updates use simultaneous forward Euler values from the same previous state. Deterministic substeps limit the maximum outgoing fraction to 0.4 per substep, which keeps each scalar update a convex mixture of previous/boundary values. No random source or arbitrary rain-induced salinity jump is used. Internal exchange conserves volume-weighted salt/temperature up to floating-point rounding; external boundaries change the totals intentionally.</p>
+<h2>Illustrative exchange and rain input</h2>
+<pre><code class="language-text">alignment = 0.6 + 0.4 × |cos(currentDirection − 120°)|
+tideFactor = clamp(1 + 0.35 × waterLevel, 0.5, 1.5)
+Qab  = currentSpeed × 60 × 8  × alignment × tideFactor
+Qbc  = currentSpeed × 60 × 12 × alignment × tideFactor
+Qsea = seawaterExchange × tideFactor
+F = freshwaterInflow + rain × 12,000 × 0.55 / 1,000 / 60
+</code></pre>
+<p>Current speed is m/s; the 8 and 12 m² exchange sections are assumptions. The rain calculation assumes a 12,000 m² catchment, 0.55 runoff coefficient and rainfall in mm/hour. These are adjustable-model assumptions with no surveyed drainage support. Current/wind directions refer to the schematic frame; north and true geographic bearings remain unconfirmed. The directional alignment is a mixing-strength proxy, not a directional fluid-flow solution.</p>
+<p>Weather selection changes the assumed rain/wind/cloud/solar conditions immediately. Rain changes freshwater flux over subsequent integration steps. It does not change salinity instantly, raise tide automatically or create a sensor/communication fault.</p>
+<h2>Water level, depth and clearance</h2>
+<p>The illustrative tide has a 720-minute period and ±0.6 m amplitude. High/low modes hold the corresponding endpoint; rising/falling modes use opposite phases of the same sinusoid; manual mode uses only the chosen offset. The reference hour plus global simulated minutes determines the displayed time of day. None of these are astronomical predictions for Songkhla.</p>
+<p>Bathymetry is an original analytical assumed surface: a shallow bank, a Gaussian deeper channel and a Gaussian sandbar. The negative bed elevation is bounded between −6.2 and −0.4 assumed metres relative to the datum. Its relative placement is a composition choice; the image did not establish depth. JS <code>seabedElevationAt</code> and GLSL <code>assumedSeabedElevation</code> implement the same expression.</p>
+<pre><code class="language-text">localDepth = max(0, waterLevel − seabedElevation)
+cageClearance = localDepth − assumedCageDepth
+renderedWaterY = −0.115 + waterLevel × 0.25
+renderedBedY = −0.115 + seabedElevation × 0.25
+</code></pre>
+<p>The vertical factor 0.25 compresses the scene for presentation. Default cage depth is 2.2 assumed metres. A clearance below an input threshold is a model planning warning, not evidence that a real cage touches the bed or a safe installation limit. The reconstruction has no validated floodplain/ground elevations or inundation volume model.</p>
+<h2>Weather and independent solar estimate</h2>
+<p>The six weather presets supply synthetic rainfall, wind speed, cloud fraction and transmission. A deterministic daylight sine produces irradiance up to 1,000 W/m² before the chosen weather transmission. Solar output assumes 6 m² of panel area and 20% efficiency, giving up to 1.2 kW under the model&#39;s full irradiance. Temperature is a simple synthetic daily/weather curve. There is no live weather feed, verified panel rating, MPPT, loss model or charging simulation.</p>
+<p>Wind direction is independent from current direction. Weather does not prove power failure. The explicit <strong>storm preset</strong> couples storm weather and a main-source outage in one state update and records both events. The <strong>calm preset</strong> restores main-source normal mode and clear weather while preserving reserve, faults, tide settings and event history. Neither preset recharges the battery.</p>
+<h2>Telemetry quality and explicit synthetic water event</h2>
+<p>When the environmental model is enabled, P1 channels use box A&#39;s model output. Existing availability rules are retained: P1 unpowered/offline yields null salinity and temperature, while a salinity sensor fault alone keeps temperature available and salinity null. Environment history can still describe the underlying hypothetical water states while unavailable P1 telemetry remains absent.</p>
+<p>With the environmental engine active, the existing water-change scenario applies an explicit one-time external perturbation to box A: salinity decreases by 3.5 ppt (clipped at zero) and temperature increases by 0.8°C. This intentionally changes the box&#39;s salt/heat inventory; subsequent internal mixing remains conservative. It is a synthetic input pulse, not a rain equation or an observation inferred from the color boundary. P1, environmental history and the 3D scalar layers read this same box state, with no separate continuing telemetry offset.</p>
+<p>While the environmental engine is disabled, legacy water-change behavior remains unchanged. If that flag is already active when the engine is first enabled, the pulse is transferred into A exactly once on activation. Later parameter/preset changes do not repeat it. The normal electrical scenario can clear the legacy flag but does not undo the evolved water reservoirs. An explicit later water-change trigger can introduce another pulse; global reset recreates the initial reservoirs. DO stays absent in every state.</p>
+<p>Environment history retains the latest 240 records, including instantaneous parameter records. Multiple records may share a minute; record count does not imply elapsed duration or a sampling rate. The whole environment is included in the exported simulated session for inspecting the assumptions and state.</p>
+</div></details><details class="document" id="site-reference"><summary>ที่มาผังพื้นที่และข้อจำกัดการสร้างฉาก<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/site-reference.md">ดาวน์โหลดเอกสาร Markdown</a><h1>ผังอ้างอิงท่าเรือลุงทองและกระชังบ้านศาลาหุม</h1>
+<h2>แหล่งอ้างอิงหลัก</h2>
+<p>ผู้ใช้ระบุพื้นที่ว่า <strong>ท่าเรือลุงทองและบริเวณกระชังเลี้ยงปลา บ้านศาลาหุม อำเภอสิงหนคร จังหวัดสงขลา</strong> พร้อมภาพหน้าจอ Google Maps และ <a href="https://maps.app.goo.gl/ijj24HM8Fcy4gBfQ7?g_st=ic">ลิงก์ตำแหน่งที่ผู้ใช้ส่ง</a></p>
+<p>ภาพหน้าจอเป็นแหล่งอ้างอิงหลักสำหรับ <strong>ตำแหน่งสัมพัทธ์ สัดส่วน แนววาง และช่องว่างระหว่างองค์ประกอบ</strong> ไม่ใช่แผนที่สำรวจ ภาพไม่มีมาตราส่วนและทิศเหนือที่ยืนยันได้ วันที่ของภาพดาวเทียมไม่ทราบ ชื่อท่าเรือมาจากข้อมูลที่ผู้ใช้ให้ ส่วนจุดเริ่มท่าที่เลือกในโมเดลเป็นแนวท่ายาวบริเวณช่วงล่างของภาพ ไม่ใช่พิกัดติดตั้งที่ตรวจภาคสนามแล้ว</p>
+<p>ไม่จัดเก็บภาพ Google Maps ไว้ในโฟลเดอร์ที่เผยแพร่ ไม่ใช้ภาพเป็น texture หรือ map tiles เนื้อหาที่เผยแพร่เป็นรูปทรงและผังที่วาดใหม่ พร้อมลิงก์กลับไปดูตำแหน่งจากต้นทาง หากต้องการภาพอ้างอิงซ้อนในอนาคต ต้องใช้ภาพที่ทีมมีสิทธิ์เผยแพร่ก่อน</p>
+<h2>ระบบพิกัดภาพและการแปลงเป็นฉาก</h2>
+<p>ข้อมูลกลางอยู่ที่ <code>src/lib/site-layout.ts</code> และเป็นต้นทางเดียวของผัง 2D ฉาก 3D และตำแหน่งเสนอ P0–P3</p>
+<table>
+<thead>
+<tr>
+<th>เรื่อง</th>
+<th>นิยาม</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ภาพต้นฉบับ</td>
+<td>591 × 1,280 พิกเซล</td>
+</tr>
+<tr>
+<td>ส่วนภาพที่ใช้เทียบผัง</td>
+<td>x = 0–591, y = 220–1,142 พิกเซล</td>
+</tr>
+<tr>
+<td>พิกัด u</td>
+<td>0 = ซ้าย, 1 = ขวา ของส่วนภาพ</td>
+</tr>
+<tr>
+<td>พิกัด v</td>
+<td>0 = บน, 1 = ล่าง ของส่วนภาพ</td>
+</tr>
+<tr>
+<td>มุมมองด้านบน</td>
+<td>u ไปทาง world +x, v ไปทาง world +z; ด้านบนภาพไม่ติดป้ายว่าเป็นทิศเหนือ</td>
+</tr>
+<tr>
+<td>ขนาดฉาก</td>
+<td>กว้าง 46 composition units; ความลึกคงอัตราส่วน 922/591 ของภาพ</td>
+</tr>
+<tr>
+<td>จุดกำเนิดฉาก</td>
+<td>u = 0.42, v = 0.5 เพื่อจัดกล้องให้เห็นแนวฝั่งและกระชัง</td>
+</tr>
+<tr>
+<td>หน่วย</td>
+<td>หน่วยจัดองค์ประกอบ ไม่ใช่เมตร และไม่แสดงระยะจริงจากผัง</td>
+</tr>
+</tbody></table>
+<p>ฟังก์ชัน <code>siteToWorld(u, v, height)</code> และ <code>worldToSite(x, z)</code> แปลงพิกัดกลับไปมาโดยไม่สร้างละติจูด/ลองจิจูด <code>footprintCorners()</code> หมุน footprint ในอัตราส่วนพิกเซลเดิม เพื่อไม่ให้แนวยาวของกระชังผิดมุมเมื่อเปลี่ยนจากภาพแนวตั้งเป็นฉาก</p>
+<h2>สิ่งที่สังเกตได้และสิ่งที่ใช้สร้างใหม่</h2>
+<table>
+<thead>
+<tr>
+<th>องค์ประกอบ</th>
+<th>สิ่งที่เห็นในภาพ</th>
+<th>การใช้ในฉาก</th>
+<th>ข้อจำกัด</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>แนวฝั่ง</td>
+<td>แนวอาคารและพื้นที่ฝั่งอยู่ด้านซ้าย ขยายไปทางขวาช่วงล่าง ขอบริมน้ำไม่เป็นเส้นตรง</td>
+<td>เส้นขอบฝั่งประมาณและ polygon ของพื้นที่ฝั่ง</td>
+<td>ไม่ใช่แนวกรรมสิทธิ์/แนวระดับน้ำขึ้นลง และไม่ได้ยืนยันขอบฐานบ้านแต่ละหลัง</td>
+</tr>
+<tr>
+<td>ถนน</td>
+<td>แนวสีอ่อนด้านซ้ายตามแถวบ้าน โค้ง/เฉียงเข้าไปทางขวาช่วงล่าง</td>
+<td>centerline ถนนตามแนวภาพ</td>
+<td>ความกว้างเป็นสัดส่วนเพื่อเรนเดอร์ ไม่ใช่ผลวัดถนน</td>
+</tr>
+<tr>
+<td>อาคารริมน้ำ</td>
+<td>กลุ่มหลังคาหนาแน่น หลายสีและขนาด อยู่ระหว่างถนนกับน้ำ</td>
+<td>footprint หลังคาตัวแทนที่วางเป็นรายจุด</td>
+<td>จำนวน footprint ไม่เท่ากับจำนวนครัวเรือน; รูปทรงหน้าบ้าน/จำนวนชั้นไม่ทราบ</td>
+</tr>
+<tr>
+<td>ท่าเรือ</td>
+<td>แนวยาวเด่นช่วงล่าง ยื่นจากแนวฝั่งไปทางขวาบนของภาพ</td>
+<td>เส้นหลายจุดจาก (.426,.715) ถึง (.65,.656)</td>
+<td>เป็นจุดจับคู่ภาพโดยประมาณ ต้องให้คนพื้นที่ยืนยันชื่อและจุดเริ่มท่า</td>
+</tr>
+<tr>
+<td>กระชัง</td>
+<td>แนวกรอบสี่เหลี่ยมหลายกลุ่ม แกนยาวไปทางขวาบน มีแถวสั้นและกลุ่มแยกออกจากกัน</td>
+<td><code>CAGE_RUNS</code> กำหนดกลุ่มและทิศทาง; <code>CAGE_CELLS</code> แบ่งเป็นช่องตัวแทน</td>
+<td>divisions/จำนวนช่องเป็นการสร้างใหม่ ไม่ใช่จำนวนกระชังจริง; ภาพอาจถ่ายคนละเวลากับปัจจุบัน</td>
+</tr>
+<tr>
+<td>ช่องน้ำ</td>
+<td>ช่องว่างระหว่างกลุ่มกระชัง และพื้นที่น้ำเปิดก่อนถึงแนวท่ายาว</td>
+<td>คงพื้นที่ว่างและเว้นทางระหว่าง run</td>
+<td>ไม่ใช่การยืนยันร่องน้ำเดินเรือ ความลึก หรือทิศกระแสน้ำ</td>
+</tr>
+<tr>
+<td>เรือ</td>
+<td>เรือเล็กอยู่ใกล้แนวบ้าน ปลายท่า และริมฝั่งช่วงล่าง</td>
+<td>เรือขนาดเล็กวางตามตำแหน่งตัวแทน</td>
+<td>จำนวน ประเภท เจ้าของ และขนาดจริงไม่ยืนยัน</td>
+</tr>
+<tr>
+<td>พืชพรรณ</td>
+<td>กลุ่มพืชเข้มตามแนวถนนช่วงล่างและข้างท่า</td>
+<td>vegetation patches ตามตำแหน่งในภาพ</td>
+<td>ชนิดและความสูงเป็นองค์ประกอบสร้างใหม่ ไม่ใช่ผลสำรวจพรรณไม้</td>
+</tr>
+<tr>
+<td>ถนน/โครงสร้างคล้ายสะพาน</td>
+<td>แถบถนน/ขอบโครงสร้างที่มุมล่างซ้ายเห็นเพียงบางส่วน</td>
+<td>เก็บแนวถนนที่มองเห็น</td>
+<td>ไม่ยืนยันว่าเป็นสะพาน ไม่ต่อโครงสร้างนอกภาพด้วยรูปทรงที่อ้างว่าเป็นสถานที่จริง</td>
+</tr>
+<tr>
+<td>พื้นที่ด้านบน</td>
+<td>มีแถบค้นหา ปุ่มหมวด และ UI บังส่วนสำคัญ</td>
+<td>จำกัดผังให้เริ่มใต้แถบ UI และทำเครื่องหมายพื้นที่ไม่ทราบ</td>
+<td>กระชังที่เห็นบางส่วนเหนือ crop ไม่ใช้ขยายผังเป็นจำนวนแน่นอน</td>
+</tr>
+</tbody></table>
+<p>สิ่งที่ดูคล้ายวัสดุ เช่น หลังคาโลหะ ไม้ ตาข่าย ทุ่น และเรือ ใช้สร้างลักษณะอุปกรณ์ที่สมเหตุสมผลร่วมกับภาพภาคสนามเดิมของโครงการ วัสดุ PBR รายละเอียดทางวิศวกรรม สายไฟ และตู้ P0–P3 เป็นการสร้างใหม่ ไม่ใช่การอ่านจากภาพดาวเทียม</p>
+<h2>แนวสีของน้ำ: สังเกตได้ แต่ยังจัดประเภทความเค็มไม่ได้</h2>
+<p>ในภาพ น้ำช่วงกลุ่มกระชังด้านบนมีสีเขียวหม่น ส่วนใกล้แนวท่ายาวและด้านล่างมีสีฟ้า/น้ำเงินเข้มกว่า โมเดลเก็บ <strong>แนวเปลี่ยนสีโดยประมาณ</strong> ไว้ใน <code>WATER_TRANSITION</code> เพื่อให้เห็นบริบทที่ผู้ใช้สังเกต</p>
+<p>สีที่ต่างกัน <strong>ยังไม่ยืนยันว่าบริเวณหนึ่งเป็นน้ำจืด น้ำกร่อย หรือน้ำทะเล</strong> และไม่ยืนยันขอบน้ำเบียด สาเหตุอาจเกี่ยวข้องกับคุณสมบัติของน้ำ ตะกอน ความลึก การสะท้อนแสง หรือสภาพการบันทึกภาพ แต่ภาพเดียวไม่แยกสาเหตุเหล่านี้ได้ จึงไม่ใส่ชื่อประเภทความเค็มลงบนพื้นที่น้ำจากสี ไม่สร้างค่าความเค็มหรือ dissolved oxygen ที่วัดจริงจากภาพ</p>
+<p>การยืนยันภาคสนามควรเก็บ: เวลา/ระดับน้ำ จุดวัดความเค็มหรือ conductivity เครื่องอ้างอิงที่สอบเทียบแล้ว อุณหภูมิ จุดและความลึกของหัววัด และตัวอย่างหลายจุดสองฝั่งแนวสี หากต้องการศึกษาออกซิเจนละลายน้ำ ต้องมีเครื่องวัด DO โดยตรง ไม่อนุมาน DO จากสี อุณหภูมิ หรือความเค็มเพียงอย่างเดียว</p>
+<h2>จุด P0–P3 ที่เสนอ</h2>
+<p>ทุกตำแหน่งมีสถานะ <strong>PROPOSED · รอยืนยันจากการสำรวจพื้นที่</strong> ค่าโหลดและวงจรยังใช้แบบจำลองเดิม การย้ายตำแหน่งในฉากไม่เปลี่ยนลำดับความสำคัญหรือสมการพลังงาน</p>
+<table>
+<thead>
+<tr>
+<th>จุด</th>
+<th>ตำแหน่งสัมพัทธ์ในภาพ</th>
+<th>เหตุผลในการเสนอ</th>
+<th>สิ่งที่ต้องยืนยัน</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0</td>
+<td>ใกล้แนวฝั่ง ณ จุดเริ่มท่ายาวโดยประมาณ</td>
+<td>สาธิตจุดควบคุม เกตเวย์ และพลังงานสำรอง</td>
+<td>ผู้ดูแล พื้นที่อนุญาต ระดับน้ำ/น้ำท่วม แหล่งไฟ และระยะสื่อสารจริง</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>ใกล้กลุ่มกระชังช่วงกลาง</td>
+<td>สาธิตการติดตามน้ำและโหลดวิกฤตใกล้กิจกรรมเพาะเลี้ยง</td>
+<td>กระชังเป้าหมาย การยินยอม จุดยึด ความลึกหัววัด การเข้าถึงเพื่อบำรุงรักษา</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>แนวอาคารริมน้ำ</td>
+<td>สาธิตโหลดจำเป็นของชุมชน</td>
+<td>โหลดที่มีอยู่จริง แรงดัน กำลังใช้งาน ความสำคัญ และเจ้าของโหลด</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>ใกล้ถนน/จุดเข้าถึงด้านฝั่ง</td>
+<td>แสดงโหลดทั่วไปที่สามารถตัดก่อนเพื่อรักษาพลังงานสำรอง</td>
+<td>ต้องเลือกโหลดสาธิตที่ยอมรับให้ตัดได้ ไม่อ้างว่าบ้านจริงเป็นโหลดไม่จำเป็น</td>
+</tr>
+</tbody></table>
+<p>เส้นเชื่อมไฟฟ้าและ telemetry เป็น <strong>topology ที่เสนอ</strong> ไม่ใช่เส้นทางสายที่ติดตั้งจริง ไม่มีการสมมติว่าทุกบ้านเป็นสมาชิกของระบบ หรือว่าตู้ควบคุมมีอยู่แล้วในตำแหน่งที่วาง</p>
+<h2>หลักการเปรียบเทียบในเว็บไซต์</h2>
+<ul>
+<li>ผัง 2D คือภาพวาดใหม่ที่ตามตำแหน่งสัมพัทธ์ของภาพอ้างอิง และต้องระบุว่าเป็น reconstruction</li>
+<li>มุม top-down ใช้แกนภาพเดียวกับผัง มุม oblique แสดงความสัมพันธ์ของแนวบ้าน กระชัง และท่า</li>
+<li>reference overlay ซ้อน <strong>เส้น trace ที่ทีมวาดใหม่</strong> ไม่ซ้อนภาพ Google Maps ที่ไม่มีสิทธิ์เผยแพร่</li>
+<li>ปรับ opacity เปิด/ปิด landmarks และ reset camera ได้ โดยต้องไม่ทำให้ค่าทางไฟฟ้าหรือประวัติเหตุการณ์รีเซ็ต</li>
+<li>ป้าย PROPOSED ต้องอยู่ทั้งแผงรายละเอียดและตำแหน่งบนผัง/ฉาก</li>
+<li>ข้อเท็จจริงที่ยืนยันได้คือรูปแบบทั่วไปในภาพ; ความสูงอาคาร รูปทรงตู้/เรือ ความลึกน้ำ และตำแหน่งติดตั้งเป็นสิ่งสร้างใหม่หรือรอภาคสนาม</li>
+</ul>
+<h2>รายการที่ควรเก็บเพิ่มก่อนใช้เป็นแผนติดตั้ง</h2>
+<ol>
+<li>ให้คนพื้นที่ตรวจความตรงของท่า ถนน กลุ่มกระชัง และจุด P0–P3 บนภาพวาดใหม่</li>
+<li>ภาพภาคพื้นดินที่ทีมมีสิทธิ์เผยแพร่ พร้อมวันที่และมุมถ่าย; หากใช้โดรน ต้องมีสิทธิ์และเงื่อนไขที่เกี่ยวข้อง</li>
+<li>ตำแหน่งและระยะที่สำรวจจริง โดยแยกจากพิกัด normalized ของภาพ</li>
+<li>จำนวนกระชัง/เจ้าของ และข้อจำกัดการเข้าถึงที่ได้รับการยืนยัน</li>
+<li>พฤติกรรมแรงดันตก/ไฟดับ โหลดจริง และชั่วโมงที่ต้องสำรอง พร้อมหลักฐานการวัด</li>
+<li>ความเค็ม/การนำไฟฟ้า อุณหภูมิ และระดับน้ำหลายเวลา พร้อมการสอบเทียบและความลึกหัววัด</li>
+<li>ผู้ดูแลและแผนบำรุงรักษาอุปกรณ์ การกัดกร่อน การรั่วซึม การติดตะไคร่ และขั้นตอนเมื่อค่าผิดปกติ</li>
+</ol>
+<p>โมเดลนี้มีหน้าที่ช่วยคุยเรื่องสถานที่ ระบบไฟ และการทดลองให้เห็นภาพร่วมกัน การรับรองความตรงของพื้นที่และความพร้อมในการติดตั้งต้องอาศัยการสำรวจและทดลองจริงต่อไป</p>
+</div></details><details class="document" id="asset-licenses"><summary>ที่มาและสิทธิ์โมเดล วัสดุ และภาพ<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/ASSET_LICENSES.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Asset provenance and licenses</h1>
+<p>Prepared 14 October 2026 for the Community Energy Resilience Platform. All rendering assets are self-hosted; the live application does not call the Poly Haven API.</p>
+<h2>Public domain rendering assets</h2>
+<p>Poly Haven states that its HDRIs, textures and 3D models are licensed under <a href="https://polyhaven.com/license">CC0 1.0</a>. They may be redistributed and used commercially. Source API requests used the <code>CommunityEnergyResilienceAssetPreparation/1.0</code> User-Agent in accordance with <a href="https://github.com/Poly-Haven/Public-API/blob/master/ToS.md">Poly Haven API Terms</a>.</p>
+<p>The textures were downloaded at 1k and resized to 512 px as JPEG quality 87. The model geometry was preserved, with source glTF and binary buffers packed as GLB and textures resized to 512 px. The HDRI was retained at 1k. Source download MD5 values were checked before conversion.</p>
+<table>
+<thead>
+<tr>
+<th>Local path</th>
+<th align="right">Size</th>
+<th>Source / license</th>
+<th>Intended use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>textures/wood-planks-diffuse.jpg</code></td>
+<td align="right">55 KiB</td>
+<td><a href="https://polyhaven.com/a/wood_planks_grey">wood_planks_grey</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Walkway deck, weathered village cladding and cage walkways</td>
+</tr>
+<tr>
+<td><code>textures/wood-planks-normal.jpg</code></td>
+<td align="right">30 KiB</td>
+<td><a href="https://polyhaven.com/a/wood_planks_grey">wood_planks_grey</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Walkway deck, weathered village cladding and cage walkways</td>
+</tr>
+<tr>
+<td><code>textures/wood-planks-arm.jpg</code></td>
+<td align="right">36 KiB</td>
+<td><a href="https://polyhaven.com/a/wood_planks_grey">wood_planks_grey</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Walkway deck, weathered village cladding and cage walkways</td>
+</tr>
+<tr>
+<td><code>textures/corrugated-iron-diffuse.jpg</code></td>
+<td align="right">57 KiB</td>
+<td><a href="https://polyhaven.com/a/corrugated_iron">corrugated_iron</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Corrugated metal roofing and industrial cladding</td>
+</tr>
+<tr>
+<td><code>textures/corrugated-iron-normal.jpg</code></td>
+<td align="right">32 KiB</td>
+<td><a href="https://polyhaven.com/a/corrugated_iron">corrugated_iron</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Corrugated metal roofing and industrial cladding</td>
+</tr>
+<tr>
+<td><code>textures/corrugated-iron-arm.jpg</code></td>
+<td align="right">26 KiB</td>
+<td><a href="https://polyhaven.com/a/corrugated_iron">corrugated_iron</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Corrugated metal roofing and industrial cladding</td>
+</tr>
+<tr>
+<td><code>textures/coastal-sand-diffuse.jpg</code></td>
+<td align="right">71 KiB</td>
+<td><a href="https://polyhaven.com/a/coast_sand_02">coast_sand_02</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Shore ground / sand surface detail</td>
+</tr>
+<tr>
+<td><code>textures/coastal-sand-normal.jpg</code></td>
+<td align="right">80 KiB</td>
+<td><a href="https://polyhaven.com/a/coast_sand_02">coast_sand_02</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Shore ground / sand surface detail</td>
+</tr>
+<tr>
+<td><code>textures/coastal-sand-arm.jpg</code></td>
+<td align="right">32 KiB</td>
+<td><a href="https://polyhaven.com/a/coast_sand_02">coast_sand_02</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Shore ground / sand surface detail</td>
+</tr>
+<tr>
+<td><code>sky/kloppenheim_06_puresky_1k.hdr</code></td>
+<td align="right">1146 KiB</td>
+<td><a href="https://polyhaven.com/a/kloppenheim_06_puresky">kloppenheim_06_puresky</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Outdoor sky environment lighting / reflections; not a field photograph</td>
+</tr>
+<tr>
+<td><code>models/utility-box.glb</code></td>
+<td align="right">280 KiB</td>
+<td><a href="https://polyhaven.com/a/utility_box_01">utility_box_01</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Generic detailed industrial enclosure prop; conceptual reconstructed equipment exterior</td>
+</tr>
+<tr>
+<td><code>models/portable-generator.glb</code></td>
+<td align="right">1225 KiB</td>
+<td><a href="https://polyhaven.com/a/portable_generator">portable_generator</a> · <a href="https://polyhaven.com/license">CC0</a></td>
+<td>Optional generic workshop or backup equipment visual prop; not established installed equipment</td>
+</tr>
+</tbody></table>
+<p>The utility box model is approximately 0.52 × 1.12 × 0.432 m and contains 4,404 triangles. The generator model is approximately 0.819 × 0.577 × 0.564 m and contains 26,419 triangles. They are generic appearance references, not evidence of the community’s installed devices or a specified tested product. The generator is an optional illustrative prop; the project’s current backup simulation does not assert a real installed generator.</p>
+<p>No accurately licensed southern Thai fishing-boat GLB or exact ESP32/sensor hardware model was identified within the selected primary libraries. Fishing boats, cages, low voltage prototype equipment and buildings can be reconstructed with detailed procedural geometry informed by the images below. Do not present such geometry as surveyed digital-twin capture.</p>
+<h2>Authentic field references</h2>
+<p>These photographs were already included in the user-provided Data Pack and published in the existing project repository and visual library. They are copied unchanged for the same project’s field-reference gallery. No CC0 or external redistribution license is asserted for them. Do not use them as PBR textures or imply that the reconstructed 3D environment reproduces their exact geography.</p>
+<table>
+<thead>
+<tr>
+<th>Local path</th>
+<th>Existing published source</th>
+<th>Original Data Pack path</th>
+<th>Observed reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>reference/salahum-03.webp</code></td>
+<td><a href="https://peephatz-dev.github.io/community-field-notes/community-images/salahum-03.webp">Source photograph</a></td>
+<td>ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 19.jpg</td>
+<td>Fishing cages / blue boat / water color reference</td>
+</tr>
+<tr>
+<td><code>reference/salahum-11.webp</code></td>
+<td><a href="https://peephatz-dev.github.io/community-field-notes/community-images/salahum-11.webp">Source photograph</a></td>
+<td>ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 33.jpg</td>
+<td>Weathered wooden platform / low village roofs / water tank reference</td>
+</tr>
+<tr>
+<td><code>reference/salahum-18.webp</code></td>
+<td><a href="https://peephatz-dev.github.io/community-field-notes/community-images/salahum-18.webp">Source photograph</a></td>
+<td>ภาคใต้ _ บ้านศาลาหุม อ.สิงหนคร จ.สงขลา/ภาพถ่ายชุมชน/บ้านศาลาหุม 9.jpg</td>
+<td>Cages next to corrugated-roof shoreline houses reference</td>
+</tr>
+</tbody></table>
+<p>Observed visual cues: grey-green or pale turquoise opaque estuary water; rectangular net cages with thin timber/bamboo supports and blue barrel floats; low shoreline homes with corrugated metal roofs, pale walls and muted red/green metal siding; weathered wooden walkways. These observations inform appearance only and do not establish electrical or water-quality causes.</p>
+<p>Total assets in this manifest: <strong>4.32 MB</strong>, including the three field reference images. Machine-readable provenance is in <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/public/assets/asset-manifest.json"><code>public/assets/asset-manifest.json</code></a>.</p>
+<h2>Self-hosted typography</h2>
+<ul>
+<li>Manrope (Manrope Project Authors), provided through <code>@fontsource-variable/manrope</code> 5.3.0, <a href="https://github.com/google/fonts/tree/main/ofl/manrope">SIL Open Font License 1.1</a>.</li>
+<li>IBM Plex Sans Thai (IBM Corp.), provided through <code>@fontsource/ibm-plex-sans-thai</code> 5.3.0, <a href="https://github.com/google/fonts/tree/main/ofl/ibmplexsansthai">SIL Open Font License 1.1</a>.</li>
+</ul>
+<p>Fonts are bundled by Next.js and served from the same origin. Complete OFL notices ship in <code>public/assets/licenses/</code>.</p>
+<h2>PowerGuard Asset Pack v2</h2>
+<p>The user supplied 115 original vector/raster/audio assets in SalaHum_SeaBass_Codex_Assets_v2 and requested their use. Copied public/powerguard only; preview and reference sheets are excluded. Mascots/scenes/icons/VFX use the supplied vector SVG files. Audio is programmatically synthesized, not site recordings or sampled voices; its manifest identifies source, formats, duration and volume. These supplied assets are not labelled CC0. Inventory: public/powerguard/ASSET_MANIFEST.json. Thai speech uses available browser/OS TTS after a user action; no recorded voice asset is provided.</p>
+</div></details></section><section id="pitch" class="chapter"><h2>สคริปต์ Q&A และการทำวิดีโอ</h2><details class="document" id="script"><summary>บทพูด 6 นาที พร้อมคิวเดโม<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/pitch-deck/pitch-script-th.md">ดาวน์โหลดเอกสาร Markdown</a><h1>สคริปต์ Pitch ภาษาไทย 6 นาที</h1>
+<p>ฉบับซ้อม 10 หน้า 16:9 · รวม 360 วินาที · ไม่รวม Q&amp;A</p>
+<p>เกณฑ์ซ้อม: Problem, Innovation, Feasibility, Impact, Presentation เป็นสมมติฐานเตรียม Pitch ยังไม่ใช่เกณฑ์ทางการ</p>
+<h2>หน้า 01 · 00:00–00:25 (25 วินาที)</h2>
+<p>บ้านศาลาหุมมีอาชีพประมงกระชัง เอกสารพื้นที่รายงานไฟไม่เสถียร ทีมเราจึงเสนอ PowerGuard เพื่อเริ่มจากตรวจไฟและโหลดจริง แล้วเลือกว่าควรซ่อม ใช้ UPS หรือสำรองเฉพาะจุด ก่อนวัดผล วันนี้ที่สาธิตได้คือต้นแบบเว็บไซต์จำลองครับ</p>
+<h2>หน้า 02 · 00:25–01:00 (35 วินาที)</h2>
+<p>ตัวเลขในเอกสารคือประมาณห้าสิบถึงเจ็ดสิบครัวเรือน และผู้ให้ข้อมูลเกี่ยวข้องกับกระชังมากกว่าสี่สิบห้า ตัวเลขนี้ช่วยเห็นบริบท แต่ยังบอกไม่ได้ว่าทุกบ้านเจอไฟตก หรือทุกกระชังต้องมีไฟสำรอง เราต้องวัดแรงดัน ระยะเวลา และระบุเครื่องที่ได้รับผลก่อน ส่วนปัญหาน้ำและตะกอนต้องแยกศึกษาอีกด้านครับ</p>
+<h2>หน้า 03 · 01:00–01:30 (30 วินาที)</h2>
+<p>เรายังไม่ทราบวิธีรับเหตุเดิมครบครับ ต้องถามว่าใครรู้เหตุ เครื่องใดหยุด และใครเป็นคนตัดสินใจซ่อมหรือซื้อแบต สิ่งที่ทีมเสนอคือเก็บหลักฐาน เลือกวิธีแก้ และตรวจผลหลังทำ ข้อมูลตรงนี้จะช่วยให้ไม่ลงทุนเกินปัญหาที่มีจริง</p>
+<h2>หน้า 04 · 01:30–02:10 (40 วินาที)</h2>
+<p>เราแยกสองชั้นครับ ชั้นพลังงานเป็นแนวคิด DC ที่มีการป้องกัน จัดลำดับศูนย์ดูแล จุดกระชัง เครื่องจำเป็น และเครื่องที่พักได้ อีกชั้นส่งข้อมูลและแจ้งเตือนกลับมาที่ศูนย์ ในเดโมเมื่อไฟดับจะพักโหลดทั่วไปก่อน แล้วคงเครื่องสำคัญตามพลังงานที่เหลือ ค่าโหลดบนจอเป็นสมมติทั้งหมด และยังไม่ได้สั่งตัดไฟบ้านจริง</p>
+<h2>หน้า 05 · 02:10–02:45 (35 วินาที)</h2>
+<p>เมื่อกดเหตุไฟดับ ระบบจำลองจะบันทึกแรงดันและสถานะโหลด ใช้ไฟสำรองเมื่อพลังงานพอ และแจ้งผู้ดูแล พร้อมเก็บประวัติครับ แต่ถ้าโหนดไม่ส่งข้อมูล เราแสดงเป็นการสื่อสารขาด ไม่สรุปว่าไฟดับ พอไฟกลับจะค่อยคืนโหลดตามลำดับ การรับทราบยังเป็นบันทึกในเครื่อง ไม่ใช่ส่งให้หน่วยงานแล้ว</p>
+<h2>หน้า 06 · 02:45–03:20 (35 วินาที)</h2>
+<p>ส่วนที่จะทำจริงต้องแยกวัดตรงกับค่าคำนวณครับ แรงดัน กระแส และอุณหภูมิต้องมีเซนเซอร์พร้อมสอบเทียบ ส่วนเปอร์เซ็นต์แบตและเวลาสำรองต้องเทียบผลจริง ตอนนี้ข้อมูลทั้งหมดในเว็บเป็นจำลอง เรายังไม่มีเซนเซอร์ DO และไม่มี gateway สด ภาพวงจรนี้ช่วยอธิบายความสัมพันธ์ ยังไม่ใช่แบบพร้อมประกอบ</p>
+<h2>หน้า 07 · 03:20–04:10 (50 วินาที)</h2>
+<p>ต่อไปเป็นเดโมประมาณสี่สิบห้าวินาทีครับ ผมเลือกจุดกระชัง ลองไฟตกแล้วไฟดับ ดูแหล่งจ่ายเปลี่ยนเป็นสำรองและเครื่องทั่วไปพัก เปิดแจ้งเตือน รับทราบ จากนั้นคืนไฟและเล่นเวลาให้โหลดกลับตามลำดับ ภาพบนสไลด์มาจากเว็บที่รันจริง แต่ทุกค่ายังเป็นข้อมูลทดลองครับ</p>
+<h3>คิวเดโม 45 วินาที ภายในเวลา 50 วินาทีของหน้านี้</h3>
+<ul>
+<li>0–7 วินาที: หน้า root เลือกจุดกระชัง</li>
+<li>7–15 วินาที: กดไฟตก</li>
+<li>15–25 วินาที: กดไฟดับ ชี้สำรองและพักโหลด</li>
+<li>25–35 วินาที: เปิดแจ้งเตือน รับทราบ</li>
+<li>35–45 วินาที: คืนไฟ เล่นเวลาให้ P2/P3 กลับ</li>
+<li>เหลือ 5 วินาที: ย้ำว่าข้อมูลทดลองและเปลี่ยนสไลด์</li>
+</ul>
+<p>ใช้ localhost รุ่นนี้เมื่อซ้อม รุ่นสาธารณะยังไม่ได้อัปเกรดรอบนี้ หาก WebGL มีปัญหาให้เลือก 2D และใช้ภาพจริงในสไลด์สำรอง ห้ามอ้างว่าเป็น live telemetry</p>
+<h2>หน้า 08 · 04:10–04:45 (35 วินาที)</h2>
+<p>สิ่งที่ยืนยันได้คือซอฟต์แวร์ครับ ทดสอบอัตโนมัติผ่านห้าสิบสองข้อ และเปิดดูฉาก การเลือกจุด แจ้งเตือน และวงจรในเบราว์เซอร์แล้ว แต่คอลัมน์ฮาร์ดแวร์ยังไม่มีหลักฐาน และยังไม่มีผลทดลองกับชาวบ้าน เราจึงระบุความพร้อมเป็นแนวคิดและวิเคราะห์ พร้อมต้นแบบเว็บจำลอง</p>
+<h2>หน้า 09 · 04:45–05:25 (40 วินาที)</h2>
+<p>เราจะเทียบสี่ทางเลือก ทั้งการตรวจระบบกับการไฟฟ้า UPS สำเร็จรูป สำรองเฉพาะโหลด และโซลาร์ร่วมแบตเมื่อคุ้มครับ ตัวอย่างโหลดหนึ่งร้อยห้าสิบวัตต์สองชั่วโมง ภายใต้ประสิทธิภาพและส่วนที่ใช้แบตได้แปดสิบเปอร์เซ็นต์ ต้องประมาณสี่ร้อยหกสิบเก้าวัตต์ชั่วโมง แต่ยังไม่ใช่รุ่นหรือราคา จุดที่ทีมเสนอคือช่วยเลือกและตรวจผล ส่วนงานติดตามน้ำมีเทคโนโลยีไทยทำอยู่แล้ว</p>
+<h2>หน้า 10 · 05:25–06:00 (35 วินาที)</h2>
+<p>สิ่งที่เราขอคือเริ่มวัดในหนึ่งถึงสองจุดที่ชุมชนยินยอม ขอข้อมูลระบบเดิมที่เปิดให้ใช้ และตกลงคนรับเหตุครับ ทีมจะแบ่งงานตามนี้ วัดความครบถ้วนของหลักฐาน เวลาคงโหลด ต้นทุนตลอดอายุ และผู้ดูแลใช้บันทึกได้ ถ้าข้อมูลไม่พอ ไม่ปลอดภัย หรือทางเลือกอื่นเหมาะกว่า เราจะทบทวนก่อนขยายครับ</p>
+<h2>แผนซ้อม</h2>
+<p>จับเวลาพูดจริงหนึ่งรอบ ตัดรายละเอียดไป Q&amp;A หากเกิน 6 นาที ตัวเลขสำคัญต้องอ่านพร้อมสถานะ “ในเอกสาร” หรือ “สมมติ” ไม่อ่าน URL บนเวที เตรียมหน้า root/notifications/backup-plan และระบบเสียงปิดเป็นค่าเริ่มต้น</p>
+<h2>สิ่งที่ยังต้องยืนยันก่อนส่งจริง</h2>
+<p>ดู ../research/missing-evidence-and-field-plan.md โดยเฉพาะเกณฑ์แข่งขัน รูปแบบส่ง เวลา และสิทธิ์ภาพ ไม่มีผลการวัดฮาร์ดแวร์หรือชุมชนในชุดนี้</p>
+</div></details><details class="document" id="questions"><summary>คำถามกรรมการ 20 ข้อและคำตอบ<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/pitch-deck/judge-questions.md">ดาวน์โหลดเอกสาร Markdown</a><h1>คำถามกรรมการและคำตอบตามหลักฐาน</h1>
+<p>ฉบับซ้อม 6 นาที · 15 ต.ค. 2569 · ตรวจแหล่งเต็มใน ../research/evidence-ledger.md</p>
+<ol>
+<li><strong>ต่างจาก Aqua-IoT / Bubble FiT อย่างไร?</strong>
+NECTEC มีระบบติดตามน้ำและ DO/ควบคุมเติมอากาศอยู่แล้วตามบทความ 2560/2563 เราเสนอวงจรตัดสินใจเรื่องไฟ วัดโหลด จัดลำดับสำรอง เทียบทางเลือก และตรวจผล ยังไม่อ้างนวัตกรรม sensor ที่ไม่เคยมีหรือราคาถูกกว่า (E10–E11)</li>
+<li><strong>ทำไมแก้ไฟทั้งที่ปัญหาตะกอนดูใหญ่กว่า?</strong>
+Data Pack รายงานไฟไม่เสถียรด้วย ทีมเลือกขอบเขตไฟเพื่อวัดและทดสอบจำกัดจุด ปัญหาน้ำและตะกอนต้องใช้ผู้เชี่ยวชาญและมาตรการอื่น ไม่อ้างว่าระบบสำรองไฟแก้ทั้งหมด (E01/E03)</li>
+<li><strong>ยังไม่มีข้อมูลไฟแล้วจะทำทำไม?</strong>
+สิ่งที่เสนอขั้นแรกคือเก็บข้อมูลที่ตรวจได้และสัมภาษณ์วิธีเดิม การลงทุนแบตหรือขยายอุปกรณ์ขึ้นกับผลนั้น ไม่ถือว่าไฟตกมีความถี่เท่าไรจากคำว่าบ่อย (E01)</li>
+<li><strong>ใครต้องมีไฟสำรอง?</strong>
+ยังต้องทำ load inventory กับเจ้าของเครื่องและผู้ดูแล P0–P3 เป็นสมมติฐานการออกแบบ ต้องให้ชุมชนเลือกโหลดและยอมรับผลต่อเครื่องที่พักได้ (E04/E16)</li>
+<li><strong>ใครจ่าย?</strong>
+ยังไม่มีผู้ซื้อ งบตกลง หรือ committed partner ต้องคุยรูปแบบเจ้าของอุปกรณ์ ค่าเปลี่ยนแบต ตู้ และการบำรุง ก่อนเสนอ capex/opex ที่ชุมชนรับภาระได้</li>
+<li><strong>หาก UPS สำเร็จรูปก็พอ?</strong>
+เลือก UPS ถ้าเข้ากับโหลดและต้นทุนตลอดอายุเหมาะกว่า การติดตามผลยังช่วยยืนยันความเพียงพอได้ ไม่ต้องสร้างฮาร์ดแวร์ใหม่ทุกกรณี (E13)</li>
+<li><strong>ถ้า 4G หรือ gateway ดับ?</strong>
+ในเดโม offline แยกจากไฟและ physical load ระบบจริงยังต้องออกแบบ local buffering/การกู้ข้อมูลและการบอกข้อมูลเก่า ทดสอบก่อนอ้างว่าใช้งานได้ขณะเครือข่ายขาด (E07)</li>
+<li><strong>แยกไฟดับกับโหนด offline อย่างไร?</strong>
+ใช้สัญญาณ source_voltage ที่ตรวจคุณภาพได้เทียบ last_seen/quality และยืนยันหน้างาน หากข้อมูลไฟขาดต้องระบุว่าไม่ทราบ ห้ามสรุปไฟดับจากเงียบอย่างเดียว (E07)</li>
+<li><strong>วัดอะไรจริงแล้ว?</strong>
+ยังไม่พบ logs ฮาร์ดแวร์หรือภาคสนามที่ยืนยันในเอกสาร มีผลซอฟต์แวร์ 52 ข้อและ browser capture จริง ข้อมูลในจอเป็นจำลอง (E06/E15)</li>
+<li><strong>แบต 1.2 kWh มาจากไหน?</strong>
+เป็นค่าตั้งต้นของตัวจำลอง ไม่ใช่ผล sizing หน้างาน อีกตัวอย่าง 469 Wh มาจาก 150 W สองชั่วโมง หาร 0.8×0.8 ยังต้องเผื่อการเสื่อม อุณหภูมิและกระแสเริ่มต้น (E05/E14)</li>
+<li><strong>แจ้งเตือนแล้วใครทำต่อ?</strong>
+ต้องตกลงคนรับเหตุ/ผู้สำรอง/เวลาและขอบเขตการตรวจซ่อม ตอนนี้ acknowledge และรายงานอยู่ในเครื่อง ยังไม่ส่งหน่วยงานจริง การทดลองต้องให้คนอ่านเหตุและบันทึกได้ (E08/E16)</li>
+<li><strong>ชาวบ้านดูแลเองไหวไหม?</strong>
+ยังไม่ทราบ ต้องทดสอบความเข้าใจ ภาระเปลี่ยนแบต ความชื้น/เกลือ อะไหล่ และผู้บำรุงรักษาโดยมีเจ้าของรับผิดชอบ ไม่ใช้ภาพมาสคอตแทน usability evidence</li>
+<li><strong>ปลอดภัยพอหรือยัง?</strong>
+ยังเป็นแนวคิด DC ต้องตรวจ rated load ฟิวส์ BMS สาย ตู้ ขั้วต่อ isolation การหยุดทดลอง และทดสอบโดยผู้มีคุณสมบัติก่อนประกอบ/ติดตั้ง เว็บไม่สั่ง mains จริง (E04/E15)</li>
+<li><strong>ลดแจ้งเตือนผิด/แจ้งซ้ำอย่างไร?</strong>
+ซอฟต์แวร์ dedup ตาม event ID และแยก sensor fault/offline/power การใช้จริงต้องกำหนด threshold, persistence/debounce, timestamp/seq และทดสอบ false positive กับ reference log ไม่มีอัตราความแม่นยำจริงให้กล่าวอ้าง (E07)</li>
+<li><strong>เกณฑ์ GO/NO-GO คืออะไร?</strong>
+GO เมื่อชุมชนยินยอม คนดูแลชัด โหลด/ข้อมูลเพียงพอ วงจรผ่านความปลอดภัย มีต้นทุนเทียบทางเลือก และผลทดลองตามเกณฑ์ร่วม หากยังไม่ปลอดภัย ไม่คุ้ม หรือดูแลไม่ได้ให้ปรับ/หยุด (E16)</li>
+<li><strong>มีผลประหยัดเงินหรือช่วยชีวิตปลาเท่าไร?</strong>
+ยังไม่มีการวัด จึงไม่ใส่เปอร์เซ็นต์ ผลตอบแทน หรือจำนวนปลาที่รอด ต้องทำ baseline และติดตามเทียบก่อนกล่าว (E03/E15)</li>
+<li><strong>ทำไมไม่มี DO?</strong>
+ยังไม่มี sensor และหลักฐานสอบเทียบ สีผิวน้ำหรือ salinity ใช้แทน DO ไม่ได้ ไม่แจ้งภัย DO จากค่าที่ไม่มี (E07)</li>
+<li><strong>3D เหมือนพื้นที่จริงแค่ไหน?</strong>
+รักษาความสัมพันธ์ฝั่ง ถนน ท่าเรือ อาคาร และกลุ่มกระชังจากภาพอ้างอิง แต่ไม่ใช่งานสำรวจ ไม่มีมาตราส่วน/ทิศเหนือ/จำนวนกระชังที่ยืนยัน อุปกรณ์ทุกจุดยังเสนอ (E09)</li>
+<li><strong>ข้อมูลที่เซฟร่วมกันทั้งทีมไหม?</strong>
+ตอนนี้ localStorage ใน browser และมีส่งออก JSON/CSV ยังไม่มี backend/cloud sync ต้องออกแบบสิทธิ์ เจ้าของข้อมูล retention และการรวมข้อมูลก่อนใช้หลายผู้ดูแล (E08)</li>
+<li><strong>เกณฑ์แข่งขันและ Video ยืนยันแล้วหรือ?</strong>
+เกณฑ์ห้าด้านเป็นสมมติฐานซ้อมตามคำยืนยันผู้ใช้ แบบฟอร์มฉบับล่าสุดยังต้องตรวจ ไกด์เดิมระบุวิดีโอคนถ่ายจริง 1–3 นาที ≤100 MB จึงทำแค่ shot list สำหรับคน ไม่สร้างวิดีโอ AI แทนข้อกำหนด</li>
+</ol>
+<h2>คำถามที่ควรถามกลับในพื้นที่</h2>
+<p>ขอดูเหตุล่าสุดพร้อมเวลาและเครื่องที่ได้รับผล ถามสิ่งที่ทำจริงและค่าใช้จ่ายที่มีหลักฐาน ผู้ใดรับภาระดูแลได้ ข้อมูลใดเปิดให้ใช้ได้ และผลเสียแบบใดทำให้ควรหยุดทดลอง ไม่ตั้งคำถามนำว่าทุกบ้านต้องซื้อแบต</p>
+</div></details><details class="document" id="video"><summary>Shot list สำหรับคนถ่ายจริง<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/pitch-deck/human-video-shot-list.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Shot list สำหรับคนถ่าย Video Walkthrough</h1>
+<p>เป็นแผนทางเลือก ยังต้องตรวจแบบฟอร์มแข่งขันล่าสุด ไกด์เดิมระบุ 1–3 นาที ไม่เกิน 100 MB ถ่ายคนจริงและไม่ใช้ AI สร้างวิดีโอ งานนี้จึงไม่มีวิดีโอ AI</p>
+<p>ทำสไลด์ให้เสร็จก่อน แล้วให้ผู้พูดเล่าเรื่องโดยใช้สไลด์ประกอบ ไม่อ่านทุกบรรทัด</p>
+<table>
+<thead>
+<tr>
+<th>ช่วง</th>
+<th>สิ่งที่ถ่ายจริง</th>
+<th>สิ่งที่พูด</th>
+<th>เจ้าของ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0:00–0:20</td>
+<td>ผู้พูด + ภาพพื้นที่จากแพ็ก</td>
+<td>รายงานไฟไม่เสถียร แต่ผลต่อเครื่องยังต้องวัด</td>
+<td>คน Pitch ที่ทีมเลือก / นาย</td>
+</tr>
+<tr>
+<td>0:20–0:45</td>
+<td>สไลด์ 3–4</td>
+<td>วัดก่อน เลือกวิธีแก้ จัดลำดับโหลด</td>
+<td>ผู้พูด / โฟล์คตรวจศัพท์</td>
+</tr>
+<tr>
+<td>0:45–1:25</td>
+<td>อัดหน้าจอแอปที่ทำงานจริง</td>
+<td>เลือกกระชัง ไฟตก ดับ สำรอง แจ้งเตือน คืนไฟ</td>
+<td>พี / บอส</td>
+</tr>
+<tr>
+<td>1:25–1:45</td>
+<td>สไลด์ 8–9</td>
+<td>เว็บทดสอบได้ ฮาร์ดแวร์ยังรอหลักฐาน ไม่มีราคาอ้างลอย</td>
+<td>ผู้พูด / ข้าวฟ่างตรวจหลักฐาน</td>
+</tr>
+<tr>
+<td>1:45–2:00</td>
+<td>ผู้พูด + สไลด์ 10</td>
+<td>ขอเริ่มวัด 1–2 จุดและผู้ประสานงาน ไม่อ้างติดตั้งแล้ว</td>
+<td>ผู้พูด / นาย</td>
+</tr>
+</tbody></table>
+<p>ก่อนส่ง ตรวจเสียงชัด อ่านป้ายข้อมูลทดลองได้ สิทธิ์ภาพ/บุคคล ขนาดไฟล์ ระยะเวลา ภาษา และเกณฑ์ล่าสุดอีกครั้ง</p>
+</div></details></section><section id="system" class="chapter"><h2>การทำงานและประวัติพัฒนาระบบ</h2><details class="document" id="app-readme"><summary>คู่มือใช้ทุกหน้าและการบันทึกข้อมูล<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/README.md">ดาวน์โหลดเอกสาร Markdown</a><h1>SALA HUM POWERGUARD</h1>
+<p>Community and engineering demonstrator for Ban Sala Hum. A light, rounded interface with the original ปลากะพงสามน้ำ SVG mascot, local audio and a coastal reconstruction share one local deterministic simulation. It does not connect to sensors, relays, batteries, MQTT, databases, or community infrastructure.</p>
+<p>The village and original SVG site plan now use one image-relative layout for the fish-cage area near ท่าเรือลุงทอง, Ban Sala Hum. The village uses locally hosted PBR timber, metal and shoreline materials, a sky HDRI, detailed licensed equipment models, and authored boats, aquaculture cages and buildings informed by the supplied field photographs. The circuit lab adds physical component detail, shared 2D/3D nets and an exploded view. All twelve existing content routes retain the project&#39;s engineering and team content. Seven community utility routes bring the total to nineteen.</p>
+<h2>Run locally</h2>
+<pre><code class="language-sh">pnpm install
+pnpm dev
+</code></pre>
+<p>Open <code>http://localhost:3000</code>. The app can run offline after packages are installed. Use an ordinary browser with WebGL enabled for the 3D views.</p>
+<h2>Build and validate</h2>
+<pre><code class="language-sh">pnpm typecheck
+pnpm test
+pnpm build
+pnpm export:github
+</code></pre>
+<p><code>pnpm build</code> creates a static Next.js export. <code>pnpm export:github</code> copies the generated app into the parent repository&#39;s <code>energy-platform/</code> folder for its GitHub Pages site. The configured deployment base path is <code>/community-field-notes/energy-platform/</code>.</p>
+<h2>Navigation</h2>
+<ul>
+<li><code>/</code> interactive isometric site dashboard, shared KPI/inspector/timeline, 3D/2D, camera tools and scenarios; audience selector: community/operator/engineer</li>
+<li><code>/power/</code>, <code>/devices/</code>, <code>/community/</code> power, device status and clearly labelled vector illustration</li>
+<li><code>/notifications/</code>, <code>/history/</code> notifications, acknowledgements, local problem reports and JSON/CSV exports</li>
+<li><code>/backup-plan/</code> assumed loads, hours, efficiency, usable fraction, prices and UPS comparison</li>
+<li><code>/roadmap/</code> survey through measured evaluation and expansion</li>
+<li><code>/explore/</code> site plan, community edge, cage clusters, proposed P0–P3 nodes and water-transition view</li>
+<li><code>/simulation/</code> normal, voltage sag, outage, extended outage, critical/low battery, water change, offline, sensor fault and staged recovery</li>
+<li><code>/circuit/</code> 3D assembly, 2D schematic, power/signal flow and component inspector</li>
+<li><code>/dashboard/</code> charts, node states and JSON/CSV export</li>
+<li><code>/process/</code> eleven sensing-to-recovery steps with live shared-state badges</li>
+<li><code>/roles/</code> five named team owners, deliverables and site-specific community responsibilities</li>
+<li><code>/presentation/</code> ten-stage judge walkthrough with chapter selection, keyboard navigation and route previews</li>
+<li><code>/architecture/</code>, <code>/solution/</code>, <code>/docs/</code></li>
+</ul>
+<h2>Use the demonstrator</h2>
+<p>Use the community Demo Lab or select a scenario from the engineering command bar, then move between the village, circuit and dashboard to inspect the same state. Select P0–P3 from spatial labels or the node inspector. Village camera presets and scroll chapters expose each node&#39;s role; manual camera control remains available.</p>
+<p>The village can expand to the viewport. Press <strong>Escape</strong> or the minimize control to exit. <strong>Balanced</strong> is the default rendering quality; <strong>High</strong> enables additional desktop effects. Mobile uses a lower pixel ratio, wider camera framing and reduced effects. A WebGL fallback preserves access to the information and simulation controls.</p>
+<p>The dashboard shows primary-source voltage separately from backed-up load-bus voltage/current, battery state, stacked P0–P3 loads, salinity and temperature. A failed salinity sensor produces a missing chart sample and a blank CSV cell. Export JSON or CSV from the dashboard; both label the data as simulated.</p>
+<p>The site-plan coordinates are normalized to the supplied reference crop, not geographic survey coordinates. P0–P3 are <strong>PROPOSED</strong>; zones A/B/C are a monitoring concept. B/C have no installed instruments or invented readings. Visible water-color separation is an observation that requires measurement; it does not establish salinity, depth, flow direction or DO. Reference screenshots are not served as map tiles, textures or embedded maps.</p>
+<p>The presentation uses the shared simulator and remembers its stage within the current browser session. Use chapter buttons, <strong>←/→</strong>, <strong>Home/End</strong>, and preview controls. Outage and recovery actions preserve the event history. Its site-plan previews keep the presentation light without a second WebGL canvas.</p>
+<h2>Assets and design references</h2>
+<p>The self-hosted 3D/texture/sky bundle and three field reference photographs total approximately <strong>4.32 MB</strong>. Poly Haven rendering assets are CC0; the supplied field photographs retain their Data Pack provenance. Manrope Variable and IBM Plex Sans Thai fonts are self-hosted under the SIL Open Font License, with notices included in <code>public/assets/licenses/</code>.</p>
+<ul>
+<li><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/ASSET_LICENSES.md"><code>ASSET_LICENSES.md</code></a>: sources, licenses, transformations and model limits.</li>
+<li><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/public/assets/asset-manifest.json"><code>public/assets/asset-manifest.json</code></a>: file-level provenance and byte sizes.</li>
+<li><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/PRODUCT.md"><code>PRODUCT.md</code></a>, <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/DESIGN.md"><code>DESIGN.md</code></a> and <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/.impeccable/design.json"><code>.impeccable/design.json</code></a>: product commitments and the implemented visual system.</li>
+<li><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/visual-upgrade.md"><code>docs/visual-upgrade.md</code></a>: the previous cinematic upgrade and its verification matrix.</li>
+<li><a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/site-upgrade.md"><code>docs/site-upgrade.md</code></a>: site grounding, scenario semantics, team/process/deck implementation and pending integration checks.</li>
+</ul>
+<h2>Important boundaries</h2>
+<ul>
+<li>The 3D scene is illustrative and not a geographic survey or photorealistic site scan.</li>
+<li>All values exported by the app carry <code>simulated: true</code>.</li>
+<li>The load watts, 1.2 kWh battery, voltage states, salinity/temperature series and thresholds are demo assumptions.</li>
+<li>Salinity and temperature are not dissolved oxygen. DO is intentionally unavailable.</li>
+<li>A communication timeout is not proof of a power outage.</li>
+<li>A zero primary-source voltage does not mean every load is unpowered: the simulated backup bus and load policy are assessed separately.</li>
+<li>The circuit lab is a concept reference, not a build-ready schematic. Part numbers, ratings, pin assignments, battery charging/protection, isolation, enclosure and safety review remain open.</li>
+<li>The team&#39;s source summary says the prototype is low voltage and does not control household mains. Never use this UI or its example circuit to connect household mains or real aquaculture equipment.</li>
+</ul>
+<p>See <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/source-of-truth.md"><code>docs/source-of-truth.md</code></a> and <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/engineering-notes.md"><code>docs/engineering-notes.md</code></a>.</p>
+<h2>PowerGuard controls and persistence</h2>
+<p>Click the mascot to expand its short Thai explanation; <strong>ฟังเสียง</strong> opts into Thai TTS and <strong>หยุดพูด</strong> cancels it. If no Thai voice is installed, the bubble remains and explains the fallback. Audio never starts on page load. The sound dialog separately controls SFX, ambience and music, master mute, five ambience choices and eleven UI test sounds. Ambience and music pause while the document is hidden. VFX can be switched off and respect reduced motion.</p>
+<p>Notifications originate from the shared simulator. Exact event IDs deduplicate; simulation resets begin a new episode. Acknowledging or closing a critical toast never deletes its history record. History, resolution notes, backup plans and selected preferences persist in this browser&#39;s localStorage. They are not synchronized or transmitted to anyone. Audio activation and loop activation do not persist across reloads. A browser reset or storage restrictions can remove/prevent local records; exports provide a copy.</p>
+<p>The user-supplied Asset Pack v2 is inventoried in <code>public/powerguard/ASSET_MANIFEST.json</code>. Its SVGs are original vector assets; the concept community illustration is not the surveyed site map, and its audio is synthesized rather than a field recording. Colors come from <code>src/lib/powerguard/brand.json</code>: yellow <strong>#F8C642</strong>, orange #FF7A3C, blue #2F7DD3, sky #5EC6E8 and navy #1F2D5A. See <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/powerguard-upgrade.md">PowerGuard verification</a> and <a href="https://github.com/peephatz-dev/community-field-notes/blob/main/energy-platform-app/docs/powerguard-feature-audit.md">feature audit</a>.</p>
+<h2>Isometric dashboard and ten-slide pitch (15 October 2026)</h2>
+<p>The primary dashboard now uses the existing R3F site scene. Select a cage or equipment marker to inspect its simulated source, load and latest event. Community and operator labels use natural names; engineering shows P0–P3. Mobile KPI indicators occupy a separate region above the canvas. Low, balanced and high quality settings and the 2D plan remain available.</p>
+<p>The pitch package is <a href="deliverables/pitch-deck/">../deliverables/pitch-deck/</a>: editable 10-slide 16:9 PPTX, reading PDF, ten PNG previews, six-minute Thai script, speaker notes and skeptical Q&amp;A. <a href="deliverables/QA_AND_LIMITATIONS.md">QA and limits</a> and <a href="deliverables/research/evidence-ledger.md">evidence ledger</a> separate browser tests, simulated values, reported field context and the missing hardware/field evidence. This branch has not been merged or deployed.</p>
+</div></details><details class="document" id="powerguard-upgrade"><summary>บันทึกอัปเกรด PowerGuard<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/powerguard-upgrade.md">ดาวน์โหลดเอกสาร Markdown</a><h1>SALA HUM POWERGUARD — Upgrade and verification</h1>
+<p>14 October 2026 · Asset Pack v2 · browser-local demonstrator</p>
+<h2>Preserved</h2>
+<ul>
+<li>Existing power equations, 1.2 kWh assumed battery, P0 &gt; P1 &gt; P2 &gt; P3 priority and staged source recovery (<code>src/lib/model.ts</code>, <code>src/store/simulator.ts</code>). Communication loss does not disconnect physical loads; sensor failure produces missing telemetry, not a fabricated zero.</li>
+<li>Image-relative site layout near ท่าเรือลุงทอง, original 2D map, 3D reconstruction, proposed node selection, comparison, overlay, camera controls and private local reference image.</li>
+<li>Five circuit views, component inspector, engineering dashboard and exports, architecture, solution, eleven-step process, five named owners and ten-stage judge walkthrough.</li>
+<li>Weather, tide, assumed bathymetry, water layers and illustrative three-box mixing engine. Environment and electricity share one clock; rain alone does not imply a grid outage. See <code>environment-equations.md</code>.</li>
+<li>All twelve previous content routes. No main parent website content was replaced.</li>
+</ul>
+<h2>Modified</h2>
+<ul>
+<li>Light rounded shell, readable navy text and Thai labels; engineering spatial canvases retain dark controls. Colors follow <code>brand.json</code>, including the latest yellow <strong>#F8C642</strong>.</li>
+<li>Community labels replace P0–P3 with names. Technical identifiers remain available in Engineer Mode. Utility pages provide community navigation; entering technical routes retains the engineering mode for subsequent graph/site views.</li>
+<li>Root layout hosts a single notification/audio runtime. Simulator reset increments an episode counter so a new run cannot collide with old event IDs. Reset clears current toasts, not persistent history.</li>
+<li>Every content page has a primary heading. Technical page labels and non-canvas surfaces were adjusted for the new light theme.</li>
+</ul>
+<h2>New</h2>
+<ul>
+<li>Actual SVG mascot with happy/thinking/warning/critical/success states, short Thai bubble, explicit Thai TTS, speaking status, stop and text fallback. Intentional stop does not report a playback failure.</li>
+<li>Eleven local UI sounds, five selectable synthesized ambiences and music. Separate SFX/ambient/music sliders, master mute, opt-in, visibility pause and bounded simultaneous playback. Reload does not auto-enable audio or loops.</li>
+<li>CSS/SVG waves, rain, bubbles and electrical warning effects, user toggle and reduced-motion rules.</li>
+<li>Shared-state Demo Lab; persistent notification center, acknowledgements, critical retention, local problem reports and resolution notes. Exact source IDs deduplicate.</li>
+<li>Backup planner: selected loads, assumed watts, hours, efficiency, usable battery fraction, power factor, prices and UPS W/VA/Wh comparison. Unknown prices remain unknown; invalid plans cannot save/export. CSV uses UTF-8 BOM and neutralizes spreadsheet formula prefixes in user text.</li>
+<li>Seven new utility routes: <code>/power/</code>, <code>/devices/</code>, <code>/community/</code>, <code>/notifications/</code>, <code>/backup-plan/</code>, <code>/history/</code>, <code>/roadmap/</code>.</li>
+</ul>
+<h2>Tested</h2>
+<h3>Automated</h3>
+<p><code>pnpm test</code>: <strong>50/50 pass</strong>, including all pre-existing tests and PowerGuard asset integrity, genuine event classification/dedup, critical retention, persistence, plan sizing/validation, audio opt-in/mute/volume/visibility, Thai voice fallback and speech cancellation. Production export passes TypeScript and generates all nineteen content routes plus error pages.</p>
+<p>115 supplied public assets were verified byte-for-byte against the pack manifest. The preview/reference sheets are not deployed. Five mascot mood files contain real vector paths and no embedded raster image.</p>
+<h3>Actual browser interaction</h3>
+<p>Verified in the Codex in-app browser against the production static export:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>19 content routes</td>
+<td>All opened and displayed their content. Missing primary headings on process/roles/presentation were repaired.</td>
+</tr>
+<tr>
+<td>Mascot</td>
+<td>Happy and thinking SVGs observed; sag/low-battery warning, outage/critical battery critical, recovery success followed the shared simulator.</td>
+</tr>
+<tr>
+<td>Thai speech</td>
+<td>Installed Thai TTS entered speaking state; stop became available and ended with “หยุดพูดแล้ว”. No speech started on load.</td>
+</tr>
+<tr>
+<td>Eleven UI sound tests</td>
+<td>Each produced the corresponding <code>data-last-sound</code> and successful browser playback status.</td>
+</tr>
+<tr>
+<td>Five ambiences + music</td>
+<td>Actual OGG sources loaded with advancing playback time; previous ambience paused. Only one ambience plus music remained active.</td>
+</tr>
+<tr>
+<td>Audio controls</td>
+<td>Three slider values changed; mute paused every player; unmute resumed opted-in loops; disable left no player running.</td>
+</tr>
+<tr>
+<td>VFX</td>
+<td>Storm displayed fourteen rain SVGs, one wave and one spark. Toggle removed the effect container. Motion CSS also contains reduced-motion overrides.</td>
+</tr>
+<tr>
+<td>Electrical Demo Lab</td>
+<td>Outage immediately showed 0 V source, 3/4 active loads and backup. Low battery showed 34%; critical 7% left only the central load. Recovery started with 2/4 loads; existing integration tests verify staged return.</td>
+</tr>
+<tr>
+<td>Communication/sensor</td>
+<td>Offline and reconnect buttons updated state. Sensor fault created a distinct notice while main power stayed normal.</td>
+</tr>
+<tr>
+<td>Notices/history</td>
+<td>Critical acknowledgement survived reload and the critical record remained. Local report and action note survived reload and appeared in downloaded JSON.</td>
+</tr>
+<tr>
+<td>Backup planner</td>
+<td>Saved 150 W, 3 h, efficiency/usable 0.8, user price 4 baht/Wh + 1,000 baht. Reload/export retained 703.125 Wh, 187.5 VA and 3,812.5 baht as user assumptions.</td>
+</tr>
+<tr>
+<td>Existing engineering</td>
+<td>Site canvas rendered; camera/top-down and comparison controls operated. Five circuit tabs selected correctly and the battery inspector changed. Fullscreen entry and Escape exit operated. Process badges reflected outage. Presentation End/Home reached 10/1.</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>High/low tide changed illustrative water level +0.6/−0.6 m and clearance 1.3/0.1 m. All four layers selected. Storm propagated outage into the shared monitor.</td>
+</tr>
+<tr>
+<td>Responsive</td>
+<td>Actual desktop 1440×1000, tablet 1024×900 and mobile 390×844 screenshots inspected. Mobile full menu opened and Escape closed it.</td>
+</tr>
+<tr>
+<td>Console</td>
+<td>No JavaScript error entries were returned during the route checks.</td>
+</tr>
+</tbody></table>
+<p>Screenshots are saved in the task&#39;s <code>outputs/site-reconstruction/</code> folder: <code>powerguard-desktop.png</code>, <code>powerguard-mobile.png</code>, <code>powerguard-engineer-tablet.png</code>, <code>powerguard-environment.png</code>, <code>powerguard-monitor.png</code> and final live proof. Transient server-rendered defaults can appear before local preferences hydrate; saved values were confirmed through UI and exported files.</p>
+<h2>Unverified / external dependencies</h2>
+<ul>
+<li>No actual sensors, battery hardware, MQTT, backend or AC control are connected. All current values are <strong>ข้อมูลทดลอง</strong>. Local problem reports are not delivered to agencies, LINE or SMS.</li>
+<li>Thai speech depends on the user&#39;s installed OS/browser voice. The no-Thai-voice path is unit-tested; the tested browser had Thai TTS. Physical speaker audibility and every OS/codec combination are not certified.</li>
+<li>The site rendered in 3D in the tested browser; switching several WebGL views also exercised the informative 2D fallback. Sustained GPU performance, every device and recovery from every driver/context failure are not certified.</li>
+<li>The environment is not surveyed or hydrodynamically calibrated. B/C model values are not sensor readings, water color is not proof of salinity and DO remains unavailable.</li>
+<li>Browser-local storage is not cloud synchronization. Clearing site data loses local history; storage restrictions may prevent saving. JSON/CSV exports are available.</li>
+<li>Plan prices are user assumptions, not market quotations. Startup current, battery ageing, field loads, final hardware ratings and electrical safety still need measurement/review.</li>
+</ul>
+<h2>Release</h2>
+<p>The source and generated static export are delivered together to the existing GitHub Pages repository. Public route and asset availability are checked after Pages reports a successful deployment.</p>
+</div></details><details class="document" id="feature-audit"><summary>รายการตรวจฟังก์ชัน<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/powerguard-feature-audit.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Existing feature audit — SALA HUM POWERGUARD</h1>
+<p>14 ตุลาคม 2026 · ตรวจจาก source ปัจจุบันก่อนรวม Asset Pack v2</p>
+<table>
+<thead>
+<tr>
+<th>สถานะ</th>
+<th>ฟังก์ชัน</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Preserve</td>
+<td>ลำดับโหลด แบตเตอรี่ การแยกไฟกับการสื่อสาร และช่องข้อมูลขาด</td>
+<td><code>src/lib/model.ts</code>, <code>src/store/simulator.ts</code></td>
+</tr>
+<tr>
+<td>Preserve</td>
+<td>ดิจิทัลทวินตามภาพอ้างอิง ผัง 2D เปรียบเทียบ กล้องและภาพส่วนตัวในเบราว์เซอร์</td>
+<td><code>Scene3D.tsx</code>, <code>SiteExperience.tsx</code>, <code>SitePlan.tsx</code>, <code>src/lib/site-layout.ts</code></td>
+</tr>
+<tr>
+<td>Preserve</td>
+<td>ห้องวงจร 5 มุมมอง รายละเอียดชิ้นส่วนและ flow</td>
+<td><code>CircuitLab.tsx</code>, <code>src/lib/circuit-graph.ts</code></td>
+</tr>
+<tr>
+<td>Preserve</td>
+<td>กราฟ JSON/CSV เหตุการณ์ การคืนโหลด และ quality flags</td>
+<td><code>Platform.tsx</code>, <code>TelemetryCharts.tsx</code></td>
+</tr>
+<tr>
+<td>Preserve</td>
+<td>บทบาททีม กระบวนการ 11 ขั้น และ deck 10 ฉาก</td>
+<td><code>SiteGuide.tsx</code></td>
+</tr>
+<tr>
+<td>Preserve</td>
+<td>อากาศ น้ำขึ้นลง พื้นท้องน้ำสมมติ การผสม 3 กล่อง และ clock ร่วม</td>
+<td><code>EnvironmentPanel.tsx</code>, <code>environment-model.ts</code>, <code>EnvironmentalScene.tsx</code></td>
+</tr>
+<tr>
+<td>Refactor</td>
+<td>Shell, navigation, ข้อความและสี — โหมดชุมชน/วิศวกรใช้ simulation เดียวกัน</td>
+<td><code>Platform.tsx</code>, <code>globals.css</code></td>
+</tr>
+<tr>
+<td>Add</td>
+<td>มาสคอต SVG, speech แบบกดฟัง, audio mixer/VFX, toast/center/history, Demo Lab</td>
+<td>PowerGuard components/utilities เพิ่มใน source เดิม</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>แผนสำรองไฟพร้อมสมมติฐาน/ราคาที่ผู้ใช้ใส่ ประวัติในเครื่องและ roadmap</td>
+<td>Citizen pages เพิ่มบน routes เดิมและ routes ใหม่</td>
+</tr>
+</tbody></table>
+<p>ก่อนเริ่มรวมแพ็ก: 39 tests และ production export ผ่าน งานสี/สิ่งแวดล้อมที่ยังอยู่ใน working tree เป็นงานที่ได้รับอนุญาตในแชตนี้และจะรวมไว้ใน release นี้</p>
+<p>ใช้เฉพาะ <code>public/powerguard/**</code> จากแพ็ก ภาพรวม preview และ reference images ไม่ใช้แทน SVG และไม่เผยแพร่เป็นแผนที่ ไม่มี hardware/live feed เชื่อมอยู่ ป้ายข้อมูลจึงเป็น “ข้อมูลทดลอง” เสมอ</p>
+</div></details><details class="document" id="site-upgrade"><summary>บันทึกการสร้างพื้นที่และการสาธิต<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/site-upgrade.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Site-specific platform upgrade</h1>
+<p>14 October 2026 · Smart Energy &amp; Aquaculture Resilience — Ban Sala Hum, Songkhla.</p>
+<p>This expansion grounds the demonstrator in the supplied image of the fish-cage area near <strong>ท่าเรือลุงทอง</strong>. It adds a shared site layout, environmental observation/placement concept, richer scenarios and practical process/team/presentation interfaces. Existing energy-priority, circuit, export and source-boundary features are retained.</p>
+<h2>Spatial source and limits</h2>
+<p><code>src/lib/site-layout.ts</code> traces image-relative features in normalized <code>[u,v]</code> coordinates. The reference uses a 591 × 922 crop from the supplied 591 × 1280 screenshot. Its scale, capture date and north direction are unknown. Scene units are composition units; representative cage divisions and roof patches do not establish field counts.</p>
+<p>The trace preserves the relative shore/road/house relationship, several pier/landing directions, differently oriented cage runs, cluster gaps and the visible water-color boundary. UI-covered portions are recorded as occlusions instead of filled with claimed observations. <code>SitePlan.tsx</code> renders newly authored SVG geometry from this data. <code>SiteEnvironment.tsx</code> uses the shared layout for the reconstructed environment. The screenshot is not redistributed as a map, iframe, texture or map tile. A plain link opens the user-provided place reference.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What is supported</th>
+<th>What remains unconfirmed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Site appearance</td>
+<td>Relative positions and visible shapes in the supplied reference</td>
+<td>Survey coordinates, metre distances, north, image date and complete real cage/house counts</td>
+</tr>
+<tr>
+<td>Water appearance</td>
+<td>Green-toned inner water, darker outer water and a visible color transition</td>
+<td>Salinity class, depth, turbidity mechanism, current direction or the cause of the contrast</td>
+</tr>
+<tr>
+<td>Monitoring placement</td>
+<td>P0 near accessible shore, P1 near cages, P2 essential community loads, P3 flexible loads</td>
+<td>Exact installation locations, permissions, range, electrical loads and weather/sealing requirements</td>
+</tr>
+<tr>
+<td>Zone strategy</td>
+<td>A primary P1 concept; B transition observation; C comparison reference</td>
+<td>B/C instruments, measured readings, measured zone boundaries and validated warning thresholds</td>
+</tr>
+<tr>
+<td>Telemetry</td>
+<td>Browser-generated values and events clearly labelled SIMULATED</td>
+<td>Actual field readings, DO, hardware connectivity and measured outcomes</td>
+</tr>
+</tbody></table>
+<p>Every proposed node remains <strong>PROPOSED</strong>. B/C are <strong>CONCEPT</strong> and have no instruments; they receive no invented independent numerical samples. Water color only motivates a question about placement. The water-change input is generated independently from those colors/zones.</p>
+<h2>Working interfaces</h2>
+<p><code>src/components/SiteGuide.tsx</code> exports three lightweight client components consumed by the existing routes:</p>
+<table>
+<thead>
+<tr>
+<th>Export</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SiteRolesGuide</code></td>
+<td>Five exact named team owners with duties, concrete deliverables and handoffs; five community/system roles tied to cages, shore access, monitoring, maintenance and decision rights</td>
+</tr>
+<tr>
+<td><code>SiteProcessGuide</code></td>
+<td>Eleven steps from sensing through staged recovery; current model badges, node load/connectivity distinctions, event action and scenario buttons</td>
+</tr>
+<tr>
+<td><code>SitePresentationGuide</code></td>
+<td>Ten interactive stages; chapters, previous/next, keyboard arrows/Home/End, progress, session-local stage memory, original site-plan previews and direct full-scene/circuit/dashboard links</td>
+</tr>
+</tbody></table>
+<p>The team allocation is นาย (architecture), โฟล์ค (sensors/circuits/safety), พี (data/dashboard/alerts), บอส (communications/messages/state), and ข้าวฟ่าง (documentation/validation/explanation). Loads, monitoring positions, responsible recipients and approved human actions are shared field-validation work.</p>
+<p>The judge sequence covers aerial introduction → waterfront community → cage layout → water transition → node placement → circuit → outage → dashboard → benefits/limits → validation roadmap. Camera previews update the shared <code>cameraMode</code> and selected node. The component creates no second WebGL canvas and does not call the simulator&#39;s destructive <code>reset()</code> action. The outage/recovery buttons are explicit; changing slides alone does not manufacture an outage or erase events.</p>
+<h2>Simulation semantics</h2>
+<p>The model retains P0 &gt; P1 &gt; P2 &gt; P3. It now exposes normal, sag, outage, extended outage, critical battery, water change, offline, sensor fault and recovery, with the previous low-battery shortcut retained. Scenario transitions append samples immediately; only elapsed-time <code>step()</code> integrates battery energy.</p>
+<p>Main-source voltage is separate from the load-bus voltage/current. Current is a synthetic DC constant-power calculation from the active loads and bus voltage; it excludes losses and startup current. A zero main-source voltage can coexist with a backed-up live load bus. Offline communication alone does not stop physical loads.</p>
+<p>The synthetic water input applies a salinity/temperature shift without inferring those numbers from the picture. Sensor fault produces missing salinity instead of zero. DO remains unavailable. Recovery preserves SoC, communication/sensor faults, water input and events; the demonstration restores P0/P1, then P2, then P3 over two elapsed-time steps. It does not model battery charging.</p>
+<h2>Verification status for this expansion</h2>
+<p>The release owner verified the current site-specific build. <strong>TypeScript checks, all 36 tests and <code>pnpm export:github</code> passed</strong>, including the latest final production build. This documentation pass records those results; it did not run another build, browser session or Git operation.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Result and scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shared spatial layout</td>
+<td>Original SVG and 3D reconstruction compared; proposed P0–P3, overlays, camera presets, camera reset and viewport expansion checked</td>
+</tr>
+<tr>
+<td>Production desktop/mobile</td>
+<td>Screenshots inspected at 1440 × 1000 and 390 × 844; distant framing, water edge, mobile toolbar overlap and fullscreen height corrected</td>
+</tr>
+<tr>
+<td>Immediate scenario state</td>
+<td>With time paused, outage, water-change, critical 7% battery and recovery immediately updated charts and events from the same state</td>
+</tr>
+<tr>
+<td>Invalid/unpowered P1 channels</td>
+<td>Critical battery displayed missing P1 water channels rather than retained numerical readings</td>
+</tr>
+<tr>
+<td>Recovery regression</td>
+<td>Unit suite verified two elapsed-time restoration steps and preservation of history/state boundaries</td>
+</tr>
+<tr>
+<td>Judge deck</td>
+<td>Next selected stage 2, ArrowRight selected stage 3, End selected stage 10 with Next disabled; returning from another route restored stage 10. No WebGL Canvas mounted in the deck</td>
+</tr>
+<tr>
+<td>Team/process guides</td>
+<td>All five exact team names and deliverables inspected; eleven process steps and live critical-7% state inspected</td>
+</tr>
+<tr>
+<td>Export downloads</td>
+<td>CSV and JSON downloaded in the browser. At critical battery, P1 quality was <code>unpowered</code>, CSV water cells were blank and JSON water channels were null; source voltage 0 V, bus voltage 12 V, bus current 2.5 A and P0 load 30 W remained coherent</td>
+</tr>
+<tr>
+<td>Private reference comparison</td>
+<td>File picker used a browser-local <code>blob:</code> URL with no upload or persistence; clearing restored the original SVG. Overlay slider Home selected 0 and End selected 100</td>
+</tr>
+<tr>
+<td>Interaction errors</td>
+<td>Browser console errors were an empty array after the inspected interactions</td>
+</tr>
+<tr>
+<td>Live publication</td>
+<td>The prior reconstruction release was verified on GitHub Pages: all eleven content pages matched their production HTML and referenced compiled assets responded HTTP 200. The brand/environment extension has a separate focused release check below.</td>
+</tr>
+</tbody></table>
+<p>Review outputs are stored outside the application in <code>outputs/site-reconstruction/comparison.jpg</code> and <code>outputs/site-reconstruction/mobile.jpg</code>. These are rendered review artifacts; they are not redistributed map tiles. The checks above do not assert field measurements, hardware readiness or cross-device GPU performance certification.</p>
+<p>Expected benefits are proposals to evaluate. No measured reduction in fish losses, energy cost, response time or other field outcome is claimed. BOM/ratings/protection/calibration, approved alerts, site permissions and a supervised low-voltage pilot remain prerequisites for real deployment.</p>
+<h2>Brand and environmental extension</h2>
+<p>The user-supplied five-color palette is applied throughout the control center: yellow #FBC642, orange #FF7A3C, blue #2F7DD3, cyan #5EC6E8, navy #1F2D5A. Physical reference water colors remain separate. Balanced rendering caps desktop DPR at 1 with 1024-pixel shadows; high quality remains optional. The environment page initially loads an original SVG map and loads its single WebGL scene only when requested.</p>
+<p>Synthetic weather, illustrative tides, assumed bathymetry, a depth/clearance inspector, cross-section and three-box mixing controls share the energy clock. The new source and engineering limits are documented in <code>environment-equations.md</code>. TypeScript and production export passed; 39 tests passed, including three focused environmental cases (internal conservation, tide/depth response, and independent rain versus coupled storm/outage/reset).</p>
+<p>The focused browser pass showed the branded dashboard, a storm with P0/P1/P2 backed up and P3 shed, transparent underwater inspection, and low/high water levels of −0.6/+0.6 m changing selected assumed depth from 2.3 to 3.5 m and clearance from 0.1 to 1.3 m. Console errors were absent. At 390 × 844 the mobile menu appeared and horizontal document width did not exceed the viewport; the rendered primary controls and two-column metrics were inspected. This was a bounded check, not an exhaustive interaction/GPU/performance audit.</p>
+</div></details><details class="document" id="visual-upgrade"><summary>ที่มาของฉาก วัสดุ แสง และวงจร<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="energy-platform-app/docs/visual-upgrade.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Cinematic Coastal Industrial upgrade</h1>
+<p>14 October 2026 · implementation record for the Community Energy Resilience Platform.</p>
+<p>The upgrade applies the user&#39;s coastal industrial direction to the complete application: village experience, dashboard, circuit lab and all supporting engineering/team routes. The visual target is a cinematic reconstruction informed by field references. It is not a photorealistic site scan, a surveyed digital twin or field-tested hardware.</p>
+<h2>What changed</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Implemented change</th>
+<th>Evidence in the project</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visual system</td>
+<td>Navy surfaces, marine teal operating states, brass amber warnings, restrained typography and tabular readings; readable Thai and Latin fonts served locally</td>
+<td><code>src/app/globals.css</code>, <code>src/app/layout.tsx</code>, <code>DESIGN.md</code>, <code>.impeccable/design.json</code></td>
+</tr>
+<tr>
+<td>Village</td>
+<td>Detailed fishing boats, rectangular net cages, floats, timber jetties, shoreline homes, utility poles and P0–P3 equipment; opaque estuary water and warm outdoor lighting</td>
+<td><code>Scene3D.tsx</code>, <code>three/VillageAssets.tsx</code>, <code>three/VillageWater.tsx</code></td>
+</tr>
+<tr>
+<td>Physical materials</td>
+<td>Local CC0 PBR timber, corrugated iron and sand maps; local HDRI; detailed GLB utility cabinet and generator prop</td>
+<td><code>public/assets/asset-manifest.json</code>, <code>ASSET_LICENSES.md</code></td>
+</tr>
+<tr>
+<td>Camera and spatial controls</td>
+<td>Smooth presets, clickable equipment labels, viewport expansion with Escape/focus restoration, desktop scroll chapters and manual override</td>
+<td><code>Scene3D.tsx</code>, <code>Platform.tsx</code></td>
+</tr>
+<tr>
+<td>Circuit lab</td>
+<td>Authored PCB/terminal/probe/battery detail, assembly and exploded views, inspectable components; shared graph drives the physical wires and 2D nets</td>
+<td><code>CircuitLab.tsx</code>, <code>circuit/Equipment.tsx</code>, <code>circuit/graph.ts</code></td>
+</tr>
+<tr>
+<td>Outage demonstration</td>
+<td>Shared simulation drives equipment lights, flow, backup and load status; daylight stays independent of the power failure</td>
+<td><code>store/simulator.ts</code>, <code>lib/model.ts</code>, village and circuit scene consumers</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Lazy-loaded voltage, battery, stacked load and water charts with consistent axes/tooltip styles and missing salinity samples on sensor fault</td>
+<td><code>TelemetryCharts.tsx</code>, <code>Platform.tsx</code></td>
+</tr>
+<tr>
+<td>Mobile/performance</td>
+<td>Aspect-aware camera framing, lower mobile DPR, desktop-only high-quality postprocessing, native modal route menu, bounded spatial DOM overlays and WebGL fallback</td>
+<td><code>Scene3D.tsx</code>, <code>CircuitLab.tsx</code>, <code>three/SpatialHtml.tsx</code>, responsive CSS</td>
+</tr>
+</tbody></table>
+<p>The simulation equations and priority <strong>P0 &gt; P1 &gt; P2 &gt; P3</strong> remain the common source for every route. Circuit power and data connectivity use separate state rules. Primary-source voltage can be zero while the simulated backup still supplies eligible loads. Offline communication does not itself turn physical loads off.</p>
+<h2>Asset and design evidence checked</h2>
+<p>The preparation audit checked download MD5 values, GLB headers/buffer ranges and embedded JPEG validity. The rendering assets plus three existing Data Pack photographs total <strong>4.32 MB</strong>. The utility box has 4,404 triangles; the optional generator prop has 26,419. Their materials use optimized 512 px PBR maps. Both models are generic appearance references, not identified local installed devices. Field photographs are credited separately from CC0 assets. OFL font notices ship locally.</p>
+<p>The documented palette agrees with the reusable CSS values: background <code>#08141f</code>, navigation <code>#0b1926</code>, surface <code>#102332</code>, raised surface <code>#152c3b</code>, text <code>#e5edf1</code>, muted text <code>#a9bdc9</code>, boundary <code>#2b4658</code>, teal <code>#67dcc6</code>, amber <code>#eebd76</code> and fault <code>#f28b86</code>. The CSS and design references use Manrope Variable/IBM Plex Sans Thai, a 15 px body and 14 px panel radius. <code>DESIGN.md</code> now carries the normative token frontmatter and canonical design sections; <code>.impeccable/design.json</code> uses schema version 2 for metadata, component snippets, motion and breakpoints. Both retain the established direction and color/type values. The current common panel-title selector is 16 px; the original 17 px brief reference is explicitly identified rather than presented as current CSS.</p>
+<p>The code audit also checked that chart/3D modules are loaded on demand, salinity fault becomes <code>null</code> rather than zero, and <code>SpatialHtml</code> removes its DOM element immediately while deferring its independent React-root unmount until the outer R3F commit completes. Spatial projection reuses vector objects rather than allocating them each frame.</p>
+<h2>Manual verification matrix</h2>
+<p>Targets: <strong>1440 × 1000 desktop</strong> and <strong>390 × 844 mobile</strong>. Browser observations were supplied by the integration owner through CUA. This documentation pass audited source and provenance without another screenshot or test session. Screenshots are visible in the integration tool history; no saved screenshot file path is asserted.</p>
+<table>
+<thead>
+<tr>
+<th>Surface/behavior</th>
+<th>Desktop · 1440 × 1000</th>
+<th>Mobile · 390 × 844</th>
+<th>Evidence and scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Overview scene and equipment inspector</td>
+<td>Full scene screenshot captured/reviewed</td>
+<td>All P0–P3 nodes within camera frame after aspect correction</td>
+<td>Scene composition and spatial labels inspected at both targets</td>
+</tr>
+<tr>
+<td>Monitoring charts</td>
+<td>Chart screenshot captured/reviewed</td>
+<td>Metrics and plots captured; no horizontal overflow</td>
+<td>Mobile measured document width 375 px within the 390 px viewport</td>
+</tr>
+<tr>
+<td>Circuit assembly/exploded view</td>
+<td>Both views captured/reviewed</td>
+<td>Panel and selected tag captured after framing correction</td>
+<td>Selected tag right edge 299 px, within the 390 px viewport</td>
+</tr>
+<tr>
+<td>Route navigation</td>
+<td>Circuit → overview → dashboard transitions checked</td>
+<td>Modal menu shows all eleven content routes</td>
+<td>Fresh transition console errors were an empty array after the SpatialHtml lifecycle fix</td>
+</tr>
+<tr>
+<td>Fullscreen and Escape</td>
+<td>1200 × 900 expansion checked after intermediate-breakpoint correction</td>
+<td>Viewport expansion observed; Escape closes and restores focus</td>
+<td>Mobile viewport-expanded view covered 390 × 844; exit button received focus</td>
+</tr>
+<tr>
+<td>Scroll chapters and camera override</td>
+<td>P0–P3 chapter selection checked in static production export</td>
+<td>Automatic follow disabled at narrow widths</td>
+<td>Scrolled chapter selection changed camera/node; turning follow off retained P3 while returning to P0 text. Reduced-motion handling audited</td>
+</tr>
+<tr>
+<td>Scenarios/state/exports</td>
+<td>Typecheck and eleven meaningful tests passed; JSON download inspected</td>
+<td>Same browser-local model</td>
+<td>Export contained 40 samples, simulated flag, null salinity and the sensor-fault event; paused outage updates the current metric to 0.0 V while history stays paused</td>
+</tr>
+<tr>
+<td>WebGL fallback and quality</td>
+<td>Source path checked</td>
+<td>Source path checked</td>
+<td>Mobile DPR 0.75–1; desktop cap 1.25 Balanced/1.5 High. Forced context-loss performance was not separately measured</td>
+</tr>
+<tr>
+<td>Production export and routes</td>
+<td>All eleven content routes statically generated without build warnings</td>
+<td>Same static output</td>
+<td>Final export succeeded; local production HTTP checks returned 200 for all eleven routes, ten HTML-referenced assets, both GLB models, HDRI and manifest; no duplicated base paths</td>
+</tr>
+</tbody></table>
+<p>This is a scoped visual/functional review, not a hardware validation or a measured cross-device GPU performance certification.</p>
+<h2>Engineering boundaries</h2>
+<ul>
+<li>The geometry is reconstructed from context and visual references; location, dimensions and installed infrastructure have not been surveyed.</li>
+<li>Battery capacity, wattages, thresholds, water series and accelerated time are demonstration assumptions. The generator is an illustrative prop.</li>
+<li>Salinity and temperature do not establish dissolved oxygen; DO stays unavailable.</li>
+<li>Hardware interfaces, BOM, protection ratings, battery/BMS selection, calibration and installation review remain open. The circuit is a low-voltage concept reference and does not control household mains.</li>
+<li>Browser-local state and exports demonstrate an engineering workflow. No live sensor stream, remote alert delivery or persistent project backend is connected.</li>
+</ul>
+</div></details></section><section id="qa" class="chapter"><h2>ผลตรวจและข้อจำกัด</h2><details class="document" id="qa-report"><summary>รายงานตรวจฉบับเต็ม<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/QA_AND_LIMITATIONS.md">ดาวน์โหลดเอกสาร Markdown</a><h1>ผลส่งมอบและการตรวจ SALA HUM POWERGUARD</h1>
+<p>วันที่ 15 ตุลาคม 2569 · สาขา <code>feat/powerguard-isometric-pitch10</code> · ไม่ merge และไม่ deploy รอบนี้</p>
+<h2>สิ่งที่เปลี่ยน</h2>
+<ul>
+<li>หน้าแรกใช้ R3F coastal digital twin ตัวเดิมจริงในมุม isometric มี floating KPI, selected-equipment inspector, scene/2D, zoom/rotate/reset/focus และ timeline ที่อ่าน event จาก simulator ร่วม</li>
+<li>เลือกกระชังจริงใน scene เพื่อดู P1 ได้ มีปุ่มเลือกอุปกรณ์คู่กันสำหรับ keyboard/2D fallback</li>
+<li>โหมดชาวบ้าน ผู้ดูแล และวิศวกรใช้ state เดียวกัน Community labels ใช้คำไทย ผู้ดูแลรับทราบเหตุและเปิดประวัติ วิศวกรเห็น P0–P3</li>
+<li>มือถือแยก KPI ขึ้นเหนือ canvas มี inspector ต่อด้านล่าง ฉากไม่ถูก KPI บังอุปกรณ์ทั้งสี่</li>
+<li>Toast สำคัญหนึ่งใบเคลียร์ inspector และผู้ช่วย เหตุทั้งหมดอยู่ notification center/history เดิม เสียงเริ่มปิดและให้เปิดเอง</li>
+<li>แผนสำรอง/บันทึกเหตุยังเก็บในเครื่องเดิม มีกราฟและหน้า evidence/roadmap ต่อใต้ฉาก</li>
+<li>ไม่เปลี่ยนสมการพลังงาน priority, battery thresholds หรือสัญญาณ power vs offline vs fault</li>
+</ul>
+<h2>คุณสมบัติเดิมที่คงอยู่</h2>
+<p>19 content routes: <code>/</code>, <code>/dashboard</code>, <code>/explore</code>, <code>/simulation</code>, <code>/circuit</code>, <code>/notifications</code>, <code>/backup-plan</code>, <code>/roadmap</code>, <code>/presentation</code>, <code>/process</code>, <code>/roles</code>, <code>/power</code>, <code>/devices</code>, <code>/community</code>, <code>/history</code>, <code>/environment</code>, <code>/architecture</code>, <code>/solution</code>, <code>/docs</code> พร้อม basePath production <code>/community-field-notes/energy-platform/</code></p>
+<p>ฉากอิงพื้นที่, orthographic/top/oblique เดิม, spatial reference overlays, environmental/weather/tide/mixing simulation, circuit views/inspection, battery/load policy, history/CSV/JSON exports, original SVG assets, sound/ambience/speech, dedup/acknowledge/resolution/local reports และ planner ไม่ถูกลบ</p>
+<h2>Automated checks</h2>
+<table>
+<thead>
+<tr>
+<th>วิธีตรวจ</th>
+<th>ผล</th>
+<th>ขอบเขต</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pnpm typecheck</code></td>
+<td>PASS</td>
+<td>TypeScript source</td>
+</tr>
+<tr>
+<td><code>pnpm test</code></td>
+<td>PASS 52/52</td>
+<td>model, simulator, battery/reserve/recovery, offline/fault quality, circuit graph, relative site geometry, synthetic environment, assets/audio/preferences, notice dedup/storage, backup plan และ 2 tests ใหม่สำหรับ journey/audience</td>
+</tr>
+<tr>
+<td><code>pnpm build</code></td>
+<td>PASS</td>
+<td>production build และ prerender ทุก route</td>
+</tr>
+<tr>
+<td><code>pnpm export:github</code></td>
+<td>PASS</td>
+<td>เรียก production build และคัด static export ไป energy-platform/ พร้อม basePath</td>
+</tr>
+</tbody></table>
+<p>เพิ่ม <code>test/isometric.test.mjs</code> โดยไม่แก้ test เก่าให้ผ่านหลอก ไม่ใช้จำนวน test เป็นความพร้อม hardware/field เอกสาร log ส่วนตัวอยู่ <code>.codex-build/pitch10/final-typecheck.log</code>, <code>final-tests.log</code>, <code>final-export.log</code></p>
+<h2>Browser checks จริง</h2>
+<p>ใช้ CUA In-app browser กับ localhost static production export port3013 และตรวจ Next dev server ที่มีอยู่ port3000 ด้วย Dev UI เปิดได้ แต่ dynamic scene บน dev ค้างรอ จึงตรวจ interaction/capture หลักจาก production export ที่โหลดได้จริง ไม่มีการอ้างว่า dev dynamic loading ผ่านครบ ไม่หยุด dev server ของผู้ใช้</p>
+<ul>
+<li>Desktop ขอ viewport1440×1000 และ mobile390×844 ตรวจขนาด DOM (ไม่มี body horizontal overflow) บางภาพ browser export มี actual dimensions1425×919/375×812 ตามระบบ capture และภาพล่าสุด mobile390×844 ระบุ actual file metadata ได้</li>
+<li>เลือก P1 จาก marker/ปุ่ม: inspector เปลี่ยนชื่อและโหลด120W; zoom, rotate, reset, qualitylow และ 2D เปิดได้</li>
+<li>ไฟตก/ไฟดับ: source0V, backup, P3พัก, P0/P1คงเมื่อแบตพอ, notice/timeline/chartsอัปเดต แม้พักเวลา</li>
+<li>recovery: statusกลับไฟหลักและมีขั้นคืนโหลด ต้องเล่นเวลาให้ P2/P3 คืนครบตาม simulation</li>
+<li>แบตต่ำ/วิกฤต: UI แสดง7%และทำงาน1/4เมื่อเลือกวิกฤต; offlineและsensor faultเป็นคนละเหตุ ไม่เพิ่ม DO</li>
+<li>operator acknowledgement, engineer labels, community labels, ambient opt-in/มิวต์ และเสียงพร้อม status ตรวจแล้ว เสียงการเล่นมี automated media tests ด้วย ไม่อ้างทดสอบความดังทางกายภาพ</li>
+<li>circuit exploded view และการเลือก V/I monitor เปิด inspector ได้ ภาพ <code>circuit-exploded.png</code> เป็น concept assembly</li>
+<li>plannerเปิดบนมือถือได้ แสดง150W /469Wh /188VA สมมติ และกดบันทึก มี automated persistence/invalid-input tests ไม่อ้างว่าทดสอบร่วมหลายเครื่องหรือ cloud sync</li>
+<li>โหลดเส้นทางวิศวกรรม 9 routes กับมือถือ 6 routesเพิ่มเติม และ root/power/circuit/planner โดยตรง ไม่มีการอ้างคลิกทุกปุ่มบนทุก route ทุก breakpoint การตรวจ interaction มุ่งเส้นทางสำคัญกับ model tests</li>
+<li>production console ตรวจไม่พบ error ใน fresh capture; มี upstream deprecation warning THREE.Clock และ PCFSoftShadowMap ในห้องวงจร ไม่ใช่ข้อมูลวัดจริง</li>
+<li>ระหว่างใช้หลาย dynamic scene/viewport เป็นเวลานานพบ WebGL context ไม่พร้อมหนึ่งแท็บ เปิดแท็บทดสอบใหม่แล้วแสดงฉากได้ คง low quality/2D fallback ไม่อ้าง benchmark FPS/WebGL performance ที่ไม่ได้วัด</li>
+</ul>
+<h2>Visual review</h2>
+<p>ใช้ impeccable detector ครั้งเดียวบนเป้าหมายใหม่ ผล0 findings แล้ว fresh reviewer พบสามข้อ จึงแก้แจ้งเตือนบัง inspector, KPI มือถือบัง marker และเส้นขอบ toast4px หลังแก้พบ regression noticeบังmascot แก้ตำแหน่งอีกครั้ง Targeted verdictสุดท้าย <code>ship</code> ระบุสามข้อและ regression resolved ใช้ reviewerทั่วไปแทน class-specific ที่ harnessไม่ inject ไม่อ้างรับรองทั้งระบบ</p>
+<p><code>DESIGN.md</code> และ machine sidecar อัปเดตให้ตรงกับlight brand systemจริง ภาพยืนยัน: <code>web-ui/screenshots/desktop-normal.png</code>, <code>desktop-outage.png</code>, <code>mobile-overview.png</code>, <code>mobile-full.png</code>, <code>circuit-exploded.png</code></p>
+<h2>Pitch QA</h2>
+<ul>
+<li>10 content slides รวมปกแล้ว รอบใหม่เพิ่ม appendix index บนหน้า 10 พร้อม notes และเว็บฉบับเต็ม ไม่มีสไลด์11</li>
+<li>16:9 13.333×7.5นิ้ว มี10speaker-note parts เป็นไทย สคริปต์รวม360วินาที หน้าสินค้ามีเดโม45วินาทีในช่วง50วินาที</li>
+<li>PPTX text/shape/connectors editable และ3 native tables บนหน้า6/8/9 มี320โดยประมาณ text object รวมตาราง font Sarabun ตรวจชื่อฟอนต์และ first-party reimport ผ่าน ไม่เปิดตรวจใน PowerPoint/Google Slides จึงไม่อ้าง native application compatibility ทุกกรณี</li>
+<li>Render1920×1080ทุกหน้าด้วย Artifact Tool ตรวจรายหน้าและcontact sheet แก้กล่องชื่อ P2/P3 ที่ตัดบรรทัดทับคำอธิบาย และแก้ทิศลูกศร workflow/dataให้ถูก</li>
+<li>Package/layout finalizer PASS, zero findings/warnings, slide count10, dimensionsถูก, native tablesครบ และภาษาไทยอยู่ในXML/notes</li>
+<li>Direct PDF exporter runtime error missing <code>#standard-fonts/Helvetica</code> จึงลอง headless LibreOffice แต่พบ Thai glyphหายและ reject output จากนั้นใช้ reportlabสร้าง PDFอ่านจาก PNGที่ตรวจแล้ว1920×1080 ภาพคมเท่าพรีวิวและมี10หน้า PDFเป็นภาพ ไม่ใช่สำเนาข้อความที่ค้นได้ PPTXยังแก้ไขได้</li>
+<li>มาสคอตบนเว็บเป็นSVGจริง PPTXใช้PNGความละเอียดสูงที่มากับแพ็กเดียวกันเนื่องจากrendererบางส่วนแสดงSVG fillsไม่ตรง เก็บSVGต้นฉบับในsourceด้วย</li>
+<li>ราคาหน้า9เพิ่มเพียงค่าUPSตัวอย่าง1,750บาทจากหน้าAdviceตรวจ15ต.ค.2569 เป็นค่าเครื่องอ้างอิง ไม่ใช่ราคาโครงการรวม/รุ่นที่เลือก/หลักฐานสำรอง2ชั่วโมง ค่าอื่นและBOMยังTBD ต้องตรวจราคาอีกครั้ง</li>
+<li>เกณฑ์ห้าด้านเป็นสมมติสำหรับซ้อม และฉบับล่าสุด/สิทธิ์ภาพยังต้องตรวจ ไม่อ้างคะแนนหรือความร่วมมือที่ไม่มีหลักฐาน</li>
+</ul>
+<h2>ความจริงที่ต้องคงไว้</h2>
+<p>ไม่มีข้อมูล hardware bench test หรือ field installation ที่ตรวจได้ในชุดที่มี ไม่มีผลประหยัดค่าไฟ/ลดปลาตาย/เพิ่มรายได้/ลดคาร์บอนที่วัดแล้ว ทุกค่าบนแอปจำลอง ภาพ3Dคือreconstructionเชิงสัมพันธ์ P0–P3เสนอ ไม่มีDOจริง ไม่มีbackendสด ไม่สั่งmains</p>
+<p>ราคาแบต อายุใช้งาน ภาระดูแล ความถี่เหตุไฟ และเจ้าของจุดทดลองยังขาด ดู <code>research/missing-evidence-and-field-plan.md</code> แผนถัดไปคือขออนุญาตสำรวจ1–2จุด วัดโหลด/ไฟจริง เทียบซ่อม/UPS/backup/solar แล้วใช้เกณฑ์ร่วมตัดสินใจ</p>
+<h2>แผนที่เนื้อหาไกด์เดิมสู่10หน้า</h2>
+<p>Executive summary=1, ปัญหา/ผลกระทบ=2, workflow=3, solution/architecture=4, user/failover=5, feasibility/circuit=6, product demo=7, PoC/limits=8, costs/alternatives=9, stakeholders/pilot/ESG=10และnotes รายละเอียดแหล่งอ้างอิงและคำถามเสริมอยู่companionMDแทนเพิ่มสไลด์</p>
+<h2>ไฟล์ส่งมอบ</h2>
+<p><code>pitch-deck/</code> มี PPTX/PDF/10 PNG/contact sheet, script,20 Q&amp;A, human video shot list และsourceพร้อมassets/URLs ส่วน <code>research/</code> มีevidence ledgerและแผนยืนยัน, <code>web-ui/</code> มีภาพเว็บจริงและdesignbrief ไม่สร้างวิดีโอAI</p>
+<h2>รอบเผยแพร่และ Canva ตามคำขอใหม่</h2>
+<p>ผู้ใช้อนุญาต deploy และนำงานไป Canva แล้วในรอบนี้ หน้า 10 เพิ่มสารบัญภาคผนวกที่ลิงก์ไป <code>pitch-appendix.html</code> รวมข้อความเต็ม 18 เอกสาร + speaker notes 10 หน้า และภาพ/ไฟล์ต้นฉบับ โดยยังมีสไลด์หลัก 10 หน้า รายละเอียดเต็มแนบใน notes ของหน้า10ด้วย ไม่อัดตัวเล็กลงบนสไลด์ การนำเข้า Canva และการเผยแพร่ต้องตรวจผลจริงก่อนรายงานว่าสำเร็จ ข้อความ “ยังไม่ deploy” ด้านบนเป็นสถานะรอบก่อนหน้า</p>
+<h3>ผลตรวจรอบภาคผนวก</h3>
+<ul>
+<li>Production export <code>pnpm export:github</code> ผ่าน คงเส้นทางแอปเดิม</li>
+<li>ภาคผนวกมี 18 เอกสารและ notes 10 หน้า ตรวจค้นคำว่า “แบต” พบ 12 เอกสาร เปิดทั้งหมดได้ 28 ส่วน ตารางเลื่อนอ่านได้ 23 ตาราง ซูมภาพใน dialog และปิดกลับได้</li>
+<li>Desktop 1440 และ mobile 390 ตรวจ DOM ไม่พบ horizontal overflow ภาพมือถืออ่านได้</li>
+<li>PDF รุ่นใหม่ 10 หน้า หน้า 10 มีลิงก์ภาคผนวก 5 ลิงก์</li>
+<li>Canva นำเข้าสำเร็จ 10 หน้า ตรวจข้อความและลิงก์หน้า 10 ครบ Notes API ส่งกลับ 5,000 ตัวอักษรจึงยังไม่ยืนยัน notes ทั้งก้อนใน Canva ใช้เว็บฉบับเต็มเป็นแหล่งอ่านหลัก ดู <code>pitch-deck/canva-design.md</code></li>
+</ul>
+</div></details><details class="document" id="skills"><summary>Skill และวิธีที่ใช้จริง<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/skill-usage.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Skill usage record</h1>
+<p>วันที่ 15 ต.ค. 2569 · ใช้ skill ที่ติดตั้งอยู่แล้ว ไม่ติดตั้งแพ็กเสริมเพื่ออ้างว่าเปิดใช้</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>การใช้จริง</th>
+<th>หลักฐานผลลัพธ์</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ui-ux-pro-max</td>
+<td>อ่าน SKILL และรัน local design-system search <code>isometric monitoring dashboard</code>; เลือกแนว operations และคง palette จาก brand.json แทนสี generic จากผลค้น</td>
+<td>web-ui/design-brief.md, IsometricDashboard.tsx, isometric-dashboard.css</td>
+</tr>
+<tr>
+<td>frontend-design</td>
+<td>กำหนด composition ตามภาพ WareTrack ที่ผู้ใช้ให้: ฉากเป็นพื้นที่ทำงาน KPI/inspector/timeline เป็นสิ่งประกอบ</td>
+<td>root dashboard จริง ไม่สร้าง mock PNG แทน R3F</td>
+</tr>
+<tr>
+<td>web-3d-react-three-fiber</td>
+<td>เพิ่ม orthographic isometric camera, actual camera commands, cage click, compact equipment markers และ adaptive DPR</td>
+<td>Scene3D.tsx, SiteEnvironment.tsx, SpatialHtml.tsx</td>
+</tr>
+<tr>
+<td>threejs-lighting</td>
+<td>อ่านข้อแนะนำแสง/เงาและลด shadow cost ใน low mode คงวัสดุและแสงอิงพื้นที่เดิม</td>
+<td>low/balanced/high quality, shadow/DPR limits</td>
+</tr>
+<tr>
+<td>impeccable</td>
+<td>อ่าน new-work และ craft-floor, รัน detector บน target TSX/CSS หนึ่งครั้ง (0 findings), ตรวจภาพ desktop/mobile และ finish reviewer แบบ fresh context</td>
+<td>ผล <code>fix</code>: notice บัง inspector, KPI mobile บัง marker, stripe4px; แก้เป็นหนึ่ง notice, KPI แยก, stripe1px; แก้ regression บัง mascot; targeted verdict <code>ship</code></td>
+</tr>
+<tr>
+<td>impeccable documenter</td>
+<td>ตัวเอกสารอิสระเทียบ CSS/brand/source กับ DESIGN เดิม แล้วแก้ sidecar ที่ยังอ้างสีเข้มเก่า</td>
+<td>energy-platform-app/DESIGN.md, .impeccable/design.json และ web-ui/design-system-review.md</td>
+</tr>
+<tr>
+<td>Presentations</td>
+<td>ใช้ ES module <code>@oai/artifact-tool</code> จริง มี 10 slides, native editable tables/diagrams/text, speaker notes, first-party import และ package/layout finalizer</td>
+<td>source/build-deck.mjs, PPTX, 10 PNGs และ private validation receipt</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td>อ่าน Data Pack ด้วย pypdf และ render หน้า6ตรวจข้ออ้าง; ตรวจ PDF output ทุกหน้า</td>
+<td>reject headless export ที่ทำ Thai หาย; สร้าง reading PDF จาก approved high-res renders ด้วย reportlab</td>
+</tr>
+</tbody></table>
+<h2>ขอบเขตการรีวิว</h2>
+<p>Harness ไม่ได้ inject class-specific impeccable reviewer จึงใช้ fresh independent reviewer แทนโดยแจ้ง substitution ไว้ รายงาน <code>ship</code> ครอบคลุมการแก้สามข้อและ regression mascot เท่านั้น ไม่ใช่การรับรองทั้งระบบหรือ field usability</p>
+<p>CLI ที่ติดตั้งไม่รองรับ <code>concept-seed --check-seed none</code> ตามเอกสาร reviewer ทดลองแล้วเกิด private roll โดยไม่ตั้งใจ ผลนั้นไม่นำมาใช้กำหนด direction ผู้ใช้ปัก reference และสีไว้แล้ว No generic concept approval inferred.</p>
+<p>ไม่มีการกล่าวอ้างว่าเปิดใช้ skill ที่หาไม่พบ และไม่ได้รื้อแสง วัสดุ shader หรือ domain model ใหม่ในรอบนี้ เพราะจุดเน้นคือหน้า monitoring และ Pitch ที่ยึดระบบเดิม รายงานการทดสอบจริงอยู่ QA_AND_LIMITATIONS.md</p>
+</div></details><details class="document" id="provenance"><summary>ที่มาภาพในสไลด์<span>อ่านฉบับเต็ม</span></summary><div class="document-body"><a class="source-file" href="deliverables/pitch-deck/source/assets/PROVENANCE.md">ดาวน์โหลดเอกสาร Markdown</a><h1>Visual provenance</h1>
+<ul>
+<li><code>salahum-14.png</code>, <code>salahum-03.png</code>: existing user-supplied Data Pack community photographs in repository <code>community-images/</code>, converted from WebP for presentation embedding. <code>manifest.json</code> retains original filenames and source ZIP paths. No generation, no claim of field installation. Date/photographer not specified. Public examples: <a href="https://peephatz-dev.github.io/community-field-notes/community-images/salahum-14.webp">https://peephatz-dev.github.io/community-field-notes/community-images/salahum-14.webp</a> and <a href="https://peephatz-dev.github.io/community-field-notes/community-images/salahum-03.webp">https://peephatz-dev.github.io/community-field-notes/community-images/salahum-03.webp</a> . Confirm reuse scope with pack owner before further public redistribution.</li>
+<li><code>seabass-happy.svg</code> and <code>seabass-happy.png</code>: original user-supplied PowerGuard asset pack v2, identical to app/public/powerguard/mascot/. Website retains SVG. Presentation uses the supplied high-resolution PNG because the artifact renderer misrenders some SVG fills, while the original SVG remains in source for editing. No newly invented mascot.</li>
+<li><code>desktop-normal.png</code>, <code>desktop-outage.png</code>, <code>circuit-exploded.png</code>, <code>mobile-overview.png</code>: real CUA browser captures of the running app (localhost production export), 15 October 2026. All sensor/electrical values are simulated. No composited/mock telemetry.</li>
+<li><code>dashboard-crop.png</code>: crop from desktop-normal, rectangle left280 top165 width1075 height750.</li>
+<li><code>outage-detail.png</code>: crop from verified P1-selected desktop-outage capture, left1064 top187 width270 height424. That capture predates the final notice relocation; inspector and simulation state are unchanged. It is kept as a source asset, not mislabeled as the final full UI.</li>
+<li><code>notice-crop.png</code>: real outage toast crop left1020 top726 width370 height124 from that same verified P1 capture. Notice style later changes only placement. The content is a source-event record, not a fabricated notification.</li>
+<li><code>circuit-crop.png</code>: real circuit-exploded crop left280 top239 width760 height572. Geometry is reference concept, not verified hardware.</li>
+<li>Additional source photos/moods were inspected during selection and excluded from the final source package. No licensing claim is inferred from online accessibility. WareTrack layout reference and Google satellite screenshot are not embedded in the deck or website as published visual assets.</li>
+</ul>
+<p>All cropping/conversion changes format/framing only. Full captures are in deliverables/web-ui/screenshots. No AI-generated imagery or video is used in this deliverable.</p>
+</div></details></section><section class="chapter" id="speaker-notes"><h2>Speaker notes ครบ 10 หน้า</h2><details class="document"><summary>หน้า 1: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>บ้านศาลาหุมมีอาชีพประมงกระชัง เอกสารพื้นที่รายงานไฟไม่เสถียร ทีมเราจึงเสนอ PowerGuard เพื่อเริ่มจากตรวจไฟและโหลดจริง แล้วเลือกว่าควรซ่อม ใช้ UPS หรือสำรองเฉพาะจุด ก่อนวัดผล วันนี้ที่สาธิตได้คือต้นแบบเว็บไซต์จำลองครับ</p><h3>ข้อมูลขยาย</h3><p>เอกสารเก็บข้อมูลวันที่ 16 กรกฎาคม 2569 ระบุเรื่องไฟตกเชิงคุณภาพ ยังไม่มีข้อมูลบอกว่าสายส่ง จุดต่อ หรือโหลดชนิดใดเป็นสาเหตุ เป้าหมายจึงเป็นการสร้างหลักฐานให้ตัดสินใจ ไม่ถือว่าภาพกระชังยืนยันปัญหาไฟ ฮาร์ดแวร์ของทีมยังไม่มีรายงานทดลองที่ตรวจย้อนกลับได้ รูปพื้นที่มาจากแพ็กผู้ใช้ ส่วนตำแหน่งในฉากอิงความสัมพันธ์ของภาพและติดป้ายเสนอ ชื่อบทบาทยึดเอกสารทีม</p><h3>คำถามกรรมการ</h3><p>ติดตั้งจริงแล้วหรือยัง</p><p>ยังเป็นต้นแบบเว็บจำลอง การวัดและการติดตั้งต้องได้รับความยินยอมและมีหลักฐานเพิ่ม</p><h3>แหล่งอ้างอิง</h3><ul><li>Data Pack ภาคใต้: /Users/nokia/Downloads/4.สรุปรายละเอียดพื้นที่โจทย์ภาคใต้ หน้า 6</li><li><a href="https://peephatz-dev.github.io/community-field-notes/presentation-guide.html">https://peephatz-dev.github.io/community-field-notes/presentation-guide.html</a></li><li>team-work-summary.pdf หน้า 1–8</li><li>community-images/manifest.json</li></ul></div></details><details class="document"><summary>หน้า 2: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>ตัวเลขในเอกสารคือประมาณห้าสิบถึงเจ็ดสิบครัวเรือน และผู้ให้ข้อมูลเกี่ยวข้องกับกระชังมากกว่าสี่สิบห้า ตัวเลขนี้ช่วยเห็นบริบท แต่ยังบอกไม่ได้ว่าทุกบ้านเจอไฟตก หรือทุกกระชังต้องมีไฟสำรอง เราต้องวัดแรงดัน ระยะเวลา และระบุเครื่องที่ได้รับผลก่อน ส่วนปัญหาน้ำและตะกอนต้องแยกศึกษาอีกด้านครับ</p><h3>ข้อมูลขยาย</h3><p>แหล่งหน้า 6 กล่าวถึงไฟไม่เสถียรและโซลาร์บางครัวเรือนไม่เพียงพอกับระบบอื่น ส่วนกระชังมากกว่า 45 อยู่ในขอบเขตผู้ให้ข้อมูลหน้า 1 ห้ามคูณเป็นจำนวนผู้ใช้หรือประมาณรายได้ที่เสียหาย ภาพแสดงการทำงานกับเรือและกระชังเท่านั้น ไม่แสดงเหตุไฟดับหรือผลต่อปลา ผู้มีส่วนร่วมต้องรวมผู้ดูแลและคนที่รับภาระค่าใช้จ่าย ไม่เลือกจากผู้โพสต์ออนไลน์เพียงกลุ่มเดียว</p><h3>คำถามกรรมการ</h3><p>ไฟตกทำให้ปลาตายเท่าไร</p><p>ยังไม่มีหลักฐานเชื่อมเหตุไฟกับความเสียหายหรือการตายของปลา จึงไม่ใส่ตัวเลขดังกล่าว</p><h3>แหล่งอ้างอิง</h3><ul><li>Data Pack ภาคใต้: /Users/nokia/Downloads/4.สรุปรายละเอียดพื้นที่โจทย์ภาคใต้ หน้า 1, 3–7</li><li>community-images/salahum-03.webp</li></ul></div></details><details class="document"><summary>หน้า 3: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>เรายังไม่ทราบวิธีรับเหตุเดิมครบครับ ต้องถามว่าใครรู้เหตุ เครื่องใดหยุด และใครเป็นคนตัดสินใจซ่อมหรือซื้อแบต สิ่งที่ทีมเสนอคือเก็บหลักฐาน เลือกวิธีแก้ และตรวจผลหลังทำ ข้อมูลตรงนี้จะช่วยให้ไม่ลงทุนเกินปัญหาที่มีจริง</p><h3>ข้อมูลขยาย</h3><p>ช่องก่อน ระหว่าง และหลังบนสไลด์เป็นคำถามสัมภาษณ์ ไม่ใช่คำบรรยายพฤติกรรมชุมชนที่ทีมไปสังเกตแล้ว ควรขอเหตุการณ์ล่าสุดและถามบันทึกที่ตรวจได้ เลือกผู้ให้ข้อมูลหลายบทบาท เก็บขอบเขตเวลาของความทรงจำ และชี้ช่องข้อมูลหาย การวัดอาจพบว่าซ่อมจุดต่อหรือใช้ UPS ที่มีขายเหมาะกว่า จึงต้องเปิดทางเลือกนั้นไว้</p><h3>คำถามกรรมการ</h3><p>ทำไมไม่ซื้อแบตเลย</p><p>ยังไม่รู้โหลด ชั่วโมงที่จำเป็น สาเหตุ และต้นทุนตลอดอายุ การวัดอาจทำให้เลือกวิธีที่เล็กกว่าได้</p><h3>แหล่งอ้างอิง</h3><ul><li>Data Pack ภาคใต้: /Users/nokia/Downloads/4.สรุปรายละเอียดพื้นที่โจทย์ภาคใต้ หน้า 6</li><li><a href="https://peephatz-dev.github.io/community-field-notes/presentation-guide.html#decision-board">https://peephatz-dev.github.io/community-field-notes/presentation-guide.html#decision-board</a></li></ul></div></details><details class="document"><summary>หน้า 4: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>เราแยกสองชั้นครับ ชั้นพลังงานเป็นแนวคิด DC ที่มีการป้องกัน จัดลำดับศูนย์ดูแล จุดกระชัง เครื่องจำเป็น และเครื่องที่พักได้ อีกชั้นส่งข้อมูลและแจ้งเตือนกลับมาที่ศูนย์ ในเดโมเมื่อไฟดับจะพักโหลดทั่วไปก่อน แล้วคงเครื่องสำคัญตามพลังงานที่เหลือ ค่าโหลดบนจอเป็นสมมติทั้งหมด และยังไม่ได้สั่งตัดไฟบ้านจริง</p><h3>ข้อมูลขยาย</h3><p>P0/P1/P2/P3 ใช้ 30/120/80/260 W ตาม model.ts เท่านั้น ไม่ใช่ nameplate ที่สำรวจมา แบตในฉาก 1.2 kWh เป็นการตั้งค่าเพื่อสาธิต นโยบายคง P0/P1 ก่อน P2/P3 ไม่ใช่ข้อเสนอจัดอันดับคนในชุมชน ต้องร่วมเลือกประเภทโหลดจริง เส้นทึบสีส้มใช้สื่อ power และเส้นประสีน้ำเงินใช้สื่อ data เพื่อไม่ให้เข้าใจว่า telemetry wire จ่ายกำลังได้ ฟิวส์ BMS driver และ isolation ยังไม่ระบุรุ่นพร้อมสร้าง</p><h3>คำถามกรรมการ</h3><p>วงจรนี้ต่อกับไฟบ้านได้ไหม</p><p>ยังไม่ได้ ต้องออกแบบพิกัด การแยกวงจร และผ่านผู้มีคุณสมบัติ ไม่มีเว็บควบคุม mains จริง</p><h3>แหล่งอ้างอิง</h3><ul><li>team-work-summary.pdf หน้า 1–5</li><li>energy-platform-app/src/lib/model.ts</li><li>energy-platform-app/src/lib/circuit.ts</li></ul></div></details><details class="document"><summary>หน้า 5: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>เมื่อกดเหตุไฟดับ ระบบจำลองจะบันทึกแรงดันและสถานะโหลด ใช้ไฟสำรองเมื่อพลังงานพอ และแจ้งผู้ดูแล พร้อมเก็บประวัติครับ แต่ถ้าโหนดไม่ส่งข้อมูล เราแสดงเป็นการสื่อสารขาด ไม่สรุปว่าไฟดับ พอไฟกลับจะค่อยคืนโหลดตามลำดับ การรับทราบยังเป็นบันทึกในเครื่อง ไม่ใช่ส่งให้หน่วยงานแล้ว</p><h3>ข้อมูลขยาย</h3><p>การสำรองและพักโหลดในแอปเกิดจาก transition ของ simulator เดียวกัน ไม่ใช่ระบบกฎใหม่แยกขาดจากฉาก ไม่มีการวัดเวลาสับเปลี่ยนจริง การคืนระบบต้องเล่นเวลาเพื่อเดิน P0/P1 ต่อด้วย P2 และ P3 ส่วน offline ไม่ได้ถอดโหลดทางกายภาพออกจากการคำนวณ ข้อมูล fault ต้องแสดง unavailable และไม่แต่งค่าน้ำใหม่ เสียงต้องให้ผู้ใช้เปิดก่อน การแจ้งเตือนมี dedup และ acknowledgement</p><h3>คำถามกรรมการ</h3><p>ถ้า 4G ขาดจะรู้ว่าไฟดับได้อย่างไร</p><p>ยังยืนยันไม่ได้จาก offline อย่างเดียว ต้องใช้แหล่งวัดไฟและ last_seen ที่เชื่อถือได้ รวมทั้งตรวจหน้างาน</p><h3>แหล่งอ้างอิง</h3><ul><li>energy-platform-app/src/store/simulator.ts</li><li>energy-platform-app/src/lib/powerguard-model.ts</li><li>energy-platform-app/test/simulator.test.mjs</li></ul></div></details><details class="document"><summary>หน้า 6: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>ส่วนที่จะทำจริงต้องแยกวัดตรงกับค่าคำนวณครับ แรงดัน กระแส และอุณหภูมิต้องมีเซนเซอร์พร้อมสอบเทียบ ส่วนเปอร์เซ็นต์แบตและเวลาสำรองต้องเทียบผลจริง ตอนนี้ข้อมูลทั้งหมดในเว็บเป็นจำลอง เรายังไม่มีเซนเซอร์ DO และไม่มี gateway สด ภาพวงจรนี้ช่วยอธิบายความสัมพันธ์ ยังไม่ใช่แบบพร้อมประกอบ</p><h3>ข้อมูลขยาย</h3><p>payload เป็น schema ที่เสนอเพื่อคุยกับทีมไอทีและวงจร ไม่ใช่หลักฐานว่ามีอุปกรณ์ส่งข้อความจริง ค่า SoC ปัจจุบันเป็นแบบจำลอง energy integration ไม่ใช่ fuel gauge ที่สอบเทียบแล้ว ต้องเลือก V/I monitor ช่วงวัด isolation reference และเวลาสุ่มก่อน ค่า salinity สังเคราะห์ไม่อาจคำนวณจากสีภาพ satellite ความปลอดภัยต้องรวม rating สาย ฟิวส์ BMS ขั้วต่อ ตู้กับสภาพชื้น/เกลือ และวิธีหยุดทดลอง</p><h3>คำถามกรรมการ</h3><p>ทำไมไม่มี DO</p><p>ไม่มีเซนเซอร์และหลักฐานสอบเทียบ จึงไม่แสดงเป็นการวัดหรือแจ้งภัย DO</p><h3>แหล่งอ้างอิง</h3><ul><li>energy-platform-app/src/lib/circuit.ts</li><li>energy-platform-app/src/lib/model.ts</li><li>energy-platform-app/src/components/CircuitLab.tsx</li></ul></div></details><details class="document"><summary>หน้า 7: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>ต่อไปเป็นเดโมประมาณสี่สิบห้าวินาทีครับ ผมเลือกจุดกระชัง ลองไฟตกแล้วไฟดับ ดูแหล่งจ่ายเปลี่ยนเป็นสำรองและเครื่องทั่วไปพัก เปิดแจ้งเตือน รับทราบ จากนั้นคืนไฟและเล่นเวลาให้โหลดกลับตามลำดับ ภาพบนสไลด์มาจากเว็บที่รันจริง แต่ทุกค่ายังเป็นข้อมูลทดลองครับ</p><h3>ข้อมูลขยาย</h3><p>ลำดับ live demo: 0–7 วินาทีเปิดหน้า root และเลือกจุดกระชัง 7–15 ลองไฟตก 15–25 ลองไฟดับและชี้ P3 พัก 25–35 เปิดแจ้งเตือน/รับทราบ 35–45 คืนไฟและเล่นเวลา หากเครื่อง WebGL ไม่พร้อม ให้เปิดผัง 2D และใช้ภาพ actual capture นี้สำรอง ห้ามใช้ screenshot แทนหลักฐาน live telemetry รุ่นนี้เตรียมเผยแพร่ที่ URL สาธารณะตามคำขอ deploy ของผู้ใช้ ข้อมูลทุกค่ายังเป็น simulation</p><h3>คำถามกรรมการ</h3><p>ภาพนี้ทำ mockup หรือมาจากระบบจริง</p><p>เป็นภาพจับจากแอปที่ทำงานจริงบน production export ในเครื่อง ส่วนค่าข้อมูลมาจาก simulator</p><h3>แหล่งอ้างอิง</h3><ul><li>deliverables/web-ui/screenshots/</li><li>http://127.0.0.1:3013/community-field-notes/energy-platform/</li><li><a href="https://peephatz-dev.github.io/community-field-notes/energy-platform/">https://peephatz-dev.github.io/community-field-notes/energy-platform/</a></li></ul></div></details><details class="document"><summary>หน้า 8: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>สิ่งที่ยืนยันได้คือซอฟต์แวร์ครับ ทดสอบอัตโนมัติผ่านห้าสิบสองข้อ และเปิดดูฉาก การเลือกจุด แจ้งเตือน และวงจรในเบราว์เซอร์แล้ว แต่คอลัมน์ฮาร์ดแวร์ยังไม่มีหลักฐาน และยังไม่มีผลทดลองกับชาวบ้าน เราจึงระบุความพร้อมเป็นแนวคิดและวิเคราะห์ พร้อมต้นแบบเว็บจำลอง</p><h3>ข้อมูลขยาย</h3><p>ผล test 52/52 วันที่ 15 ต.ค. 2569 ครอบคลุม model, circuit graph, site geometry, water model, scenario state, powerguard assets/audio/notification/planner และ incident journey/audience modes Typecheck และ production build/export ผ่าน สิ่งนี้ไม่ยืนยัน runtime จริงของแบต relay response, IP rating, uptime, ค่าไฟลดลง หรือ adoption ต้องเก็บผล bench test และ user trial เพิ่มก่อนยกระดับความพร้อม เกณฑ์ระดับผลงานยึดสิ่งที่ทำ ไม่ยึดภาพ 3D</p><h3>คำถามกรรมการ</h3><p>ทดสอบกับกลุ่มตัวอย่างหรือยัง</p><p>ยังไม่พบหลักฐานที่ยืนยัน จึงไม่ใช้สถานะ prototype tested with users</p><h3>แหล่งอ้างอิง</h3><ul><li>energy-platform-app/test/</li><li>deliverables/web-ui/screenshots/</li><li>deliverables/QA_AND_LIMITATIONS.md</li><li><a href="https://peephatz-dev.github.io/community-field-notes/presentation-guide.html#slides">https://peephatz-dev.github.io/community-field-notes/presentation-guide.html#slides</a></li></ul></div></details><details class="document"><summary>หน้า 9: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>เราจะเทียบสี่ทางเลือก ทั้งการตรวจระบบกับการไฟฟ้า UPS สำเร็จรูป สำรองเฉพาะโหลด และโซลาร์ร่วมแบตเมื่อคุ้มครับ ตัวอย่างโหลดหนึ่งร้อยห้าสิบวัตต์สองชั่วโมง ภายใต้ประสิทธิภาพและส่วนที่ใช้แบตได้แปดสิบเปอร์เซ็นต์ ต้องประมาณสี่ร้อยหกสิบเก้าวัตต์ชั่วโมง แต่ยังไม่ใช่รุ่นหรือราคา จุดที่ทีมเสนอคือช่วยเลือกและตรวจผล ส่วนงานติดตามน้ำมีเทคโนโลยีไทยทำอยู่แล้ว</p><h3>ข้อมูลขยาย</h3><p>ยังไม่มีใบเสนอราคาหรือ BOM ยืนยัน จึงเว้นต้นทุนเป็น TBD ไม่แต่งเงินบาท แผนเงินต้องรวมติดตั้ง ตู้ ป้องกัน แบตเปลี่ยน ข้อมูล ค่าแรงและอายุที่ใช้เทียบเท่ากัน UPS ต้องเช็ก W/VA กระแสเริ่มต้นรูปคลื่นและ runtime curve ตัวอย่าง 469 Wh ไม่รวม aging/อุณหภูมิหรือ safety margin และต่างจากแบตจำลอง 1.2 kWh ในฉาก NECTEC Bubble FiT ปี 2560 เน้น DO/ควบคุมเติมอากาศ และ Aqua-IoT ปี 2563 เน้นติดตามสภาพบ่อ ไม่ใช่หลักฐานว่าทีมแปลกใหม่กว่า/ถูกกว่า หรือระบบเหล่านี้ติดตั้งที่ศาลาหุมปัจจุบัน ราคาที่ตรวจหน้า Advice 15 ต.ค. 2569: UPS 1000VA ADVICE SMART LCD แสดง 1,750 บาทเฉพาะออนไลน์ พิกัด 500 W เป็นเพียงราคาเครื่องตัวอย่าง ไม่ใช่รุ่นที่เลือก ไม่ยืนยันสำรอง 150 W ได้นานสองชั่วโมง และไม่รวมระบบวัด ตู้ การติดตั้งหรือแบตเปลี่ยน ต้องตรวจราคาและโหลดอีกครั้ง</p><h3>คำถามกรรมการ</h3><p>ถ้า UPS ที่มีขายแก้ได้แล้วล่ะ</p><p>ควรเลือก UPS หากเหมาะและคุ้มกว่า PowerGuard ช่วยเก็บหลักฐานและติดตามผล ไม่จำเป็นต้องสร้างฮาร์ดแวร์ใหม่ทุกครั้ง</p><h3>แหล่งอ้างอิง</h3><ul><li><a href="https://www.pea.co.th/contact-us">https://www.pea.co.th/contact-us</a></li><li><a href="https://www.se.com/us/en/work/support/product-support/ups-buying-guide-for-selecting-a-battery-backup-system/">https://www.se.com/us/en/work/support/product-support/ups-buying-guide-for-selecting-a-battery-backup-system/</a></li><li><a href="https://www.nectec.or.th/innovation/innovation-hardware-electronics/bubblefit.html">https://www.nectec.or.th/innovation/innovation-hardware-electronics/bubblefit.html</a></li><li><a href="https://nectec.or.th/news/news-pr-news/aqua-iot-east2020.html">https://nectec.or.th/news/news-pr-news/aqua-iot-east2020.html</a></li><li>energy-platform-app/src/lib/powerguard-model.ts</li><li><a href="https://www.advice.co.th/product/ups-/advice/ups-1000va-advice-smart-lcd">https://www.advice.co.th/product/ups-/advice/ups-1000va-advice-smart-lcd</a></li></ul></div></details><details class="document"><summary>หน้า 10: คำพูด ข้อมูลขยาย และแหล่งอ้างอิง<span>ฉบับเต็ม</span></summary><div class="document-body"><h3>บทพูด</h3><p>สิ่งที่เราขอคือเริ่มวัดในหนึ่งถึงสองจุดที่ชุมชนยินยอม ขอข้อมูลระบบเดิมที่เปิดให้ใช้ และตกลงคนรับเหตุครับ ทีมจะแบ่งงานตามนี้ วัดความครบถ้วนของหลักฐาน เวลาคงโหลด ต้นทุนตลอดอายุ และผู้ดูแลใช้บันทึกได้ ถ้าข้อมูลไม่พอ ไม่ปลอดภัย หรือทางเลือกอื่นเหมาะกว่า เราจะทบทวนก่อนขยายครับ</p><h3>ข้อมูลขยาย</h3><p>ยังไม่มีชื่อผู้ประสานงานท้องถิ่นหรือพันธมิตรที่ตกลงร่วมแล้ว ค่าเป้าหมาย KPI และระยะ baseline ต้องตกลงก่อนเริ่ม ไม่อ้างผลสำเร็จล่วงหน้า นายรับโจทย์/การตัดสินใจ โฟล์ครับความปลอดภัย/โหลด พีรับ event/KPI บอสรับการสื่อสารและผู้รับเหตุ ข้าวฟ่างรับแหล่งอ้างอิงและ validation ด้าน ESG วัดพลังงาน/ขยะแบต ภาระผู้ดูแล และการยินยอมใช้ข้อมูล ไม่อ้างลดคาร์บอน/เพิ่มรายได้ เกณฑ์ซ้อมทั้งห้าข้อเป็นสมมติสำหรับเตรียม pitch ไม่ใช่ rubric ทางการ หน้า 10 เป็นทางเข้าภาคผนวกฉบับเต็มบนเว็บ มีหลักฐาน แผนลงพื้นที่ วงจร สมการ สคริปต์ Q&amp;A ผลตรวจ ภาพจริง และดาวน์โหลดทุกชิ้น Speaker notes ของหน้านี้แนบข้อความเต็มจากคลังเอกสารด้วย</p><h3>คำถามกรรมการ</h3><p>เมื่อไรควรขยาย</p><p>เมื่อมีคนดูแล ข้อมูลและต้นทุนเปรียบเทียบชัด ผ่านความปลอดภัยและผลทดลองตามเกณฑ์ร่วม ถ้าไม่ผ่านให้หยุดหรือปรับแบบ</p><h3>แหล่งอ้างอิง</h3><ul><li>deliverables/research/missing-evidence-and-field-plan.md</li><li>team-work-summary.pdf หน้า 6–8</li><li><a href="https://peephatz-dev.github.io/community-field-notes/presentation-guide.html">https://peephatz-dev.github.io/community-field-notes/presentation-guide.html</a></li><li><a href="https://peephatz-dev.github.io/community-field-notes/pitch-appendix.html">https://peephatz-dev.github.io/community-field-notes/pitch-appendix.html</a></li></ul></div></details></section>
+<section class="chapter" id="screenshots"><h2>ภาพจากระบบที่รันจริง</h2><p>จับภาพระหว่างตรวจ production export ในเครื่อง 15 ต.ค. 2569 ค่าต่าง ๆ เป็นข้อมูลจำลอง ภาพเต็มเปิดซูมในหน้านี้ได้</p><div class="screenshots"><figure><button type="button" class="zoom" data-src="deliverables/web-ui/screenshots/desktop-normal.png" data-title="พื้นที่และสถานะปกติ"><img loading="lazy" src="deliverables/web-ui/screenshots/desktop-normal.png" alt="พื้นที่และสถานะปกติ"></button><figcaption>พื้นที่และสถานะปกติ</figcaption></figure><figure><button type="button" class="zoom" data-src="deliverables/web-ui/screenshots/desktop-outage.png" data-title="เหตุไฟดับจำลองและไฟสำรอง"><img loading="lazy" src="deliverables/web-ui/screenshots/desktop-outage.png" alt="เหตุไฟดับจำลองและไฟสำรอง"></button><figcaption>เหตุไฟดับจำลองและไฟสำรอง</figcaption></figure><figure><button type="button" class="zoom" data-src="deliverables/web-ui/screenshots/circuit-exploded.png" data-title="วงจรแนวคิดและ component inspector"><img loading="lazy" src="deliverables/web-ui/screenshots/circuit-exploded.png" alt="วงจรแนวคิดและ component inspector"></button><figcaption>วงจรแนวคิดและ component inspector</figcaption></figure><figure><button type="button" class="zoom" data-src="deliverables/web-ui/screenshots/mobile-overview.png" data-title="การใช้งานบนมือถือ"><img loading="lazy" src="deliverables/web-ui/screenshots/mobile-overview.png" alt="การใช้งานบนมือถือ"></button><figcaption>การใช้งานบนมือถือ</figcaption></figure></div></section>
+<footer>ปรับปรุง 15 ตุลาคม 2569 · เอกสาร 18 ฉบับ + notes 10 หน้า · ข้อความเต็มจากคลังโครงการ ไม่มีการตัดเนื้อหาในแต่ละเอกสาร</footer></main></div>
+<dialog id="viewer" aria-label="ภาพขยาย"><button type="button" id="close-viewer">ปิดภาพ</button><p id="viewer-title"></p><div><img id="viewer-image" alt=""></div></dialog><script src="pitch-appendix.js" defer></script></body></html>
