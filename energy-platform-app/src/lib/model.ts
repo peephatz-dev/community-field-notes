@@ -23,16 +23,16 @@ export const NODE_DEFINITIONS: NodeDefinition[] = [
 ];
 
 export const COMPONENTS = [
-  { id: 'source', label: 'แหล่งจ่าย DC จำลอง', category: 'Power', pin: '12V IN', supply: '12 V DC', signal: 'Power net', limit: 'ค่าจำลอง; ต้องกำหนดแหล่งจ่ายจริงก่อนสร้างวงจร', status: 'simulated' },
-  { id: 'fuse', label: 'ฟิวส์ / ป้องกันกระแสเกิน', category: 'Protection', pin: 'F1', supply: 'series on 12V bus', signal: 'Power net', limit: 'ยังไม่กำหนดพิกัด; ห้ามต่อโหลดจริงตามภาพนี้', status: 'proposed' },
-  { id: 'battery', label: 'แบตเตอรี่สำรอง (จำลอง)', category: 'Storage', pin: 'BAT+/BAT−', supply: '12 V nominal (model only)', signal: 'Power net', limit: 'ไม่ใช่ข้อกำหนดแบตเตอรี่จริง; BMS/charger ยังต้องเลือก', status: 'simulated' },
-  { id: 'charger', label: 'วงจรชาร์จ / BMS', category: 'Protection', pin: 'BAT, LOAD', supply: 'chemistry-dependent', signal: 'Power + protection', limit: 'ชนิดเคมีและกระแสชาร์จต้องยืนยันก่อนออกแบบ', status: 'proposed' },
-  { id: 'buck', label: 'DC-DC regulator', category: 'Power', pin: '12V → 5V / 3.3V', supply: 'input range TBD', signal: 'Regulated rails', limit: 'ต้องเลือกโมดูลและเช็ก transient / thermal จากโหลดจริง', status: 'proposed' },
-  { id: 'esp32', label: 'ESP32 dev board', category: 'Control', pin: '3V3, GND, GPIO', supply: 'regulated per board', signal: 'ADC / digital / wireless', limit: 'GPIO ไม่ใช้ขับโหลดกำลังสูงโดยตรง', status: 'reference' },
-  { id: 'sense', label: 'Voltage / current monitor', category: 'Sensing', pin: 'VIN, SHUNT, SDA/SCL', supply: 'device-specific', signal: 'I²C (example only)', limit: 'โมดูลจริงยังไม่ระบุ; ช่วงวัดและ isolation ต้องตรวจ', status: 'proposed' },
-  { id: 'driver', label: 'Load driver + switch', category: 'Switching', pin: 'EN, LOAD±', supply: 'rated to load', signal: 'GPIO through driver', limit: 'พิกัดสวิตช์/ไดโอด flyback ขึ้นกับชนิดโหลด', status: 'proposed' },
-  { id: 'temp', label: 'Water temperature probe', category: 'Sensing', pin: 'DATA / interface TBD', supply: 'probe-specific', signal: 'digital or conditioned analog', limit: 'รุ่น/ความลึก/การซีลยังไม่ระบุ', status: 'proposed' },
-  { id: 'salinity', label: 'Conductivity / salinity interface', category: 'Sensing', pin: 'analog interface TBD', supply: 'probe-specific', signal: 'conditioned analog', limit: 'ต้องชดเชยอุณหภูมิและสอบเทียบกับเครื่องอ้างอิง', status: 'proposed' },
+  { id: 'source', label: 'แหล่งจ่าย DC จำลอง', category: 'Power', pin: '12V IN', supply: '12 V DC', signal: 'สายกำลังไฟ', limit: 'ค่าจำลอง; ต้องกำหนดแหล่งจ่ายจริงก่อนสร้างวงจร', status: 'simulated' },
+  { id: 'fuse', label: 'ฟิวส์ / ป้องกันกระแสเกิน', category: 'Protection', pin: 'F1', supply: 'ต่ออนุกรมบนบัส 12 โวลต์', signal: 'สายกำลังไฟ', limit: 'ยังไม่กำหนดพิกัด; ห้ามต่อโหลดจริงตามภาพนี้', status: 'proposed' },
+  { id: 'battery', label: 'แบตเตอรี่สำรอง (จำลอง)', category: 'Storage', pin: 'BAT+/BAT−', supply: '12 โวลต์ พิกัดสมมติ', signal: 'สายกำลังไฟ', limit: 'ไม่ใช่ข้อกำหนดแบตเตอรี่จริง; BMS/charger ยังต้องเลือก', status: 'simulated' },
+  { id: 'charger', label: 'วงจรชาร์จ / BMS', category: 'Protection', pin: 'BAT, LOAD', supply: 'ขึ้นกับชนิดเคมีแบตเตอรี่', signal: 'กำลังไฟและการป้องกัน', limit: 'ชนิดเคมีและกระแสชาร์จต้องยืนยันก่อนออกแบบ', status: 'proposed' },
+  { id: 'buck', label: 'วงจรปรับแรงดัน DC-DC', category: 'Power', pin: '12V → 5V / 3.3V', supply: 'ยังไม่กำหนดช่วงแรงดันเข้า', signal: 'รางจ่ายไฟปรับแรงดัน', limit: 'ต้องเลือกโมดูลและเช็ก transient / thermal จากโหลดจริง', status: 'proposed' },
+  { id: 'esp32', label: 'บอร์ด ESP32', category: 'Control', pin: '3V3, GND, GPIO', supply: 'ปรับแรงดันตามสเปกบอร์ด', signal: 'ADC / ดิจิทัล / ไร้สาย', limit: 'GPIO ไม่ใช้ขับโหลดกำลังสูงโดยตรง', status: 'reference' },
+  { id: 'sense', label: 'จุดวัดแรงดันและกระแส', category: 'Sensing', pin: 'VIN, SHUNT, SDA/SCL', supply: 'ขึ้นกับรุ่นอุปกรณ์', signal: 'I²C ตัวอย่างสมมติ', limit: 'โมดูลจริงยังไม่ระบุ; ช่วงวัดและ isolation ต้องตรวจ', status: 'proposed' },
+  { id: 'driver', label: 'วงจรขับและสวิตช์โหลด', category: 'Switching', pin: 'EN, LOAD±', supply: 'กำหนดพิกัดตามโหลด', signal: 'GPIO ผ่านวงจรขับ', limit: 'พิกัดสวิตช์/ไดโอด flyback ขึ้นกับชนิดโหลด', status: 'proposed' },
+  { id: 'temp', label: 'หัววัดอุณหภูมิน้ำ', category: 'Sensing', pin: 'DATA / interface TBD', supply: 'ขึ้นกับรุ่นหัววัด', signal: 'ดิจิทัลหรือแอนะล็อกปรับสัญญาณ', limit: 'รุ่น/ความลึก/การซีลยังไม่ระบุ', status: 'proposed' },
+  { id: 'salinity', label: 'วงจรวัดการนำไฟฟ้าและความเค็ม', category: 'Sensing', pin: 'analog interface TBD', supply: 'ขึ้นกับรุ่นหัววัด', signal: 'แอนะล็อกปรับสัญญาณ', limit: 'ต้องชดเชยอุณหภูมิและสอบเทียบกับเครื่องอ้างอิง', status: 'proposed' },
 ];
 
 export type SimEvent = { id: string; minute: number; severity: EventSeverity; nodeId: NodeId | 'SYSTEM'; type: string; message: string; action: string; simulated: true };

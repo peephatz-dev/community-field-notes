@@ -1,5 +1,12 @@
 # SALA HUM POWERGUARD
 
+## หน้าติดตามแบบแผนที่เป็นหลัก
+
+หน้าแรกเริ่มจากสถานะไฟและแผนที่ เลือกหมุดเพื่อเปิดรายละเอียดอุปกรณ์ กดปิดหรือ Escape เพื่อกลับมุมรวม เมนูข้างย่อเป็นไอคอนและขยายได้ บนมือถือใช้เมนูล่างและแผงรายละเอียดใต้แผนที่
+
+ปุ่มสั่งเหตุอยู่ที่ `/simulation/` เท่านั้นสำหรับการสาธิต ส่วนหน้าแรกไม่มีปุ่มสั่งเหตุ กราฟ ลำดับเหตุ และรายการเลือกอุปกรณ์เปิดอ่านเพิ่มได้ มาสคอตและเสียงเปิดเมื่อผู้ใช้กด ทุกค่ายังจำลอง ไม่มีการเชื่อมอุปกรณ์จริง ดูผลตรวจใน `../deliverables/web-ui/ux-refactor/README.md`
+
+
 Community and engineering demonstrator for Ban Sala Hum. A light, rounded interface with the original ปลากะพงสามน้ำ SVG mascot, local audio and a coastal reconstruction share one local deterministic simulation. It does not connect to sensors, relays, batteries, MQTT, databases, or community infrastructure.
 
 The village and original SVG site plan now use one image-relative layout for the fish-cage area near ท่าเรือลุงทอง, Ban Sala Hum. The village uses locally hosted PBR timber, metal and shoreline materials, a sky HDRI, detailed licensed equipment models, and authored boats, aquaculture cages and buildings informed by the supplied field photographs. The circuit lab adds physical component detail, shared 2D/3D nets and an exploded view. All twelve existing content routes retain the project's engineering and team content. Seven community utility routes bring the total to nineteen.

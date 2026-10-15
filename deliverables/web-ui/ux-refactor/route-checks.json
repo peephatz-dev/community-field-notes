@@ -1,0 +1,97 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/architecture",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/backup-plan",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/circuit",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/community",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/dashboard",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/devices",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/docs",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/environment",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/explore",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/history",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/notifications",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/power",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/presentation",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/process",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/roadmap",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/roles",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/simulation",
+    "status": 200,
+    "html": true
+  },
+  {
+    "route": "/solution",
+    "status": 200,
+    "html": true
+  }
+]

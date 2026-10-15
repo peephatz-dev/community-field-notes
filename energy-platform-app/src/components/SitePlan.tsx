@@ -80,7 +80,7 @@ export function SitePlan({ selectedNode, onSelectNode, onLandmarkSelect, showZon
               <path d={`M${x+14} ${y-10} L${labelX} ${labelY+24}`} stroke={color} strokeWidth="2" fill="none"/>
               <rect x={labelX} y={labelY} width="120" height="57" rx="5" fill={selected?'#163444':'#0b1926'} stroke={color} strokeWidth={selected?2:1} filter={`url(#${id}-shadow)`}/>
               <text x={labelX+13} y={labelY+25} fill="#e5edf1" fontSize={communityLabels?15:24} fontWeight="700">{communityLabels?({P0:'ศูนย์ไฟ',P1:'กระชัง',P2:'บ้านริมน้ำ',P3:'เครื่องทั่วไป'}[node]):node}</text>
-              <text x={labelX+13} y={labelY+44} fill={color} fontSize="14" fontWeight="500">PROPOSED</text>
+              <text x={labelX+13} y={labelY+44} fill={color} fontSize="14" fontWeight="500">จุดเสนอ</text>
             </g>;
           })}
         </g>

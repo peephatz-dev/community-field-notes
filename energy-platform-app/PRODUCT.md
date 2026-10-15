@@ -56,3 +56,7 @@ A three-box illustrative mixing engine, synthetic weather, independent tide cycl
 ## Community operation
 
 Eight primary destinations expose status, devices, community illustration, notifications, backup plans, history and next steps. Audio and Thai speech require explicit interaction; ambience is synthesized. Local reports and resolution notes remain in browser storage, not delivered to authorities. The same simulator drives both modes and genuine event notifications. Critical notice records are retained; backup sizing uses labelled assumptions and user-supplied prices. All data is trial data until actual hardware and a validated integration exist.
+
+## Map-first UX refactor, 15 October 2026
+
+Everyday monitoring and scenario demonstration are separate routes. The default dashboard contains no scenario triggers. A compact icon rail, three external KPI summaries, one shared map canvas, an opt-in contextual inspector, collapsed incident history and a small mascot assistant reduce obstruction. Engineering routes, simulation equations, priorities, sensor boundaries and local persistence remain unchanged. This is a production static-export UI around a demonstrator, not a live monitoring deployment.

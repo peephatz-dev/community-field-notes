@@ -1,0 +1,26 @@
+[
+  {
+    "canvasCount": 1,
+    "kpiBottom": 113.3828125,
+    "mapTop": 130.3828125,
+    "overflow": false,
+    "rail": 0,
+    "width": 768
+  },
+  {
+    "canvasCount": 1,
+    "kpiBottom": 113.3828125,
+    "mapTop": 130.3828125,
+    "overflow": false,
+    "rail": 72,
+    "width": 1024
+  },
+  {
+    "canvasCount": 1,
+    "kpiBottom": 71.78125,
+    "mapTop": 88.78125,
+    "overflow": false,
+    "rail": 72,
+    "width": 1440
+  }
+]

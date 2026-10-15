@@ -22,7 +22,7 @@ export function playSound(id:string){const audio=pgAudio();audio?.configure(audi
 export function setSoundEnabled(enabled:boolean){if(enabled)pgAudio()?.unlock();usePowerguard.getState().setSettings({soundEnabled:enabled});pgAudio()?.configure(audioPreferences());if(enabled)void playSound('click');else stopThai();}
 
 export default function PowerguardRuntime(){
- const ui=usePowerguard(),weather=useSimulator(s=>s.environment.weather);
+ const ui=usePowerguard(),weather=useSimulator(s=>s.environment.weather),activePage=useSimulator(s=>s.activePage);
  useEffect(()=>{
   ui.hydrate();const audio=pgAudio();let episode=crypto.randomUUID(),seen=new Set<string>(),lastMinute=useSimulator.getState().minute,lastEpoch=useSimulator.getState().runEpoch;
   const collect=()=>{const sim=useSimulator.getState();if(sim.minute<lastMinute||sim.runEpoch!==lastEpoch){episode=crypto.randomUUID();seen=new Set();usePowerguard.setState({toasts:[]});}lastMinute=sim.minute;lastEpoch=sim.runEpoch;
@@ -42,5 +42,6 @@ export default function PowerguardRuntime(){
  useEffect(()=>{pgAudio()?.configure(audioPreferences());if(ui.muted)stopThai();},[ui.soundEnabled,ui.muted,ui.sfxVolume,ui.ambientVolume,ui.musicVolume,ui.ambientOn,ui.musicOn,ui.ambientChoice,weather]);
  useEffect(()=>{const timers=ui.toasts.filter(n=>n.severity!=='critical').map(n=>setTimeout(()=>usePowerguard.getState().dismissToast(n.id),9000));return()=>timers.forEach(clearTimeout);},[ui.toasts]);
  const mobileFeatured=[...ui.toasts].reverse().find(n=>n.severity==='critical')??ui.toasts.at(-1);
+ if(activePage==='overview'||activePage==='simulation')return null;
  return <div className="pg-toast-stack" aria-label="แจ้งเตือนล่าสุด">{ui.toasts.map(n=><article className={'pg-toast '+n.severity} key={n.id} data-mobile-featured={n.id===mobileFeatured?.id} role={n.severity==='critical'?'alert':'status'}><div><strong>{n.title}</strong><small>{n.source==='simulation'?'ข้อมูลทดลอง':'บันทึกในเครื่อง'} · {n.minute.toFixed(1)} นาที</small></div><div className="pg-toast-actions"><button onClick={()=>ui.acknowledge(n.id)}>รับทราบ</button><Link href="/notifications/">ดูรายละเอียด</Link><button className="pg-icon-btn" aria-label={'ปิดข้อความ '+n.title} onClick={()=>ui.dismissToast(n.id)}><X size={16}/></button></div></article>)}</div>;
 }
