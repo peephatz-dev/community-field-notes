@@ -252,3 +252,7 @@ Use the original vector files from `public/powerguard/mascot/` with happy, think
 - Don't present local notes as delivered to authorities or the demonstrator as connected hardware.
 - Don't replace the authentic vector mascot with an invented fish or use the private composition reference as a site asset.
 - Don't place a transient incident notice over the selected equipment inspector or mascot.
+
+## Latest preference: full overview at compact density
+
+The user requested the original explicit navigation and visible relationships back. Default navigation is expanded (188px), equipment inspector is open (250px), markers retain node IDs and names, and topology is shown in every audience mode. An explicit four-point responsibility strip explains location, connection and purpose. Incident details, equipment picker and measurements begin expanded; scenario controls remain visible below the map. This latest preference supersedes the collapsed defaults described above. Preserve the existing brand, Thai labels and simulation boundaries.

@@ -60,3 +60,7 @@ Eight primary destinations expose status, devices, community illustration, notif
 ## Map-first UX refactor, 15 October 2026
 
 Everyday monitoring and scenario demonstration are separate routes. The default dashboard contains no scenario triggers. A compact icon rail, three external KPI summaries, one shared map canvas, an opt-in contextual inspector, collapsed incident history and a small mascot assistant reduce obstruction. Engineering routes, simulation equations, priorities, sensor boundaries and local persistence remain unchanged. This is a production static-export UI around a demonstrator, not a live monitoring deployment.
+
+## Latest user preference: full compact overview
+
+The user prefers all named menus and the visible connection explanation over progressive disclosure. The rail starts expanded at 188px. Show node names and P0–P3 relationships, equipment details, incident sequence, measurements and charts by default. Keep the same simulator and shrink the existing information density instead of hiding content.

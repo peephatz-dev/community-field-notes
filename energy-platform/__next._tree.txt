@@ -1,4 +1,5 @@
-:HL["/community-field-notes/energy-platform/_next/static/chunks/0dgdvla03ed6q.css","style"]
+:HL["/community-field-notes/energy-platform/_next/static/chunks/24gdx7jcf6t0l.css","style"]
+:HL["/community-field-notes/energy-platform/_next/static/chunks/19psae3bxw1rw.css","style"]
 :HC["/",""]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"TZalOjayp08NBhpAg5TNA","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"72zBDxTcn6cucIj0OSqFS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
