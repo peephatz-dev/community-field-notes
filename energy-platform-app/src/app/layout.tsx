@@ -7,6 +7,7 @@ import './globals.css';
 import '../styles/powerguard-tokens.css';
 import '../styles/powerguard-vfx.css';
 import '../styles/powerguard-app.css';
+import '../styles/isometric-dashboard.css';
 import PowerguardRuntime from '@/components/powerguard/Runtime';
 import {BASE_PATH} from '@/lib/urls';
 

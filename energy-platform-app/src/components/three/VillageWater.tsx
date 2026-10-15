@@ -9,7 +9,7 @@ import { BATHYMETRY_GLSL, environmentReadout, VERTICAL_SCALE, WATER_DATUM, type 
 type WaterShader = { uniforms: { uWaveTime: { value: number }; [key: string]: { value: unknown } }; vertexShader: string; fragmentShader: string };
 
 export type SiteWaterProps = {
-  reducedMotion?: boolean; mobile?: boolean; quality?: 'balanced' | 'high';
+  reducedMotion?: boolean; mobile?: boolean; quality?: 'low' | 'balanced' | 'high';
   environment?:EnvironmentState; minute?:number; running?:boolean; playbackSpeed?:number;
   onInspect?:(point:[number,number])=>void;
 };

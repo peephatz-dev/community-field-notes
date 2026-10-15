@@ -1,0 +1,12 @@
+# Visual provenance
+
+- `salahum-14.png`, `salahum-03.png`: existing user-supplied Data Pack community photographs in repository `community-images/`, converted from WebP for presentation embedding. `manifest.json` retains original filenames and source ZIP paths. No generation, no claim of field installation. Date/photographer not specified. Public examples: https://peephatz-dev.github.io/community-field-notes/community-images/salahum-14.webp and https://peephatz-dev.github.io/community-field-notes/community-images/salahum-03.webp . Confirm reuse scope with pack owner before further public redistribution.
+- `seabass-happy.svg` and `seabass-happy.png`: original user-supplied PowerGuard asset pack v2, identical to app/public/powerguard/mascot/. Website retains SVG. Presentation uses the supplied high-resolution PNG because the artifact renderer misrenders some SVG fills, while the original SVG remains in source for editing. No newly invented mascot.
+- `desktop-normal.png`, `desktop-outage.png`, `circuit-exploded.png`, `mobile-overview.png`: real CUA browser captures of the running app (localhost production export), 15 October 2026. All sensor/electrical values are simulated. No composited/mock telemetry.
+- `dashboard-crop.png`: crop from desktop-normal, rectangle left280 top165 width1075 height750.
+- `outage-detail.png`: crop from verified P1-selected desktop-outage capture, left1064 top187 width270 height424. That capture predates the final notice relocation; inspector and simulation state are unchanged. It is kept as a source asset, not mislabeled as the final full UI.
+- `notice-crop.png`: real outage toast crop left1020 top726 width370 height124 from that same verified P1 capture. Notice style later changes only placement. The content is a source-event record, not a fabricated notification.
+- `circuit-crop.png`: real circuit-exploded crop left280 top239 width760 height572. Geometry is reference concept, not verified hardware.
+- Additional source photos/moods were inspected during selection and excluded from the final source package. No licensing claim is inferred from online accessibility. WareTrack layout reference and Google satellite screenshot are not embedded in the deck or website as published visual assets.
+
+All cropping/conversion changes format/framing only. Full captures are in deliverables/web-ui/screenshots. No AI-generated imagery or video is used in this deliverable.

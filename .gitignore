@@ -3,3 +3,7 @@ node_modules/
 out/
 *.tsbuildinfo
 .vercel/
+
+.codex-build/
+
+/.impeccable/review/

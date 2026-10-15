@@ -1,310 +1,587 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-13T18:00:39Z",
-  "title": "Design System: Community Energy Resilience Platform",
+  "generatedAt": "2026-10-15T03:38:15.144979+00:00",
+  "title": "Design System: SALA HUM POWERGUARD",
   "extensions": {
     "colorMeta": {
-      "background": {
-        "role": "neutral",
-        "displayName": "Deep water background",
+      "brand-yellow": {
+        "role": "secondary",
+        "displayName": "Brand Yellow",
         "tonalRamp": [
-          "oklch(15% 0.0286 247.32)",
-          "oklch(25% 0.0286 247.32)",
-          "oklch(35% 0.0286 247.32)",
-          "oklch(45% 0.0286 247.32)",
-          "oklch(55% 0.0286 247.32)",
-          "oklch(65% 0.0286 247.32)",
-          "oklch(80% 0.0286 247.32)",
-          "oklch(95% 0.0286 247.32)"
+          "oklch(15% 0.1526 87.14)",
+          "oklch(25% 0.1526 87.14)",
+          "oklch(35% 0.1526 87.14)",
+          "oklch(45% 0.1526 87.14)",
+          "oklch(55% 0.1526 87.14)",
+          "oklch(65% 0.1526 87.14)",
+          "oklch(80% 0.1526 87.14)",
+          "oklch(95% 0.1526 87.14)"
         ]
       },
-      "navigation": {
-        "role": "neutral",
-        "displayName": "Navy navigation",
+      "brand-orange": {
+        "role": "secondary",
+        "displayName": "Brand Orange",
         "tonalRamp": [
-          "oklch(15% 0.0326 247.94)",
-          "oklch(25% 0.0326 247.94)",
-          "oklch(35% 0.0326 247.94)",
-          "oklch(45% 0.0326 247.94)",
-          "oklch(55% 0.0326 247.94)",
-          "oklch(65% 0.0326 247.94)",
-          "oklch(80% 0.0326 247.94)",
-          "oklch(95% 0.0326 247.94)"
+          "oklch(15% 0.1785 43.42)",
+          "oklch(25% 0.1785 43.42)",
+          "oklch(35% 0.1785 43.42)",
+          "oklch(45% 0.1785 43.42)",
+          "oklch(55% 0.1785 43.42)",
+          "oklch(65% 0.1785 43.42)",
+          "oklch(80% 0.1785 43.42)",
+          "oklch(95% 0.1785 43.42)"
         ]
       },
-      "surface": {
-        "role": "neutral",
-        "displayName": "Control panel",
+      "brand-blue": {
+        "role": "primary",
+        "displayName": "Brand Blue",
         "tonalRamp": [
-          "oklch(15% 0.0380 244.02)",
-          "oklch(25% 0.0380 244.02)",
-          "oklch(35% 0.0380 244.02)",
-          "oklch(45% 0.0380 244.02)",
-          "oklch(55% 0.0380 244.02)",
-          "oklch(65% 0.0380 244.02)",
-          "oklch(80% 0.0380 244.02)",
-          "oklch(95% 0.0380 244.02)"
+          "oklch(15% 0.1519 253.68)",
+          "oklch(25% 0.1519 253.68)",
+          "oklch(35% 0.1519 253.68)",
+          "oklch(45% 0.1519 253.68)",
+          "oklch(55% 0.1519 253.68)",
+          "oklch(65% 0.1519 253.68)",
+          "oklch(80% 0.1519 253.68)",
+          "oklch(95% 0.1519 253.68)"
         ]
       },
-      "raised": {
-        "role": "neutral",
-        "displayName": "Raised navy panel",
+      "brand-sky": {
+        "role": "secondary",
+        "displayName": "Brand Sky",
         "tonalRamp": [
-          "oklch(15% 0.0402 238.97)",
-          "oklch(25% 0.0402 238.97)",
-          "oklch(35% 0.0402 238.97)",
-          "oklch(45% 0.0402 238.97)",
-          "oklch(55% 0.0402 238.97)",
-          "oklch(65% 0.0402 238.97)",
-          "oklch(80% 0.0402 238.97)",
-          "oklch(95% 0.0402 238.97)"
+          "oklch(15% 0.1072 222.29)",
+          "oklch(25% 0.1072 222.29)",
+          "oklch(35% 0.1072 222.29)",
+          "oklch(45% 0.1072 222.29)",
+          "oklch(55% 0.1072 222.29)",
+          "oklch(65% 0.1072 222.29)",
+          "oklch(80% 0.1072 222.29)",
+          "oklch(95% 0.1072 222.29)"
         ]
       },
-      "text": {
+      "brand-navy": {
         "role": "neutral",
-        "displayName": "Primary reading text",
+        "displayName": "Brand Navy",
         "tonalRamp": [
-          "oklch(15% 0.0101 228.89)",
-          "oklch(25% 0.0101 228.89)",
-          "oklch(35% 0.0101 228.89)",
-          "oklch(45% 0.0101 228.89)",
-          "oklch(55% 0.0101 228.89)",
-          "oklch(65% 0.0101 228.89)",
-          "oklch(80% 0.0101 228.89)",
-          "oklch(95% 0.0101 228.89)"
+          "oklch(15% 0.0826 268.32)",
+          "oklch(25% 0.0826 268.32)",
+          "oklch(35% 0.0826 268.32)",
+          "oklch(45% 0.0826 268.32)",
+          "oklch(55% 0.0826 268.32)",
+          "oklch(65% 0.0826 268.32)",
+          "oklch(80% 0.0826 268.32)",
+          "oklch(95% 0.0826 268.32)"
+        ]
+      },
+      "brand-green": {
+        "role": "secondary",
+        "displayName": "Brand Green",
+        "tonalRamp": [
+          "oklch(15% 0.1262 174.08)",
+          "oklch(25% 0.1262 174.08)",
+          "oklch(35% 0.1262 174.08)",
+          "oklch(45% 0.1262 174.08)",
+          "oklch(55% 0.1262 174.08)",
+          "oklch(65% 0.1262 174.08)",
+          "oklch(80% 0.1262 174.08)",
+          "oklch(95% 0.1262 174.08)"
+        ]
+      },
+      "brand-red": {
+        "role": "secondary",
+        "displayName": "Brand Red",
+        "tonalRamp": [
+          "oklch(15% 0.1842 23.57)",
+          "oklch(25% 0.1842 23.57)",
+          "oklch(35% 0.1842 23.57)",
+          "oklch(45% 0.1842 23.57)",
+          "oklch(55% 0.1842 23.57)",
+          "oklch(65% 0.1842 23.57)",
+          "oklch(80% 0.1842 23.57)",
+          "oklch(95% 0.1842 23.57)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(65% 0.0000 89.88)",
+          "oklch(80% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0163 221.08)",
+          "oklch(25% 0.0163 221.08)",
+          "oklch(35% 0.0163 221.08)",
+          "oklch(45% 0.0163 221.08)",
+          "oklch(55% 0.0163 221.08)",
+          "oklch(65% 0.0163 221.08)",
+          "oklch(80% 0.0163 221.08)",
+          "oklch(95% 0.0163 221.08)"
+        ]
+      },
+      "brand-ink": {
+        "role": "neutral",
+        "displayName": "Brand Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0675 261.15)",
+          "oklch(25% 0.0675 261.15)",
+          "oklch(35% 0.0675 261.15)",
+          "oklch(45% 0.0675 261.15)",
+          "oklch(55% 0.0675 261.15)",
+          "oklch(65% 0.0675 261.15)",
+          "oklch(80% 0.0675 261.15)",
+          "oklch(95% 0.0675 261.15)"
+        ]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page",
+        "tonalRamp": [
+          "oklch(15% 0.0075 241.66)",
+          "oklch(25% 0.0075 241.66)",
+          "oklch(35% 0.0075 241.66)",
+          "oklch(45% 0.0075 241.66)",
+          "oklch(55% 0.0075 241.66)",
+          "oklch(65% 0.0075 241.66)",
+          "oklch(80% 0.0075 241.66)",
+          "oklch(95% 0.0075 241.66)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Secondary reading text",
+        "displayName": "Muted",
         "tonalRamp": [
-          "oklch(15% 0.0278 234.08)",
-          "oklch(25% 0.0278 234.08)",
-          "oklch(35% 0.0278 234.08)",
-          "oklch(45% 0.0278 234.08)",
-          "oklch(55% 0.0278 234.08)",
-          "oklch(65% 0.0278 234.08)",
-          "oklch(80% 0.0278 234.08)",
-          "oklch(95% 0.0278 234.08)"
+          "oklch(15% 0.0434 250.92)",
+          "oklch(25% 0.0434 250.92)",
+          "oklch(35% 0.0434 250.92)",
+          "oklch(45% 0.0434 250.92)",
+          "oklch(55% 0.0434 250.92)",
+          "oklch(65% 0.0434 250.92)",
+          "oklch(80% 0.0434 250.92)",
+          "oklch(95% 0.0434 250.92)"
         ]
       },
-      "border": {
+      "line": {
         "role": "neutral",
-        "displayName": "Panel boundary",
+        "displayName": "Line",
         "tonalRamp": [
-          "oklch(15% 0.0451 238.75)",
-          "oklch(25% 0.0451 238.75)",
-          "oklch(35% 0.0451 238.75)",
-          "oklch(45% 0.0451 238.75)",
-          "oklch(55% 0.0451 238.75)",
-          "oklch(65% 0.0451 238.75)",
-          "oklch(80% 0.0451 238.75)",
-          "oklch(95% 0.0451 238.75)"
+          "oklch(15% 0.0212 241.36)",
+          "oklch(25% 0.0212 241.36)",
+          "oklch(35% 0.0212 241.36)",
+          "oklch(45% 0.0212 241.36)",
+          "oklch(55% 0.0212 241.36)",
+          "oklch(65% 0.0212 241.36)",
+          "oklch(80% 0.0212 241.36)",
+          "oklch(95% 0.0212 241.36)"
         ]
       },
-      "accent": {
+      "action": {
         "role": "primary",
-        "displayName": "Marine teal",
+        "displayName": "Action",
         "tonalRamp": [
-          "oklch(15% 0.1113 179.29)",
-          "oklch(25% 0.1113 179.29)",
-          "oklch(35% 0.1113 179.29)",
-          "oklch(45% 0.1113 179.29)",
-          "oklch(55% 0.1113 179.29)",
-          "oklch(65% 0.1113 179.29)",
-          "oklch(80% 0.1113 179.29)",
-          "oklch(95% 0.1113 179.29)"
+          "oklch(15% 0.1390 254.34)",
+          "oklch(25% 0.1390 254.34)",
+          "oklch(35% 0.1390 254.34)",
+          "oklch(45% 0.1390 254.34)",
+          "oklch(55% 0.1390 254.34)",
+          "oklch(65% 0.1390 254.34)",
+          "oklch(80% 0.1390 254.34)",
+          "oklch(95% 0.1390 254.34)"
         ]
       },
-      "warning": {
-        "role": "secondary",
-        "displayName": "Brass amber",
+      "link": {
+        "role": "primary",
+        "displayName": "Link",
         "tonalRamp": [
-          "oklch(15% 0.1052 75.70)",
-          "oklch(25% 0.1052 75.70)",
-          "oklch(35% 0.1052 75.70)",
-          "oklch(45% 0.1052 75.70)",
-          "oklch(55% 0.1052 75.70)",
-          "oklch(65% 0.1052 75.70)",
-          "oklch(80% 0.1052 75.70)",
-          "oklch(95% 0.1052 75.70)"
+          "oklch(15% 0.1313 252.91)",
+          "oklch(25% 0.1313 252.91)",
+          "oklch(35% 0.1313 252.91)",
+          "oklch(45% 0.1313 252.91)",
+          "oklch(55% 0.1313 252.91)",
+          "oklch(65% 0.1313 252.91)",
+          "oklch(80% 0.1313 252.91)",
+          "oklch(95% 0.1313 252.91)"
         ]
       },
-      "fault": {
-        "role": "secondary",
-        "displayName": "Warm fault red",
+      "secondary": {
+        "role": "neutral",
+        "displayName": "Secondary",
         "tonalRamp": [
-          "oklch(15% 0.1262 23.48)",
-          "oklch(25% 0.1262 23.48)",
-          "oklch(35% 0.1262 23.48)",
-          "oklch(45% 0.1262 23.48)",
-          "oklch(55% 0.1262 23.48)",
-          "oklch(65% 0.1262 23.48)",
-          "oklch(80% 0.1262 23.48)",
-          "oklch(95% 0.1262 23.48)"
+          "oklch(15% 0.0159 253.90)",
+          "oklch(25% 0.0159 253.90)",
+          "oklch(35% 0.0159 253.90)",
+          "oklch(45% 0.0159 253.90)",
+          "oklch(55% 0.0159 253.90)",
+          "oklch(65% 0.0159 253.90)",
+          "oklch(80% 0.0159 253.90)",
+          "oklch(95% 0.0159 253.90)"
+        ]
+      },
+      "selected": {
+        "role": "neutral",
+        "displayName": "Selected",
+        "tonalRamp": [
+          "oklch(15% 0.0269 255.09)",
+          "oklch(25% 0.0269 255.09)",
+          "oklch(35% 0.0269 255.09)",
+          "oklch(45% 0.0269 255.09)",
+          "oklch(55% 0.0269 255.09)",
+          "oklch(65% 0.0269 255.09)",
+          "oklch(80% 0.0269 255.09)",
+          "oklch(95% 0.0269 255.09)"
+        ]
+      },
+      "selected-ink": {
+        "role": "neutral",
+        "displayName": "Selected Ink",
+        "tonalRamp": [
+          "oklch(15% 0.1404 254.33)",
+          "oklch(25% 0.1404 254.33)",
+          "oklch(35% 0.1404 254.33)",
+          "oklch(45% 0.1404 254.33)",
+          "oklch(55% 0.1404 254.33)",
+          "oklch(65% 0.1404 254.33)",
+          "oklch(80% 0.1404 254.33)",
+          "oklch(95% 0.1404 254.33)"
+        ]
+      },
+      "success-ink": {
+        "role": "neutral",
+        "displayName": "Success Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0942 171.40)",
+          "oklch(25% 0.0942 171.40)",
+          "oklch(35% 0.0942 171.40)",
+          "oklch(45% 0.0942 171.40)",
+          "oklch(55% 0.0942 171.40)",
+          "oklch(65% 0.0942 171.40)",
+          "oklch(80% 0.0942 171.40)",
+          "oklch(95% 0.0942 171.40)"
+        ]
+      },
+      "success-soft": {
+        "role": "neutral",
+        "displayName": "Success Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0192 167.94)",
+          "oklch(25% 0.0192 167.94)",
+          "oklch(35% 0.0192 167.94)",
+          "oklch(45% 0.0192 167.94)",
+          "oklch(55% 0.0192 167.94)",
+          "oklch(65% 0.0192 167.94)",
+          "oklch(80% 0.0192 167.94)",
+          "oklch(95% 0.0192 167.94)"
+        ]
+      },
+      "warning-ink": {
+        "role": "neutral",
+        "displayName": "Warning Ink",
+        "tonalRamp": [
+          "oklch(15% 0.1175 73.60)",
+          "oklch(25% 0.1175 73.60)",
+          "oklch(35% 0.1175 73.60)",
+          "oklch(45% 0.1175 73.60)",
+          "oklch(55% 0.1175 73.60)",
+          "oklch(65% 0.1175 73.60)",
+          "oklch(80% 0.1175 73.60)",
+          "oklch(95% 0.1175 73.60)"
+        ]
+      },
+      "warning-soft": {
+        "role": "neutral",
+        "displayName": "Warning Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0494 93.38)",
+          "oklch(25% 0.0494 93.38)",
+          "oklch(35% 0.0494 93.38)",
+          "oklch(45% 0.0494 93.38)",
+          "oklch(55% 0.0494 93.38)",
+          "oklch(65% 0.0494 93.38)",
+          "oklch(80% 0.0494 93.38)",
+          "oklch(95% 0.0494 93.38)"
+        ]
+      },
+      "fault-ink": {
+        "role": "neutral",
+        "displayName": "Fault Ink",
+        "tonalRamp": [
+          "oklch(15% 0.1719 20.92)",
+          "oklch(25% 0.1719 20.92)",
+          "oklch(35% 0.1719 20.92)",
+          "oklch(45% 0.1719 20.92)",
+          "oklch(55% 0.1719 20.92)",
+          "oklch(65% 0.1719 20.92)",
+          "oklch(80% 0.1719 20.92)",
+          "oklch(95% 0.1719 20.92)"
+        ]
+      },
+      "fault-soft": {
+        "role": "neutral",
+        "displayName": "Fault Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0162 17.44)",
+          "oklch(25% 0.0162 17.44)",
+          "oklch(35% 0.0162 17.44)",
+          "oklch(45% 0.0162 17.44)",
+          "oklch(55% 0.0162 17.44)",
+          "oklch(65% 0.0162 17.44)",
+          "oklch(80% 0.0162 17.44)",
+          "oklch(95% 0.0162 17.44)"
+        ]
+      },
+      "scene-ground": {
+        "role": "neutral",
+        "displayName": "Scene Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0195 208.75)",
+          "oklch(25% 0.0195 208.75)",
+          "oklch(35% 0.0195 208.75)",
+          "oklch(45% 0.0195 208.75)",
+          "oklch(55% 0.0195 208.75)",
+          "oklch(65% 0.0195 208.75)",
+          "oklch(80% 0.0195 208.75)",
+          "oklch(95% 0.0195 208.75)"
         ]
       }
     },
     "typographyMeta": {
       "headline": {
-        "displayName": "Route headline",
-        "purpose": "Top-level route orientation."
+        "displayName": "Headline",
+        "purpose": "Overview route orientation; 22px on phones."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Overview section title."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Readable Thai and Latin explanatory text."
+        "purpose": "Inherited Thai and Latin body copy."
       },
-      "support": {
-        "displayName": "Support",
-        "purpose": "Context and control labels."
+      "label": {
+        "displayName": "Label",
+        "purpose": "Compact supporting operation labels."
       },
       "reading": {
-        "displayName": "Metric reading",
-        "purpose": "Large tabular numerical readings with units."
+        "displayName": "Reading",
+        "purpose": "Scene KPI reading with a smaller unit."
       }
     },
     "shadows": [
       {
-        "name": "expanded-scene",
-        "value": "0 20px 120px #000c",
-        "purpose": "Existing ambient elevation for viewport-expanded scene."
+        "name": "community-card",
+        "value": "0 5px 20px #1F2D5A05",
+        "purpose": "White reusable content surface."
       },
       {
-        "name": "spatial-equipment",
-        "value": "0 4px 16px #030b1370",
-        "purpose": "Circuit equipment labels over physical scene detail."
+        "name": "scene-stage",
+        "value": "0 9px 32px #1F2D5A0B",
+        "purpose": "Main coastal scene boundary."
+      },
+      {
+        "name": "scene-kpi",
+        "value": "0 6px 16px #1F2D5A0E",
+        "purpose": "KPI over the desktop scene."
+      },
+      {
+        "name": "inspector",
+        "value": "0 8px 26px #1F2D5A14",
+        "purpose": "Selected equipment details."
+      },
+      {
+        "name": "scene-marker",
+        "value": "0 3px 10px #1F2D5A20",
+        "purpose": "Equipment control over geometry."
+      },
+      {
+        "name": "priority-notice",
+        "value": "0 8px 28px #1F2D5A1A",
+        "purpose": "One transient event surface."
       }
     ],
     "motion": [
       {
-        "name": "control-transition",
+        "name": "button-state",
         "value": ".16s",
-        "purpose": "Button background, boundary and text state changes."
+        "purpose": "Background, border and text-color changes from globals.css."
       },
       {
-        "name": "camera-damping",
-        "value": "1 - exp(-delta * 3.6)",
-        "purpose": "Village camera preset transition; reduced motion snaps."
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disable bounded decorative animation and use reduced scene motion."
       }
     ],
     "breakpoints": [
       {
-        "name": "compact-controls",
-        "value": "600px"
+        "name": "overview-kpi-two-column",
+        "value": "1450px"
       },
       {
-        "name": "mobile-3d",
-        "value": "760px"
+        "name": "compact-shell",
+        "value": "1300px"
+      },
+      {
+        "name": "overview-intermediate",
+        "value": "1050px"
       },
       {
         "name": "mobile-shell",
         "value": "900px"
       },
       {
-        "name": "single-column",
-        "value": "1150px"
+        "name": "stacked-scene",
+        "value": "760px"
       },
       {
-        "name": "compact-desktop",
-        "value": "1300px"
+        "name": "compact-controls",
+        "value": "600px"
       }
     ],
-    "surfaceModes": {
-      "overview": "operate",
-      "dashboard": "operate",
-      "explore": "experience",
-      "circuit": "experience",
-      "docs": "read"
+    "focus": {
+      "value": "2px solid var(--teal)",
+      "offset": "4px",
+      "scope": "Global buttons, anchors, selects and tabindex targets."
+    },
+    "layoutMeta": {
+      "desktop": "Shared scene, floating upper KPIs, right inspector and lower incident sequence.",
+      "mobile": "Separate KPI region above a 440px canvas, then stacked inspector, mascot and timeline.",
+      "priorityNotice": "One featured notice; center-lower at desktop, lower-left at intermediate widths, above navigation on mobile."
+    },
+    "evidence": {
+      "brand": "src/lib/powerguard/brand.json",
+      "cascade": [
+        "src/app/globals.css",
+        "src/styles/powerguard-tokens.css",
+        "src/styles/powerguard-app.css",
+        "src/styles/isometric-dashboard.css"
+      ],
+      "sourceFonts": "src/app/layout.tsx",
+      "components": [
+        "src/components/powerguard/IsometricDashboard.tsx",
+        "src/store/powerguard.ts"
+      ],
+      "scope": "Approved light PowerGuard system and isometric dashboard extension; no backend or deployment assertion."
     }
   },
   "components": [
     {
-      "name": "Primary button",
+      "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Primary engineering action in a restrained teal surface.",
-      "html": "<button class=\"ds-btn-primary\">เริ่มเดโม</button>",
-      "css": ".ds-btn-primary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-height:42px;padding:9px 14px;border:1px solid #367e70;border-radius:8px;background:#204c4b;color:#b1f0df;font-size:12px;font-weight:500;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s}.ds-btn-primary:hover{background:#214456;border-color:#668c9e}.ds-btn-primary:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+      "description": "Main community action.",
+      "html": "<button class=\"ds-primary\">รับทราบ</button>",
+      "css": ".ds-primary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border-radius:16px;font-size:14px;font-weight:600;border:1px solid #2468B5;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s;background:#2468B5;color:#FFF}.ds-primary:hover{background:var(--pg-navy,#1F2D5A);border-color:var(--pg-navy,#1F2D5A)}.ds-primary:focus-visible{outline:2px solid var(--pg-blue,#2F7DD3);outline-offset:4px}.ds-primary:disabled{opacity:.45;cursor:not-allowed}"
     },
     {
-      "name": "Secondary button",
+      "name": "Secondary action",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Secondary camera, export or simulation action.",
-      "html": "<button class=\"ds-btn-secondary\">Export JSON</button>",
-      "css": ".ds-btn-secondary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-height:42px;padding:9px 14px;border:1px solid #35576a;border-radius:8px;background:#152d3c;color:#dceaf0;font-size:12px;font-weight:500;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s}.ds-btn-secondary:hover{background:#214456;border-color:#668c9e}.ds-btn-secondary:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+      "description": "Secondary focus, detail or export action.",
+      "html": "<button class=\"ds-secondary\">ดูรายละเอียด</button>",
+      "css": ".ds-secondary{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border-radius:16px;font-size:14px;font-weight:600;border:1px solid #2468B5;cursor:pointer;transition:background-color .16s,border-color .16s,color .16s;background:#EDF5FF;color:var(--pg-navy,#1F2D5A);border-color:#D3E4F4}.ds-secondary:hover{background:#E0EDFF;border-color:#8DB9E5}.ds-secondary:focus-visible{outline:2px solid var(--pg-blue,#2F7DD3);outline-offset:4px}.ds-secondary:disabled{opacity:.45;cursor:not-allowed}"
     },
     {
-      "name": "Quality selector",
+      "name": "Plan number field",
       "kind": "input",
-      "refersTo": "input-quality",
-      "description": "Bounded GPU quality control over the village scene.",
-      "html": "<label class=\"ds-quality\">คุณภาพ <select aria-label=\"คุณภาพการแสดงผลสามมิติ\"><option>Balanced</option><option>High</option></select></label>",
-      "css": ".ds-quality{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;gap:7px;padding:5px 9px;background:#0c202de8;border-radius:7px;color:#c9d9df;font-size:11px}.ds-quality select{border:0;background:transparent;color:#e5f1f2;min-height:34px;font-size:11px;cursor:pointer}.ds-quality select:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+      "refersTo": "input-number",
+      "description": "A labelled user assumption for the local backup planner.",
+      "html": "<label class=\"ds-number\">ชั่วโมง<input type=\"number\" min=\"1\" value=\"4\" /></label>",
+      "css": ".ds-number{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;color:var(--pg-muted,#657A91);font-size:11px}.ds-number input{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:block;width:120px;margin-top:6px;padding:9px 10px;border:1px solid #D9E7F2;border-radius:11px;background:#F8FBFF;color:var(--pg-navy,#1F2D5A);font-size:13px}"
     },
     {
       "name": "Navigation item",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Compact route access; teal marks the current surface.",
-      "html": "<a class=\"ds-nav active\" aria-current=\"page\" href=\"#dashboard\">มอนิเตอร์</a>",
-      "css": ".ds-nav{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:flex;align-items:center;gap:12px;min-height:44px;padding:9px 12px;color:#b0c2ce;border-radius:8px;font-size:13px;text-decoration:none}.ds-nav:hover{background:#142d3b;color:#eef6f9}.ds-nav.active{background:#193f43;color:#9eeadd}.ds-nav:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+      "description": "Current page in the light community shell.",
+      "html": "<a class=\"ds-nav\" href=\"#overview\" aria-current=\"page\">ภาพรวม</a>",
+      "css": ".ds-nav{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:flex;align-items:center;min-height:46px;padding:9px 12px;border-radius:14px;color:var(--pg-muted,#657A91);font-size:13px;text-decoration:none}.ds-nav:hover{background:#F0F6FF;color:var(--pg-navy,#1F2D5A)}.ds-nav[aria-current=page]{background:#E5F1FF;color:#2165AC;font-weight:600}.ds-nav:focus-visible{outline:2px solid var(--pg-blue,#2F7DD3);outline-offset:4px}"
     },
     {
-      "name": "Status chip",
+      "name": "Trial data badge",
       "kind": "chip",
-      "refersTo": "status-chip",
-      "description": "Small explicit status label, using words alongside color.",
-      "html": "<span class=\"ds-status\">จำลอง</span>",
-      "css": ".ds-status{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;gap:5px;padding:5px 9px;background:#233e4f;color:#c1d4df;border-radius:5px;font-size:11px;white-space:nowrap}"
+      "refersTo": "data-badge",
+      "description": "Explicit data boundary on operational surfaces.",
+      "html": "<span class=\"ds-badge\">ข้อมูลทดลอง</span>",
+      "css": ".ds-badge{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;padding:6px 11px;border-radius:10px;background:#FFF4CF;color:#87611B;font-size:11px;white-space:nowrap;font-weight:500}"
     },
     {
-      "name": "Reading panel",
+      "name": "Community card",
       "kind": "card",
-      "refersTo": "metric",
-      "description": "A tabular measurement with unit and source context.",
-      "html": "<article class=\"ds-metric\"><span>แรงดันแหล่งหลัก</span><div><strong>12.1</strong> <small>V DC</small></div><p>ค่าจำลองจากบัสแรงดันต่ำ</p></article>",
-      "css": ".ds-metric{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;padding:19px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink)}.ds-metric>span{font-size:12px;color:var(--muted)}.ds-metric>div{display:flex;align-items:baseline;gap:7px;margin-top:9px;color:#e8f3f5;font-variant-numeric:tabular-nums}.ds-metric strong{font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.4}.ds-metric small{font-size:12px;color:#b4c8d3}.ds-metric p{font-size:11px;line-height:1.8;color:var(--muted);margin:9px 0 0}"
+      "refersTo": "card",
+      "description": "Reusable evidence, chart or planning surface.",
+      "html": "<article class=\"ds-card\"><h2>พลังงานสำรอง</h2><p>ค่าจำลองสำหรับวางแผน</p></article>",
+      "css": ".ds-card{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;padding:24px;border:1px solid #E0EAF3;border-radius:24px;background:var(--pg-card,#FFFFFF);box-shadow:0 5px 20px #1F2D5A05;color:var(--pg-navy,#1F2D5A)}.ds-card h2{font-size:20px;margin:0 0 8px}.ds-card p{color:var(--pg-muted,#657A91);font-size:13px;margin:5px 0 16px}"
     },
     {
-      "name": "Engineering panel",
-      "kind": "card",
-      "refersTo": "panel",
-      "description": "Comfortable reading container for engineering and source content.",
-      "html": "<section class=\"ds-panel\"><h2>เอกสารวิศวกรรม</h2><p>แบบอ้างอิงแรงดันต่ำ · ต้องยืนยันพิกัดก่อนประกอบจริง</p></section>",
-      "css": ".ds-panel{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink)}.ds-panel h2{font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0}.ds-panel p{font-size:13px;line-height:1.9;color:var(--muted);margin:12px 0 0}"
+      "name": "Selected equipment marker",
+      "kind": "button",
+      "refersTo": "scene-marker",
+      "description": "Shared equipment selection over the physical scene.",
+      "html": "<button class=\"ds-marker\" aria-pressed=\"true\"><i></i>จุดกระชัง <small>จุดเสนอ</small></button>",
+      "css": ".ds-marker{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;min-width:120px;min-height:44px;border:1px solid #D3E4EF;background:#FFFFFFF5;color:var(--pg-navy,#1F2D5A);border-radius:14px;box-shadow:0 3px 10px #1F2D5A20;cursor:pointer;font-size:12px;white-space:nowrap}.ds-marker i{width:7px;height:7px;background:#13775F;border-radius:50%}.ds-marker small{font-size:9px}.ds-marker[aria-pressed=true]{background:var(--pg-blue,#2F7DD3);color:#FFF;border-color:#FFF}.ds-marker[aria-pressed=true] i{background:var(--pg-yellow,#F8C642)}.ds-marker:focus-visible{outline:2px solid var(--pg-blue,#2F7DD3);outline-offset:4px}"
     },
     {
-      "name": "Spatial equipment label",
+      "name": "Equipment inspector",
       "kind": "custom",
-      "description": "Touchable scene hotspot exposing a node identity.",
-      "html": "<button class=\"ds-spatial\">P1 <small>กระชังปลา</small></button>",
-      "css": ".ds-spatial{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;min-width:62px;min-height:44px;padding:7px 11px;background:#102332ed;color:#edf6f8;border:1px solid #91b3bc;border-radius:8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer}.ds-spatial small{display:block;font-size:9px;color:#c1dad7;font-weight:500;margin-top:2px}.ds-spatial:hover{border-color:#b3f3de}.ds-spatial:focus-visible{outline:2px solid var(--teal);outline-offset:4px}"
+      "refersTo": "inspector",
+      "description": "Selected proposed equipment and its current simulated load.",
+      "html": "<aside class=\"ds-inspector\"><small>จุดเสนอ รอสำรวจ</small><h2>จุดกระชัง</h2><span>เครื่องทำงาน</span><dl><div><dt>แหล่งจ่าย</dt><dd>ไฟสำรอง</dd></div><div><dt>กำลังโหลดจำลอง</dt><dd>120 W</dd></div></dl></aside>",
+      "css": ".ds-inspector{font-family:\"Manrope Variable\",\"IBM Plex Sans Thai\",sans-serif;width:274px;max-width:100%;padding:18px;background:#FFFFFFF7;border-radius:22px;box-shadow:0 8px 26px #1F2D5A14;color:var(--pg-navy,#1F2D5A)}.ds-inspector small{font-size:10px;color:var(--pg-muted,#657A91)}.ds-inspector h2{font-size:16px;font-weight:600;line-height:1.55;margin:3px 0 14px}.ds-inspector>span{display:inline-flex;border-radius:8px;padding:5px 9px;font-size:11px;background:#E8F8F1;color:#13775F}.ds-inspector dl{margin:14px 0;font-size:12px}.ds-inspector dl>div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #E8EFF5}.ds-inspector dt{color:var(--pg-muted,#657A91)}.ds-inspector dd{margin:0;text-align:right;font-weight:500}"
     }
   ],
   "narrative": {
-    "northStar": "Cinematic Coastal Industrial Digital Twin",
-    "overview": "The digital twin is the signature view: opaque estuary water, weathered timber aquaculture infrastructure, warm natural sun, measured industrial hardware and overlays that expose the simulated system state. The dashboard uses quiet navy surfaces and precise typographic hierarchy so the scene and data remain primary.",
+    "northStar": "The shared community work surface",
+    "overview": "The established light iOS-style community interface combines white and sky surfaces, navy Thai text, generous rounded corners and the original ปลากะพงสามน้ำ vector mascot. The exact PowerGuard brand palette remains the authority; technical scenes retain dark spatial controls when detail needs contrast.\n\nThe shared coastal scene lets people select proposed equipment and follow one simulated event through the inspector, charts and incident history. Audience modes change terminology and available actions while retaining the same underlying state. This is a browser-local demonstrator: telemetry, loads, positions, water and weather models remain visibly simulated or proposed.",
     "keyCharacteristics": [
-      "A premium dark navy control center with marine teal operating cues.",
-      "Authentic field references inform weathered coastal materials and aquaculture forms.",
-      "Precise readings, readable Thai/Latin typography and restrained motion.",
-      "Complete desktop and mobile access to the engineering demonstrator."
+      "Short Thai labels and explicit electrical status words.",
+      "A shared scene with compact, legible operation surfaces.",
+      "Original vector mascot, restrained ambient shadows and local fonts.",
+      "Simulation and field-evidence boundaries remain visible."
     ],
-    "rules": [],
+    "rules": [
+      {
+        "name": "The Status Has Words Rule",
+        "body": "Use explicit status words alongside color; distinguish electrical outage, telemetry offline and sensor fault.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brand Is Exact Rule",
+        "body": "Preserve brand.json color values. Use the implemented darker derivatives for readable controls and status text.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Shared State Rule",
+        "body": "Scene, inspector, charts, timeline and history describe the same simulator state. Audience mode changes presentation and actions.",
+        "section": "typography"
+      },
+      {
+        "name": "The Depth Supports Operation Rule",
+        "body": "Soft shadows separate white operation surfaces from the physical scene; avoid using elevation to imply a measured or installed asset.",
+        "section": "elevation"
+      }
+    ],
     "dos": [
-      "Do keep reconstructed geometry and simulated values visibly labelled.",
-      "Do retain all route content, scenarios, exports and engineering source boundaries.",
-      "Do use the shared simulator for village, circuit, dashboard and presentation state.",
-      "Do use local assets with documented licenses and distinct field-photo provenance.",
-      "Do preserve mobile quality limits and an informative WebGL fallback."
+      "Do preserve the exact brand palette and the Manrope Variable / IBM Plex Sans Thai source fonts.",
+      "Do label values, proposed monitoring positions, demonstration loads and geometry according to their evidence.",
+      "Do keep the scene selection and equipment inspector synchronized across all three audience modes.",
+      "Do preserve a reachable 2D view, reduced motion behavior, opt-in audio and local export paths.",
+      "Do retain critical records when a toast is closed or an event is acknowledged."
     ],
     "donts": [
-      "Don’t present reconstructed geometry as surveyed geography or installed infrastructure.",
-      "Don’t replace factual body copy with 8–10px text.",
-      "Don’t let mobile navigation overlap primary controls.",
-      "Don’t remount the camera on telemetry ticks.",
-      "Don’t change sunlight or water conditions to imply an electrical outage darkens daylight."
+      "Don't use physical water color to claim salinity, dissolved oxygen or measured depth.",
+      "Don't present local notes as delivered to authorities or the demonstrator as connected hardware.",
+      "Don't replace the authentic vector mascot with an invented fish or use the private composition reference as a site asset.",
+      "Don't place a transient incident notice over the selected equipment inspector or mascot."
     ]
   }
 }

@@ -2,6 +2,7 @@
 
 import { useId, type KeyboardEvent } from 'react';
 import type { Sample } from '@/lib/model';
+import {NODE_NAMES} from '@/lib/powerguard-model';
 import {
   BOATS, BUILDINGS, CAGE_CELLS, CANDIDATE_NODES, LANDMARKS, LAND_POLYGON,
   MONITORING_ZONES, OCCLUSIONS, PIERS, ROADS, SHORELINE, SITE_REFERENCE,
@@ -20,12 +21,13 @@ export type SitePlanProps = {
   selectedNode:SiteNodeId;
   onSelectNode:(id:SiteNodeId)=>void;
   onLandmarkSelect?:(id:typeof LANDMARKS[number]['id'])=>void;
+  communityLabels?:boolean;
   showZones?:boolean;
   showOcclusions?:boolean;
 };
 
 /** Original SVG trace; it never serves the Google Maps screenshot. */
-export function SitePlan({ selectedNode, onSelectNode, onLandmarkSelect, showZones = true, showOcclusions = false }:SitePlanProps) {
+export function SitePlan({ selectedNode, onSelectNode, onLandmarkSelect, showZones = true, showOcclusions = false,communityLabels=false }:SitePlanProps) {
   const id = useId().replace(/:/g,'');
   const activate = (event:KeyboardEvent<SVGGElement>, node:SiteNodeId) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectNode(node); }
@@ -36,7 +38,7 @@ export function SitePlan({ selectedNode, onSelectNode, onLandmarkSelect, showZon
     <div className="site-plan-stage">
       <svg className="site-plan-svg" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-labelledby={`${id}-title ${id}-desc`}>
         <title id={`${id}-title`}>ผังพื้นที่ท่าเรือลุงทองและกระชังบ้านศาลาหุม วาดใหม่จากภาพอ้างอิง</title>
-        <desc id={`${id}-desc`}>ฝั่งและถนนอยู่ด้านซ้าย แนวบ้านเลียบฝั่ง กลุ่มกระชังหลายแนวยื่นไปทางขวาบน มีท่าเรือยาวช่วงล่าง และแนวสีเขียวถึงฟ้าของน้ำ ตำแหน่ง P0 ถึง P3 เสนอเพื่อการทดลอง ทุกจุดรอสำรวจ ไม่ใช่แผนที่ระยะจริง ใช้ Tab เพื่อเลือกจุดแล้วกด Enter หรือ Space</desc>
+        <desc id={`${id}-desc`}>ฝั่งและถนนอยู่ด้านซ้าย แนวบ้านเลียบฝั่ง กลุ่มกระชังหลายแนวยื่นไปทางขวาบน มีท่าเรือยาวช่วงล่าง และแนวสีเขียวถึงฟ้าของน้ำ {communityLabels?'ตำแหน่งอุปกรณ์':'ตำแหน่ง P0 ถึง P3'} เสนอเพื่อการทดลอง ทุกจุดรอสำรวจ ไม่ใช่แผนที่ระยะจริง ใช้ Tab เพื่อเลือกจุดแล้วกด Enter หรือ Space</desc>
         <defs>
           <linearGradient id={`${id}-water`} x1="0" y1="0" x2=".15" y2="1"><stop offset="0%" stopColor="#315f51"/><stop offset="65%" stopColor="#315f51"/><stop offset="100%" stopColor="#234d59"/></linearGradient>
           <pattern id={`${id}-grid`} width="59.1" height="92.2" patternUnits="userSpaceOnUse"><path d="M 59.1 0 L 0 0 0 92.2" fill="none" stroke="#a3cfc3" strokeOpacity=".09" strokeWidth="1"/></pattern>
@@ -70,21 +72,21 @@ export function SitePlan({ selectedNode, onSelectNode, onLandmarkSelect, showZon
           {nodeIds.map(node => {
             const [x,y]=px(CANDIDATE_NODES[node].uv), selected=selectedNode===node;
             const labelX=x+29, labelY=y-37, color=nodeColors[node];
-            return <g key={node} role="button" tabIndex={0} aria-label={`${node} ${CANDIDATE_NODES[node].title} · PROPOSED รอสำรวจพื้นที่`} aria-pressed={selected} onClick={()=>onSelectNode(node)} onKeyDown={event=>activate(event,node)} className={`site-plan-node${selected?' is-selected':''}`}>
-              <title>{`${node}: ${CANDIDATE_NODES[node].title}. ${CANDIDATE_NODES[node].rationale}. PROPOSED`}</title>
+            return <g key={node} role="button" tabIndex={0} aria-label={`${communityLabels?NODE_NAMES[node]:node+' '+CANDIDATE_NODES[node].title} · จุดเสนอ รอสำรวจพื้นที่`} aria-pressed={selected} onClick={()=>onSelectNode(node)} onKeyDown={event=>activate(event,node)} className={`site-plan-node${selected?' is-selected':''}`}>
+              <title>{`${communityLabels?NODE_NAMES[node]:node}: ${CANDIDATE_NODES[node].title}. ${CANDIDATE_NODES[node].rationale}. PROPOSED`}</title>
               <circle cx={x} cy={y} r="37" fill="transparent"/>
               <circle cx={x} cy={y} r={selected?20:15} fill="#0b1926" stroke={color} strokeWidth={selected?4:2}/>
               <circle cx={x} cy={y} r="5" fill={color}/>
               <path d={`M${x+14} ${y-10} L${labelX} ${labelY+24}`} stroke={color} strokeWidth="2" fill="none"/>
               <rect x={labelX} y={labelY} width="120" height="57" rx="5" fill={selected?'#163444':'#0b1926'} stroke={color} strokeWidth={selected?2:1} filter={`url(#${id}-shadow)`}/>
-              <text x={labelX+13} y={labelY+25} fill="#e5edf1" fontSize="24" fontWeight="700">{node}</text>
+              <text x={labelX+13} y={labelY+25} fill="#e5edf1" fontSize={communityLabels?15:24} fontWeight="700">{communityLabels?({P0:'ศูนย์ไฟ',P1:'กระชัง',P2:'บ้านริมน้ำ',P3:'เครื่องทั่วไป'}[node]):node}</text>
               <text x={labelX+13} y={labelY+44} fill={color} fontSize="14" fontWeight="500">PROPOSED</text>
             </g>;
           })}
         </g>
       </svg>
     </div>
-    <div className="site-plan-node-controls" aria-label="เลือกตำแหน่งโหนดที่เสนอ">{nodeIds.map(node => <button key={node} className={`site-plan-node-control${selectedNode===node?' is-selected':''}`} aria-pressed={selectedNode===node} onClick={()=>onSelectNode(node)}><strong style={{color:nodeColors[node]}}>{node}</strong><span>{CANDIDATE_NODES[node].title}</span><small>PROPOSED · รอสำรวจ</small></button>)}</div>
+    <div className="site-plan-node-controls" aria-label="เลือกตำแหน่งโหนดที่เสนอ">{nodeIds.map(node => <button key={node} className={`site-plan-node-control${selectedNode===node?' is-selected':''}`} aria-pressed={selectedNode===node} onClick={()=>onSelectNode(node)}><strong style={{color:nodeColors[node]}}>{communityLabels?NODE_NAMES[node]:node}</strong><span>{CANDIDATE_NODES[node].title}</span><small>PROPOSED · รอสำรวจ</small></button>)}</div>
     <div className="site-plan-legend"><span><i style={{background:'#96a4a1'}}/>อาคารตัวแทน</span><span><i style={{background:'#163d34',border:'1px solid #bac6a6'}}/>แนวกลุ่มกระชัง</span><span><i style={{background:'#d6cfb6'}}/>ท่า / ทางขึ้น</span><span><i style={{background:'#adc9b1'}}/>แนวเปลี่ยนสีที่สังเกต</span>{showZones&&<span><i style={{background:'transparent',border:'1px dashed #b2cad7'}}/>B / C จุดอ้างอิงเสนอ · ไม่มีเครื่องมือ</span>}</div>
     {onLandmarkSelect && <div className="site-plan-landmarks" aria-label="โฟกัสสถานที่ในฉาก 3D">{LANDMARKS.map(mark => <button key={mark.id} onClick={()=>onLandmarkSelect(mark.id)}>{mark.label}</button>)}</div>}
     <figcaption className="site-plan-caption">ผังวาดใหม่จากภาพอ้างอิง ไม่ใช่แผนที่สำรวจหรือจำนวนกระชังที่ยืนยัน · ตำแหน่งทุกโหนดเสนอเพื่อทดลอง · <a href={SITE_REFERENCE.mapsUrl} target="_blank" rel="noreferrer">ดูสถานที่จากลิงก์ที่ผู้ใช้ให้</a></figcaption>

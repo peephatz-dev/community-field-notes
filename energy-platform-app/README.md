@@ -26,7 +26,7 @@ pnpm export:github
 
 ## Navigation
 
-- `/` community status, mascot, equipment and Demo Lab; switch to Engineer Mode for the technical overview
+- `/` interactive isometric site dashboard, shared KPI/inspector/timeline, 3D/2D, camera tools and scenarios; audience selector: community/operator/engineer
 - `/power/`, `/devices/`, `/community/` power, device status and clearly labelled vector illustration
 - `/notifications/`, `/history/` notifications, acknowledgements, local problem reports and JSON/CSV exports
 - `/backup-plan/` assumed loads, hours, efficiency, usable fraction, prices and UPS comparison
@@ -82,3 +82,9 @@ Click the mascot to expand its short Thai explanation; **ฟังเสีย�
 Notifications originate from the shared simulator. Exact event IDs deduplicate; simulation resets begin a new episode. Acknowledging or closing a critical toast never deletes its history record. History, resolution notes, backup plans and selected preferences persist in this browser's localStorage. They are not synchronized or transmitted to anyone. Audio activation and loop activation do not persist across reloads. A browser reset or storage restrictions can remove/prevent local records; exports provide a copy.
 
 The user-supplied Asset Pack v2 is inventoried in `public/powerguard/ASSET_MANIFEST.json`. Its SVGs are original vector assets; the concept community illustration is not the surveyed site map, and its audio is synthesized rather than a field recording. Colors come from `src/lib/powerguard/brand.json`: yellow **#F8C642**, orange #FF7A3C, blue #2F7DD3, sky #5EC6E8 and navy #1F2D5A. See [PowerGuard verification](docs/powerguard-upgrade.md) and [feature audit](docs/powerguard-feature-audit.md).
+
+## Isometric dashboard and ten-slide pitch (15 October 2026)
+
+The primary dashboard now uses the existing R3F site scene. Select a cage or equipment marker to inspect its simulated source, load and latest event. Community and operator labels use natural names; engineering shows P0–P3. Mobile KPI indicators occupy a separate region above the canvas. Low, balanced and high quality settings and the 2D plan remain available.
+
+The pitch package is [../deliverables/pitch-deck/](../deliverables/pitch-deck/): editable 10-slide 16:9 PPTX, reading PDF, ten PNG previews, six-minute Thai script, speaker notes and skeptical Q&A. [QA and limits](../deliverables/QA_AND_LIMITATIONS.md) and [evidence ledger](../deliverables/research/evidence-ledger.md) separate browser tests, simulated values, reported field context and the missing hardware/field evidence. This branch has not been merged or deployed.

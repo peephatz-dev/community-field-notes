@@ -8,7 +8,7 @@ import { VERTICAL_SCALE, WATER_DATUM } from '@/lib/environment-model';
 
 type XZ = [number, number];
 type Footprint = { center: XZ; length: number; width: number; yaw: number };
-type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; items: Placement[]; castShadow?: boolean; floating?:boolean };
+type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; items: Placement[]; castShadow?: boolean; floating?:boolean; aquaculture?:boolean };
 
 const yawFromDirection = (dx: number, dz: number) => Math.atan2(-dz, dx);
 const localPoint = (frame: Footprint, x: number, z: number, y = 0): [number,number,number] => [frame.center[0] + Math.cos(frame.yaw)*x + Math.sin(frame.yaw)*z, y, frame.center[1] - Math.sin(frame.yaw)*x + Math.cos(frame.yaw)*z];
@@ -115,18 +115,19 @@ function foliageTexture() {
 export type SiteEnvironmentProps = {
   materials:VillageMaterials;
   mobile?:boolean;
-  quality?:'balanced'|'high';
+  quality?:'low'|'balanced'|'high';
   reducedMotion?:boolean;
   householdLightsOn?:boolean;
   /** World-space lift derived from the independent synthetic tide model. */
   waterOffset?:number;
   /** Representative synthetic net depth, assumed metres rather than surveyed dimensions. */
   cageDepth?:number;
+  onSelectCages?:()=>void;
 };
 
 /** Placement is entirely image-relative shared trace; vertical dimensions remain reconstruction choices. */
-export function SiteEnvironment({materials,mobile=false,quality='balanced',householdLightsOn=true,waterOffset=0,cageDepth=2.2}:SiteEnvironmentProps) {
-  const detail=mobile?'balanced':quality;
+export function SiteEnvironment({materials,mobile=false,quality='balanced',householdLightsOn=true,waterOffset=0,cageDepth=2.2,onSelectCages}:SiteEnvironmentProps) {
+  const detail=mobile||quality==='low'?'balanced':quality;
   const resources=useMemo(()=>{
     const unit=new THREE.BoxGeometry(1,1,1),plane=new THREE.PlaneGeometry(1,1),post=new THREE.CylinderGeometry(1,1,1,8),barrel=new THREE.CylinderGeometry(1,1,1,12);
     const cageNet=netTexture(),foliage=foliageTexture();
@@ -162,7 +163,7 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
       }
       netBottom.push({position:localPoint(frame,0,0,netFloor),rotation:[-Math.PI/2,0,yaw],scale:[length,width,1]});
     });
-    batches.push({geometry:resources.unit,material:materials.darkWood,items:cageBeams,floating:true},{geometry:resources.post,material:materials.darkWood,items:cagePosts,floating:true},{geometry:resources.barrel,material:materials.blue,items:floatDrums,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netWalls,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netBottom,castShadow:false,floating:true});
+    batches.push({geometry:resources.unit,material:materials.darkWood,items:cageBeams,aquaculture:true,floating:true},{geometry:resources.post,material:materials.darkWood,items:cagePosts,aquaculture:true,floating:true},{geometry:resources.barrel,material:materials.blue,items:floatDrums,aquaculture:true,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netWalls,aquaculture:true,castShadow:false,floating:true},{geometry:resources.plane,material:resources.netMaterial,items:netBottom,aquaculture:true,castShadow:false,floating:true});
 
     const dockBoards:Placement[]=[],dockSupports:Placement[]=[],dockBeams:Placement[]=[];
     SITE_LAYOUT.piers.forEach(pier=>{const points=pier.points.map(point=>worldXZ(...point)),width=pier.width*SITE_WIDTH;
@@ -232,7 +233,7 @@ export function SiteEnvironment({materials,mobile=false,quality='balanced',house
   return <group name="REFERENCE_TRACED_SITE_ENVIRONMENT">
     <mesh geometry={site.land} material={resources.bankMaterial} position={[0,.01,0]} receiveShadow/>
     {site.roads.map((geometry,index)=><mesh key={index} geometry={geometry} material={resources.roadMaterial} position={[0,.035,0]} receiveShadow/>)}
-    {site.batches.filter(batch=>batch.items.length).map((batch,index)=><group key={index} position={[0,batch.floating?waterOffset:0,0]}><RepeatedParts {...batch}/></group>)}
+    {site.batches.filter(batch=>batch.items.length).map((batch,index)=><group key={index} position={[0,batch.floating?waterOffset:0,0]} onClick={batch.aquaculture&&onSelectCages?e=>{e.stopPropagation();if(e.delta<5)onSelectCages();}:undefined}><RepeatedParts {...batch}/></group>)}
     <RepeatedParts geometry={resources.plane} material={windowMaterial} items={site.windows} castShadow={false}/>
     <lineSegments geometry={site.moorings} position={[0,waterOffset,0]}><lineBasicMaterial color="#5d7268" transparent opacity={.58}/></lineSegments>
   </group>;
