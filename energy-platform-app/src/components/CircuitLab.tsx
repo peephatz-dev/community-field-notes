@@ -43,7 +43,7 @@ function usePrintedLabel(text: string) {
 }
 
 function ControllerPanel() {
-  const print = usePrintedLabel('SALA-HUM / SEPARATE P0 AND P1 BOXES / PARTIAL SOURCE');
+  const print = usePrintedLabel('SALA-HUM / FOUR SEPARATE NODE BOXES / PROPOSED FLOWCHART');
   return <group>
     {[-.55,4.1].map((x,i)=><group key={i} position={[x,-.08,.15]}><RoundedBox args={[i===0?6.1:2.5,.2,6.4]} radius={.08} smoothness={2}><meshStandardMaterial color="#274b5b" metalness={.4} roughness={.5}/></RoundedBox>{[-3.2,3.2].map(z=><mesh key={z} position={[0,.23,z]}><boxGeometry args={[i===0?6.1:2.5,.3,.055]}/><meshStandardMaterial color="#718f9a"/></mesh>)}</group>)}
     <RoundedBox args={[11.4, .19, 6.9]} position={[0, -.15, 0]} radius={.08} smoothness={2} receiveShadow><meshStandardMaterial color="#223948" metalness={.78} roughness={.43} /></RoundedBox>
@@ -68,13 +68,14 @@ function MountedEquipment({ node, progress, selected, select, lit, online, setHo
   const isSelected = selected === node.id;
   const detailVisible = isSelected || hovered;
   return <group ref={ref} position={base} onClick={e => { if (e.delta > 6) return; e.stopPropagation(); select(node.id); }} onPointerOver={e => { e.stopPropagation(); setHover(node.id); }} onPointerOut={() => setHover(null)}>
-    <CircuitEquipment id={node.id} lit={lit && node.group !== "P1"} dataOnline={online && node.group !== "P1"} />
+    <CircuitEquipment id={node.id} lit={lit} dataOnline={online} />
     {isSelected && <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.025, 0]}><ringGeometry args={[.72, .741, 48]} /><meshBasicMaterial color={TEAL} transparent opacity={.9} side={THREE.DoubleSide} /></mesh>}
-    <Html position={[0, node.id === 'battery' ? 1.04 : .67, 0]} center distanceFactor={11} zIndexRange={[10, 0]}><button className={`scene-node-tag circuit-equipment-tag ${isSelected ? 'selected' : ''}`} onClick={e => { e.stopPropagation(); select(node.id); }} aria-label={`ดูรายละเอียด ${node.name}`} style={{ background: isSelected ? '#153f41ee' : '#0b1823e8', borderColor: fault ? AMBER : isSelected ? TEAL : '#4c6c7c', boxShadow: '0 4px 16px #030b1370', padding: '8px 10px', minHeight: 44, fontSize: 11, borderRadius: 5 }}>{detailVisible ? node.name : node.name}{detailVisible && <small style={{ color: online && !fault ? '#91b9b7' : AMBER, fontSize: 10, marginTop: 3 }}>{node.group === 'P1' ? 'ยังไม่จำลอง UPS แยก P1' : `ไฟตามนโยบายเดโม ${lit ? 'จ่าย' : 'หยุด'} · ยังไม่ใช่การวัดจริง`}</small>}</button></Html>
+    <Html position={[0, node.id === 'battery' || node.id.endsWith('battery') ? 1.04 : .67, 0]} center distanceFactor={11} zIndexRange={[10, 0]}><button className={`scene-node-tag circuit-equipment-tag ${isSelected ? 'selected' : ''}`} onClick={e => { e.stopPropagation(); select(node.id); }} aria-label={`ดูรายละเอียด ${node.name}`} style={{ background: isSelected ? '#153f41ee' : '#0b1823e8', borderColor: fault ? AMBER : isSelected ? TEAL : '#4c6c7c', boxShadow: '0 4px 16px #030b1370', padding: '8px 10px', minHeight: 44, fontSize: 11, borderRadius: 5 }}>{node.name}{detailVisible && <small style={{ color: online && !fault ? '#91b9b7' : AMBER, fontSize: 10, marginTop: 3 }}>สถานะไฟเป็นโมเดลรวม · ไม่ได้จำลอง UPS แยกกล่อง</small>}</button></Html>
   </group>;
 }
 
-function netEndpoint(nodeId: string, point: [number, number]): THREE.Vector3 {
+function netEndpoint(nodeId: string | null, point: [number, number]): THREE.Vector3 {
+  if (nodeId === null) return new THREE.Vector3((point[0] / 1540 - .5) * 15.5, .24, (point[1] / 600 - .5) * 7);
   const node = pointById.get(nodeId)!;
   const base = assemblyPosition(node);
   return new THREE.Vector3(base[0] + (point[0] - (node.x + node.w / 2)) / node.w * .9, base[1] + (socketHeight[nodeId] ?? .22), base[2] + (point[1] - (node.y + node.h / 2)) / node.h * .55);
@@ -82,7 +83,7 @@ function netEndpoint(nodeId: string, point: [number, number]): THREE.Vector3 {
 
 function PhysicalNet({ net, progress, active, reducedMotion, fault = false }: { net: CircuitNet; progress: React.RefObject<number>; active: boolean; reducedMotion: boolean; fault?: boolean }) {
   const bead = useRef<THREE.Mesh>(null), previous = useRef(-1), point = useMemo(() => new THREE.Vector3(), []);
-  const fromLift = liftById.get(net.fromNode) ?? 0, toLift = liftById.get(net.toNode) ?? 0;
+  const fromLift = liftById.get(net.fromNode) ?? 0, toLift = net.toNode ? liftById.get(net.toNode) ?? 0 : 0;
   const { curve, geometry, original } = useMemo(() => {
     const a = netEndpoint(net.fromNode, net.from), b = netEndpoint(net.toNode, net.to);
     const midA = a.clone(), midB = b.clone(); midA.y += .13; midB.y += .13;
@@ -155,7 +156,7 @@ function CircuitScene({ mode, selected, select, systemMode, nodeOffline, battery
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.36, 0]} receiveShadow><planeGeometry args={[80, 80]} /><meshStandardMaterial color="#08141f" roughness={.58} metalness={.14} /></mesh>
     <ControllerPanel /><AssemblyMotion mode={mode} progress={progress} reducedMotion={reducedMotion} />
     {CIRCUIT_NETS.map(net => <PhysicalNet key={net.id} net={net} progress={progress} active={netIsActive(net, outage, backup, nodeOffline, loadPowered)} fault={sensorFault && net.id === 'ec-p0'} reducedMotion={reducedMotion} />)}
-    {CIRCUIT_NODES.map(node => <MountedEquipment key={node.id} node={node} progress={progress} selected={selected} select={select} setHover={setHover} hovered={hover === node.id} lit={node.id === 'solar' ? false : node.id === 'source' || node.id === 'bus' ? !outage : node.id === 'battery' || node.id === 'battery2' ? backup : node.id === 'driver' ? loadPowered : busPowered} online={node.id === 'salinity' || node.id === 'temp' ? nodeOffline !== 'P0' && nodeOffline !== 'P1' : nodeOffline !== 'P0'} fault={sensorFault && node.id === 'salinity'} />)}
+    {CIRCUIT_NODES.map(node => <MountedEquipment key={node.id} node={node} progress={progress} selected={selected} select={select} setHover={setHover} hovered={hover === node.id} lit={node.id === 'solar' ? false : node.id === 'source' || node.id === 'bus' ? !outage : node.id === 'battery' || node.id === 'battery2' ? backup : node.id === 'driver' ? loadPowered : busPowered} online={node.group === 'P0' ? nodeOffline !== 'P0' : node.group === 'P1' ? nodeOffline !== 'P1' : node.group === 'P2' ? nodeOffline !== 'P2' : node.group === 'P3' ? nodeOffline !== 'P3' : true} fault={sensorFault && node.id === 'salinity'} />)}
     <CameraFocus selected={selected} exploded={mode === 'exploded'} compact={compact} reducedMotion={reducedMotion} controls={controls} />
     <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={.075} target={[0, .3, 0]} minDistance={4.8} maxDistance={compact ? 38 : 24} minPolarAngle={.15} maxPolarAngle={Math.PI / 2 - .06} />
     {!compact && <EffectComposer multisampling={0}><Bloom intensity={.23} luminanceThreshold={1.1} mipmapBlur /><Vignette offset={.18} darkness={.42} /></EffectComposer>}
@@ -164,24 +165,24 @@ function CircuitScene({ mode, selected, select, systemMode, nodeOffline, battery
 
 function Schematic({ mode, selection, select, systemMode, nodeOffline, batterySoc, sensorFault }: { mode: string; selection: string; select: (id: string) => void; systemMode: GridMode; nodeOffline: string | null; batterySoc: number; sensorFault: boolean }) {
   const outage = systemMode === 'outage';
-  return <div className="schematic-wrap" style={{ background: '#0a1622' }}><svg viewBox="0 0 1000 520" role="img" aria-label="ผังต้นแบบล่าสุด P0 พร้อมลูกศรตามที่ได้รับ และ P1 กล่องแยกที่ยังไม่มีลูกศรยืนยัน">
+  return <div className="schematic-wrap" style={{ background: '#0a1622', overflowX: 'auto' }}><svg viewBox="0 0 1540 600" style={{ width: '1540px', maxWidth: 'none', height: 'auto', display: 'block' }} role="img" aria-label="ผังต้นแบบ P0 ถึง P3 ตามผังที่ทีมเสนอ มีเส้นจ่ายไฟและส่งข้อมูลครบตามเอกสาร">
     <defs><pattern id="circuit-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a3140" strokeWidth=".45" /></pattern><marker id="circuit-arrow-power" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill={AMBER} /></marker><marker id="circuit-arrow-data" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill={TEAL} /></marker></defs>
-    <rect width="1000" height="520" fill="url(#circuit-grid)" />
-    <text x="36" y="24" fill="#9ab2bd" fontSize="9" letterSpacing="1.2">ผังผู้ใช้ 15 ต.ค. 2569 / P0 ตามลูกศร / P1 ยังไม่ครบ</text>
-    <rect x="178" y="40" width="553" height="448" rx="12" fill="#102a36" stroke="#41667b"/><text x="190" y="59" fill="#b9d4dd" fontSize="10">P0 · MASTER POWER NODE · WATERPROOF BOX</text>
-    <rect x="751" y="40" width="238" height="448" rx="12" fill="#142536" stroke="#628395" strokeDasharray="5 4"/><text x="765" y="59" fill="#eebd76" fontSize="10">P1 · WATER QUALITY · PARTIAL</text>
-    {mode === 'signal' && <text x="20" y="510" fill="#67dcc6" fontSize="9">ยังไม่ได้รับลูกศรสัญญาณ / transport ระหว่างโหนด จึงไม่วาดเส้นขึ้นเอง</text>}
+    <rect width="1540" height="600" fill="url(#circuit-grid)" />
+    <text x="20" y="22" fill="#9ab2bd" fontSize="12" letterSpacing="1.2">SMART SALA-HUM · ผังฉบับเต็มจากทีม · 16 ต.ค. 2569 · แบบเสนอ ยังไม่ใช่ผลทดสอบ</text>
+    <rect x="170" y="40" width="565" height="520" rx="12" fill="#102a36" stroke="#41667b"/><text x="184" y="62" fill="#b9d4dd" fontSize="13">P0 · MASTER POWER NODE · WATERPROOF BOX</text>
+    <rect x="750" y="40" width="240" height="520" rx="12" fill="#142536" stroke="#628395"/><text x="764" y="62" fill="#eebd76" fontSize="13">P1 · WATER QUALITY</text>
+    <rect x="1005" y="40" width="240" height="520" rx="12" fill="#142536" stroke="#628395"/><text x="1019" y="62" fill="#eebd76" fontSize="13">P2 · ESSENTIAL</text>
+    <rect x="1260" y="40" width="240" height="520" rx="12" fill="#142536" stroke="#628395"/><text x="1274" y="62" fill="#eebd76" fontSize="13">P3 · GENERAL</text>
     {CIRCUIT_NETS.map(net => {
       const signal = net.kind === 'signal', ground = net.kind === 'ground';
       const visible = mode === 'power' ? !signal : mode === 'signal' ? signal : true;
       const active = netIsActive(net, outage, batterySoc > 0, nodeOffline, activeLoad('P1', systemMode, batterySoc, null));
       const x1 = net.from[0], y1 = net.from[1], x2 = net.to[0], y2 = net.to[1];
-      const bend = net.id === 'ec-p0' ? 964 : net.id === 'temp-p0' ? 977 : net.id === 'common-return' ? 290 : (x1 + x2) / 2;
-      const path = net.id === 'common-return' ? `M${x1},${y1} V${bend} H${x2} V${y2}` : net.id === 'ec-p0' || net.id === 'temp-p0' ? `M${x1},${y1} H${bend} V${y2} H${x2}` : x1 === x2 || y1 === y2 ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} H${bend} V${y2} H${x2}`;
-      const labelX = net.id === 'ec-p0' || net.id === 'temp-p0' ? bend - 5 : net.id === 'common-return' ? 657 : (x1 + x2) / 2;
-      const labelY = net.id === 'common-return' ? 283 : net.id === 'ec-p0' ? 342 : net.id === 'temp-p0' ? 310 : (y1 + y2) / 2 - 8;
+      const bend = (x1 + x2) / 2;
+      const path = x1 === x2 || y1 === y2 ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} H${bend} V${y2} H${x2}`;
+      const labelX = (x1 + x2) / 2, labelY = (y1 + y2) / 2 - 8;
       const color = active ? sensorFault && net.id === 'ec-p0' ? AMBER : signal ? TEAL : ground ? '#7295b2' : AMBER : '#516777';
-      return <g key={net.id} opacity={visible ? 1 : .13}><path d={path} fill="none" stroke={color} strokeWidth={signal ? 1.7 : ground ? 2 : 2.5} strokeDasharray={signal ? '5 5' : undefined} strokeLinejoin="round" markerEnd={!ground ? `url(#circuit-arrow-${signal ? 'data' : 'power'})` : undefined} /><text x={labelX} y={labelY} textAnchor={net.id === 'ec-p0' || net.id === 'temp-p0' ? 'end' : 'middle'} fill={visible ? color : '#3b5261'} fontSize="7.5" style={{ paintOrder: 'stroke', stroke: '#0a1622', strokeWidth: 4, strokeLinejoin: 'round' }}>{net.net}</text></g>;
+      return <g key={net.id} opacity={visible ? 1 : .13}><path d={path} fill="none" stroke={color} strokeWidth={signal ? 2.1 : ground ? 2 : 2.7} strokeDasharray={signal ? '6 5' : undefined} strokeLinejoin="round" markerEnd={!ground ? `url(#circuit-arrow-${signal ? 'data' : 'power'})` : undefined} /><text x={labelX} y={labelY} textAnchor="middle" fill={visible ? color : '#3b5261'} fontSize={signal || net.net === '5V Power' ? '9' : '7.5'} style={{ paintOrder: 'stroke', stroke: '#0a1622', strokeWidth: 4, strokeLinejoin: 'round' }}>{signal || net.net === '5V Power' ? net.net : ''}</text></g>;
     })}
     {CIRCUIT_NODES.map(node => {
       const selected = selection === node.id, component = COMPONENTS.find(c => c.id === node.id);
@@ -193,7 +194,7 @@ function Schematic({ mode, selection, select, systemMode, nodeOffline, batterySo
         <text x={node.x + 12} y={node.y + 52} fill="#7897a7" fontSize="6.5">{node.id === 'bus' ? 'MULTI-SOURCE / RATING TBD' : component?.status === 'simulated' ? 'SIMULATED REFERENCE' : 'DEVICE / RATING TO CONFIRM'}</text>
       </g>;
     })}
-    {mode !== 'signal' && <text x="20" y="510" fill="#b3c9d2" fontSize="8">ลูกศรเป็นผังแนวคิด ไม่ระบุ pin / voltage / cell arrangement · EC และส่วน P1–P3 รอข้อมูลต่อ</text>}
+    <text x="20" y="587" fill="#b3c9d2" fontSize="10">เส้นทึบ = power · เส้นประ = Data · ลูกศรเป็นแบบเสนอ ยังไม่ยืนยันพิกัด แรงดัน รุ่นอุปกรณ์ หรือผลทดสอบจริง</text>
   </svg></div>;
 }
 
@@ -210,7 +211,7 @@ export default function CircuitLab({ mode, selection, select, systemMode, nodeOf
   if (mode !== 'assembly' && mode !== 'exploded') return schematic;
   return <div className="circuit-3d" style={{ background: '#0a1622' }}>
     <CircuitBoundary fallback={schematic}><CircuitScene mode={mode} selected={selection} select={select} systemMode={systemMode} nodeOffline={nodeOffline} batterySoc={batterySoc} sensorFault={sensorFault} compact={compact} reducedMotion={reducedMotion} /></CircuitBoundary>
-    <div className="circuit-scene-overlay" style={{ background: '#0a1622dd', border: '1px solid #355263', color: '#c2d4dc', padding: '8px 11px', fontSize: 10, maxWidth: 'calc(100% - 20px)' }}><span style={{ color: TEAL }}>{mode === 'exploded' ? 'EXPLODED ASSEMBLY' : 'P0 / P1 REFERENCE BOXES'}</span> · {mode === 'exploded' ? 'เคลื่อนชิ้นส่วนเพื่ออ่านความสัมพันธ์' : 'หมุน / ซูม / เลือกอุปกรณ์'}<small style={{ display: 'block', marginTop: 4, color: '#8ba8b8', fontSize: 9 }}>แยกกล่อง P0 / P1 ตามแบบ · P1 ไม่มีสายยืนยัน · รูปทรงโมดูลเป็นภาพอธิบาย ไม่ใช่อุปกรณ์ที่เลือกแล้ว</small></div>
+    <div className="circuit-scene-overlay" style={{ background: '#0a1622dd', border: '1px solid #355263', color: '#c2d4dc', padding: '8px 11px', fontSize: 10, maxWidth: 'calc(100% - 20px)' }}><span style={{ color: TEAL }}>{mode === 'exploded' ? 'EXPLODED ASSEMBLY' : 'P0–P3 REFERENCE BOXES'}</span> · {mode === 'exploded' ? 'เคลื่อนชิ้นส่วนเพื่ออ่านความสัมพันธ์' : 'หมุน / ซูม / เลือกอุปกรณ์'}<small style={{ display: 'block', marginTop: 4, color: '#8ba8b8', fontSize: 9 }}>แยกกล่องตามผังที่ทีมเสนอ · รูปทรงโมดูลเป็นภาพอธิบาย ไม่ใช่อุปกรณ์ที่ยืนยันรุ่นแล้ว</small></div>
     <div style={{ position: 'absolute', top: 12, left: 12, pointerEvents: 'none', display: 'flex', gap: 7, fontSize: 9, color: '#b9cdd3' }}><span style={{ padding: '5px 7px', background: '#0a1622dd', border: '1px solid #2e4d5d', borderRadius: 4 }}><i style={{ color: AMBER }}>●</i> Power path</span><span style={{ padding: '5px 7px', background: '#0a1622dd', border: '1px solid #2e4d5d', borderRadius: 4 }}><i style={{ color: TEAL }}>●</i> Data / control</span></div>
   </div>;
 }

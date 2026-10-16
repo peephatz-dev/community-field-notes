@@ -1,14 +1,20 @@
 flowchart TD
-  GRID["AC Adapter - Simulated Village Power Source"]
-  subgraph P0["P0 - Master Power Node / Separate Waterproof Box"]
+
+%% Smart Sala-Hum Prototype — user-provided full flowchart, 16 Oct 2026
+%% Each node is installed in a separate waterproof box
+%% P0 simulates a village power connection point
+
+GRID["AC Adapter<br/>(Simulated Village Power Source)"]
+
+subgraph P0["Node P0 - Master Power Node (Waterproof Box)"]
     SOLAR["Mini Solar Cell"]
-    DCM["Multi-Source DC Input Manager"]
+    DCM["Multi-Source<br/>DC Input Manager"]
     BAT0A["18650 #1"]
     BAT0B["18650 #2"]
-    UPS0["Dual-Rail UPS Battery System"]
+    UPS0["Dual-Rail UPS<br/>Battery System"]
     PM0["2-Way Power Manager"]
     ESP0["ESP32-S3"]
-    MON0["Voltage / Current / Stability Monitor"]
+    MON0["Voltage / Current /<br/>Stability Monitor"]
     RELAY["Relay Power Distribution"]
     GRID --> DCM
     SOLAR --> DCM
@@ -19,11 +25,45 @@ flowchart TD
     PM0 --> ESP0
     PM0 --> MON0
     PM0 --> RELAY
-  end
-  subgraph P1["P1 - Water Quality Node / Separate Waterproof Box / PARTIAL"]
+end
+
+subgraph P1["Node P1 - Water Quality Node (Waterproof Box)"]
     BAT1["18650 Battery"]
     UPS1["Single-Rail UPS"]
     ESP1["ESP32"]
-    EC["EC (ข้อความยังไม่ครบ)"]
-  end
-  %% No P1 edges, P2/P3 or inter-node links were received.
+    EC["EC Sensor"]
+    TEMP["Temperature Sensor"]
+    MON1["Voltage / Current /<br/>Stability Monitor"]
+    BAT1 --> UPS1
+    UPS1 --> ESP1
+    EC --> ESP1
+    TEMP --> ESP1
+    MON1 --> ESP1
+end
+
+subgraph P2["Node P2 - Essential Monitoring Node (Waterproof Box)"]
+    BAT2["18650 Battery"]
+    UPS2["Single-Rail UPS"]
+    ESP2["ESP32"]
+    MON2["Voltage / Current /<br/>Stability Monitor"]
+    BAT2 --> UPS2
+    UPS2 --> ESP2
+    MON2 --> ESP2
+end
+
+subgraph P3["Node P3 - General Monitoring Node (Waterproof Box)"]
+    BAT3["18650 Battery"]
+    UPS3["Single-Rail UPS"]
+    ESP3["ESP32"]
+    MON3["Voltage / Current /<br/>Stability Monitor"]
+    BAT3 --> UPS3
+    UPS3 --> ESP3
+    MON3 --> ESP3
+end
+
+RELAY -- "5V Power" --> P1
+RELAY -- "5V Power" --> P2
+RELAY -- "5V Power" --> P3
+ESP1 -. Data .-> ESP0
+ESP2 -. Data .-> ESP0
+ESP3 -. Data .-> ESP0

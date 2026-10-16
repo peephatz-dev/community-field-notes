@@ -26,7 +26,7 @@ export const NODE_DEFINITIONS: NodeDefinition[] = [
 export const COMPONENTS = prototypeTopology.nodes.map(node => ({
   id: node.id, label: `${node.group === 'external' ? 'แหล่งจ่าย' : node.group} · ${node.label}`,
   category: node.category, pin: 'ยังไม่ระบุ pin map', supply: 'ยังไม่ระบุแรงดันและพิกัดจริง',
-  signal: node.group === 'P1' ? 'ยังไม่ได้รับลูกศรการเชื่อมต่อ P1' : 'ลูกศรเฉพาะที่ปรากฏในผังผู้ใช้',
+  signal: node.group === 'external' ? 'เข้า DCM ตามผัง' : node.id === 'esp32' || node.id === 'sense' || node.id === 'driver' ? 'รับไฟจาก PM0 ตามผัง; GPIO/รุ่นวงจรยังไม่ระบุ' : node.group === 'P1' || node.group === 'P2' || node.group === 'P3' ? 'ลูกศรภายในกล่องและ/หรือ Data ระบุในผัง; รุ่น/transport จริงยังไม่ยืนยัน' : 'ลูกศรตามผังต้นแบบที่ผู้ใช้ส่ง',
   limit: node.note, status: node.id === 'salinity' ? 'proposed' : 'reference',
 }));
 

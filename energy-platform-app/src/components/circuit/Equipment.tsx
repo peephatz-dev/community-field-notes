@@ -179,16 +179,25 @@ export function CircuitEquipment({ id, lit, dataOnline }: { id: string; lit: boo
     case 'solar': return <MiniSolar/>;
     case 'battery2':
     case 'p1battery':
-    case 'battery': return <Cell18650/>;
+    case 'battery':
+    case 'p2battery':
+    case 'p3battery': return <Cell18650/>;
     case 'p1esp': return <Controller p1 lit={lit} dataOnline={dataOnline}/>;
+    case 'p2esp':
+    case 'p3esp': return <Controller p1 lit={lit} dataOnline={dataOnline}/>;
     case 'p1ups': return <PrototypeModule label='P1 SINGLE-RAIL UPS' lit={lit}/>;
+    case 'p2ups': return <PrototypeModule label='P2 SINGLE-RAIL UPS' lit={lit}/>;
+    case 'p3ups': return <PrototypeModule label='P3 SINGLE-RAIL UPS' lit={lit}/>;
 
     case 'bus': return <PrototypeModule label='MULTI-SOURCE DC INPUT' lit={lit}/>;
     case 'fuse': return <Fuse lit={lit} />;
     case 'sense': return <Monitor lit={lit} />;
+    case 'p1monitor':
+    case 'p2monitor':
+    case 'p3monitor': return <Monitor lit={lit} />;
     case 'driver': return <PrototypeModule label='RELAY POWER DISTRIBUTION' lit={lit}/>;
     case 'charger': return <PrototypeModule label='P0 DUAL-RAIL UPS' lit={lit}/>;
-    case 'salinity': return <PrototypeModule label='EC / SOURCE INCOMPLETE' lit={false}/>;
+    case 'salinity': return <PrototypeModule label='EC SENSOR / MODEL TBD' lit={false}/>;
     case 'temp': return <Probe temperature lit={lit && dataOnline} />;
     default: return <group><Body size={[.94, .3, .69]} position={[0, .17, 0]} color="#425967" radius={.04} /><Terminal position={[0, .3, .12]} count={2} color="#546c76" />
       <mesh position={[0, .17, -.4]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[.1, .1, .2, 16]} /><meshStandardMaterial color={METAL} metalness={.88} roughness={.27} /></mesh><Led position={[.32, .35, -.17]} lit={lit} color="#eebd76" /></group>;

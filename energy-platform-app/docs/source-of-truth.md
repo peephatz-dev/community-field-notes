@@ -15,15 +15,17 @@ Scope: engineering demonstrator and local deterministic simulation for Ban Sala 
 | Team-defined scope | The team's document says the prototype is low-voltage and does not control household mains. It describes some large supply, battery, aerator, TV and low-energy states as simulated; solar, full-size battery and building backup are future scope. | Same team summary, pp. 1–3. The app demonstrates a local model and does not claim team hardware test results. |
 | Team-defined sensor boundary | Salinity and temperature are intended as supporting water-risk observations. They do not directly measure dissolved oxygen. | Same team summary, pp. 1–5. DO is therefore shown as unavailable here. |
 
-## Latest user-supplied prototype architecture (15 October 2026)
+## Latest user-supplied prototype architecture (16 October 2026)
 
-The latest reference is the user's partial Mermaid flowchart, normalized in `src/lib/prototype-topology.json`. It supersedes the former generic fuse/bus/BMS/DC-DC illustration as the prototype component diagram. See [full prototype notes](prototype-flowchart.md).
+The complete user Mermaid flowchart is normalized in `src/lib/prototype-topology.json` and displayed in [full prototype notes](prototype-flowchart.md). It supersedes the former generic fuse/bus/BMS/DC-DC illustration as the prototype component diagram.
 
-P0 is a separate waterproof-box concept. AC Adapter (simulated village source) and Mini Solar Cell feed a Multi-Source DC Input Manager. Two separately listed 18650 cells feed a Dual-Rail UPS Battery System. Input Manager and UPS feed a 2-Way Power Manager, which feeds ESP32-S3, Voltage / Current / Stability Monitor and Relay Power Distribution. These are the nine supplied arrows. No voltage ratings, battery capacity, 2S/2P arrangement, charge design or signal connections are specified by those arrows.
+P0 is a separate waterproof-box concept. AC Adapter and Mini Solar Cell feed a Multi-Source DC Input Manager; two listed 18650 cells feed a Dual-Rail UPS Battery System. DCM and UPS feed a 2-Way Power Manager, then ESP32-S3, Voltage/Current/Stability Monitor, and Relay Power Distribution.
 
-P1 is another separate waterproof-box concept listing an 18650 Battery, Single-Rail UPS, ESP32 and an incomplete EC label. The received text stops at `EC["EC`. No P1 arrows, P2/P3 details or inter-node power/data connections have been received. Do not infer or publish these as confirmed wiring.
+P1 lists 18650 Battery, Single-Rail UPS, ESP32, EC Sensor, Temperature Sensor, and Voltage/Current/Stability Monitor. P2 and P3 each list 18650 Battery, Single-Rail UPS, ESP32, and Voltage/Current/Stability Monitor. The flowchart states that the relay supplies 5V to P1–P3 and ESP1–ESP3 send Data to ESP0. The transport/protocol and actual performance have not been specified or verified.
 
-The existing browser simulation still uses pooled energy and previous load-policy assumptions. It is not a per-cell or independent UPS simulation. Scene topology remains a logical demonstration rather than verified wiring. A missing packet does not prove power failure.
+The diagram contains 24 components including the external AC Adapter and 26 directed connections. It is a proposed design, not evidence of assembly, installation, safe ratings, or field test. No battery wiring, voltage, capacity, charger/protection design, sensor calibration, data protocol or runtime is supplied.
+
+The browser simulation remains a pooled energy model. It is not a per-cell or independent UPS simulation and does not simulate per-node 5V delivery or the physical telemetry network. A missing packet does not prove power failure.
 
 ## Simulation-only assumptions
 

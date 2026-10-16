@@ -1,9 +1,9 @@
 {
-  "revision": "2026-10-15-user-flowchart-partial",
+  "revision": "2026-10-16-user-flowchart-complete",
   "title": "Smart Sala-Hum Prototype",
-  "source": "ผัง Mermaid ที่ผู้ใช้ส่ง 15 ตุลาคม 2569",
-  "status": "partial",
-  "cutoff": "EC[\"EC",
+  "source": "ผัง Mermaid ที่ผู้ใช้ส่ง 16 ตุลาคม 2569 (ฉบับเต็ม)",
+  "status": "complete-flowchart",
+  "cutoff": null,
   "nodes": [
     {
       "id": "source",
@@ -12,15 +12,15 @@
       "short": "AC ADAPTER",
       "group": "external",
       "x": 20,
-      "y": 185,
-      "w": 140,
+      "y": 260,
+      "w": 135,
       "h": 62,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Power",
-      "note": "จำลองจุดเชื่อมไฟหมู่บ้าน ไม่ต่อไฟบ้านเข้าบอร์ดโดยตรง"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "solar",
@@ -29,15 +29,15 @@
       "short": "MINI SOLAR",
       "group": "P0",
       "x": 190,
-      "y": 70,
-      "w": 160,
-      "h": 62,
+      "y": 95,
+      "w": 145,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Power",
-      "note": "รุ่น พิกัด และขาต่อยังไม่ระบุ"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "bus",
@@ -45,16 +45,16 @@
       "label": "Multi-Source DC Input Manager",
       "short": "DC INPUT MANAGER",
       "group": "P0",
-      "x": 190,
-      "y": 185,
+      "x": 370,
+      "y": 190,
       "w": 160,
-      "h": 62,
+      "h": 66,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Power",
-      "note": "รุ่น พิกัด และขาต่อยังไม่ระบุ"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "battery",
@@ -62,16 +62,16 @@
       "label": "18650 #1",
       "short": "18650 #1",
       "group": "P0",
-      "x": 385,
-      "y": 70,
-      "w": 140,
-      "h": 62,
+      "x": 190,
+      "y": 300,
+      "w": 135,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Storage",
-      "note": "เซลล์แรกเข้า UPS ตามผัง ไม่ระบุการต่ออนุกรมหรือขนาน"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "battery2",
@@ -79,16 +79,16 @@
       "label": "18650 #2",
       "short": "18650 #2",
       "group": "P0",
-      "x": 550,
-      "y": 70,
-      "w": 140,
-      "h": 62,
+      "x": 190,
+      "y": 390,
+      "w": 135,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Storage",
-      "note": "เซลล์ที่สองเข้า UPS ตามผัง ไม่ระบุความจุหรือแรงดันแพ็ก"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "charger",
@@ -96,16 +96,16 @@
       "label": "Dual-Rail UPS Battery System",
       "short": "DUAL-RAIL UPS",
       "group": "P0",
-      "x": 465,
-      "y": 185,
-      "w": 225,
-      "h": 62,
+      "x": 370,
+      "y": 300,
+      "w": 185,
+      "h": 66,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Storage",
-      "note": "ชื่อ Dual-Rail ตามผัง ไม่สรุปว่าเป็นแพ็ก 2S หรือแรงดันสองเท่า"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "buck",
@@ -113,16 +113,16 @@
       "label": "2-Way Power Manager",
       "short": "2-WAY POWER MGR",
       "group": "P0",
-      "x": 345,
-      "y": 300,
-      "w": 200,
-      "h": 62,
+      "x": 560,
+      "y": 190,
+      "w": 165,
+      "h": 66,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Power",
-      "note": "รับจาก DC Input Manager และ UPS ตามลูกศร ไม่ระบุวงจรชาร์จหรือแปลงแรงดันภายใน"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "esp32",
@@ -130,16 +130,16 @@
       "label": "ESP32-S3",
       "short": "P0 ESP32-S3",
       "group": "P0",
-      "x": 190,
-      "y": 415,
-      "w": 150,
-      "h": 62,
+      "x": 560,
+      "y": 310,
+      "w": 165,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Control",
-      "note": "ตัวควบคุม P0 ตามผังใหม่ ขาต่อและเฟิร์มแวร์ยังไม่ระบุ"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "sense",
@@ -147,16 +147,16 @@
       "label": "Voltage / Current / Stability Monitor",
       "short": "V / I / STABILITY",
       "group": "P0",
-      "x": 365,
-      "y": 415,
-      "w": 170,
-      "h": 62,
+      "x": 560,
+      "y": 395,
+      "w": 165,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Sensing",
-      "note": "รับไฟจาก Power Manager ตามลูกศร ผังยังไม่ระบุเส้นข้อมูลไป ESP32-S3"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "driver",
@@ -165,15 +165,15 @@
       "short": "RELAY DISTRIBUTION",
       "group": "P0",
       "x": 560,
-      "y": 415,
-      "w": 150,
-      "h": 62,
+      "y": 470,
+      "w": 165,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Switching",
-      "note": "รับไฟจาก Power Manager ตามผัง ขาควบคุมและโหลดปลายทางยังไม่ระบุ"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "p1battery",
@@ -181,16 +181,16 @@
       "label": "18650 Battery",
       "short": "P1 18650",
       "group": "P1",
-      "x": 765,
-      "y": 70,
-      "w": 210,
-      "h": 62,
+      "x": 790,
+      "y": 90,
+      "w": 180,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Storage",
-      "note": "แบตเตอรี่ของ P1 แยกจาก P0 ส่วนที่ได้รับยังไม่มีลูกศร P1"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "p1ups",
@@ -198,16 +198,16 @@
       "label": "Single-Rail UPS",
       "short": "SINGLE-RAIL UPS",
       "group": "P1",
-      "x": 765,
-      "y": 185,
-      "w": 210,
-      "h": 62,
+      "x": 790,
+      "y": 170,
+      "w": 180,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Storage",
-      "note": "UPS ของ P1 ตามรายการ ส่วนที่ได้รับยังไม่ระบุการเชื่อมต่อ"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "p1esp",
@@ -215,194 +215,637 @@
       "label": "ESP32",
       "short": "P1 ESP32",
       "group": "P1",
-      "x": 765,
-      "y": 300,
-      "w": 210,
-      "h": 62,
+      "x": 790,
+      "y": 250,
+      "w": 180,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Control",
-      "note": "ตัวควบคุม P1 ตามรายการ ยังไม่ระบุ transport หรือ GPIO"
+      "note": "ตามผังผู้ใช้; รุ่น/พิกัด/จุดต่อจริงยังต้องยืนยัน"
     },
     {
       "id": "salinity",
       "ref": "EC",
-      "label": "EC (ข้อความยังไม่ครบ)",
-      "short": "EC · PENDING",
+      "label": "EC Sensor",
+      "short": "EC SENSOR",
       "group": "P1",
-      "x": 765,
-      "y": 415,
-      "w": 210,
-      "h": 62,
+      "x": 790,
+      "y": 330,
+      "w": 180,
+      "h": 58,
       "pins": [
         "CONNECTION TBD"
       ],
       "lift": 1.3,
       "category": "Sensing",
-      "note": "ข้อความต้นทางจบที่ EC[\"EC จึงยังไม่ระบุรุ่น หน่วย สูตรความเค็ม หรือสายสัญญาณ"
+      "note": "หัววัด EC ตามผัง; รุ่น ช่วงวัด หน่วย และการสอบเทียบยังต้องยืนยัน"
+    },
+    {
+      "id": "temp",
+      "ref": "TEMP",
+      "label": "Temperature Sensor",
+      "short": "TEMP SENSOR",
+      "group": "P1",
+      "x": 790,
+      "y": 410,
+      "w": 180,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "หัววัดอุณหภูมิตามผัง; รุ่น/ช่วงวัดยังต้องยืนยัน"
+    },
+    {
+      "id": "p1monitor",
+      "ref": "MON1",
+      "label": "Voltage / Current / Stability Monitor",
+      "short": "P1 V / I / STABILITY",
+      "group": "P1",
+      "x": 790,
+      "y": 490,
+      "w": 180,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "มอนิเตอร์ไฟ P1 ตามผัง; รุ่น/พิกัดยังต้องยืนยัน"
+    },
+    {
+      "id": "p2battery",
+      "ref": "BAT2",
+      "label": "18650 Battery",
+      "short": "P2 18650",
+      "group": "P2",
+      "x": 1030,
+      "y": 150,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "แบตเตอรี่ P2 ตามผัง; พิกัด/การต่อยังต้องยืนยัน"
+    },
+    {
+      "id": "p2ups",
+      "ref": "UPS2",
+      "label": "Single-Rail UPS",
+      "short": "P2 SINGLE-RAIL UPS",
+      "group": "P2",
+      "x": 1030,
+      "y": 240,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "UPS แยกของ P2 ตามผัง; รุ่น/พิกัดยังต้องยืนยัน"
+    },
+    {
+      "id": "p2esp",
+      "ref": "ESP2",
+      "label": "ESP32",
+      "short": "P2 ESP32",
+      "group": "P2",
+      "x": 1030,
+      "y": 330,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Control",
+      "note": "ตัวควบคุม P2 ตามผัง; pin/firmware ยังไม่ระบุ"
+    },
+    {
+      "id": "p2monitor",
+      "ref": "MON2",
+      "label": "Voltage / Current / Stability Monitor",
+      "short": "P2 V / I / STABILITY",
+      "group": "P2",
+      "x": 1030,
+      "y": 420,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "มอนิเตอร์ไฟ P2 ตามผัง; รุ่น/พิกัดยังต้องยืนยัน"
+    },
+    {
+      "id": "p3battery",
+      "ref": "BAT3",
+      "label": "18650 Battery",
+      "short": "P3 18650",
+      "group": "P3",
+      "x": 1270,
+      "y": 150,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "แบตเตอรี่ P3 ตามผัง; พิกัด/การต่อยังต้องยืนยัน"
+    },
+    {
+      "id": "p3ups",
+      "ref": "UPS3",
+      "label": "Single-Rail UPS",
+      "short": "P3 SINGLE-RAIL UPS",
+      "group": "P3",
+      "x": 1270,
+      "y": 240,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Storage",
+      "note": "UPS แยกของ P3 ตามผัง; รุ่น/พิกัดยังต้องยืนยัน"
+    },
+    {
+      "id": "p3esp",
+      "ref": "ESP3",
+      "label": "ESP32",
+      "short": "P3 ESP32",
+      "group": "P3",
+      "x": 1270,
+      "y": 330,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Control",
+      "note": "ตัวควบคุม P3 ตามผัง; pin/firmware ยังไม่ระบุ"
+    },
+    {
+      "id": "p3monitor",
+      "ref": "MON3",
+      "label": "Voltage / Current / Stability Monitor",
+      "short": "P3 V / I / STABILITY",
+      "group": "P3",
+      "x": 1270,
+      "y": 420,
+      "w": 170,
+      "h": 58,
+      "pins": [
+        "CONNECTION TBD"
+      ],
+      "lift": 1.3,
+      "category": "Sensing",
+      "note": "มอนิเตอร์ไฟ P3 ตามผัง; รุ่น/พิกัดยังต้องยืนยัน"
     }
   ],
   "edges": [
     {
-      "id": "source-bus",
+      "id": "edge-01",
       "fromNode": "source",
-      "toNode": "bus",
+      "toNode": "DCM",
       "from": [
-        160,
-        216
+        87.5,
+        291.0
       ],
       "to": [
-        190,
-        216
+        450.0,
+        223.0
       ],
       "net": "GRID > DCM",
       "kind": "power",
       "path": "grid"
     },
     {
-      "id": "solar-bus",
+      "id": "edge-02",
       "fromNode": "solar",
-      "toNode": "bus",
+      "toNode": "DCM",
       "from": [
-        270.0,
-        132
+        262.5,
+        124.0
       ],
       "to": [
-        270.0,
-        185
+        450.0,
+        223.0
       ],
       "net": "SOLAR > DCM",
       "kind": "power",
       "path": "solar"
     },
     {
-      "id": "battery-charger",
+      "id": "edge-03",
       "fromNode": "battery",
-      "toNode": "charger",
+      "toNode": "UPS0",
       "from": [
-        455.0,
-        132
+        257.5,
+        329.0
       ],
       "to": [
-        577.5,
-        185
+        462.5,
+        333.0
       ],
       "net": "BAT0A > UPS0",
       "kind": "power",
       "path": "backup"
     },
     {
-      "id": "battery2-charger",
+      "id": "edge-04",
       "fromNode": "battery2",
-      "toNode": "charger",
+      "toNode": "UPS0",
       "from": [
-        620.0,
-        132
+        257.5,
+        419.0
       ],
       "to": [
-        577.5,
-        185
+        462.5,
+        333.0
       ],
       "net": "BAT0B > UPS0",
       "kind": "power",
       "path": "backup"
     },
     {
-      "id": "bus-buck",
+      "id": "edge-05",
       "fromNode": "bus",
-      "toNode": "buck",
+      "toNode": "PM0",
       "from": [
-        270.0,
-        247
+        450.0,
+        223.0
       ],
       "to": [
-        445.0,
-        300
+        642.5,
+        223.0
       ],
       "net": "DCM > PM0",
       "kind": "power",
       "path": "grid"
     },
     {
-      "id": "charger-buck",
+      "id": "edge-06",
       "fromNode": "charger",
-      "toNode": "buck",
+      "toNode": "PM0",
       "from": [
-        577.5,
-        247
+        462.5,
+        333.0
       ],
       "to": [
-        445.0,
-        300
+        642.5,
+        223.0
       ],
       "net": "UPS0 > PM0",
       "kind": "power",
       "path": "backup"
     },
     {
-      "id": "buck-esp32",
+      "id": "edge-07",
       "fromNode": "buck",
-      "toNode": "esp32",
+      "toNode": "ESP0",
       "from": [
-        445.0,
-        362
+        642.5,
+        223.0
       ],
       "to": [
-        265.0,
-        415
+        642.5,
+        339.0
       ],
       "net": "PM0 > ESP0",
       "kind": "power",
       "path": "bus"
     },
     {
-      "id": "buck-sense",
+      "id": "edge-08",
       "fromNode": "buck",
-      "toNode": "sense",
+      "toNode": "MON0",
       "from": [
-        445.0,
-        362
+        642.5,
+        223.0
       ],
       "to": [
-        450.0,
-        415
+        642.5,
+        424.0
       ],
       "net": "PM0 > MON0",
       "kind": "power",
       "path": "bus"
     },
     {
-      "id": "buck-driver",
+      "id": "edge-09",
       "fromNode": "buck",
-      "toNode": "driver",
+      "toNode": "RELAY",
       "from": [
-        445.0,
-        362
+        642.5,
+        223.0
       ],
       "to": [
-        635.0,
-        415
+        642.5,
+        499.0
       ],
       "net": "PM0 > RELAY",
       "kind": "power",
       "path": "bus"
+    },
+    {
+      "id": "edge-10",
+      "fromNode": "p1battery",
+      "toNode": "UPS1",
+      "from": [
+        880.0,
+        119.0
+      ],
+      "to": [
+        880.0,
+        199.0
+      ],
+      "net": "BAT1 > UPS1",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-11",
+      "fromNode": "p1ups",
+      "toNode": "ESP1",
+      "from": [
+        880.0,
+        199.0
+      ],
+      "to": [
+        880.0,
+        279.0
+      ],
+      "net": "UPS1 > ESP1",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-12",
+      "fromNode": "salinity",
+      "toNode": "ESP1",
+      "from": [
+        880.0,
+        359.0
+      ],
+      "to": [
+        880.0,
+        279.0
+      ],
+      "net": "EC > ESP1",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-13",
+      "fromNode": "temp",
+      "toNode": "ESP1",
+      "from": [
+        880.0,
+        439.0
+      ],
+      "to": [
+        880.0,
+        279.0
+      ],
+      "net": "TEMP > ESP1",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-14",
+      "fromNode": "p1monitor",
+      "toNode": "ESP1",
+      "from": [
+        880.0,
+        519.0
+      ],
+      "to": [
+        880.0,
+        279.0
+      ],
+      "net": "MON1 > ESP1",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-15",
+      "fromNode": "p2battery",
+      "toNode": "UPS2",
+      "from": [
+        1115.0,
+        179.0
+      ],
+      "to": [
+        1115.0,
+        269.0
+      ],
+      "net": "BAT2 > UPS2",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-16",
+      "fromNode": "p2ups",
+      "toNode": "ESP2",
+      "from": [
+        1115.0,
+        269.0
+      ],
+      "to": [
+        1115.0,
+        359.0
+      ],
+      "net": "UPS2 > ESP2",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-17",
+      "fromNode": "p2monitor",
+      "toNode": "ESP2",
+      "from": [
+        1115.0,
+        449.0
+      ],
+      "to": [
+        1115.0,
+        359.0
+      ],
+      "net": "MON2 > ESP2",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-18",
+      "fromNode": "p3battery",
+      "toNode": "UPS3",
+      "from": [
+        1355.0,
+        179.0
+      ],
+      "to": [
+        1355.0,
+        269.0
+      ],
+      "net": "BAT3 > UPS3",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-19",
+      "fromNode": "p3ups",
+      "toNode": "ESP3",
+      "from": [
+        1355.0,
+        269.0
+      ],
+      "to": [
+        1355.0,
+        359.0
+      ],
+      "net": "UPS3 > ESP3",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-20",
+      "fromNode": "p3monitor",
+      "toNode": "ESP3",
+      "from": [
+        1355.0,
+        449.0
+      ],
+      "to": [
+        1355.0,
+        359.0
+      ],
+      "net": "MON3 > ESP3",
+      "kind": "power",
+      "path": "local"
+    },
+    {
+      "id": "edge-21",
+      "fromNode": "driver",
+      "toNode": null,
+      "from": [
+        642.5,
+        499.0
+      ],
+      "to": [
+        1000,
+        210
+      ],
+      "net": "5V Power",
+      "kind": "power",
+      "path": "bus"
+    },
+    {
+      "id": "edge-22",
+      "fromNode": "driver",
+      "toNode": null,
+      "from": [
+        642.5,
+        499.0
+      ],
+      "to": [
+        1240,
+        240
+      ],
+      "net": "5V Power",
+      "kind": "power",
+      "path": "bus"
+    },
+    {
+      "id": "edge-23",
+      "fromNode": "driver",
+      "toNode": null,
+      "from": [
+        642.5,
+        499.0
+      ],
+      "to": [
+        1480,
+        270
+      ],
+      "net": "5V Power",
+      "kind": "power",
+      "path": "bus"
+    },
+    {
+      "id": "edge-24",
+      "fromNode": "p1esp",
+      "toNode": "ESP0",
+      "from": [
+        880.0,
+        279.0
+      ],
+      "to": [
+        642.5,
+        339.0
+      ],
+      "net": "Data",
+      "kind": "signal",
+      "path": "data"
+    },
+    {
+      "id": "edge-25",
+      "fromNode": "p2esp",
+      "toNode": "ESP0",
+      "from": [
+        1115.0,
+        359.0
+      ],
+      "to": [
+        642.5,
+        339.0
+      ],
+      "net": "Data",
+      "kind": "signal",
+      "path": "data"
+    },
+    {
+      "id": "edge-26",
+      "fromNode": "p3esp",
+      "toNode": "ESP0",
+      "from": [
+        1355.0,
+        359.0
+      ],
+      "to": [
+        642.5,
+        339.0
+      ],
+      "net": "Data",
+      "kind": "signal",
+      "path": "data"
     }
   ],
   "boundaries": [
-    "แต่ละโหนดแยกกล่องกันน้ำตามแนวคิด ไม่ยืนยันระดับ IP",
-    "P0 จำลองจุดเชื่อมไฟหมู่บ้านด้วย AC Adapter",
-    "P1 มีแบตเตอรี่และ UPS ของตัวเอง แต่ส่วนที่ได้รับยังไม่มีลูกศร P1",
-    "P2–P3 และเส้นเชื่อมระหว่างโหนดยังไม่ปรากฏในส่วนที่ได้รับ",
-    "12 V, 1.2 kWh และโหลด 30/120/80/260 W เป็นโมเดลสาธิตเดิม ไม่ใช่สเปก 18650 หรือ UPS ตามผังใหม่"
+    "P0–P3 แยกกล่องกันน้ำตามแนวคิด ยังไม่ยืนยันระดับ IP",
+    "P0 จำลองจุดเชื่อมไฟหมู่บ้านด้วย AC Adapter; Mini Solar และ UPS เข้าสู่ Power Manager ตามลูกศร",
+    "P1 มีแบตเตอรี่, Single-Rail UPS, ESP32, EC Sensor, Temperature Sensor และ Voltage/Current/Stability Monitor ตามผัง",
+    "P2 และ P3 มีแบตเตอรี่, Single-Rail UPS, ESP32 และ Voltage/Current/Stability Monitor ตามผัง",
+    "RELAY จ่าย 5V ไป P1–P3 และ ESP1–ESP3 ส่ง Data ไป ESP0 ตามผังที่เสนอ; transport/protocol และการทดลองจริงยังไม่ยืนยัน",
+    "12 V, 1.2 kWh และโหลด 30/120/80/260 W เป็นโมเดลสาธิตเดิม ไม่ใช่สเปกของแต่ละกล่องหรือผลทดลอง"
   ],
   "pending": [
-    "ผัง P1 หลัง EC และลูกศรทั้งหมด",
-    "องค์ประกอบและการเชื่อมต่อ P2–P3",
-    "เส้นข้อมูลและ transport ระหว่างโหนด",
-    "รุ่น UPS และ DC Input/Power Manager",
-    "ความจุเซลล์ การป้องกัน การชาร์จ พิกัด และการต่อแบตจริง",
-    "ผลวัดฮาร์ดแวร์ แรงดัน กระแส และเวลาสำรองแต่ละกล่อง"
+    "รุ่นและพิกัด Mini Solar, DC Input Manager, Power Manager และ UPS ทุกโหนด",
+    "ความจุเซลล์ การต่อแบตเตอรี่ วงจรชาร์จ/ป้องกัน และเวลาสำรองจริงของแต่ละกล่อง",
+    "รุ่น/ช่วงวัด/การสอบเทียบของ EC, Temperature และ Voltage/Current/Stability Monitor",
+    "พิกัดโหลดที่รับจาก 5V ของ P1–P3, การป้องกันและการคุม Relay",
+    "transport/protocol, รูปแบบข้อความ, update rate, ความปลอดภัย และการจัดการ ESP1–ESP3 ถึง ESP0",
+    "ผลทดสอบ bench ของไฟฟ้าและสื่อสาร รวมถึงจุดติดตั้งและระดับ IP"
   ]
 }

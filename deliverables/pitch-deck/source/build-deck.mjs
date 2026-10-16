@@ -54,16 +54,25 @@ for(let i=0;i<3;i++){block(s,phases[i][0],phases[i][1],56+i*397,184,374,210);lab
 tx(s,'วงจรตัดสินใจที่เสนอ',56,436,1100,42,30,C.navy,true);
 const a=block(s,'วัดหลักฐาน','ไฟ โหลด เวลา และคุณภาพข้อมูล',56,493,345,128,C.soft),b=block(s,'เลือกวิธีแก้','ซ่อม / UPS / ไฟสำรองเฉพาะจุด',468,493,345,128,C.soft),c=block(s,'ตรวจผล','เปรียบเทียบกับ baseline เดิม',880,493,344,128,C.soft);arrow(s,a,b);arrow(s,b,c);
 }
-// 04. Editable diagram generated from the same source as the website.
+// 04. Complete P0–P3 topology, rendered as editable group cards from the shared source.
 {
-const s=base(4,'ผังต้นแบบ P0 ตามที่ทีมกำหนด','แยกกล่อง P0 และ P1  ผังส่วน P1–P3 ยังได้รับไม่ครบ','ผังผู้ใช้ 15 ต.ค. 2569 / prototype-topology.json  เป็นแบบเสนอ ยังไม่มีผลทดลองฮาร์ดแวร์');
-const X=x=>56+x*1.168,Y=y=>170+y*.9;
-rect(s,X(178),Y(40),553*1.168,448*.9,'none',C.line);tx(s,'P0  Master Power Node',X(190),Y(42),500,27,20,C.navy,true);
-rect(s,X(751),Y(40),238*1.168,448*.9,'#FFF8E5',C.yellow);tx(s,'P1  Water Quality',X(765),Y(42),245,27,20,C.navy,true);
-const objects=new Map();const wrapped={bus:'Multi-Source\nDC Input Manager',charger:'Dual-Rail UPS\nBattery System',buck:'2-Way Power\nManager',sense:'Voltage / Current /\nStability Monitor',driver:'Relay Power\nDistribution',source:'AC Adapter\nจำลองไฟหมู่บ้าน',salinity:'EC\nข้อความยังไม่ครบ'};
-for(const n of topology.nodes){const box=rect(s,X(n.x),Y(n.y),n.w*1.168,n.h*.9,n.group==='P1'?'#FFF0C0':C.white,n.group==='P1'?C.yellow:C.line);tx(s,wrapped[n.id]??n.label,X(n.x)+8,Y(n.y)+7,n.w*1.168-16,n.h*.9-10,18,C.navy,true,'center');objects.set(n.id,box);}
-for(const edge of topology.edges){const a=topology.nodes.find(n=>n.id===edge.fromNode),b=topology.nodes.find(n=>n.id===edge.toNode);arrow(s,objects.get(a.id),objects.get(b.id),C.blue,a.y===b.y?'right':'bottom',a.y===b.y?'left':'top');}
-tx(s,'P1 มีรายการอุปกรณ์ แต่ยังไม่มีลูกศรที่ได้รับ  ส่วน P2–P3 และเส้นสื่อสารรอยืนยัน',56,617,1168,29,20,C.gray);
+const s=base(4,'ผังต้นแบบครบ P0–P3 ตามที่ทีมส่ง','แยกกล่องและเส้นไฟ / Data ตาม flowchart · แบบเสนอ ยังไม่ใช่ผลทดสอบ','ผังผู้ใช้ฉบับเต็ม 16 ต.ค. 2569 / prototype-topology.json · รายละเอียดเดียวกับหน้า Architecture');
+const cards=[
+ ['P0 · MASTER POWER','AC Adapter + Mini Solar → DC Input Manager\n18650 #1/#2 → Dual-Rail UPS\nDC Input + UPS → 2-Way Power Manager\nPower Manager → ESP32-S3 / V-I-Stability Monitor / Relay'],
+ ['P1 · WATER QUALITY','18650 → Single-Rail UPS → ESP32\nEC Sensor → ESP32\nTemperature Sensor → ESP32\nV-I-Stability Monitor → ESP32'],
+ ['P2 · ESSENTIAL','18650 → Single-Rail UPS → ESP32\nV-I-Stability Monitor → ESP32\nบทบาท: Essential Monitoring'],
+ ['P3 · GENERAL','18650 → Single-Rail UPS → ESP32\nV-I-Stability Monitor → ESP32\nบทบาท: General Monitoring']
+];
+const xs=[56,355,654,953], widths=[280,280,280,271];
+for(let i=0;i<cards.length;i++){
+ const [title,body]=cards[i],x=xs[i],w=widths[i],fill=i===0?'#EEF6FC':i===1?'#FFF8E5':'#F4F7FA';
+ rect(s,x,170,w,294,fill,C.line);tx(s,title,x+14,184,w-28,30,19,C.navy,true);tx(s,body,x+14,225,w-28,225,17,C.ink,false);
+}
+rect(s,56,486,1168,123,C.soft,C.line);
+tx(s,'สายระหว่างกล่องตามผัง',74,499,370,30,21,C.navy,true);
+tx(s,'RELAY ── 5V Power ──▶ P1 · P2 · P3',74,538,525,27,20,C.blue,true);
+tx(s,'ESP1 · ESP2 · ESP3 ── Data ──▶ ESP0',650,538,540,27,20,C.blue,true);
+tx(s,'ค่าจำลองรวม 12 V / 1.2 kWh ยังไม่ใช่พิกัด UPS แยกกล่อง · รุ่นอุปกรณ์, protocol, pin และผลทดสอบจริงยังต้องยืนยัน',56,622,1168,28,17,C.gray);
 }
 // 05. Incident sequence, actual notification capture, offline boundary.
 {
@@ -75,12 +84,12 @@ label(s,'ภาพจากเว็บจริง / ค่าจำลอง',
 block(s,'โหนดไม่ส่งข้อมูล','ตรวจ last_seen / quality\nตรวจว่าเครื่องยังมีไฟหรือไม่\nเปิดดูเหตุและให้คนรับทราบ',640,331,584,191,C.soft);
 tx(s,'Offline อย่างเดียวไม่ยืนยันไฟดับ\nไฟกลับคืน P0/P1 ก่อน ตามด้วย P2/P3 เมื่อเวลาเดิน',640,544,584,89,24,C.navy,true);
 }
-// 06. Distinguish supplied P1 declarations from the old simulation model.
+// 06. Full proposed hardware topology versus the still-pooled simulation model.
 {
-const s=base(6,'วงจรที่กำหนดและส่วนที่ยังต้องยืนยัน','ฮาร์ดแวร์ตามแบบที่เสนอ  ค่าบน Dashboard ยังเป็นตัวจำลองเดิม','ผังผู้ใช้ 15 ต.ค. 2569 / prototype-flowchart.md  ยังไม่มีหลักฐานทดสอบ UPS แยกกล่อง');
-table(s,[['หัวข้อ','ข้อมูลตามผังล่าสุด'],['P0','ESP32-S3 / Mini Solar / 18650 สองก้อน'],['สำรอง P0','Dual-Rail UPS / 2-Way Power Manager'],['P1','18650 / Single-Rail UPS / ESP32 / EC*'],['การเชื่อมต่อ','มีลูกศร P0 9 เส้น  ส่วน P1–P3 ยังไม่ครบ']],56,176,1168,285,[210,958],24);
-tx(s,'ตัวจำลองเดิม',56,489,520,36,28,C.navy,true);tx(s,'12 V / 1.2 kWh เป็นสมมติฐานรวม\nยังไม่จำลองเซลล์หรือ UPS แยกกล่อง',56,538,545,82,24,C.gray);
-tx(s,'สิ่งที่ยังต้องยืนยัน',676,489,548,36,28,C.navy,true);tx(s,'รุ่นโมดูล / ต่อเซลล์ / ชาร์จ / ป้องกัน\n*ผังหยุดที่ EC จึงยังไม่เพิ่มสายหรือรุ่นหัววัด',676,538,548,82,24,C.gray);
+const s=base(6,'แบบฮาร์ดแวร์ครบแล้ว · ผลทดสอบยังต้องทำ','ผังระบุ P0–P3 และสาย 5V / Data แต่ dashboard ยังเป็นตัวจำลองรวม','ผังผู้ใช้ฉบับเต็ม 16 ต.ค. 2569 / ไม่อ้างผลติดตั้งหรือทดสอบจริง');
+table(s,[['โหนด / เส้น','ข้อมูลตาม flowchart ฉบับเต็ม'],['P0','AC Adapter + Mini Solar → DCM → PM0 → ESP32-S3 / Monitor / Relay; 18650 ×2 → Dual-Rail UPS → PM0'],['P1','Battery → Single-Rail UPS → ESP32; EC / Temperature / V-I-Stability Monitor → ESP32'],['P2 · P3','แต่ละกล่อง: Battery → Single-Rail UPS → ESP32; Monitor → ESP32'],['ระหว่างกล่อง','RELAY ── 5V ──▶ P1/P2/P3 · ESP1/2/3 ── Data ──▶ ESP0']],56,176,1168,285,[210,958],19);
+tx(s,'ตัวจำลองเดิม',56,489,520,36,28,C.navy,true);tx(s,'12 V / 1.2 kWh เป็นสมมติฐานรวม\nยังไม่จำลอง UPS แยกกล่องหรือ 5V จริง',56,538,545,82,22,C.gray);
+tx(s,'สิ่งที่ยังต้องยืนยัน',676,489,548,36,28,C.navy,true);tx(s,'รุ่น / rating / cell wiring / charge & protection\nSensor calibration / 5V loading / Data protocol',676,538,548,82,21,C.gray);
 }
 // 07. Actual product proof. Main capture and compact supporting state.
 {
